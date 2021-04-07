@@ -52,7 +52,7 @@ Markups can be accessed and manipulated using the `Markups` module.
  * If you want to create a new set of landmarks, you can create a new Markup node using the buttons in the **Create** menu  
  * Creating a new markups node changes the mouse mode automatically to placement mode for that node type. 
  * In practice, you should create markup nodes for different sets (e.g., Skull_LMs, Mandible_LMs, etc). Any set of landmarks that you will analyze indepedently should have its own MarkupFiducial node.
- <img src="./images/markupsModule4.png">
+ <img src="./images/organize.png">
 
 ----
 
