@@ -24,7 +24,7 @@ Sequentially place points. A curve will be fit to the points and updated as addi
 **Planes:**
 Click two points to define a line, for the 3rd point move perpendicular to the line defined by the line and you should see a rectangular plane appearing. 
 
-<img src="./MarkupTypes.png" width="300"/>
+<div style="text-align:center"><img src="./images/MarkupTypes.png" width="300"/></div>
 
 -----
 
