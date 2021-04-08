@@ -12,27 +12,27 @@ This tutorial continues the GPA I tutorial. In the previous tutorial, we visuali
 
 3. Go back to `GPA` module, switch to the `Setup 3D Visualization` tab and browse to the location of the landmark (FCSV) and model (VTK) files in your cache. Select `Apply`. You will now see a gray  and blue mouse skull in your viewports. Gray represents the mean shape, and blue one represents the mean shape warped along specified PC axes and scores. 
 
-   <img src="./images/Picture13.png">
+   <img src="./images/Picture13.png" width="500">
 
 4. Go to `PCA Visualization Parameters` and set the first slider to PC1, and start deforming the mean shape along it. Try adding PC2 (or others)
 
-  img src="./images/Picture14.png">
+  img src="./images/Picture14.png" width="900">
 
 5. To capture a PC deformation as an animation, go to the 'Create animation of PC Warping' menu and hit 'Start Recording'. Move the PC Sliders to create the deformations that will be in the exported animation. After applying the deformations, hit 'Stop Recording'.
 
-  <img src="./images/Picture15.png" width="400px">
+  <img src="./images/Picture15.png" width="500px">
 
 6. When the recording is stopped, the Sequences module will automatically open and show the image sequence browser that has been created, titled 'GPASequenceBrowser'. This contains the sequence of images generated during the recording. Select the play button with the green arrow icon to review the images as an animation.
 
-  <img src="./images/Picture16.png">
+  <img src="./images/Picture16.png" width="900">
 
 7. To export the animation created, use the search bar to switch to the Screen Capture module, which supports video exports. Set the 'Master view' to "'View2' to export only the animation from the PC deformation 3D viewer. Select the 'Animation mode' to 'sequence' to set the sequence browser created in the previous step as the source of the animation and confirm that the sequence titled 'GPASequenceBrowser' is selected. To export as an MP4 format video, go tp the 'Output' menu  and set the 'Output type' to 'video. Confirm the export properties and hit 'Capture' to start the export.
 
-  <img src="./images/Picture17.png" width="400px">
+  <img src="./images/Picture17.png" width="500px">
 
 8. To view the animation created, you can browse to the output file location specified in the Screen Capture module, or click the button with the green arrow icon next to the 'Capture' button. This will open a popup with the exported animation.
 
-  <img src="./images/Picture18.png">
+  <img src="./images/Picture18.png" width="900">
   
 To learn how to export the results of the GPA module to `R`, continue to the tutorial GPA III.
 
