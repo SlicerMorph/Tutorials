@@ -113,10 +113,7 @@ Now that we are acquainted with the overall layout of the module, let's start by
 <img src="images/scap14.png">
 
 
-* The `ALPACA` module can also be used synergistically with other `SlicerMorph` modules. Users can use not only manually annotated landmarks in the `ALPACA` pipeline, but also include semi-landmarks that were sampled on the 3D surface using the `Spherical Sampling` lab. The performance of the method can be explored using the GPA module to analyze the transferred landmarks.
-
-<img src="images/scap24.png">
-
+* The `ALPACA` module can be used synergistically with other `SlicerMorph` modules. Users can use not only manually annotated landmarks in the `ALPACA` pipeline, but also include semi-landmarks that were sampled on the 3D surface using the `Spherical Sampling` lab. The performance of the method can be explored using the GPA module to analyze the transferred landmarks.
 
 
 
