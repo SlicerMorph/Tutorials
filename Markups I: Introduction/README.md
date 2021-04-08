@@ -87,3 +87,4 @@ Markups can be accessed and manipulated using the `Markups` module.
 
 ## Links to Learn More: 
 * [Markups documentation from 3D Slicer](https://slicer.readthedocs.io/en/latest/user_guide/modules/markups.html)
+* [Resampling curves tutorial](https://github.com/SlicerMorph/Tutorials/blob/main/Markups%20II:%20Resampling%20curves/README.md)
