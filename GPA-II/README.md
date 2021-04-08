@@ -6,13 +6,13 @@ This tutorial continues the GPA I tutorial. In the previous tutorial, we visuali
 
 1. Follow the tutorial: GPA I to run GPA/PC analysis on the **Mouse Skull Landmarks**. Alternatively, to reload GPA results from an earlier run, expand the `Load previous analyis` menu, click the `..` button next to the `Results Directory` field and browse to the timestamped results directory created by the GPA module.
 
-   <img src="./images/Picture5_5.png">
+   <img src="./images/Picture5_5.png" width="500">
 
 2. Download the `Mouse Skull Reference Model` dataset from the `Sample Data` module.
 
 3. Go back to `GPA` module, switch to the `Setup 3D Visualization` tab and browse to the location of the landmark (FCSV) and model (VTK) files in your cache. Select `Apply`. You will now see a gray  and blue mouse skull in your viewports. Gray represents the mean shape, and blue one represents the mean shape warped along specified PC axes and scores. 
 
-   <img src="./images/Picture13.png" width="500">
+   <img src="./images/Picture13.png" width="900">
 
 4. Go to `PCA Visualization Parameters` and set the first slider to PC1, and start deforming the mean shape along it. Try adding PC2 (or others)
 
