@@ -4,25 +4,15 @@ This is a SlicerMorph specific utility to merge open curve or fiducial landmark 
 ## Merging multiple open curves in the scene
 Curves can be used to sample an image surface with semi-landmark points by placing a curve along a region (often between two fixed landmark points) and resampling with specified number of equidistant samples. When multiple curves are placed on a specimen, the final, resampled curves can be merged into a single markup node for export and further analysis. To demonstrate how to use the `MergeMarkups` module to merge a series of curves, we will first generate a series of curves between landmark points on a sample model. 
 
-1. Download the *Mouse Skull Reference Model* data from the `Sample Data` module.
-
-2. Switch to the `Markups` module to create the curves. To generate a new open curce node, use the *Create open curve* icon from the `Markups` Create menu. Creating a new curve node will initate placement. Place a curve between two fixed landmark points, with the first control point placed at the first fixed point and the final control point placed at the second fixed point. While the curve control points will be snapped to the model surface, the curve generated between the points will fall above or below the surface in some places. We will correct this in a later step.
-    
-    <img src="./images/mergeCurve_2.png" width="500">
-
-3. Continue adding curves to connect the fixed landmarks, with the first curve point placed at the end point of the previous curve.
- 
-    <img src="./images/mergeCurve_3.png" width="900">
-
-4. Now we will resample the curves to get the same number of equidistant points from each curve. These new points will be snapped to the image surface. Expand the *Resample* menu in the `Markups` module. Highlight the first curve in the markups node list. The default output node selection, *Overwrite current node* will replace the current curve with the resampled version. Select 50 resampled points to be placed on the curve. There is an option to constrain the points to a model surface. Select the mouse skull model from the dropdown menu and click the *Resample curve* button to apply. You will see the original curve replaced with a curve with very dense samples. Continue down the markups node list to resample each node with 50 points.
+1. Download the *Mouse Skull Reference Model* data from the `Sample Data` module. Use `Markups` module to generate the curves on the surface of the mouse skull model. Follow the Markups tutorial to place curves between landmark points and resample each curve with an equal number of points.
 
    <img src="./images/mergeCurve_4.png" width="900">
 
-5. Now that we have created a set of curves with dense, equidistant sampling, we will merge them into a single node that can be exported for further analysis. Switch to the `MergeMarkups` module and check that the *Merge Curves* tab is selected. In the curves node viewer, you will see the open curves that we created. Select the checkbox labeled *Continuous curves* to indicate that the curves we placed are continuous, and include overlapping points. This option will remove the redundant points from the final merged set (the first point of each connecting curve will be deleted). If you need to change the order of the curves from how they were created, you can drap and drop the nodes into the correct position in the node viewer. Highlight the curves you would like to merge and click the *Merge highlighted curves* button.
+2. Now that we have a set of curves with dense, equidistant sampling, we will merge them into a single node that can be exported for further analysis. Switch to the `MergeMarkups` module and check that the *Merge Curves* tab is selected. In the curves node viewer, you will see the open curves that we created. Select the checkbox labeled *Continuous curves* to indicate that the curves we placed are continuous, and include overlapping points. This option will remove the redundant points from the final merged set (the first point of each connecting curve will be deleted). If you need to change the order of the curves from how they were created, you can drap and drop the nodes into the correct position in the node viewer. Highlight the curves you would like to merge and click the *Merge highlighted curves* button.
 
    <img src="./images/mergeCurve_5.png" width="900">
 
-6. You will see a new curve displayed in the node viewer, named *mergedMarkupsNode* containing the final merged curve. This curve node can be exported from the `Save` dialog or through the right-click `Export as...` menu.
+3. You will see a new curve displayed in the node viewer, named *mergedMarkupsNode* containing the final merged curve. This curve node can be exported from the `Save` dialog or through the right-click `Export as...` menu.
 
    <img src="./images/mergeCurve_6.png" width="900">
 	
