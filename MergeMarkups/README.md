@@ -4,7 +4,7 @@ This is a SlicerMorph specific utility to merge open curve or fiducial landmark 
 ## Merging multiple open curves in the scene
 Curves can be used to sample an image surface with semi-landmark points by placing a curve along a region (often between two fixed landmark points) and resampling with specified number of equidistant samples. When multiple curves are placed on a specimen, the final, resampled curves can be merged into a single markup node for export and further analysis. To demonstrate how to use the `MergeMarkups` module to merge a series of curves, we will first generate a series of curves between landmark points on a sample model. 
 
-1. Download the *Mouse Skull Reference Model* data from the `Sample Data` module. Use `Markups` module to generate the curves on the surface of the mouse skull model. Follow the Markups tutorial to place curves between landmark points and resample each curve with an equal number of points.
+1. Download the *Mouse Skull Reference Model* data from the `Sample Data` module. As described in the `Markups` module tutorial, place curves on the surface of the mouse skull model between landmark points and resample each curve with an equal number of points.
 
    <img src="./images/mergeCurve_4.png" width="900">
 
