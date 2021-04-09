@@ -9,7 +9,7 @@ One key difference between Slicer's default sample data and SlicerMorph's ones, 
 
 If you do not know where to find data Slicer downloads from internet, please review the [`SlicerMorph Preferences` module tutorial](). 
 
-Currently there are 7 datasets distributed by SlicerMorph:
+### Description and contents of SlicerMorph datasets
 
 1. **Gorilla Skull Landmarks only:** This archive contains fcsv (landmark) files from 23 Gorilla gorilla skulls housed at the Smithsonion Institution National Museum of Natural History. Each fcsv file contains 41 LMs and labeled with USNM specimen number. You can drag and drop these files directly into Slicer. When downloaded, this archive unzips automatically to a folder called **Gorilla_Skull_LMs** under the Slicer's download folder.    
 
@@ -23,4 +23,4 @@ Currently there are 7 datasets distributed by SlicerMorph:
 
 6. **Auto3DM sample data:** This archive contains five 3D models of primate molars in PLY format. When downloaded, this archive unzips to a folder called **sample** under the Slicer's download folder. It is used exclusively in `auto3Dgm tutorial`.
 
-7. **Gorilla semiLM patches: ** This archive contains pairs of fixed (anatomical) and semi-landmark files from 6 Gorilla gorilla skulls housed at the Smithsonion Institution National Museum of Natural History. Anatomical LMs are the same ones in sample data #1 (contains 41 LMs). Patches are created from Sample Data #2 using the [`CreateSemiLMPatches` module](link) and transferred to those six subjects using the [`PlaceSemiLMPatches`](link) module. When downloaded, this archive unzips to a folder called **Gorilla patch semi-landmarks** under the Slicer's download folder. Top level folder contains the template fixed and SemiLM pairs and the subfolder **sample_batch** contains the files to be used in `MergeMarkups` tutorial. 
+7. **Gorilla semiLM patches:** This archive contains pairs of fixed (anatomical) and semi-landmark files from 6 Gorilla gorilla skulls housed at the Smithsonion Institution National Museum of Natural History. Anatomical LMs are the same ones in sample data #1 (contains 41 LMs). Patches are created from Sample Data #2 using the [`CreateSemiLMPatches` module](link) and transferred to those six subjects using the [`PlaceSemiLMPatches`](link) module. When downloaded, this archive unzips to a folder called **Gorilla patch semi-landmarks** under the Slicer's download folder. Top level folder contains the template fixed and SemiLM pairs and the subfolder **sample_batch** contains the files to be used in `MergeMarkups` tutorial. 
