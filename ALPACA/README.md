@@ -2,13 +2,12 @@
 <img src="images/option5.png" alt="ALPACA logo" width='500' height='200' >
 </p>
 
-## Automated landmarking through pointcloud alignment and correspondence analysis (ALPACA)
+# Automated landmarking through pointcloud alignment and correspondence analysis (ALPACA)
 
 `ALPACA` provides fast landmark transfer from a 3D model and its associated landmark set to target 3D model(s) through pointcloud alignment and deformable mesh registration. Unlike the Slicermorph's semi-landmark methods, it does not require presence of fixed landmarks. Optimal set of parameters that gives the best correspondence can be investigated (and outcome can be visualized) in single alignment mode, and then applied to a number of 3D models in batch mode. Invoked first time, `ALPACA` needs your permission to download `open3D` library. Depending on the internet speed, download may take sometime but it is a one-time event.
 
-## Single Alignment
-
-Download the ALPACA sample data set from the [tutorial sample data folder](../samples/). Open the ALPACA module.
+## Module Overview
+Open the ALPACA module. 
 
 :pencil2:  If this is the first time you are opening `ALPACA`, it will ask you if you are ok with installing `open3d`. If you are using a Windows machine, the installation process can take a few minutes. 
 
@@ -16,9 +15,7 @@ Otherwise, you should observe the following screen:
 
 <img src="images/scap2.png">
 
-
 A closer examination of the module's main menu reveals that there are two main tabs in `ALPACA` : a `Single aligment` and a `Batch processing` one.
-
 
 * __Single alignment options__
 
@@ -44,7 +41,11 @@ A closer examination of the module's main menu reveals that there are two main t
 </p>
 <br />
 
-Now that we are acquainted with the overall layout of the module, let's start by looking at two example meshes. We can start by importing them using Slicer's data loading capabilities. Please click the `Data load` button, then navigate to the tutorial data folder, and load the following two meshes:
+## Single Alignment
+
+Now that we are acquainted with the overall layout of the module, let's start by doing an alignment between two example meshes. Download the ALPACA sample data set from the [tutorial sample data folder](../samples/) and switch to the ALPACA module.
+
+We will start by importing the meshes we will be aligning using Slicer's data loading capabilities. Please click the `Data load` button, then navigate to the tutorial data folder, and load the following two meshes:
 
 
 * `A_J_.ply`: A/J inbred mice are widely used to model cancer and for carcinogen testing given their high susceptibility to carcinogen-induced tumors.

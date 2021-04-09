@@ -4,6 +4,7 @@
 
 This tutorial continues the GPA I tutorial. In the previous tutorial, we visualized the output of our PC analysis as series of vectors. With 55 LMs, it might be difficult to interpret what's going on, or judge the relative importance of these vectors. This tutorial shows how to take a `reference model` warped to mean shape or the mean shape itself and create interactive visualizations of the PC deformations. 
 
+### Loading a template model and landmarks
 1. Follow the tutorial: GPA I to run GPA/PC analysis on the **Mouse Skull Landmarks**. Alternatively, to reload GPA results from an earlier run, expand the `Load previous analyis` menu, click the `..` button next to the `Results Directory` field and browse to the timestamped results directory created by the GPA module.
 
    <img src="./images/Picture5_5.png" width="500">
@@ -14,10 +15,12 @@ This tutorial continues the GPA I tutorial. In the previous tutorial, we visuali
 
    <img src="./images/Picture13.png" width="900">
 
+### Interactive 3D Visualization
 4. Go to `PCA Visualization Parameters` and set the first slider to PC1, and start deforming the mean shape along it. Try adding PC2 (or others)
 
   img src="./images/Picture14.png" width="900">
 
+### Creating Animations from Interactive PC Warping
 5. To capture a PC deformation as an animation, go to the 'Create animation of PC Warping' menu and hit 'Start Recording'. Move the PC Sliders to create the deformations that will be in the exported animation. After applying the deformations, hit 'Stop Recording'.
 
   <img src="./images/Picture15.png" width="500px">
@@ -36,4 +39,5 @@ This tutorial continues the GPA I tutorial. In the previous tutorial, we visuali
   
 To learn how to export the results of the GPA module to `R`, continue to the tutorial [GPA III](../GPA_3/README.md).
 
-### [Videos of GPA tool functionality on the SlicerMorph youtube channel:](http://bit.ly/SM_youtube)
+### Other Resources
+[Videos of GPA tool functionality on the SlicerMorph youtube channel:](http://bit.ly/SM_youtube)

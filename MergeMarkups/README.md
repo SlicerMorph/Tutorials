@@ -1,7 +1,7 @@
 # MergeMarkups
 This is a SlicerMorph specific utility to merge open curve or fiducial landmark nodes. It can be used to combine landmark nodes containing fixed landmarks semi-landmarks aquired separately for statistical analysis. The `MergeMarups` module supports three workflows which will be demonstrated in this tutorial: merging curves in the scene, merging landmark nodes in the scene, and batch merging a folder of landmark files.
 
-## Merging multiple open curves in the scene
+## Merge curves in the scene
 Curves can be used to sample an image surface with semi-landmark points by placing a curve along a region (often between two fixed landmark points) and resampling with specified number of equidistant samples. When multiple curves are placed on a specimen, the final, resampled curves can be merged into a single markup node for export and further analysis. To demonstrate how to use the `MergeMarkups` module to merge a series of curves, we will first generate a series of curves between landmark points on a sample model. 
 
 1. Download the *Mouse Skull Reference Model* data from the `Sample Data` module. As described in the `Markups` module tutorial, place curves on the surface of the mouse skull model between landmark points and resample each curve with an equal number of points.
@@ -16,7 +16,7 @@ Curves can be used to sample an image surface with semi-landmark points by placi
 
    <img src="./images/mergeCurve_6.png" width="900">
 	
-## Merging landmark nodes in the scene
+## Merge landmark nodes in the scene
 SlicerMorph provides many methods of placing fixed landmarks and generating semi or pseudo-landmarks. The `MergeMarkups` is used to merge different types of points collected from a specimen into a single markups node. The landmark type is notated in the output to faciliate analysis by methods which distinguish between fixed and semi-landmark points. To demonstrate the merge landmarks function of the `MergeMarkups` module, we will merge manual landmark set collected from a gorilla skull with a semi-landmark set generated using the `CreateSemiLMPatches` module.
 
 1. Download the *Gorilla Skull Reference Model* and the *Gorilla Semi-landmark Patch Landmarks* data from the `SampleData` module.
@@ -33,7 +33,7 @@ SlicerMorph provides many methods of placing fixed landmarks and generating semi
 
 <img src="./images/mergeLM_4.png" width="900">
  
-## Merging multiple landmark nodes from file (batch mode)
+## Batch merge landmark nodes
 When working with a large number of samples, loading and merging landmark nodes in the scene can be time consuming. For faster processing, a batch method for merging fixed and semi-landmarks is provided in the third tab of the `MergeMarkups` module. This workflow assumes each subject has one fixed landmark file and one semi-landmark file that will be merged and saved in an output file. If landmark type descriptions are provided in the fixed and landmark files these will be propagated to the merged node. If no descriptions are specified, they will be added based on the load file viewer that the node has been assigned to. In this tutorial, we will merge manually placed landmarks from a set of gorilla skulls with semi-landmarks automatically generated using the the `CreateSemiLMPatches` module.
 
 1. In the `MergeMarkups` module, select the third tab, *Batch Merge*. Under the *Fixed LM Selection* menu, click the *Select files...* button to choose the fixed landmark files that will be merged. 

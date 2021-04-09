@@ -2,7 +2,9 @@
 
 
 ## Basics of GPA Fitting 
+This tutorial will walk you through to using the SlicerMorph GPA module to run GPA/PCA on a sample dataset of mouse skull landmarks and will show how to create visualizations of the PC vectors and variance at the landmark points. Instructions on creating an interactive 3D visualization and exporting the GPA module results to R are in the tutorials: [GPA II](../GPA_2/README.md) and [GPA III](../GPA_3/README.md)
 
+### Data Import and GPA Analysis
 1. Download the **Mouse Skull Landmarks** from the `Sample Data` module as described in Tutorial 2: Sample Data. Please check the folder contents and note that there are 126 FCSV files. You can drag'n'drop one of the FCSV files into Slicer and see that it contains 55 landmarks (you may need to hit the center field of view button in 3D rendering window). Once you verify your contents hit `CTRL + W` to empty your Slicer scene.
 
 2. Search for `GPA` module. You layout will switch to having two 3D rendering window, a single slice view, a chart view and a table view. The module has three tabs that partition the workflow. The first tab, `Setup Analysis` will load the data and run the GPA/PCA.
@@ -23,10 +25,12 @@
 
 <img src="./images/Picture4.png" width="900">
 
+### Viewing the Output Data
 7. TO view the output from the GPA module, click the `View Output Files` button. This will open the unique results folder created from this run and named with the timestamp from the run time. Note the log file and five CSV files containing the eigenvalues, eigenvectors, mean shape, PC scores, and combined output that contains new procrustes aligned coordinates, centroid sizes and Procrustes distances from the output. If you want to do more specific analysis, these will be files you will import into R/geomorph or other shape analysis packages. T
 
 <img src="./images/Picture5.png" width="900">
 
+### Generating Plots and Visualizations
 8. At this point your Plot and Table window should populate with a histogram-like bar plot of Procrustes Distances, and a table that indicates specimen names sorted by Procrustes Distance. This is a good time to see some unique features of these two windows (such as interaction, being able to zoom in into a plot etc).
 
 <img src="./images/Picture6.png" width="500">
@@ -54,6 +58,7 @@ Plotting the point cloud from the landmark variance shows that four points from 
 
 <img src="./images/Picture10.png" width="500">
 
+### Excluding points from the Analysis
 15. To repeat the analysis without LM25, first we need to clear our scene. Hit the `Reset Scene` button at the bottom of the GPA module and note that everything created by this module is removed. 
 
 16. Now return to the  `Setup Analysis` tab of the module and repeat the step #1 above. It should remember the last folder you open. This time you will enter 25 to `exclude landmarks` field to conduct the analysis without LM25. 
@@ -67,4 +72,5 @@ Try things like projecting the results in 2D Slice viewer, which you can switch 
 
 For more information on using the GPA tools, continue with the tutorial: [GPA II](../GPA_2/README.md)
 
-### [Videos of GPA tool functionality on the SlicerMorph youtube channel:](http://bit.ly/SM_youtube)
+### Other Resources
+[Videos of GPA tool functionality on the SlicerMorph youtube channel:](http://bit.ly/SM_youtube)
