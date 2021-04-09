@@ -1,5 +1,8 @@
 # Animator
 
+The Animator module helps create and export animations in mp4 or GIF format. The animations are created by visualizing a volume and adjusting the rotation, ROI cropping, and rendering properties. Animator module is based on Slicer's `ScreenCapture` module which provides similar, but more limited functionality. See documentations for `ScreenCapture` module [here](https://www.slicer.org/wiki/Documentation/Nightly/Modules/ScreenCapture).
+
+You can output the result of your animation either as as a sequence of rendered frames, or as a video in MP4 format. Former gives you more control over post-processing of output (e.g., you can import the sequence into video maker software, enhance contrast or add text, music/speech, etc). Directly outputting the video in MP4 format requires FFMPEG toolkit to be installed into Slicer. In Windows and Mac, the first time you use the Animator to save in MP4, Slicer will offer you to download the binaries from the internet. In Linux, this is not automatic and you need to build the FFMPEG toolkit from the source. For compiling FFMPEG on linux, [see details here](https://www.slicer.org/wiki/Documentation/Nightly/Modules/ScreenCapture#Linux_setup_instructions)
 
 ### Setting up the animator
 1. Load the "Bruker/Skyscan mCT Recon sample" dataset from Sample Data module using the ImageStacks or SkyscanReconImport as described in their respective tutorials.
