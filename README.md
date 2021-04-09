@@ -11,7 +11,7 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 6. #### [**Markups-II:** Resampling Semi-landmarks on curves](https://github.com/SlicerMorph/Tutorials/tree/main/Markups_2) 
 7. #### [**Patch-based Semi-Landmarking tutorial:**](https://github.com/SlicerMorph/Tutorials/tree/main/CreateSemiLMPatches)
 8. #### [**Generating a template of Pseudo-landmarks:**](https://github.com/SlicerMorph/Tutorials/tree/main/PseudoLMGenerator)
-9. #### [**MarkupsEditor:**](https://github.com/SlicerMorph/Tutorials/tree/main/MarkupEditor)
+9. #### [**MarkupEditor:**](https://github.com/SlicerMorph/Tutorials/tree/main/MarkupsEditor)
 10. #### [**MergeMarkups:**](https://github.com/SlicerMorph/Tutorials/tree/main/MergeMarkups)
 11. #### [**ALPACA:**](https://github.com/SlicerMorph/Tutorials/tree/main/ALPACA)
 12. #### [**GPA-I:** Basics of GPA](https://github.com/SlicerMorph/Tutorials/tree/main/GPA_1)
