@@ -21,7 +21,7 @@ IMPORTANT: For the volume property action of the Animator to interpolate properl
 Now, you are ready to add Region of Interest (ROI) action, which can be used to gradually slice the specimen in 3D view.
 
 1. Switch to four up view (if you are not already in that). 
-2. Go to to the Data module and right click the existing Annotation ROI and choose "Clone". Do it one more time. 
+2. Go to to the Data module and right click the existing ROI and choose "Clone". Do it one more time. 
 3. Rename the cloned ROIs as Start_ROI and End_ROI (right click -> Rename). 
 4. Turn the visibility of for the Start_ROI. Then click the End_ROI and set it to a region that is smaller than the full data extend. Turn off its visibility
 5. Switch to Animator module, click "Add Action" and choose "ROI Action". Then hit Edit. Similar to Volume Property action, you will set the Start ROI to Start_ROI, End ROI End_ROI, and Animated ROI to AnnotationROI (or whatever it was called when you cloned it in step #2). Again similar to Volume Property you need to make sure the ROI setting of the Volume Rendering module is set to the node specified in the Animated ROI (in this case AnnotationROI), or otherwise your animation won't work.
