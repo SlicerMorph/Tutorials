@@ -8,7 +8,7 @@
 
 ## Single Alignment
 
-Download the ALPACA sample data set from the tutorial sample data folder. Open the ALPACA module.
+Download the ALPACA sample data set from the [tutorial sample data folder](../samples/). Open the ALPACA module.
 
 :pencil2:  If this is the first time you are opening `ALPACA`, it will ask you if you are ok with installing `open3d`. If you are using a Windows machine, the installation process can take a few minutes. 
 
