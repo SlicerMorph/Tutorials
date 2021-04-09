@@ -65,6 +65,6 @@ Plotting the point cloud from the landmark variance shows that four points from 
 Try things like projecting the results in 2D Slice viewer, which you can switch the plane like in normal slice view you have been viewing. Unfortunately, it doesn't automatically center the field of view like scans we have been loading, thus you need to use your `left` and `middle` mouse clicks to zoom in/out and pan the field of view manually. Trying having more than one PC plotted as lollipop plots etc...
 
 
-For more information on using the GPA tools, continue with the tutorial: [GPA II](../GPA-II/README.md)
+For more information on using the GPA tools, continue with the tutorial: [GPA II](../GPA_2/README.md)
 
 ### [Videos of GPA tool functionality on the SlicerMorph youtube channel:](http://bit.ly/SM_youtube)

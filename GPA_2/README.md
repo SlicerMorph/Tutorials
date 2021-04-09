@@ -34,6 +34,6 @@ This tutorial continues the GPA I tutorial. In the previous tutorial, we visuali
 
   <img src="./images/Picture18.png" width="900">
   
-To learn how to export the results of the GPA module to `R`, continue to the tutorial [GPA III](../GPA-III/README.md).
+To learn how to export the results of the GPA module to `R`, continue to the tutorial [GPA III](../GPA_2/README.md).
 
 ### [Videos of GPA tool functionality on the SlicerMorph youtube channel:](http://bit.ly/SM_youtube)
