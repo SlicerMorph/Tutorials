@@ -1,6 +1,6 @@
 ## SlicerMorph Preferences
 
-SlicerMorph preferences provides a convenient way for users to opt-in SlicerMorph specific customizations. Additional user specific customizations can be incorporated by editing the provided **SlicerMorphRC.py** file. 
+SlicerMorph preferences provides a convenient way for users to opt-in SlicerMorph specific customizations. Additional user specific customizations can be incorporated by editing the provided **SlicerMorphRC.py** file. For more information about how to customize your slicer via start up scripts, see the [Slicer Script Repository](https://www.slicer.org/wiki/Documentation/Nightly/ScriptRepository).
 
 Navigate to **Edit->Application Settings->SlicerMorph** tab and chech the box _Use SlicerMorph Customizations._ Then, click the **Load now** button next to the Customization file location. Restart Slicer for changes to take effect. 
 
