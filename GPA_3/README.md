@@ -48,7 +48,7 @@ These three functions provide everything you need to get SlicerMorph data into R
 ## Example R analysis
 Now, we will go through a R notebook that will use these the parser() function to import data into R and fit a allometric regression model to both raw coordinates as well and GPA aligned procrustes coordinates. To do the next steps in tutorial:
 
-1. Follow the instructions in the tutorial [GPA I: Basics of GPA Fitting](../GPA_1/README.md) to run GPA analysis on the Gorilla skulls sample dataset available in the `Sample Data` module. Make a note of the output folder you specified. You will need to enter this into the R.
+1. Use the GPA module to run GPA/PCA analysis on the Gorilla skull landmark dataset available in the `Sample Data` module. You can refer to the instructions in [GPA I: Basics of GPA Fitting](../GPA_1/README.md) for details on using this module. Make a note of the output folder you specified. You will need to enter this into the R.
 2. Create a blank RNotebook in the Rstudio in SlicerMorphCloud, Rstudio may want to install some packages, accept and proceeed. 
 3. [Copy and paste the contents of this Rnotebook into the blank one you generated](https://raw.githubusercontent.com/muratmaga/SlicerMorph_Rexamples/main/Geomorph_regression.Rmd) 
 
