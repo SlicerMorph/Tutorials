@@ -2,7 +2,7 @@
 
 
 ## Basics of GPA Fitting 
-This tutorial will walk you through to using the SlicerMorph GPA module to run GPA/PCA on a sample dataset of mouse skull landmarks and will show how to create visualizations of the PC vectors and variance at the landmark points. Instructions on creating an interactive 3D visualization and exporting the GPA module results to R are in the tutorials: [GPA II](../GPA_2/README.md) [GPA III](../GPA_3/README.md)
+This tutorial will walk you through to using the SlicerMorph GPA module to run GPA/PCA on a sample dataset of mouse skull landmarks and will show how to create visualizations of the PC vectors and variance at the landmark points. Instructions on creating an interactive 3D visualization and exporting the GPA module results to R are in the tutorials: [GPA II](../GPA_2/README.md) and [GPA III](../GPA_3/README.md)
 
 ### Data Import and GPA Analysis
 1. Download the **Mouse Skull Landmarks** from the `Sample Data` module as described in Tutorial 2: Sample Data. Please check the folder contents and note that there are 126 FCSV files. You can drag'n'drop one of the FCSV files into Slicer and see that it contains 55 landmarks (you may need to hit the center field of view button in 3D rendering window). Once you verify your contents hit `CTRL + W` to empty your Slicer scene.
