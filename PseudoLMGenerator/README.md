@@ -35,7 +35,7 @@ Select the 'Get subsample number' button to display the number of points on the 
 
 <img src="./images/Picture5.png" width="900">
 
-## Template estimation from the specimen geometry
+## Template from the specimen geometry
 To address the low sampling rate in areas of high curvature, the sampling rate could be increased, but this will significantly increase processing time. One solution is to use a template with geometry closer to that of the specimen. 
 
 1. As in the previous example, select the loaded gorilla skull as the base mesh and set the spacing tolerance to 3%. Select the 'Original Geometry' option for the template geometry and change the 'Symmetry plane' option from 'None' to the name of the plane you created in the first exercise. Check the number of sampled points by clicking the 'Get subsample number' button. You should see 1125 sampled points.
