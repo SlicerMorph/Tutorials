@@ -1,4 +1,4 @@
-## MarkupsEditor
+## MarkupEditor
 This tutorial explains how to edit a set of landmarks using the right-click context menu when you hover over a fiducial in the 3D viewer and right-click on it. This is a SlicerMorph specific function and in this example we are using the Gorilla Skull Reference Model from the SlicerMorph tab of the `Sample Data` module and editing the semi-landmark patches created in the [Patch-based landmarking tutorial](https://github.com/SlicerMorph/Tutorials/tree/main/Patch-based%20landmarking). 
 
 This function is particularly useful for: 
