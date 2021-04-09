@@ -5,8 +5,8 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 
 1. **SlicerMorph preferences:** Explains what customizations can be done to Slicer as well as how to set download directory
 2. **Sample Data:** Shows how to use the Slicer's `Sample Data` module to download and access sample data to be used in tutorials
-3. **ImageStacks:**
-4. **SkyscanReconImport:**
+3. [**ImageStacks:** Tutorial on how to import non-DICOM imagestacks easily into Slicer.](https://github.com/SlicerMorph/Tutorials/tree/main/ImageStacks)
+4. [**SkyscanReconImport:** Module specific to importing output from Bruker/Skyscan MicroCT](https://github.com/SlicerMorph/Tutorials/tree/main/SkyscanReconImport)
 5. **Markups-I: Introduction markup types, UI, settings:**
 6. **Markups-II: Resampling Curves** 
 7. **Patch-based Semi-Landmarking tutorial:** 
