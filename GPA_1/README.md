@@ -73,4 +73,4 @@ Try things like projecting the results in 2D Slice viewer, which you can switch 
 For more information on using the GPA tools, continue with the tutorial: [GPA II](../GPA_2/README.md)
 
 ### Other Resources
-### [Videos of GPA tool functionality on the SlicerMorph youtube channel:](http://bit.ly/SM_youtube)
+[Videos of GPA tool functionality on the SlicerMorph youtube channel:](http://bit.ly/SM_youtube)
