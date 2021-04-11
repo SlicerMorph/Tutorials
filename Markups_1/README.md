@@ -72,9 +72,11 @@ Markups can be accessed and manipulated using the `Markups` module.
 * In the **Control Points** menu, use the table to adjust visibility, labels, and position of individual fiducials points. Because there is no undo for markups actions, when you are actively landmarking, we suggest setting the lock icon so that you don't accidentally grab an already placed LM and modify it.
 * You can copy/paste/delete control points across fiducial nodes by highlighting the rows (use ctrl to select multiple rows), as if in a regular spreadsheet.
 * You can right click and use **Click to Jump Slicess** option to see where the fiducial is in slice views. This is a very useful feature, if you are landmarking directly on the 3D volume (e.g., a CT scan) as oppose to a 3D model. 
+
 <img src="./images/JumpSlices.png">
+
 * The **Advanced** section of the **Control Points** menu allows you to move highlighted control points up or down in the list. You will find this feature useful when you miss a landmark in the sequence, and place it later.  
-  * The **Name Format** field allows you to modify the fiducial labels in bulk. Current convention of %N-%d means that landmarks are named by the node name (e.g., MarkupsFiducial) followed by the (-) sign and the number indicating the sequence they are landmarked. If you want a shorted label, you can just switch to %d and hit apply to rename the existing ones. The subsequent fiducials will follow this format.
+* The **Name Format** field allows you to modify the fiducial labels in bulk. Current convention of %N-%d means that landmarks are named by the node name (e.g., MarkupsFiducial) followed by the (-) sign and the number indicating the sequence they are landmarked. If you want a shorted label, you can just switch to %d and hit apply to rename the existing ones. The subsequent fiducials will follow this format.
 <img src="./images/ControlPoints.png">
 ----
 
@@ -87,4 +89,4 @@ Markups can be accessed and manipulated using the `Markups` module.
 
 ## Links to Learn More: 
 * [Markups documentation from 3D Slicer](https://slicer.readthedocs.io/en/latest/user_guide/modules/markups.html)
-* [Resampling curves tutorial](https://github.com/SlicerMorph/Tutorials/blob/main/Markups%20II:%20Resampling%20curves/README.md)
+* [Resampling curves for semiLMs tutorial](https://github.com/SlicerMorph/Tutorials/tree/main/Markups_2)
