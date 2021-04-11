@@ -39,7 +39,7 @@ This tutorial will walk you through to using the SlicerMorph GPA module to run G
 
 10. Likewise PCA Scatter plot options displays a suspiciously high variance (~98%) for PC1. Go ahead and choose PC1 for x-axis, PC2 for y-axis and hit `Scatter Plot` button. 
 
-11. Note that plot window now changed to `PCA Scatter Plot` from Procrustes Distance plot. You can enlarge this plot by selecting the "Plot only" layout from the layouts menu. If you expand the Plot window toolbar, you will see a field called Plot Chart that will let you go back and forth between plots created. Go and try switching back to Procrustes Distance plot and back to PCA scatter plot. 
+11. Note that plot window now changed to `PCA Scatter Plot` from Procrustes Distance plot. You can enlarge this plot by selecting the "Plot only" layout from the layouts menu. If you expand the Plot window toolbar, you will see a field called Plot Chart that will let you go back and forth between plots created. Go and try switching back to Procrustes Distance plot and back to PCA scatter plot. (Note that if the default data label size is too small for your screen, you can use the Slicer's `Plots` module to modify the aesthetics of the plot. Also the plot window is interactive, you can zoom in and out using the mouse wheel.) 
 
 <img src="./images/Picture7.png" width="500">
 
