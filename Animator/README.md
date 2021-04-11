@@ -1,8 +1,10 @@
 # Animator
 
-The Animator module helps create and export animations in mp4 or GIF format. The animations are created by visualizing a volume and adjusting the rotation, ROI cropping, and rendering properties. Animator module is based on Slicer's `ScreenCapture` module which provides similar, but more limited functionality. See documentations for `ScreenCapture` module [here](https://www.slicer.org/wiki/Documentation/Nightly/Modules/ScreenCapture).
+The Animator module helps create and export animations in mp4 or GIF format. The animations are created by visualizing a volume and adjusting the rotation, ROI cropping, and rendering properties. Animator module is based on Slicer's `ScreenCapture` module which provides similar, but more limited functionality. For more detail about `ScreenCapture` module [see documentation here](https://www.slicer.org/wiki/Documentation/Nightly/Modules/ScreenCapture).
 
-You can output the result of your animation either as as a sequence of rendered frames, or as a video in MP4 format. Former gives you more control over post-processing of output (e.g., you can import the sequence into video maker software, enhance contrast or add text, music/speech, etc). Directly outputting the video in MP4 format requires FFMPEG toolkit to be installed into Slicer. In Windows and Mac, the first time you use the Animator to save in MP4, Slicer will offer you to download the binaries from the internet. In Linux, this is not automatic and you need to build the FFMPEG toolkit from the source. For compiling FFMPEG on linux, [see details here](https://www.slicer.org/wiki/Documentation/Nightly/Modules/ScreenCapture#Linux_setup_instructions)
+### One-time setup of Screen Capture module for FFMPEG
+To output animations either in animated GIF or in MP4, `Animator` relies on the FFMPEG library, which is provided by the `ScreenCapture` module. While the download and install is automatic for Mac and Windows OSes,  due to licensing, the process needs to be initated by the user. Before using the `Animator`, make sure to switch the `ScreenCapture` module and set the output to **Video**, and then click the **Capture**. You will be prompted whether you would like Slicer to download and install FFMPEG. Accept and wait it for it to finish. This is a process you need to do once, even if you install other versions of Slicer on the computer. Note that in Linux, this is not automatic and you need to build the FFMPEG toolkit from the source. For compiling FFMPEG on linux, [see details here](https://www.slicer.org/wiki/Documentation/Nightly/Modules/ScreenCapture#Linux_setup_instructions). 
+
 
 ### Setting up the animator
 1. Load the "Bruker/Skyscan mCT Recon sample" dataset from Sample Data module using the ImageStacks or SkyscanReconImport as described in their respective tutorials.
@@ -59,3 +61,9 @@ At this point you have two different actions happening simultaneously, you can p
 
 16. Click Edit for CameraRotationAction and adjust the axis of rotation, as well as the speed. For example, if your animation length is set to 5 seconds, and you would like to complete a full 360 spin during this time, set the rotation rate to 72 degrees per second. 
 <img src="Rotations.png">
+
+### Exporting the Animations
+Select one of the rendering preset sizes (from 160x120 to 3820x2160) as **Animation Size**, the output file and format, and the hit **Export**. If you encounter an error about FFMPEF library, make sure that it is correctly installed (e.g., check the FFMPEG executable path specified in `ScreenCapture` module under Advanced tab).
+
+Alternatively, you can output the result of your animation as a sequence of rendered frames, which gives you more control over post-processing of the output (e.g., you can import the sequence into video maker software, enhance contrast, change the timing or add text, music/speech, etc). Once you are satisfied with the animation you created in `Animator`, go to `Screen Capture` module. Change the Animation mode setting to _sequence_. Check the other settings, and click **Capture**.
+ 
