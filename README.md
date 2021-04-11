@@ -23,13 +23,13 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 18. #### [**Animator:** How to create keyframe-based animations of microCT scans](https://github.com/SlicerMorph/Tutorials/tree/main/Animator)
 
 ## Additional Tutorials for some Slicer Modules used commonly for digital morphology tasks:
-1. ### [DICOM]
-2. ### [CropVolume]
-3. ### [Transforms]
-4. ### [Models]
-5. ### [Volumes]
-6. ### [Volume Rendering]
-7. ### [Lighting]
-8. ### [Overview of Segmentation and related data types]
-9. ### [Segmentation tutorial]
-10. ### [Surface Toolbox]
+1. #### [DICOM](https://github.com/SlicerMorph/Spr_2021/blob/main/Day_1/DICOM/DICOM.md)
+2. #### [CropVolume](https://github.com/SlicerMorph/Spr_2021/blob/main/Day_1/CropVolume/CropVolume_and_Volumes.md#crop-volume)
+3. #### [Volumes](https://github.com/SlicerMorph/Spr_2021/blob/main/Day_1/CropVolume/CropVolume_and_Volumes.md#volumes)
+4. #### [Volume Rendering](https://github.com/SlicerMorph/Spr_2021/blob/main/Day_2/VolumeRendering/VolumeRendering.md)
+5. #### [Lighting](https://github.com/SlicerMorph/Spr_2021/blob/main/Day_2/Lighting/Lights.md)
+6. #### [Overview of Segmentation and related data types](https://github.com/SlicerMorph/Spr_2021/blob/main/Day_2/Segmentation/Segmentation.md)
+7. #### [Segmentation tutorial](https://github.com/SlicerMorph/Spr_2021/blob/main/Day_2/Segmentation/Segmentation_tutorial.md)
+8. #### [Transforms](https://github.com/SlicerMorph/Spr_2021/blob/main/Day_1/Transforms/Transforms.md)
+9. #### [Models](https://github.com/SlicerMorph/Spr_2021/blob/main/Day_1/Models/Models.md)
+10. #### [Mesh Editing via Surface Toolbox and Dynamic Modeler](https://github.com/SlicerMorph/Spr_2021/blob/main/Day_2/Surface_Toolbox/Mesh_edits.md)
