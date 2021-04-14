@@ -14,41 +14,43 @@ The pseudo-landmark set can optionally be symmetrized. If this option is selecte
 
 2. Place a plane of symmetry on the model using the 'Create and place plane' tool. For this example, the plane was placed using three midline landmarks from the Gorilla Skull Reference Landmarks that are included with the Gorilla Skull Reference Model when downloaded from the 'Sample Data' module.
 
-  <img src="./images/Picture1.png" width="900">
+   <img src="./images/Picture1.png" width="900">
 
 3. Navigate to the 'PseudoLMGenerator' module, located in the SlicerMorph Labs folder. Select the loaded gorilla skull as the base mesh. The spacing tolerence will set the spacing of the sampled points as a factor of the diagonal length of the selected image. For this example, select a spacing tolerance of 3%. The template geometry will determine the shape of the estimated sampling template. Select the 'Original Geometry' to estimate a sampling template from the geometry of the model. To create a symmetric pseudo-landmark set, change the 'Symmetry plane' option from 'None' to the name of the plane you created in step 2. 
 
-  <img src="./images/Picture6.png" width="900">
+   <img src="./images/Picture6.png" width="900">
 
 4. With the parameters of the template set, you can check the initial number of sampled points on the template that will be projected to the base mesh. This number will be greater than or equal to the final number of sampled points since the final spatial filtering step will remove some points. Select the 'Get subsample number' button to display the number of points on the sampling sphere in the 'Sampling Information' window. You should have a template with 1125 points. This step can be repeated with a different spacing tolerance if the number of points displayed is to high or low. For this example, a small point set is used for a shorter processing time.
 
-2. Click the 'Generate template' button. This time, you will see a template mesh that is an approximation of the gorilla skull.
+5. Click the 'Generate template' button. This time, you will see a template mesh that is an approximation of the gorilla skull.
 
-  <img src="./images/Picture7.png" width="500">
+   <img src="./images/Picture7.png" width="500">
 
-3. Select the 'Project points' button, followed by the 'Enforce spatial sampling rate' button. The spatial filtering may take a few minutes. When complete, the final pseudo-landmark point set will be displayed on the base mesh. There should be 853 points remaining. This point set provides more complete sampling of the mesh surface, especially in areas of high curvature. 
+6. Click the 'Project points' button. The first step in this process inflates or deflates the point position along the normal vector of the sphere at that point until the most external intersection with the mesh is found. The second step takes this initial point placement on the base mesh and again inflates and deflates the point position, this time along the normal vector of the base mesh to find the most external point. 
 
-  <img src="./images/Picture8.png" width="900">
+7. Click the 'Enforce spatial sampling rate' button to remove samples with a point-to-point distance lower than the spatial sampling rate. This improves the regularity of the sampling over the mesh surface. If the symmetry option has been selected, the final point set will be cropped with the plane selected, mirrored across, and the mirrored points will be projected to the image surface, creating a symmetric landmark set. These steps may take a couple minutes and this time will increase with the size of the sampled point set. The final number of points after filtering will be diplayed in the 'Sampling Information' window. When complete, the final pseudo-landmark point set will be displayed on the base mesh. There should be 853 points remaining. This point set provides more complete sampling of the mesh surface, especially in areas of high curvature. 
+
+   <img src="./images/Picture8.png" width="900">
 
 4. The output points can be saved from the 'Data' module by right clicking the node named 'symmetricPseudoLandmarks', selecting 'Export as' and choosing the export file type as .CSV.
 
-  <img src="./images/Picture9.png" width="500">
+   <img src="./images/Picture9.png" width="500">
 
 ## Sphere template
 Using the model geometry to estimate the sampling template is the default option and will produce the best coverage and even sampling in for the majority of models. However, in cases where there is an irregular mesh grid or complex interior surfaces AND the model geometry is similar to a sphere or an ellipse, using a spherical or elliptical sampling template can improve the sampling regularity of the final pseudolandmark set.
 
-1. As in the previous example, select the loaded gorilla skull as the base mesh and set the spacing tolerance to 3%. For this example, change the 'Sphere' option for the template geometry and leave the 'Symmetry plane' option as name of the plane you created in the first exercise. Check the number of sampled points by clicking the 'Get subsample number' button. You should see 934 sampled points.
+1. As in the previous example, select the loaded gorilla skull as the base mesh and set the spacing tolerance to 3%. For this example, select the 'Sphere' option for the template geometry and leave the 'Symmetry plane' option as name of the plane you created in the first exercise. Check the number of sampled points by clicking the 'Get subsample number' button. You should see 934 sampled points.
 
-  <img src="./images/Picture2.png" width="900">
+   <img src="./images/Picture2.png" width="900">
 
-4. Click the 'Generate template' button to display the sphere template. The template is centered at the arithmatic center of the loaded mesh and has radius defined by the image diagonal. This default radius can be adjusted using the 'Template scale factor' slider. For this example, you can use the default scale factor, 110%.
+2. Click the 'Generate template' button to display the sphere template. The template is centered at the arithmatic center of the loaded mesh and has radius defined by the image diagonal. This default radius can be adjusted using the 'Template scale factor' slider. For this example, you can use the default scale factor, 110%.
 
-  <img src="./images/Picture3.png" width="500">>
+   <img src="./images/Picture3.png" width="500">>
 
-5. Click the 'Project points to surface' button to project the points from the sphere to the base mesh. The first step in this process inflates or deflates the point position along the normal vector of the sphere at that point until the most external intersection with the mesh is found. The second step takes this initial point placement on the base mesh and again inflates and deflates the point position, this time along the normal vector of the base mesh to find the most external point. The projected points are displayed on the base mesh.
+3. Click the 'Project points to surface' button to project the points from the sphere to the base mesh. The projected points are displayed on the base mesh.
 
-  <img src="./images/Picture4.png" width="500">
+   <img src="./images/Picture4.png" width="500">
 
-6. Select the 'Enforce spatial sampling rate' button to remove samples with a point-to-point distance lower than the spatial sampling rate. This improves the regularity of the sampling over the mesh surface. If the symmetry option has been selected, the final point set will be cropped with the plane selected, mirrored across, and the mirrored points will be projected to the image surface, creating a symmetric landmark set. These steps may take a couple minutes and will increase with the size of the sampled point set. The final number of points after filtering will be diplayed in the 'Sampling Information' window. There should be 793 points remaining.  The final landmark set will be displayed on the base mesh. The points have been placed over the external surface area of the mesh, but some areas of the skull with high curvature have a low sample density.
+4. Select the 'Enforce spatial sampling rate' button to remove samples with a point-to-point distance lower than the spatial sampling rate. This step may take a couple minutes. The final number of points after filtering, diplayed in the 'Sampling Information' window, should be 793. The final landmark set will be displayed on the base mesh. The points will cover the external surface area of the mesh, but some areas of the skull with high curvature have a low sample density, compared to the pseudo-landmarks generated using the original geometry template. For this example, the template estimated from the model geometry produces the best results.
 
-  <img src="./images/Picture5.png" width="900">
+   <img src="./images/Picture5.png" width="900">
