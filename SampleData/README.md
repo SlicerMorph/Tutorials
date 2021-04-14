@@ -7,7 +7,7 @@ Go to **File->Download Sample Data** (or search for Sample Data in Module finder
 
 One key difference between Slicer's default sample data and SlicerMorph's ones, we do not automatically load the SlicerMorph specific sample data into active scene. The user needs to navigate to the folder where they are downloaded (and unzipped if they are archives) and manually add it to the scene, if they want to visualize the contents. 
 
-If you do not know where to find data Slicer downloads from internet, please review the [`SlicerMorph Preferences` module tutorial](). 
+If you do not know where to find data Slicer downloads from internet, please review the [`SlicerMorph Preferences` module tutorial](https://github.com/SlicerMorph/Tutorials/tree/main/MorphPrefs). 
 
 ### Description and contents of SlicerMorph datasets
 
