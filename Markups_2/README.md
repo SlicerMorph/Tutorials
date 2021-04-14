@@ -1,5 +1,5 @@
 ## Resampling Curves
-This tutorial explains how to resample a curve usint the `Markups` module. In this tutorial we use the Gorilla Skull Reference Model from the SlicerMorph tab of the `Sample Data` module (you will need the SlicerMorph extention installed to see this option in the menu).
+This tutorial explains how to resample a curve using the `Markups` module. In this tutorial we use the Gorilla Skull Reference Model from the SlicerMorph tab of the `Sample Data` module (you will need the SlicerMorph extention installed to see this option in the menu).
 
 ----
 
