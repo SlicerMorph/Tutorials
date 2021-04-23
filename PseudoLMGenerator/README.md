@@ -54,3 +54,5 @@ Using the model geometry to estimate the sampling template is the default option
 4. Select the 'Enforce spatial sampling rate' button to remove samples with a point-to-point distance lower than the spatial sampling rate. This step may take a couple minutes. The final number of points after filtering, diplayed in the 'Sampling Information' window, should be 793. The final landmark set will be displayed on the base mesh. The points will cover the external surface area of the mesh, but some areas of the skull with high curvature have a low sample density, compared to the pseudo-landmarks generated using the original geometry template. For this example, the template estimated from the model geometry produces the best results.
 
    <img src="./images/Picture5.png" width="900">
+   
+[PseudoLMGenerator and MarkupEditor video tutorial on Youtube](https://www.youtube.com/watch?v=yvI65oyxYpA)
