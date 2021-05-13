@@ -9,6 +9,8 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 4. #### [**SkyscanReconImport:** How to import output from Bruker/Skyscan MicroCT](https://github.com/SlicerMorph/Tutorials/tree/main/SkyscanReconImport)
 5. #### [**MorphoSourceImport**: How to quickly query and import open-access 3D models from MorphoSource](https://github.com/SlicerMorph/Tutorials/tree/main/MorphoSourceImport)
 6. #### [**ExportAs:** How to quickly export data from SlicerMorph](https://github.com/SlicerMorph/Tutorials/tree/main/ExportAs)
+18. #### [**Animator:** How to create keyframe-based animations of microCT scans](https://github.com/SlicerMorph/Tutorials/tree/main/Animator)
+
 7. #### [**Markups-I:** Introduction markup types, UI, settings:](https://github.com/SlicerMorph/Tutorials/tree/main/Markups_1)
 8. #### [**Markups-II:** Resampling Semi-landmarks on curves](https://github.com/SlicerMorph/Tutorials/tree/main/Markups_2) 
 9. #### [**Patch-based Semi-Landmarking tutorial:**](https://github.com/SlicerMorph/Tutorials/tree/main/CreateSemiLMPatches)
@@ -18,9 +20,9 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 13. #### [**ALPACA:** Automated Landmarking through Point cloud Alignment and Correspondence Analysis](https://github.com/SlicerMorph/Tutorials/tree/main/ALPACA)
 14. #### [**GPA-I:** Basics of GPA: Setting the analysis, exploring the morphospace](https://github.com/SlicerMorph/Tutorials/tree/main/GPA_1)
 15. #### [**GPA-II:** 3D interactive visualization of morphospace and exporting animations](https://github.com/SlicerMorph/Tutorials/tree/main/GPA_2)
-16. #### [**GPA-III:** Exporting data/results for R](https://github.com/SlicerMorph/Tutorials/tree/main/GPA_1)
-17. #### [**Auto3Dgm:** An automated procedure for placing landmarks](https://toothandclaw.github.io/how-to-use/)
-18. #### [**Animator:** How to create keyframe-based animations of microCT scans](https://github.com/SlicerMorph/Tutorials/tree/main/Animator)
+16. #### [**GPA-III:** Exporting data/results for R](https://github.com/SlicerMorph/Tutorials/tree/main/GPA_3#readme)
+19. #### [**Auto3Dgm:** An automated procedure for placing landmarks](https://toothandclaw.github.io/how-to-use/)
+
 
 ## Additional Tutorials for some Slicer Modules used commonly for digital morphology tasks:
 1. #### [DICOM](https://github.com/SlicerMorph/Spr_2021/blob/main/Day_1/DICOM/DICOM.md)
