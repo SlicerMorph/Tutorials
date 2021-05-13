@@ -1,9 +1,9 @@
 ## ImageStacks
 This is a SlicerMorph specific utility to import non-DICOM image sequences (TIF/PNG/JPG/BMP) into 3D Slicer. It provides additional features such as only loading a subset of the data using ROI, downsampling, skipping slice(s) along the Z plane, and reverse the stack order. You can also specify the voxel spacing for your dataset at the import time. `ImageStacks` always produces a ScalarVolume (single channel), so that volumes can be immediately visualized or can be processed with `Segment Editor`.
 
-To use the `ImageStacks` module in SlicerMorph, first go to the `Sample Data` module and download the *Bruker/Skyscan mCT Recon Sample.* If you are not familiar with the `Sample Data` module or how to find where Slicer downloads files, please review the tutorials for [`Sample Data`] and [`SlicerMorph Preferences`]. 
+To use the `ImageStacks` module in SlicerMorph, first go to the `Sample Data` module and download the **Bruker/Skyscan mCT Recon Sample.** If you are not familiar with the `Sample Data` module or how to find where Slicer downloads files, please review the tutorials for [`Sample Data`](https://github.com/SlicerMorph/Tutorials/tree/main/SampleData) and [`SlicerMorph Preferences`](https://github.com/SlicerMorph/Tutorials/tree/main/MorphPrefs). 
 
-Then find the `ImageStacks` under **SlicerMorph->Input and Output** menu folder and:
+Then find the `ImageStacks` under **SlicerMorph->Input and Output** module menu folder and:
 
 1. Click the **Browse...** button and select a *PNG* file in the folder you just unzipped.
 
@@ -39,6 +39,8 @@ Let's say you have a large file and you only want to visualize a portion of the 
 <img src="ImageStacksROI.png">
 
 Notice that the slice views show only the volume in the region of interest and are now full resolution. If you have an articulated specimen (e.g., a full body scan of a fish), and you want to segment only the skull (or a specific region), this is a trick you can use to reduce the memory consumption. Segmentation may require 6-10X more memory compared to your volume size (if `ImageStacks` reports estimated memory usage is 2GB, then you may need up to 20GB in memory to segment the data in full resolution). 
+
+If you have DICOM stacks, please note that you should use the [DICOM module](https://github.com/SlicerMorph/Spr_2021/blob/main/Day_1/DICOM/DICOM.md)
 
 ### Further exploration
 
