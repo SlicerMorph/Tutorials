@@ -154,6 +154,26 @@ We won't cover every tool in detail, but here are a few you should spend some ti
 
   <img src="images/image18.png">  
 
+13. **Grow from seeds** is similar to the *Fill Between Slices* tool, but goes a little farther than just filling between slicer. Instead the "seeds" will grow unitl they hit another seed or a particular intensity boarder. For this last tool, I'm switching to a different volume from the in the `Sample Data` module, the *CBCTDentalSurgery* volume. 
+
+  <img src="images/gfs_1.png">
+  
+  * In the `Segment Editor` module I made 4 empty segments, then pressed the maximize button on the red slice (orange arrow in the image below)
+  
+  <img src="images/gfs_2.png">
+  
+  * Next I selected the paint too, but before I started paining I changed the masking options by switching the *Modify other segments* option to *Overwrite visible* and checking the *Editable intensity range* box. This will let us only paint voxels with the intensity values that exist in the teeth we are trying to segment. 
+  
+  <img src="images/gfs_3.png">
+  
+  * Now, just like we did in grow from seeds I have painted a slash every few slices (5 total slices in this example) on on each of the 4 teeth. The image below shows where I've pained in the 4 different viewing windows. 
+  
+  <img src="images/gfs_4.png">
+  
+  * Now we can switch to the **Grow from seeds** tool. Hit the *Initialize* button (orange box in the image below), mine says update because I've already hit the button to initialize. To see the full restuls move the display slicer all the way to the right and hit the *Show 3D* button. Mine isn't perfect but it's done a decent job with minimal imputs. I can use the display slider to go back to my input display and keep updating with the paint tool until I get a better segmentation. 
+  
+  <img src="images/gfs_5.png">
+
 ------
 
 #### Memory usage considerations when segmenting
