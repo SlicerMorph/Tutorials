@@ -57,14 +57,16 @@ In this tutorial we will first introduce the different tools in the `Segment Edi
 <img src="images/image4.png">
 
   * **Masking is important!** Hence the red danger box in the image above. Right now you have one segment but you will have more than one and if you are not careful, you can erase or cut or overwrite other segments unintentionally. Set these options carefully EACH TIME before you apply an effect /tool. 
-    * Overwrite all: The new segment can overwrite the others if it overlaps with them. In the image below, the yellow segment overwrote the green segment. 
-    * Allow overlap: None of the other segments are overwritten in the image below the brown segment is overlapping with the green and yellow segments.
+    * **Editable Area** You can use this option to select what parts of the volume you want to be able to edit. One way this is useful is splitting a single segment into 2 different segments. Say for example you wanted to segment the mandible out of a skull segmentation that you've already created. If you set the editable area to your skull segment (instead of the defauth *Everywhere*) and then use whatever tool you needed to reclassify the mandible from the skull segment to the new mandible segment. 
+    * **Editable intensity range** This is basically a shortcut to use the threshold tool for masking as explained above. You can set what intensities you want to edit, and only those within the set range will be editable. 
+    * **Modify other segments** This is the dangerous one! You have 3 options: 
+      1.  Overwrite all: The new segment can overwrite the others if it overlaps with them. In the image below, the yellow segment overwrote the green segment. 
+      2.  Allow overlap: None of the other segments are overwritten in the image below the brown segment is overlapping with the green and yellow segments. * If you're not sure which option to use for the *Modify other segments* option, the *Allow overlap* is the safest option. 
+      3.  Overwrite visible: I made the green and yellow segments invisible by clicking the eye buttons next to each segment, then painted with the blue segment, and it overwrote the brown segment. But when I turned the visibility of the green and yellow segments back on, they were overlapping with the blue segment and not overwritten. 
     <img src="images/image5.png">
-    * Overwrite visible: I made the green and yellow segments invisible by clicking the eye buttons next to each segment, then painted with the blue segment, and it overwrote the brown segment.
     <img src="images/image6.png">
-    But when I turned the visibility of the green and yellow segments back on, they were overlapping with the blue segment and not overwritten. 
     <img src="images/image7.png"> 
-    * If you're not sure which option to use for the *Modify other segments* option, the *Allow overlap* is the safest option. 
+    
   
 ------
 
