@@ -2,61 +2,58 @@
 The Markups module is used to create and edit markups and adjust their display properties. This tutorial defines the different markup types, explains how to place and organize markups, adjust display properties, and view measurements. 
 
 -----
+### Displaying the Markups Toolbar
+Markups can be interacted with through the `Markups module` or the `Markups Toolbar`, which provides convenient access to add and edit markups while any module is open. To display the Markups Toolbar, click the **Toggle Markups Toolbar** button in the upper menu bar. A menu with markups actions will be displayed, and can be moved to a convenient location. We recomment that this toolbar is moved to a new menu bar below, so all the interaction options can be seen.
+
+<img src="./images/MarkupsToolbar.png" width="300">
 
 ### Markup types
+Currently, there are seven types of markups available in the Slicer application, listed below. For additional details on each see the [Markups module documentation](https://slicer.readthedocs.io/en/latest/user_guide/modules/markups.html). 
 
-**Fiducials:**
-Place a single landmark point.
+**Fiducial:**
+A container that can contain multiple points.
 
 **Lines:**
-Sequentially place two points, creating a line between them.
+Two points, placed sequentially, creating a line between them. 
+
+**Angles:**
+Three points, placed sequentially, forming two vectors where the second point placed is the vertex. The angle beween the two vectors is displayed.
+
+**Open curves:**
+A curve fit to sequentially placed points that is updated as additional points are added. 
+* By default, curve fitting is done using Spline function. Other alternatives are: Linear, Polynomial, or Shortest-distance on a surface. Curve Type function can be adjusted under **Curve Settings** section of the `Markups` module.  
+
+**Closed curve:**
+Similar to an open curve, except the first and last points placed will be connected. 
+
+**Plane:**
+Click a point to place the  origin of the plane. The size and bounds can be adjusted after placement. To adjust the orientation or rotation, right click the plane and enable these interaction options, or set them under the **Display** menu in the `Markups` module. The method used to place the plane (point normal, plane fit, three points) can be selected under the **Plane settings** menu of the `Markups` module.  
 
 **ROI:**
 Place two points sequentially that specify corners of a rectangular cube defining the region of interest. The size and shape of the rectangle can be adjusted after placement.
-
-**Angles:**
-Place three points sequentially. This forms two vectors where the second point placed is the vertex. The angle beween the two vectors is displayed.
-
-**Open and closed curves:**
-Sequentially place points. A curve will be fit to the points and updated as additional points are added. If the closed curve is selected, the first and last points placed will be connected. 
-* By default, curve fitting is done using Spline function. Other alternatives are: Linear, Polynomial, or Shortest-distance on a surface. Curve Type function can be adjusted under **Curve Settings** section of the `Markups` module.  
-
-**Planes:**
-Click two points to define a line, for the 3rd point move perpendicular to the line defined by the line and you should see a rectangular plane appearing. 
 
 <img src="./images/MarkupTypes.png" width="300">
 
 -----
 
-### Markup placement
-  * Slicer has three mouse modes: Translate/Rotate, Adjust Window/Level, and Place. 
-  * The icons in the mouse mode toolbar at the top of the main GUI allow to switch between these modes.
-  <img src="./images/MouseModes.png" width="200">
- 
-  * Translate/Rotate mode (white arrow icon) is the default interaction mode. This mode allows interaction with loaded data (pan, zoom, rotate)
-  * Adjust Window/Level mode (multicolored box icon) controls the Window/Level for the volume in slice views (red/green/yellow or axial, coronal, sagittal). 
-  * Place mode (red circle with blue arrow icon) allows to place one object then switches modes back to Transform mode. Fiducial is the default object. 
-    * Place mode can be made persistent by clicking the checkbox in the mouse mode toolbar.
-  <img src="./images/FiducialPersistence.png" width="200">
-  
-  * If there is no active Markup node, one will be created with the first placement. Curve points and fiducials will be added to the active Markup node, if one exists.
+### Markup placement and editing with the `Markups Toolbar`
+* The first set of buttons in the `Markups Toolbar` create a new markup for each type currently available. When one of these buttons is clicked, the new markup will displayed in the **Active Markup Selector** and the point placement mouse mode will be initiated. 
+* For markups that allow multiple points, additional points can be placed by clicking the **Place point** button. Point placement mode can be made persistant by enabling the **Place multiple control points** option in the dropdown menu under the **Point placement button**. 
+* To add new points to an existing markup, select it from list in the **Active Markup Selector** and click the **Place point** button to enter the placement mouse mode.
+* Points can be removed by clicking the **Delete point** button which removes the last point placed, or with the **Delete all points** option in the dropdown menu under the **Delete point** button.
 
-----
+<img src="./images/MarkupsToolbarZoom.png" width="300">
 
-### Organizing your Markups
-Markups can be accessed and manipulated using the `Markups` module. 
+### Organizing your markups in the `Markups Module`
+Markups can also be accessed and manipulated using the `Markups` module. 
 
 * New markups can be created using the buttons in the **Create** menu, at the top of the `Markups` module. 
-  * **Note** that the placement icon in the mouse controls on the top bar creates a new markups node if there is no markup node in the scene or the selected markup node is not matching to the placement type. 
- * If you want to add new points to an existing node, select the node from list in the `Markups` module, and use placement icon. 
- * If you want to create a new set of landmarks, you can create a new Markup node using the buttons in the **Create** menu  
- * Creating a new markups node changes the mouse mode automatically to placement mode for that node type. 
- * In practice, you should create markup nodes for different sets (e.g., Skull_LMs, Mandible_LMs, etc). Any set of landmarks that you will analyze indepedently should have its own MarkupFiducial node.
+* To add new points to an existing node, select the node from list in the `Markups` module, and use the **Place point** button. 
+* In practice, you should create markup nodes for different sets (e.g., Skull_LMs, Mandible_LMs, etc). Any set of landmarks that you will analyze indepedently should have its own MarkupFiducial node.
+
  <img src="./images/organize.png">
 
-----
-
-### Display 
+### Display options in the `Markups Module`
 
 * In the **Display** menu (click the arrow to expand this section), you can set the visibility, opacity, glyph and text size of a markup node. Depending on the markup type, you can also change the line color, thickness, font type, 2D and 3D display properties.
 * Once you find an optimal settings for our screen resolution and sample size, you can hit the **Save to Defaults** button, and Slicer would remember these settings in your future sessions. You can click to **Reset to Defaults** to go back to the Slicer's default size. Expand and explore the **Advanced** tab for additional options. 
@@ -67,7 +64,7 @@ Markups can be accessed and manipulated using the `Markups` module.
 
 ----
 
-### Control Points
+### The Control Points menu
 
 * In the **Control Points** menu, use the table to adjust visibility, labels, and position of individual fiducials points. Because there is no undo for markups actions, when you are actively landmarking, we suggest setting the lock icon so that you don't accidentally grab an already placed LM and modify it.
 * You can copy/paste/delete control points across fiducial nodes by highlighting the rows (use ctrl to select multiple rows), as if in a regular spreadsheet.
