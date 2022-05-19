@@ -119,7 +119,10 @@ For the ape sample data, run:
   * The red horizontal line represents the heuristic threshold, which is `(2 (standard deviation) + mean) of the pooled distances for all landmarks for each specimen`. 
   * A dot that lie above the red line means that the distance between a landmark estimate of a template and its corresponding MALPACA median estimate exceeds the threshold. Therefore, this landmark is an outlier. `NA` is then assigned to its coordinates.
  
-<image>
+<p align="left">
+<img src="images/GPA3_005.png" width = 300>
+<img src="images/GPA3_006.png" width = 700>
+</p>
 
 * In addition to the boxplot, the results of `extract.outliers() `are also stored in the list `outliers`.
   * `$estimates_no_out` is a 4D array [i, j, k, n] that stores all landmark estimates from individual templates and marks the outliers as `NA`. i = number of templates; j = dimension; k = number of templates; n = sample size. 
