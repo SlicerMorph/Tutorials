@@ -68,7 +68,7 @@ Markups can also be accessed and manipulated using the `Markups` module.
 
 * In the **Control Points** menu there is a menu with buttons to operate on all/highlighted subsets of points and a table to adjust visibility, labels, and position of the fiducials points individually.
 
-<img src="./images/JumpSlices.png">
+<img src="./images/ControlPointsMenu.png">
 
 * Because there is no undo for markups actions, when you are actively landmarking, we suggest setting the lock icon so that you don't accidentally grab an already placed LM and modify it.
 * You can copy/paste/delete control points across fiducial nodes by highlighting the rows (use ctrl to select multiple rows), as if in a regular spreadsheet.
