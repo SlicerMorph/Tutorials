@@ -18,7 +18,7 @@ This tutorial explains how to create and use a template for landmarking using th
 <img src="./images/lockPoints.png" width="900px"/>
 
 4. There are a few ways to save the point list template. The most direct way when working in the `Markups` module is to right-click the node name in the `Markups` node viewer and selecting **Export to file**. In this example, we have renamed the point list node to **myTemplate**.
-<img src="./images/savePoints_1.png" width="500px"/>
+<img src="./images/savePoints_1.png" width="600px"/>
 
 The **Export to file** dialog box brings up options to choose the file name, location, and filetype.
 <img src="./images/savePoints_2.png" width="500px"/>
