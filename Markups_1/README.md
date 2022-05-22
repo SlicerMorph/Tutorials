@@ -84,4 +84,4 @@ Markups can also be accessed and manipulated using the `Markups` module.
 ## Links to Learn More: 
 * [Markups documentation from 3D Slicer](https://slicer.readthedocs.io/en/latest/user_guide/modules/markups.html)
 * [Resampling curves for semiLMs tutorial](https://github.com/SlicerMorph/Tutorials/tree/main/Markups_2)
-* [Creating Landmark Templates tutorial](https://github.com/SlicerMorph/Tutorials/tree/main/Markups_3)
+* [Creating landmark templates tutorial](https://github.com/SlicerMorph/Tutorials/tree/main/Markups_3)
