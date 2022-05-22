@@ -10,8 +10,8 @@ Markups can be interacted with through the `Markups module` or the `Markups Tool
 ### Markup types
 Currently, there are seven types of markups available in the Slicer application, listed below. For additional details on each see the [Markups module documentation](https://slicer.readthedocs.io/en/latest/user_guide/modules/markups.html). 
 
-**Fiducial:**
-A container that can contain multiple points.
+**Point list:**
+A container that can contain multiple control points.
 
 **Lines:**
 Two points, placed sequentially, creating a line between them. 
@@ -49,7 +49,7 @@ Markups can also be accessed and manipulated using the `Markups` module.
 
 * New markups can be created using the buttons in the **Create** menu, at the top of the `Markups` module. 
 * To add new points to an existing node, select the node from list in the `Markups` module, and use the **Place point** button. 
-* In practice, you should create markup nodes for different sets (e.g., Skull_LMs, Mandible_LMs, etc). Any set of landmarks that you will analyze indepedently should have its own MarkupFiducial node.
+* In practice, you should create markup nodes for different sets (e.g., Skull_LMs, Mandible_LMs, etc). Any set of landmarks that you will analyze indepedently should have its own Point List  node.
 
  <img src="./images/organize.png">
 
@@ -66,19 +66,19 @@ Markups can also be accessed and manipulated using the `Markups` module.
 
 ### The Control Points menu
 
-* In the **Control Points** menu there is a menu with buttons to operate on all/highlighted subsets of points and a table to adjust visibility, labels, and position of the fiducials points individually.
+* In the **Control Points** menu there is a menu with buttons to operate on all/highlighted subsets of points and a table to adjust visibility, labels, and position of the control points individually.
 
 <img src="./images/ControlPointsMenu.png">
 
 * Because there is no undo for markups actions, when you are actively landmarking, we suggest setting the lock icon so that you don't accidentally grab an already placed LM and modify it.
-* You can copy/paste/delete control points across fiducial nodes by highlighting the rows (use ctrl to select multiple rows), as if in a regular spreadsheet.
+* You can copy/paste/delete control points across point lists by highlighting the rows (use ctrl to select multiple rows), as if in a regular spreadsheet.
 * The status of the position can be in the following states: Placed, Unset, Skipped, and Edit. The position status of an individual point can be toggled in the control points table or in the right-click context menu. Additional information on these position states is covered in the Markups Template tutorial.
-* You can right click and use **Click to Jump Slicess** option to see where the fiducial is in slice views. This is a very useful feature, if you are landmarking directly on the 3D volume (e.g., a CT scan) as oppose to a 3D model. 
+* You can right click and use **Click to Jump Slicess** option to see where the control point is in slice views. This is a very useful feature, if you are landmarking directly on the 3D volume (e.g., a CT scan) as oppose to a 3D model. 
 
 <img src="./images/JumpSlices.png">
 
-* The **Advanced** section of the **Control Points** menu allows you to move highlighted control points up or down in the list, or add a new uninitialized fiducial point to the list. You will find this feature useful when you miss a landmark in the sequence, and place it later.  
-* The **Name Format** field allows you to modify the fiducial labels in bulk. Current convention of %N-%d means that landmarks are named by the node name (e.g., MarkupsFiducial) followed by the (-) sign and the number indicating the sequence they are landmarked. If you want a shorted label, you can just switch to %d and hit apply to rename the existing ones. The subsequent fiducials will follow this format.
+* The **Advanced** section of the **Control Points** menu allows you to move highlighted control points up or down in the list, or add a new uninitialized control point to the list. You will find this feature useful when you miss a landmark in the sequence, and place it later.  
+* The **Name Format** field allows you to modify the control point labels in bulk. Current convention of %N-%d means that landmarks are named by the node name (e.g., MarkupsFiducial) followed by the (-) sign and the number indicating the sequence they are landmarked. If you want a shorted label, you can just switch to %d and hit apply to rename the existing ones. The subsequent control points will follow this format.
 <img src="./images/ControlPoints.png">
 ----
 
