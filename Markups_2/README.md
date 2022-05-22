@@ -25,3 +25,8 @@ This tutorial explains how to resample a curve using the `Markups` module. In th
 
 5. Check the lengths of new curve and the original curve using **Measurements** menu.
 <img src="./images/measures.png" width="900px"/>
+
+## Links to Learn More: 
+* [Markups documentation from 3D Slicer](https://slicer.readthedocs.io/en/latest/user_guide/modules/markups.html)
+* [Introduction to landmarks tutorial](https://github.com/SlicerMorph/Tutorials/tree/main/Markups_1)
+* [Creating landmark templates tutorial](https://github.com/SlicerMorph/Tutorials/tree/main/Markups_3)
