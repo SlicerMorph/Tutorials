@@ -68,7 +68,7 @@ Markups can also be accessed and manipulated using the `Markups` module.
 
 * Because there is no undo for markups actions, when you are actively landmarking, we suggest setting the lock icon so that you don't accidentally grab an already placed LM and modify it.
 * You can copy/paste/delete control points across point lists by highlighting the rows (use ctrl to select multiple rows), as if in a regular spreadsheet.
-* The status of the position can be in the following states: Placed, Unset, Skipped, and Edit. The position status of an individual point can be toggled in the control points table or in the right-click context menu. Additional information on these position states is covered in the Markups Template tutorial.
+* The status of the position can be in the following states: Placed, Unset, Skipped, and Edit. The position status of an individual point can be toggled in the control points table or in the right-click context menu. Additional information on these position states is covered in the [Markups Template tutorial](https://github.com/SlicerMorph/Tutorials/tree/main/Markups_3).
 * You can right click and use **Click to Jump Slicess** option to see where the control point is in slice views. This is a very useful feature, if you are landmarking directly on the 3D volume (e.g., a CT scan) as oppose to a 3D model. 
 
 <img src="./images/JumpSlices.png" width="600">
