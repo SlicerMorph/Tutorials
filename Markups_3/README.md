@@ -5,12 +5,12 @@ This tutorial explains how to create and use a template for landmarking using th
 
 ### Resampling a curve on the surface of a model to create Semi Landmarks
 
-1. Create a new point list markup using the **Crate new point list** button in the `Markups` toolbar or module. Note that point placement will be initiated but you can exit by right-clicking the mouse or toggling the **Place point** button in the  `Markups` toolbar.
+1. Create a new point list markup using the **Create new point list** button in the `Markups` toolbar or module. Note that point placement will be initiated but you can exit by right-clicking the mouse or toggling the **Place point** button in the  `Markups` toolbar.
 <img src="./images/createNewNode.png" width="900px"/>
 
 2. In `Markups` module, select the point list just created and expand the **Control Points** Menu.
   * Expand the **Advanced Menu**
-  * Click the **Add new control point** to add 5 points. These points will have positions that are uninitialized, so they will not appear in any view, have no position listed in the **Control Points** table, and have a position status displayed as an open circle to indicate that the position is not set.
+  * Use the **Add new control point** button to add 5 points. These points will have positions that are uninitialized, so they will not appear in any view, have no position listed in the **Control Points** table, and have a position status displayed as an open circle to indicate that the position is not set.
   * Rename the points A, B, C, D, and E.
  <img src="./images/createNewPoints.png" width="500px"/>
  
@@ -29,3 +29,8 @@ The **Export to file** dialog box brings up options to choose the file name, loc
   * Note that when all five points have been placed, point placement mode will end automatically and no more points can be added to the list.
   * The point list with defined points can now be saved with a new filename following the method in step 4.
 <img src="./images/placePoints.png" width="600px" width="600px"/>
+
+## Links to Learn More: 
+* [Markups documentation from 3D Slicer](https://slicer.readthedocs.io/en/latest/user_guide/modules/markups.html)
+* [Introduction to landmarks tutorial](https://github.com/SlicerMorph/Tutorials/tree/main/Markups_1)
+* [Resampling curves for semiLMs tutorial](https://github.com/SlicerMorph/Tutorials/tree/main/Markups_2)
