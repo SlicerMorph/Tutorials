@@ -230,7 +230,6 @@ Let's go and check volume properties in `Volumes` module. Our image and LabelMap
 Go back to `Segmentations` module and export a Model of your segment. You can leave the output node as it is and it will create a new model hierarchy. If your segment is relatively small, it should take a short time. 
 
 This representation is not a volume anymore, it looks like the thing you saw when you hit Show 3D button in Segment Editor but this is not just a visualization. This is a new data structure with 3D points and polygons, a surface mesh. Go into the Data module and see it. You can turn off the visibility here and change the color etc. Slicer assigns the same name and color from the Segmentation. Models are not show in slice views. The color is again just for visualization and when you save the model, it is not written to the file. 
-
 ------
 
 ### Part 4: Additional tips, tricks, and more modules to check out
@@ -241,7 +240,8 @@ Here we've accumulated a list of modules that are helpful for working with segme
   *Play with the representation setting. Your model is a mesh. It has points and polygons. The default setting is to show the surfaces (polygons) but not the points or edges. You can change it if you'd like but surface is really the best visualization for this type of data. Seeing points and edges gives you an idea how "precise" your data is. It is ultimately based on the quality of the volume data you produced this mesh from. 
   * Another hidden setting here may change your life: the Visibility checkbox under the *Slice Display* panel. With this smooth closed surface of the tumor, it is not easy to appreciate because all faces are pointing outwards. By changing which sides are visible, you can change what you are seeing dramatically. Play with it. And remember this setting when you load a mesh/model and think it looks degenerated. Probably part of it is not visualized because of this setting. 
 
-2. `Surface Toolbox` and `Dynamic Modeler` modules allow you to edit models similarly (but not in as much detail) to  how you can edit segmentations in the `Segment Editor` modlue
+2. `Surface Toolbox` and `Dynamic Modeler` modules allow you to edit models similarly (but not in as much detail) to  how you can edit segmentations in the `Segment Editor` module. See the [Mesh Edits Tutorial]((https://github.com/SlicerMorph/Spr_2021/blob/main/Day_2/Surface_Toolbox/Mesh_edits.md) provides an introduction to these functions. 
+) for some examples. 
 
 3. `Segment Endocranium`. One of the main benefits of Slicer's python API is that we can create automated segmentation algorithms using the basic toolset that we covered today. For example, SlicerMorph's  `Segment Endocranium` uses a combination of thresholding, smoothing, wrap solidifying and island tools to automatically segment a cranial cavity and to produce an endocast.
   * Here's a video from the **SlicerMorph** team showing just how quick and easy it can be to go from a CT scan to an endocast that you can start working with:
