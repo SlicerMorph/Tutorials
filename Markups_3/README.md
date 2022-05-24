@@ -1,9 +1,9 @@
-## Resampling Curves
+## Landmark Template Creations
 This tutorial explains how to create and use a template for landmarking using the `Markups` module. 
 
 ----
 
-### Resampling a curve on the surface of a model to create Semi Landmarks
+### Defining the a blank template
 
 1. Create a new point list markup using the **Create new point list** button in the `Markups` toolbar or module. Note that point placement will be initiated but you can exit by right-clicking the mouse or toggling the **Place point** button in the  `Markups` toolbar.
 <img src="./images/createNewNode.png" width="900px"/>
