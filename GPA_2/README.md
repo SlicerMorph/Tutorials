@@ -18,7 +18,7 @@ This tutorial continues the GPA I tutorial. In the previous tutorial, we visuali
 ### Interactive 3D Visualization
 4. Go to `PCA Visualization Parameters` and set the first slider to PC1, and start deforming the mean shape along it. Try adding PC2 (or others)
 
-  img src="./images/Picture14.png" width="900">
+  <img src="./images/Picture14.png" width="900">
 
 ### Creating Animations from Interactive PC Warping
 5. To capture a PC deformation as an animation, go to the 'Create animation of PC Warping' menu and hit 'Start Recording'. Move the PC Sliders to create the deformations that will be in the exported animation. After applying the deformations, hit 'Stop Recording'.
@@ -40,4 +40,7 @@ This tutorial continues the GPA I tutorial. In the previous tutorial, we visuali
 To learn how to export the results of the GPA module to `R`, continue to the tutorial [GPA III](../GPA_3/README.md).
 
 ### Other Resources
-[Videos of GPA tool functionality on the SlicerMorph youtube channel:](http://bit.ly/SM_youtube)
+Videos of GPA tool functionality on the SlicerMorph youtube channel. Note that these show slightly older user interface, but the functionality is identical. 
+* [Basic Functionality](https://www.youtube.com/watch?v=FCeZ2J5Uvcw)
+* [Realtime exploration of MorphoSpace](https://www.youtube.com/watch?v=hMMR9GChek8&t=2s)
+* [Recording the PC warps](https://www.youtube.com/watch?v=gtHqhqaKeCU)
