@@ -73,4 +73,7 @@ Try things like projecting the results in 2D Slice viewer, which you can switch 
 For more information on using the GPA tools, continue with the tutorial: [GPA II](../GPA_2/README.md)
 
 ### Other Resources
-[Videos of GPA tool functionality on the SlicerMorph youtube channel:](http://bit.ly/SM_youtube)
+Videos of GPA tool functionality on the SlicerMorph youtube channel. Note that these show slightly older user interface, but the functionality is identical. 
+* [Basic Functionality](https://www.youtube.com/watch?v=FCeZ2J5Uvcw)
+* [Realtime exploration of MorphoSpace](https://www.youtube.com/watch?v=hMMR9GChek8&t=2s)
+* [Recording the PC warps](https://www.youtube.com/watch?v=gtHqhqaKeCU)
