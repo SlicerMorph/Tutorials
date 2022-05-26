@@ -2,7 +2,7 @@
 This is an optional step before running `MALPACA` in `SlicerMorph`. This tutorial shows how to run the K-means multi-template selection module for selecting multiple specimens as templates for `MALPACA`. The procedure starts from extracting point clouds with matching points across the whole sample. It then runs Generalized Procrustes Analysis on these point clouds to export a full set of PC scores as the raw data of the K-means clustering algorithm. The number of clusters is user-defined. Each specimen that is closest to the center of a K-means generated cluster is selected as a template. 
 
 ### Step 1. Download sample data.
-Download sample data here: https://github.com/SlicerMorph/mouse_models. Extract the files. 
+Download sample data here: https://github.com/SlicerMorph/mouse_models. Extract the files. If you are using SlicerMorph Cloud, it will be in `/home/docker/sample_data/Mouse_Models`
 
 ### Step 2. Specify files and directories
 Switch to the “Templates Selection” tab (yellow). In the `Templates Selection Setup` collapsible section, specify entries to enable buttons in the following sections
