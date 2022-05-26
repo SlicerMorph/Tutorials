@@ -1,7 +1,7 @@
 # Executing Multi-Template ALPACA (MALPACA) 
 This tutorial contains instructions for executing mult-template ALPACA (MALPACA) to accomodate large morphological disparity within a sample. MALPACA is essentially running multiple ALPACA, each of which based on a single template, then extract the median estimates. Therefore, the same settings of ALPACA apply to MALPACA. For tutorials of how to run ALPACA and , please refer to: https://github.com/SlicerMorph/Tutorials/blob/main/ALPACA/README.md. 
 
-Download sample data here: https://github.com/SlicerMorph/mouse_models. Extract the files.
+Download sample data here: https://github.com/SlicerMorph/mouse_models. Extract the files. If you are using SlicerMorph Cloud, it will be in `/home/docker/sample_data/Mouse_Models`
 
 ### Step 1. Switch to the ALPCA module in 3D Slicer and choose the Batch Processing tab (red). 
 In the `Method` entry (dark blue), open the drop-down menu to select Mu`lti-Template (MALPACA)` option from the dropdown menu.
