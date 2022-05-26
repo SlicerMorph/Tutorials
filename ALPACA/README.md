@@ -272,7 +272,7 @@ Now click the `Change ALPACA settings`, then return to the the `Single Alignment
 
 * Select any model in the `Models` foler of the downloaded sample data dirctory as the `Source model` , and corresponding landmark file in the `LMs` folder as the `Source landmarks` fcsv file. Select the `Models folder` as the `Target model directory` that contains all target models to be landmarked, 
 
-* Choose a local ` Target output landmark directory`. After this step, the `Run-autolandmarking` button cannot be pressed.
+* Choose a local ` Target output landmark directory`. After this step, the `Run-autolandmarking` button can be pressed.
 
 <p align="center">
  <img src="images/ALPACA027.PNG", width = 600>
