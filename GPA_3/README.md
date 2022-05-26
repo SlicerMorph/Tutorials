@@ -45,7 +45,7 @@ Additionally, we provide another convenience function to parse the log output (*
 
 ```
 library(SlicerMorphR)
-logFile = parser('path/to/analysis.log', forceLPS = True)
+logFile = parser('path/to/analysis.log', forceLPS = TRUE)
 ```
 This will save `analysis.log` into `logFile` Again, this function includes a forceLPS parameter, which is set up as FALSE by default. The usage of this parameter is the same as `read.markups.fcsv()`because `parser()` uses this function to load fcsv files. If forceLPS is set up as TRUE, parser() will convert non-LPS fcsv files into fcsv format. For details, please see the helper file of `read.markups.fcsv `using `?read.markups.fcsv`.
 
