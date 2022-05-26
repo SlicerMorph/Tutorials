@@ -52,7 +52,7 @@ There are four main tabs in `ALPACA` : a `Single aligment`, a `Batch processing`
 Now that we are acquainted with the overall layout of the module, let's start by doing an alignment between two example meshes. 
 
 ### Step 1. Download sample data
-Download the ALPACA sample data set from the [ALPACA tutorial sample data](https://github.com/SlicerMorph/Mouse_Models) and switch to the ALPACA module. You can just click `Code` at the upper right corner then `Download Zip.` Extract all the files to a local directory. 
+Download the ALPACA sample data set from the [ALPACA tutorial sample data](https://github.com/SlicerMorph/Mouse_Models) and switch to the ALPACA module. You can just click `Code` at the upper right corner then `Download Zip.` Extract all the files to a local directory. If you are using SlicerMorph Cloud, it will be in `/home/docker/sample_data/Mouse_Models`.
 
 ### Step 2. Specifying the source models (ply format), source landmark set (fcsv format) and target model (ply format). 
 From the directory where you save the extracted sample data, go to the `/Mouse_Models-main/Models`folder, drag `A_J_skull_.py` and `B6C3F1_j_.ply` into Slicer. From `/Mouse_Models-main/LM` folder, drag `A_J_skull_.fcsv` into Slicer.
