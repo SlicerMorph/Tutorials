@@ -32,7 +32,7 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 4. #### [Volume Rendering](https://github.com/SlicerMorph/Spr_2021/blob/main/Day_2/VolumeRendering/VolumeRendering.md)
 5. #### [Lighting](https://github.com/SlicerMorph/Spr_2021/blob/main/Day_2/Lighting/Lights.md)
 6. #### [Overview of Segmentation and related data types](https://github.com/SlicerMorph/Spr_2021/blob/main/Day_2/Segmentation/Segmentation.md)
-7. #### [Segmentation tutorial](https://github.com/SlicerMorph/Spr_2021/blob/main/Day_2/Segmentation/Segmentation_tutorial.md)
+7. #### [Segmentation tutorial](https://github.com/SlicerMorph/Tutorials/blob/main/Segmentation/Segmentation.md)
 8. #### [Transforms](https://github.com/SlicerMorph/Spr_2021/blob/main/Day_1/Transforms/Transforms.md)
 9. #### [Models](https://github.com/SlicerMorph/Spr_2021/blob/main/Day_1/Models/Models.md)
 10. #### [Mesh Editing via Surface Toolbox and Dynamic Modeler](https://github.com/SlicerMorph/Spr_2021/blob/main/Day_2/Surface_Toolbox/Mesh_edits.md)
