@@ -13,7 +13,7 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 
 8. #### [**Markups-I:** Introduction markup types, UI, settings:](https://github.com/SlicerMorph/Tutorials/tree/main/Markups_1)
 9. #### [**Markups-II:** Resampling Semi-landmarks on curves](https://github.com/SlicerMorph/Tutorials/tree/main/Markups_2)
-10. #### [**Markups-II:** Resampling Semi-landmarks on curves](https://github.com/SlicerMorph/Tutorials/tree/main/Markups_2) 
+10. #### [**Markups-III:** Landmark Template Creations](https://github.com/SlicerMorph/Tutorials/tree/main/Markups_3) 
 11. #### [**Patch-based Semi-Landmarking tutorial:**](https://github.com/SlicerMorph/Tutorials/tree/main/CreateSemiLMPatches)
 12. #### [**Creating a template of Pseudo-landmarks via PseudoLMGenerator:**](https://github.com/SlicerMorph/Tutorials/tree/main/PseudoLMGenerator)
 13. #### [**MarkupEditor:** How to subset/edit dense landmark sets](https://github.com/SlicerMorph/Tutorials/tree/main/MarkupsEditor)
