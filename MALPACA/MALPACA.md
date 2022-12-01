@@ -4,13 +4,13 @@ This tutorial contains instructions for executing multi-template ALPACA (MALPACA
 Download sample data here: https://github.com/SlicerMorph/mouse_models. Extract the files.
 
 ### Step 1. Switch to the ALPCA module in 3D Slicer and choose the Batch Processing tab (red). 
-In the `Method` entry (dark blue), open the drop-down menu to select Mu`lti-Template (MALPACA)` option from the dropdown menu.
+In the `Method` entry (dark blue), select the 'Multi-Template (MALPACA)` option from the dropdown menu.
 
 ### Step 2. Select required input and output directories.
-* In the “Source model(s)” entry (yellow), select the folder that contains .ply files of the templates. 
-  * **If you are uncertain about which specimens to use as templates, you may use the accompanied k-means mult-template selection method (see [kmeans templates selection tutorial](https://github.com/SlicerMorph/Tutorials/blob/main/MALPACA/K-means_templates_selection.md)).**
-  * If you have finished the steps in the above tutorial, you can select the dirctory that contains the k-means selected templates. 
-* In the “Source landmarks” entry (green), select the folder that contains manual landmark files for the templates. The names of the template model and landmark files must be identical. **The format of the landmark files should be either fcsv or mrk.json**
+* In the “Source model(s)” entry (yellow), select the folder that contains the templates (ply format). 
+  * **If you are uncertain about which specimens to be used as templates, you may use the accompanied k-means multi-template selection method (see [kmeans templates selection tutorial](https://github.com/SlicerMorph/Tutorials/blob/main/MALPACA/K-means_templates_selection.md)).**
+  * If you have used the K-means method to select templates, you can select the dirctory that contains the output templates. 
+* In the “Source landmarks” entry (green), select the folder that contains the manual landmark files for the selected templates. The file names of the template model and landmark files must be identical. **The format of the landmark files should be either 'fcsv' or 'mrk.json'.**
 * In the “Target model directory” entry (dark grey), select the folder that contains .ply files of the target meshes. These are the specimens to be landmarked by MALPCA.
 * In the “Target output landmark directory” (light blue), select the folder for MALPACA output.
 
@@ -32,7 +32,7 @@ Open the target output landmark directory specified in Step 7 that stores the MA
 <p/>
 
 
-* or each file name, the postfix is the template that generate this estimated landmark file. For example, `129X1_SVJ_B6CBAF1` suggests that the estimated landmarks of the specimen 129X1_SVJ is derived from using the template B6CBAF1.
+* or each file name, the postfix is the template that generate this estimated landmark file. For example, the file name`129X1_SVJ_B6CBAF1` suggests that the estimated landmarks of the specimen 129X1_SVJ is derived from using the template B6CBAF1.
 
 
 <p align="center">
