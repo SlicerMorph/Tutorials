@@ -10,11 +10,11 @@ In the `Method` entry (dark blue), select the 'Multi-Template (MALPACA)` option 
 * In the “Source model(s)” entry (yellow), select the folder that contains the templates (ply format). 
   * **If you are uncertain about which specimens to be used as templates, you may use the accompanied k-means multi-template selection method (see [kmeans templates selection tutorial](https://github.com/SlicerMorph/Tutorials/blob/main/MALPACA/K-means_templates_selection.md)).**
   * If you have used the K-means method to select templates, you can select the dirctory that contains the output templates. 
-* In the “Source landmarks” entry (green), select the folder that contains the manual landmark files for the selected templates. The file names of the template model and landmark files must be identical. **The format of the landmark files should be either 'fcsv' or 'mrk.json'.**
-* In the “Target model directory” entry (dark grey), select the folder that contains .ply files of the target meshes. These are the specimens to be landmarked by MALPCA.
-* In the “Target output landmark directory” (light blue), select the folder for MALPACA output.
+* In the “Source landmarks” entry (green), select the folder that contains the manual landmark files for the selected templates. The file names of the template model and landmark files must be identical. **The format of the landmark files should be either 'mrk.json' or 'fcsv'. The 'mrk.json' format is recommended.**
+* In the “Target model directory” entry (dark grey), select the folder that contains the target models (ply format). These are the specimens that will be landmarked by the MALPACA pipeline.
+* In the “Target output landmark directory” (light blue), select the folder for storing the MALPACA output landmark files (mrk.json format) of the target specimens.
 
-### Step 3. Click the `Run auto-landmarking` button (red arrow) to execute MALPACA.
+### Step 3. Click the `Run auto-landmarking` button (red arrow) to execute the MALPACA pipeline.
 Slicer may appear to be in a “no response” condition. This is because the MALPACA is executing, so do not forcing closing the Slicer program.
 
 <p align="center">
@@ -23,16 +23,16 @@ Slicer may appear to be in a “no response” condition. This is because the MA
 
 
 ### Step 4. See MALPACA output.
-Open the target output landmark directory specified in Step 7 that stores the MALPACA output 
+Open the target output landmark directory specified in Step 7 that stores the MALPACA output landmark files.
 * The `advancedparameters.txt `file stores the MALPACA settings.
-* The `individual estimates` folder contains landmarks estimated by each individual template stored in the mrk.json format. F
+* The `individual estimates` folder contains landmarks estimated by each individual template stored in the mrk.json format. 
 
 <p align="center">
 <img src="./kmeans_MALPACA_images/MALPACA_020.png">
 <p/>
 
 
-* or each file name, the postfix is the template that generate this estimated landmark file. For example, the file name`129X1_SVJ_B6CBAF1` suggests that the estimated landmarks of the specimen 129X1_SVJ is derived from using the template B6CBAF1.
+* Each file name's prefix specifies the target specimen, while its postfix specifies the template that is used for landmarking this specimen. For example, the file name`129X1_SVJ_B6CBAF1` suggests that the estimated landmarks of the specimen 129X1_SVJ is derived from using the template B6CBAF1.
 
 
 <p align="center">
@@ -40,7 +40,7 @@ Open the target output landmark directory specified in Step 7 that stores the MA
 <p/>
 
 
-* The `medianEstimates` folder contains the final output of MALPACA storing in fcsv format. Each landmark file name has a suffix `_median`, suggesting it is the median of the estimates derived from using all templates.
+* The `medianEstimates` folder contains the final output of the MALPACA pipeline (mrk.json format). Each landmark file name has a suffix `_median`, suggesting it is the median of all the landmark estimates derived from each template.
 
 <p align="center">
 <img src="./kmeans_MALPACA_images/MALPACA_022.png">
