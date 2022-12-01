@@ -1,5 +1,5 @@
 # Executing Multi-Template ALPACA (MALPACA) 
-This tutorial contains instructions for executing multi-template ALPACA (MALPACA) to accomodate large morphological disparity within a sample. The MALPACA pipeline is essentially performing multiple independent ALPACA runs, each of which based on a single template. It then calculate the median from the results of all these ALPACA runs as the final output of landmark estimates. The same parameter setting of ALPACA applies to MALPACA. For tutorials of how to run ALPACA and , please refer to: https://github.com/SlicerMorph/Tutorials/blob/main/ALPACA/README.md. 
+This tutorial contains instructions for executing multi-template ALPACA (MALPACA) for automated landmarking that can accomodate large morphological disparity within a sample. The MALPACA pipeline is essentially performing multiple independent ALPACA runs, each of which based on a single template. It then calculate the median from the results of all these ALPACA runs as the final output of landmark estimates. The same parameter setting of ALPACA applies to MALPACA. For tutorials of how to run ALPACA and , please refer to: https://github.com/SlicerMorph/Tutorials/blob/main/ALPACA/README.md. 
 
 Download sample data here: https://github.com/SlicerMorph/mouse_models. Extract the files.
 
@@ -15,7 +15,7 @@ In the `Method` entry (dark blue), open the drop-down menu to select Mu`lti-Temp
 * In the “Target output landmark directory” (light blue), select the folder for MALPACA output.
 
 ### Step 3. Click the `Run auto-landmarking` button (red arrow) to execute MALPACA.
-Slicer may appear to be in the “no response” condition (Fig. S21). This is because MALPACA is running.
+Slicer may appear to be in a “no response” condition. This is because the MALPACA is executing, so do not forcing closing the Slicer program.
 
 <p align="center">
 <img src="./kmeans_MALPACA_images/MALPACA_019.png">
@@ -25,7 +25,7 @@ Slicer may appear to be in the “no response” condition (Fig. S21). This is b
 ### Step 4. See MALPACA output.
 Open the target output landmark directory specified in Step 7 that stores the MALPACA output 
 * The `advancedparameters.txt `file stores the MALPACA settings.
-* The `individual estimates` folder contains landmarks estimated by each individual template stored in the fcsv format (Fig. S22 and Fig. S23). F
+* The `individual estimates` folder contains landmarks estimated by each individual template stored in the mrk.json format. F
 
 <p align="center">
 <img src="./kmeans_MALPACA_images/MALPACA_020.png">
@@ -40,7 +40,7 @@ Open the target output landmark directory specified in Step 7 that stores the MA
 <p/>
 
 
-* The `medianEstimates` folder contains the final output of MALPACA storing in fcsv format (Fig. S22 and Fig. S24). Each landmark file name has a suffix `_median`, suggesting it is the median of the estimates derived from using all templates.
+* The `medianEstimates` folder contains the final output of MALPACA storing in fcsv format. Each landmark file name has a suffix `_median`, suggesting it is the median of the estimates derived from using all templates.
 
 <p align="center">
 <img src="./kmeans_MALPACA_images/MALPACA_022.png">
