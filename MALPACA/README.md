@@ -5,3 +5,4 @@ This folder contains tutorials for running MALPACA and an optional K-means metho
 
 
 # K-means template selection
+[K-means_templates_selection.md](https://github.com/chz31/Tutorials/blob/main/MALPACA/K-means_templates_selection.md) contains the tutorial for running an optional K-means based method for selecting k (a user-defined number) specimens from a sample as templates for running MALPACA when users are uncertain about what specimens should be used as templates. 
