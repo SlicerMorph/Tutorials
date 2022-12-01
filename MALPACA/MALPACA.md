@@ -25,7 +25,7 @@ Slicer may appear to be in a “no response” condition. This is because the MA
 ### Step 4. See MALPACA output.
 Open the target output landmark directory specified in Step 7 that stores the MALPACA output landmark files.
 * The `advancedparameters.txt `file stores the MALPACA settings.
-* The `individual estimates` folder contains landmarks estimated by each individual template stored in the mrk.json format. 
+* The `individual estimates` folder contains landmarks estimated by each individual template stored in the mrk.json format.
 
 <p align="center">
 <img src="./kmeans_MALPACA_images/MALPACA_020.png">
