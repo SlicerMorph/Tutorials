@@ -15,7 +15,7 @@ In the `Method` entry (dark blue), select the 'Multi-Template (MALPACA)` option 
 * In the “Target output landmark directory” (light blue), select the folder for storing the MALPACA output landmark files (mrk.json format) of the target specimens.
 
 <p align="center">
-<img src="./kmeans_MALPACA_images/MALPACA_019.png">
+<img src="./kmeans_MALPACA_images/MALPACA_019.png", width = 600>
 <p/>
 
 ### Step 3. Click the `Run auto-landmarking` button (red arrow) to execute the MALPACA pipeline.
