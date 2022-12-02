@@ -13,6 +13,10 @@ In the `Method` entry (dark blue), select the 'Multi-Template (MALPACA)` option 
 * In the “Source landmarks” entry (green), select the folder that contains the manual landmark files for the selected templates. The file names of the template model and landmark files must be identical. **The format of the landmark files should be either 'mrk.json' or 'fcsv'. The 'mrk.json' format is recommended.**
 * In the “Target model directory” entry (dark grey), select the folder that contains the target models (ply format). These are the specimens that will be landmarked by the MALPACA pipeline.
 * In the “Target output landmark directory” (light blue), select the folder for storing the MALPACA output landmark files (mrk.json format) of the target specimens.
+* Optional settings
+  * Skip scaling (blue arrow): skip scaling for the rigid registration
+  * Skip projection (green arrow): skip projecting estimated landmarks to the surface of the target models
+  * Replication Analysis
 
 <p align="center">
 <img src="./kmeans_MALPACA_images/MALPACA_019.png", width = 600>
