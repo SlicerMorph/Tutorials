@@ -4,19 +4,19 @@ This tutorial contains instructions for executing the multi-template ALPACA (MAL
 Download sample data here: https://github.com/SlicerMorph/mouse_models. Extract the files.
 
 ### Step 1. Switch to the ALPCA module in 3D Slicer and choose the Batch Processing tab (red). 
-In the `Method` entry (dark blue), select the 'Multi-Template (MALPACA)` option from the dropdown menu.
+In the `Method` entry (dark blue), select the `Multi-Template (MALPACA)` option from the dropdown menu.
 
 ### Step 2. Select required input and output directories.
-* In the “Source model(s)” entry (yellow), select the folder that contains the templates (ply format). 
+* In the `Source model(s)` entry (yellow), select the folder that contains the templates (ply format). 
   * **If you are uncertain about which specimens to be used as templates, you may use the accompanied k-means multi-template selection method (see [kmeans templates selection tutorial](https://github.com/SlicerMorph/Tutorials/blob/main/MALPACA/K-means_templates_selection.md)).**
   * If you have used the K-means method to select templates, you can select the dirctory that contains the output templates. 
-* In the “Source landmarks” entry (green), select the folder that contains the manual landmark files for the selected templates. The file names of the template model and landmark files must be identical. **The format of the landmark files should be either 'mrk.json' or 'fcsv'. The 'mrk.json' format is recommended.**
-* In the “Target model directory” entry (dark grey), select the folder that contains the target models (ply format). These are the specimens that will be landmarked by the MALPACA pipeline.
-* In the “Target output landmark directory” (light blue), select the folder for storing the MALPACA output landmark files (mrk.json format) of the target specimens.
+* In the `Source landmarks` entry (green), select the folder that contains the manual landmark files for the selected templates. The file names of the template model and landmark files must be identical. **The format of the landmark files should be either 'mrk.json' or 'fcsv'. The 'mrk.json' format is recommended.**
+* In the `Target model directory` entry (dark grey), select the folder that contains the target models (ply format). These are the specimens that will be landmarked by the MALPACA pipeline.
+* In the `Target output landmark directory` (light blue), select the folder for storing the MALPACA output landmark files (mrk.json format) of the target specimens.
 * Optional settings
-  * Skip scaling (blue arrow): skip scaling for the rigid registration
-  * Skip projection (green arrow): skip projecting estimated landmarks to the surface of the target models
-  * Replication Analysis
+  * `Skip scaling` (blue arrow): skip scaling for the rigid registration
+  * `Skip projection` (green arrow): skip projecting estimated landmarks to the surface of the target models
+  * `Replication Analysis` (grey arrow): check this option to allow replicating ALPACA/MALPACA using the same setting and sample. When this option is checked, the following entry `Number of Replications` will be enables for inputing the number of replication. Each replication will be saved in a separate folder in the `Target output landmark directory`.
 
 <p align="center">
 <img src="./kmeans_MALPACA_images/MALPACA_019.png", width = 600>
