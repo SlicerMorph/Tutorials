@@ -31,7 +31,7 @@ Open the target output landmark directory specified in Step 7 that stores the MA
 * The `individual estimates` folder contains landmarks estimated by each individual template stored in the mrk.json format.
 
 <p align="center">
-<img src="./kmeans_MALPACA_images/MALPACA_020.png">
+<img src="./kmeans_MALPACA_images/MALPACA_020.png", width = 600>
 <p/>
 
 
@@ -39,13 +39,13 @@ Open the target output landmark directory specified in Step 7 that stores the MA
 
 
 <p align="center">
-<img src="./kmeans_MALPACA_images/MALPACA_021.png">
+<img src="./kmeans_MALPACA_images/MALPACA_021.png", width = 600>
 <p/>
 
 
 * The `medianEstimates` folder contains the final output of the MALPACA pipeline (mrk.json format). Each landmark file name has a suffix `_median`, suggesting it is the median of all the landmark estimates derived from each template.
 
 <p align="center">
-<img src="./kmeans_MALPACA_images/MALPACA_022.png">
+<img src="./kmeans_MALPACA_images/MALPACA_022.png", width = 600>
 <p/>
 
