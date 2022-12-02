@@ -14,13 +14,12 @@ In the `Method` entry (dark blue), select the 'Multi-Template (MALPACA)` option 
 * In the “Target model directory” entry (dark grey), select the folder that contains the target models (ply format). These are the specimens that will be landmarked by the MALPACA pipeline.
 * In the “Target output landmark directory” (light blue), select the folder for storing the MALPACA output landmark files (mrk.json format) of the target specimens.
 
-### Step 3. Click the `Run auto-landmarking` button (red arrow) to execute the MALPACA pipeline.
-Slicer may appear to be in a “no response” condition. This is because the MALPACA is executing, so do not forcing closing the Slicer program.
-
 <p align="center">
 <img src="./kmeans_MALPACA_images/MALPACA_019.png">
 <p/>
 
+### Step 3. Click the `Run auto-landmarking` button (red arrow) to execute the MALPACA pipeline.
+Slicer may appear to be in a “no response” condition. This is because the MALPACA is executing, so do not forcing closing the Slicer program.
 
 ### Step 4. See MALPACA output.
 Open the target output landmark directory specified in Step 7 that stores the MALPACA output landmark files.
