@@ -23,8 +23,8 @@ Switch to the “Templates Selection” tab (yellow). In the `Templates Selectio
 
 
 ### Step 3. Generating downsampled point clouds with point-to-point correspondence.
-* Specify a `Spacing factor` value using the slider (red) or simply input a value in the box at the right side (Fig. S13). This value determines how sparse the downsampled reference point cloud will be. The larger the spacing factor value, the sparser the point cloud will be. For new samples, this requires some experimentation on user’s end (See explanation in next steps). For mouse sample spacing of 0.03 is suggested
-* Click the `Step 1: Generate downsampled reference pointcloud button (blue)`. After the downsampled reference point cloud is generated, the box below (green) will display information about the name of the reference model and the number of points in the reference point cloud. The `Step 2: Generate Point Clouds matched to Reference` button will also be enabled. 
+* Specify a `Spacing factor` value using the slider (red) or simply input a value in the box at the right side (Fig. S13). This value determines how sparse the downsampled reference point cloud will be. The larger the spacing factor value, the sparser the point cloud will be. For new samples, this requires some experimentation on users' end (See explanation in next steps). For mouse sample, the spacing factor of 0.03 is suggested
+* Click the `Step 1: Generate downsampled reference pointcloud button (blue)` button. After the downsampled reference point cloud is generated, the box below (green) will display information about the name of the reference model and the number of points in the reference point cloud. The `Step 2: Generate Point Clouds matched to Reference` button will also be enabled. 
 
 <p align="center">
 <img src="./kmeans_MALPACA_images/MALPACA_002.png" width = 600>
@@ -38,7 +38,7 @@ Switch to the “Templates Selection” tab (yellow). In the `Templates Selectio
 <p/>
 
 
-  *  It will also created a time-stamped folder in the directory specified in `Select output directory` in Step 1 so that results from different runs will not overwright each other. The extracted point clouds with point-to-point correspondence will be stored in `fcsv` format as landmark files in a folder called `matching_point_clouds` within the just created time-stamped folder. 
+  *  It will also created a time-stamped folder in the directory specified in `Select output directory` in Step 1 so that results from different runs will not overwrite each other. The extracted point clouds with point-to-point correspondence will be stored in `fcsv` format as landmark files in a folder called `matching_point_clouds` within the just created time-stamped folder. 
 
 <p align="center">
 <img src="./kmeans_MALPACA_images/MALPACA_005.png" width = 600>
@@ -57,7 +57,7 @@ Switch to the “Templates Selection” tab (yellow). In the `Templates Selectio
 
 
 ### Step 4. Specify whether there are multiple groups within the sample in the `Multi-template selection` section.
-* Check `One group for the whole sample` (red arrow) if no pre-known groups exist within the sample or users do not want to divide the sample into groups. In this case, the user-input `Number of templates per group` (blue) is the number of templates for the whole sample. 
+* Check `One group for the whole sample` (red arrow) if no pre-known group exists within the sample or users do not want to divide the sample into groups. In this case, the user-input `Number of templates per group` (blue) is the number of templates for the whole sample. 
 
 <p align="center">
 <img src="./kmeans_MALPACA_images/MALPACA_007.png" width = 600>
@@ -108,7 +108,7 @@ Click `Kmeans-based template selection` button (red) will execute K-means algori
 
 
 ### Step 7. Select template with group identify entered (i.e., multiple groups within the sample)
-We can then change the `Number of templates per group` as `2` and check the `Multiple groups within the sample `option (green arrow). Also check `Set up seed for kmeans` for reproducible results. Enter the group identity at the second column `Group` of the table. If we only specify 3 groups from the sample as `a`, `b`, and `c`, the program will select 6 specimens as templates.
+We can then change the `Number of templates per group` as `2` and check the `Multiple groups within the sample `option (green arrow). Also check `Set up seed for kmeans` for reproducible results. Enter the group identity at the second column `Group` of the table. If we only specify three groups from the sample as `a`, `b`, and `c`, the program will select 6 specimens in total (two from each group) as templates.
 * The display box (yellow) will show selected templates for each entered group. 
 
 <p align="left">
@@ -122,7 +122,7 @@ We can then change the `Number of templates per group` as `2` and check the `Mul
 <img src="./kmeans_MALPACA_images/MALPACA_018.png" width = 600>
 <p/>
 
-* The PC plot will also display specimens in each user-defined group in a unique color. 
+* The PC plot will also display specimens selected as templates in each user-defined group in a unique color. 
 <p align="center">
 <img src="./kmeans_MALPACA_images/MALPACA_015.png" width = 600>
 <p/>
