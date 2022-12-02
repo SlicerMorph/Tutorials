@@ -25,7 +25,7 @@ In the `Method` entry (dark blue box in the picture below), select the `Multi-Te
 ### Step 3. Click the `Run auto-landmarking` button (red arrow) to execute the MALPACA pipeline (see the picture above).
 Slicer may appear to be in a “no response” condition. This is because the MALPACA is executing, so do not forcing closing the Slicer program.
 
-### Step 4. See MALPACA output (see the picture below).
+### Step 4. See MALPACA output.
 Open the target output landmark directory specified in Step 7 that stores the MALPACA output landmark files.
 * The `advancedparameters.txt `file stores the MALPACA settings.
 * The `individual estimates` folder contains landmarks estimated by each individual template stored in the mrk.json format.
