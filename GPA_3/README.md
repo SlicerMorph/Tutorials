@@ -76,5 +76,5 @@ Now, we will go through a R markdown document that will use the parser() functio
 1. Use the GPA module to run GPA/PCA analysis on the Gorilla skull landmark dataset available in the `Sample Data` module. You can refer to the instructions in [GPA I: Basics of GPA Fitting](../GPA_1/README.md) for details on using this module. Make a note of the output folder you specified. You will need to enter this into the R.
 2. Go through [parser() and sample R analysis tutorial](./parser_and_sample_R_analysis.md) for using parser() to load GPA module output and conduct a sample regression analysis in R. 
 
-Continue following the instructions in the tutorial. 
+[Continue following the instructions in the tutorial.](./parser_and_sample_R_analysis.md) 
 
