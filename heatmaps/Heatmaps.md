@@ -1,9 +1,19 @@
 # How to create heatmaps on models using R and 3D Slicer
-This tutorial steps you through how to create models in R and then use Slicer to make heatmaps that show the difference between the mean shape and shapes at an extreme of a principal component axis from a PCA. Things you will need to be able to do this on your own dataset: 
+This tutorial steps you through how to create models and heatmaps in Slicer that show the difference between the mean shape and shapes at an extreme of a principal component axis from a PCA. If you've analyzed your data in R, we've also included how to create the models in R, but all steps of this process can be done in Slicer!
+
+Things you will need to be able to do this on your own dataset: 
   - full landmark dataset
   - a reference model - this can be an average image or just a single model from your dataset
     - Depending on your computer and the size of your model, you may need to decimate your model (make it smaller), which you can do in the `Surface Toolbox` module in 3D Slicer.
   - Landmarks for your reference model
+
+-----
+### Creating models using the GPA module in Slicer
+If you create your models using the `GPA` module you do not need to use R.
+
+Run the `GPA` module on your set of landmark points. Then load in your 3D reference model to visualize your analysis. See the `GPA tutorials` pages for more information about how to use the GPA module. 
+
+In the visualization tab of the `GPA` modue, warp your 3D referene model to the maximum deformation of your PC axis of interest. Then go to the `Data` module and right click the TPS deformed model and export is as PLY. Repeat for the minimum deformation for your PC axis of interest. 
 
 -----
 ### Creating models in R 
