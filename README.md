@@ -22,7 +22,6 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 16. #### [**GPA-I:** Basics of GPA: Setting the analysis, exploring the morphospace](https://github.com/SlicerMorph/Tutorials/tree/main/GPA_1)
 17. #### [**GPA-II:** 3D interactive visualization of morphospace and exporting animations](https://github.com/SlicerMorph/Tutorials/tree/main/GPA_2)
 18. #### [**GPA-III:** Exporting data/results for R](https://github.com/SlicerMorph/Tutorials/tree/main/GPA_3#readme)
-19. #### [**Auto3Dgm:** An automated procedure to acquire dense-pseudolandmarks from 3D models](https://toothandclaw.github.io/how-to-use/)
 
 
 ## Additional Tutorials for some Slicer Modules used commonly for digital morphology tasks:
