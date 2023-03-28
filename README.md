@@ -7,7 +7,6 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 2. #### [**Sample Data:** Shows how to use the Slicer's `Sample Data` module to download and access sample data to be used in tutorials](https://github.com/SlicerMorph/Tutorials/tree/main/SampleData)
 3. #### [**ImageStacks:** Tutorial on how to import non-DICOM imagestacks easily into Slicer.](https://github.com/SlicerMorph/Tutorials/tree/main/ImageStacks)
 4. #### [**SkyscanReconImport:** How to import output from Bruker/Skyscan MicroCT](https://github.com/SlicerMorph/Tutorials/tree/main/SkyscanReconImport)
-5. #### [**MorphoSourceImport**: How to quickly query and import open-access 3D models from MorphoSource](https://github.com/SlicerMorph/Tutorials/tree/main/MorphoSourceImport)
 6. #### [**Export File:** This feature is now a core Slicer feature. Right click on any object in the Data module and choose "Export File".](https://discourse.slicer.org/t/multiple-node-export-now-supported/21681)   
 7. #### [**Animator:** How to create keyframe-based animations of microCT scans](https://github.com/SlicerMorph/Tutorials/tree/main/Animator)
 
