@@ -18,10 +18,15 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 13. #### [**MarkupEditor:** How to subset/edit dense landmark sets](https://github.com/SlicerMorph/Tutorials/tree/main/MarkupsEditor)
 14. #### [**MergeMarkups:** Merging fix and semiLMs or separate curve semiLMs for analysis](https://github.com/SlicerMorph/Tutorials/tree/main/MergeMarkups)
 15. #### [**ALPACA:** Automated Landmarking through Point cloud Alignment and Correspondence Analysis](https://github.com/SlicerMorph/Tutorials/tree/main/ALPACA)
+15. #### [**MALPACA:** Multi-template ALPACA and Kmeans based template selection:](https://github.com/SlicerMorph/Tutorials/tree/main/MALPACA)
 16. #### [**GPA-I:** Basics of GPA: Setting the analysis, exploring the morphospace](https://github.com/SlicerMorph/Tutorials/tree/main/GPA_1)
 17. #### [**GPA-II:** 3D interactive visualization of morphospace and exporting animations](https://github.com/SlicerMorph/Tutorials/tree/main/GPA_2)
 18. #### [**GPA-III:** Exporting data/results for R](https://github.com/SlicerMorph/Tutorials/tree/main/GPA_3#readme)
 
+## Deep-Learning based segmentation models
+1. #### [**MEMOS:** A pre-trained segmentation model for E15 fetal mouse scans](https://github.com/SlicerMorph/SlicerMEMOS)
+2. #### [**MonaiLabel:** a server-client system that facilitates segmentation by using AI ](https://github.com/Project-MONAI/MONAILabel/tree/main/plugins/slicer) 
+3. #### [**MonaiLabel:** How to train new AI based segmentation models from scratch](https://www.youtube.com/watch?v=3HTh2dqZqew) 
 
 ## Additional Tutorials for some Slicer Modules used commonly for digital morphology tasks:
 1. #### [DICOM](https://github.com/SlicerMorph/Spr_2021/blob/main/Day_1/DICOM/DICOM.md)
