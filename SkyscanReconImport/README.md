@@ -2,7 +2,7 @@
 This is a convenience function to import an imagestack from Bruker's Skyscan microCT scanners. The only input the user needs to provide is the reconstruction log file saved by the Bruker's Nrecon software. 
 
 
-To use the `SkyscanReconImport` module in SlicerMorph, first go to the `Sample Data` module and download the *Bruker/Skyscan mCT Recon Sample.* If you are not familiar with the `Sample Data` module or how to find where Slicer downloads files, please review the tutorials for [`Sample Data`] and [`SlicerMorph Preferences`]. 
+To use the `SkyscanReconImport` module in SlicerMorph, first go to the `Sample Data` module and download the *Bruker/Skyscan mCT Recon Sample.* If you are not familiar with the `Sample Data` module or how to find where Slicer downloads files, please review the tutorials for [`Sample Data`] and [`SlicerMorph Preferences`]. You can skip this step if you already have a dataset reconstructed by Bruker Skyscan software.
 
 Then find the `SkyscanReconImport` under **SlicerMorph->Input and Output** menu folder and simply point out the file browser to the scanner log (**left_side_damaged__rec.log**) provided in the folder. Module will read the correct image spacing, filename prefix provided in the log and automatically populate these fields, so no additional user intervention is required. 
 
