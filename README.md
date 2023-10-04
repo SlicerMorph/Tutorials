@@ -42,3 +42,9 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 11. #### [Discourse thread on how to reorient and resample in Slicer](https://discourse.slicer.org/t/how-to-properly-use-the-segment-editor-with-transformed-volumes/21861/11?u=muratmaga)
 12. #### [Discourse thread on rendering multi-channel (RGB) microscopy datasets in Slicer](https://discourse.slicer.org/t/best-data-import-practices-for-microscopy/22056/4?u=muratmaga)
 13. #### [How to use sequences module to store rendering and orientation states to come back](https://discourse.slicer.org/t/new-feature-basic-support-for-physically-based-rendering-pbr/21725/17)
+
+what am i doing?
+
+i dunno
+
+
