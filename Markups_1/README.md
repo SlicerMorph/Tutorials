@@ -3,7 +3,7 @@ The Markups module is used to create and edit markups and adjust their display p
 
 -----
 ### Displaying the Markups Toolbar
-Markups can be interacted with through the `Markups module` or the `Markups Toolbar`, which provides convenient access to add and edit markups while any module is open. To display the Markups Toolbar, click the **Toggle Markups Toolbar** button in the upper menu bar. A menu with markups actions will be displayed, and can be moved to a convenient location. We recomment that this toolbar is moved to a new menu bar below, so all the interaction options can be seen.
+Markups can be interacted with through the `Markups module` or the `Markups Toolbar`, which provides convenient access to add and edit markups while any module is open. To display the Markups Toolbar, click the **Toggle Markups Toolbar** button in the upper menu bar. A menu with markups actions will be displayed, and can be moved to a convenient location. We recommend that this toolbar is moved to a new menu bar below, so all the interaction options can be seen.
 
 <img src="./images/MarkupsToolbar.png" width="900">
 
@@ -24,7 +24,7 @@ A curve fit to sequentially placed points that is updated as additional points a
 * By default, curve fitting is done using Spline function. Other alternatives are: Linear, Polynomial, or Shortest-distance on a surface. Curve Type function can be adjusted under **Curve Settings** section of the `Markups` module.  
 
 **Closed curve:**
-Similar to an open curve, except the first and last points placed will be connected. 
+Similar to an open curve, except the first and last points placed will be connected.
 
 **Plane:**
 Click a point to place the  origin of the plane. Alt + Left-click will allow the placement of two points, where the second point defines the normal vector. The method used to place the plane (point normal, plane fit, three points) can be selected under the **Plane settings** menu of the `Markups` module.  
