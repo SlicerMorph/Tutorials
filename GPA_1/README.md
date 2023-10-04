@@ -26,7 +26,7 @@ This tutorial will walk you through to using the SlicerMorph GPA module to run G
 <img src="./images/Picture4.png" width="900">
 
 ### Viewing the Output Data
-7. TO view the output from the GPA module, click the `View Output Files` button. This will open the unique results folder created from this run and named with the timestamp from the run time. Note the log file and five CSV files containing the eigenvalues, eigenvectors, mean shape, PC scores, and combined output that contains new procrustes aligned coordinates, centroid sizes and Procrustes distances from the output. If you want to do more specific analysis, these will be files you will import into R/geomorph or other shape analysis packages. T
+7. To view the output from the GPA module, click the `View Output Files` button. This will open the unique results folder created from this run and named with the timestamp from the run time. Note the log file and five CSV files containing the eigenvalues, eigenvectors, mean shape, PC scores, and combined output that contains new procrustes aligned coordinates, centroid sizes and Procrustes distances from the output. If you want to do more specific analysis, these will be files you will import into R/geomorph or other shape analysis packages. T
 
 <img src="./images/Picture5.png" width="900">
 
