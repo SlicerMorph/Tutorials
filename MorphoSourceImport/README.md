@@ -1,15 +1,55 @@
-## MorphoSourceImport
-This SlicerMorph specific module provides one-click access to the 3D models that are distributed publicly by MorphoSource. You can find the list of all models in public domain in this [Google Sheet by Morphosource and oVert project](https://docs.google.com/spreadsheets/d/1fhdVv2JwvUJAC4dvSgKZi2pwSl7dPGaB-ksYsB64k4U/edit#gid=0). As of summer 2020, there are over 20,000 specimens.
+# MorphoSource Import Module User Guide
 
-**NOTE: MorphoSourceImport is currently not functional due to changes MorphoSource API after 2.0 Beta is introduced in early 2021. We will update this module once MorphoSource team finalize their API changes.**
+![Snapshot of MorphoSourceImport UI](MorphoSourceImport.png "MorphoSourceImport")
+## Introduction
+The MorphoSource Import Module for 3D Slicer enables users to search, query, and download 3D mesh and CT image series from the MorphoSource database. These can then be imported into 3D Slicer for analysis and visualization.
 
-To access these specimens, you will still need an email address registered by MorphoSource. The module is fairly trivial to use:
+## Prerequisites
+- Latest version of 3D Slicer installed.
+- Internet access for querying the MorphoSource database.
+- A MorphoSource account and an API key.
 
-1. Enter your username and password for your MorphoSource account (HINT. open the python console to receive confirmation about successul login). 
-2. At this point only **Order** level queries are supported. Enter an order you would like to search for specimens (please use MorphoSource conventions). 
-3. Enter the element you would like to search. To search for everything available, use the wild card ( * ). Note that if there are many elements, query may take very long. So start small. The maximum number returned is capped at 1,000 elements. 
-4. Once the table is populated with query results, highlight the row (or rows) you would like to download, and hit **Load Selected Models**
-5. Alternatively, you can highlight a single row and hit **Open Specimen Page**, which will bring the relevant page from MorphoSource as a separate web page. 
-6. Specimens are automatically saved into the **Cache** folder. If you don't remember the **Cache** folder settings, review the [**SlicerMorph Preferences Tutorial**](https://github.com/SlicerMorph/Tutorials/tree/main/MorphPrefs). Alternatively, you can use SlicerMorph's `ExportAs` plugin to save downloaded modules, in different formats and to different folders. 
+## Launching the Module
+1. Open 3D Slicer.
+2. Download the SlicerMorph extension via the Extensions Manager.
+3. Once 3D Slicer restarts, go to the Modules Menu
+4. Select the MorphoSourceImport module.
 
-<img src="MorphoSourceImport.png">
+## Performing a Query
+In the MorphoSource Query Parameters section:
+- **Query Keyword**: Enter a keyword (e.g., "Skull").
+- **Taxon**: Specify taxonomic classification (optional, e.g., "Primates").
+- **Media Tag**: Enter a media tag to refine search (optional).
+- **Data Types**: Choose desired data types (Mesh, CT Image Series).
+- **Open Access Datasets Only**: Check to retrieve only open access datasets.
+- Set the download folder by clicking "Select Download Folder".
+- Click "Submit Query".
+
+## Reviewing Query Results
+Results will be displayed in a table with columns:
+- **Image**: Thumbnail preview, rightlick to open Morphosource object webpage for more details.
+- **Media ID**: Unique media identifier.
+- **Title**: Dataset title.
+- **Media Type**: Media type (Mesh or CT Image Series).
+- **Object ID**: Unique object identifier.
+- **File Size**: Size (MB) of Morphosource Media Item.
+- Navigate using "Previous Page" and "Next Page".
+
+- Once your search queries have loaded, you can click the 
+"Download Query Results" button to obtain a .csv document with 
+all your search queries.
+
+
+## Downloading Data
+1. Select desired datasets by checking the boxes.
+2. Click "Download Media Items".
+3. Click "Set API Key" and enter your API key.
+4. Enter your Usage Statement.
+5. Check at least one relevant Usage Category.
+6. Click "Download Checked Items".
+
+## Using the Data
+After import, use 3D Slicer's tools for visualization and analysis.
+
+## Conclusion
+The MorphoSource Import Module is a valuable tool for accessing and utilizing 3D anatomical data from MorphoSource in 3D Slicer.
