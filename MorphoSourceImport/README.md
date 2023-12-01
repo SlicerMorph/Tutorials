@@ -71,7 +71,6 @@ Navigation through the query results is facilitated by 'Previous Page' and 'Next
 - To select specific datasets for download, simply check the boxes in the first column adjacent to the desired media items.
 
 ## Setting Up Your API Access and Specifying Usage
-![Configure Download](MS3_Configure_Download.png)
 ![Click Download Items](MS4_Download_Progress.png)
 
 To fully access the features provided by the MorphoSource Import Module, you need to configure your API settings and specify your intended use. Follow the steps below to complete the setup:
