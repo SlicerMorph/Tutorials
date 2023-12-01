@@ -1,11 +1,19 @@
 # MorphoSourceImport
 
-## Introduction to the MorphoSourceImport Module for 3D Slicer
+## Contents
+- [Introduction to the MorphoSourceImport Module for 3D Slicer](#introduction-to-the-morphosourceimport-module-for-3d-slicer)
+- [Prerequisites for MorphoSourceImport Usage](#prerequisites-for-morphosourceimport-usage)
+- [Launching the Module](#launching-the-module)
+- [Configuring MorphoSource Query Parameters for Data Retrieval](#configuring-morphosource-query-parameters-for-data-retrieval)
+- [Reviewing Query Results](#reviewing-query-results)
+- [Setting Up Your API Access and Specifying Usage](#setting-up-your-api-access-and-specifying-usage)
+- [Utilizing Downloaded Data in 3D Slicer](#utilizing-downloaded-data-in-3d-slicer)
+- [Conclusion](#conclusion)
 
+## Introduction to the MorphoSourceImport Module for 3D Slicer
 The MorphoSource Import Module is an advanced tool within the 3D Slicer platform designed for researchers and professionals in the field of morphological analysis. It provides a robust interface for directly searching, querying, and downloading high-quality 3D mesh models and CT image series from the extensive MorphoSource database. Once retrieved, these datasets can be seamlessly imported into 3D Slicer, facilitating sophisticated analysis, detailed visualization, and comprehensive morphometric evaluation. This integration streamlines the workflow, significantly enhancing the efficiency of morphological studies and research endeavors.
 
 ## Prerequisites for MorphoSourceImport Usage
-
 Before commencing the MorphoSource data retrieval process, ensure the following prerequisites are met:
 
 - **3D Slicer Installation**: Verify that the most recent version of 3D Slicer is installed on your system. Updates or fresh installations can be obtained from the [official 3D Slicer website](https://www.slicer.org/).
@@ -45,7 +53,6 @@ Once all parameters are set to your specifications, initiate your search by sele
 
 These detailed instructions are designed to facilitate an efficient and targeted search within the MorphoSource database, ensuring you acquire the precise datasets needed for your scientific analysis.
 
-
 ## Reviewing Query Results
 ![Download Query Results](MS2_Download_Query.png)
 
@@ -62,10 +69,6 @@ Navigation through the query results is facilitated by 'Previous Page' and 'Next
 
 - To download a summary of your query results, select the **Download Query Results** button. This action will generate a .csv file containing the details of your search criteria and results.
 - To select specific datasets for download, simply check the boxes in the first column adjacent to the desired media items.
-
-
-
-
 
 ## Setting Up Your API Access and Specifying Usage
 ![Configure Download](MS3_Configure_Download.png)
@@ -90,7 +93,6 @@ To fully access the features provided by the MorphoSource Import Module, you nee
     - Review your selections and then click the **Download Checked Items** button to initiate the download of the data associated with the checked categories.
 
 Remember, the proper setting of the API key and accurate usage declarations are crucial for maintaining the integrity of data use and ensuring the sustainability of resources like MorphoSource.
-
 
 ## Utilizing Downloaded Data in 3D Slicer
 ![Check Media Items](MS5_Check_Media_Downloads.png)
