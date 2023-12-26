@@ -4,7 +4,7 @@ ColorizeVolume is a module available through the `SandBox` extension. It allows 
 To get started, make sure you have installed the `SandBox` extension and restart your Slicer session. You should also have SlicerMorph installed, if you already don't have it. To use the module you need a scalar volume and a segmentation derived from it. In this tutorial we will be using a mouse CT scan and its segmentation as an example.
 
 ## Steps.
-1. Hit CTRL+F (Module Finder shortcut) and search from ImportFromURL, or from Module selector navigate to SlicerMorph->Input and Output->ImportFromURL.
+1. Hit CTRL+F (Module Finder shortcut) and search for `ImportFromURL`, or from Module selector navigate to **SlicerMorph->Input and Output->ImportFromURL**.
 2. Paste `https://raw.githubusercontent.com/muratmaga/mouse_CT_atlas/master/data/templates/35_mic_23strain_mus_template_UCHAR.nii.gz` in the URL field. Both File name and Node name fields will be auto-populated. Hit **Import data**. This will automatically download the mouseCT microCT dataset into your scene.
 3. In the volume rendering window you may see the mouse head automatically rendered. This is just regular volume rendering of the volume data. You can turn it off, by going to the `Data` module and right-click the visibility (eye) icon, and uncheck **Show in 3D views as volume rendering** option. 
 4. Paste `https://raw.githubusercontent.com/muratmaga/mouse_CT_atlas/master/data/templates/35_mic_23strain_mus_template_UCHAR.seg.nrrd` into the URL field, and repeat the same steps. You should now have both a 3D volume and its segmentation. 
