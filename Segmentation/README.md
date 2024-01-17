@@ -164,7 +164,7 @@ We won't cover every tool in detail, but here are a few you should spend some ti
   
   <img src="images/gfs_2.png">
   
-  * Next I selected the paint too, but before I started paining I changed the masking options by switching the *Modify other segments* option to *Overwrite visible* and checking the *Editable intensity range* box. This will let us only paint voxels with the intensity values that exist in the teeth we are trying to segment. 
+  * Next I selected the paint tool, but before I started paining I changed the masking options by switching the *Modify other segments* option to *Overwrite visible* and checking the *Editable intensity range* box. This will let us only paint voxels with the intensity values that exist in the teeth we are trying to segment. 
   
   <img src="images/gfs_3.png">
   
