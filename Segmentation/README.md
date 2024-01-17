@@ -168,7 +168,7 @@ We won't cover every tool in detail, but here are a few you should spend some ti
   
   <img src="images/gfs_3.png">
   
-  * Now, just like we did in grow from seeds I have painted a slash every few slices (5 total slices in this example) on on each of the 4 teeth. The image below shows where I've pained in the 4 different viewing windows. 
+  * Now, just like we did in grow from seeds I have painted a slash every few slices (5 total slices in this example) on on each of the 4 teeth. The image below shows where I've painted in the 4 different viewing windows. 
   
   <img src="images/gfs_4.png">
   
