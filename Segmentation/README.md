@@ -164,15 +164,15 @@ We won't cover every tool in detail, but here are a few you should spend some ti
   
   <img src="images/gfs_2.png">
   
-  * Next I selected the paint too, but before I started paining I changed the masking options by switching the *Modify other segments* option to *Overwrite visible* and checking the *Editable intensity range* box. This will let us only paint voxels with the intensity values that exist in the teeth we are trying to segment. 
+  * Next I selected the paint tool, but before I started paining I changed the masking options by switching the *Modify other segments* option to *Overwrite visible* and checking the *Editable intensity range* box. This will let us only paint voxels with the intensity values that exist in the teeth we are trying to segment. 
   
   <img src="images/gfs_3.png">
   
-  * Now, just like we did in grow from seeds I have painted a slash every few slices (5 total slices in this example) on on each of the 4 teeth. The image below shows where I've pained in the 4 different viewing windows. 
+  * Now, just like we did in grow from seeds I have painted a slash every few slices (5 total slices in this example) on on each of the 4 teeth. The image below shows where I've painted in the 4 different viewing windows. 
   
   <img src="images/gfs_4.png">
   
-  * Now we can switch to the **Grow from seeds** tool. Hit the *Initialize* button (orange box in the image below), mine says update because I've already hit the button to initialize. To see the full restuls move the display slicer all the way to the right and hit the *Show 3D* button. Mine isn't perfect but it's done a decent job with minimal imputs. I can use the display slider to go back to my input display and keep updating with the paint tool until I get a better segmentation. 
+  * Now we can switch to the **Grow from seeds** tool. Hit the *Initialize* button (orange box in the image below), mine says update because I've already hit the button to initialize. To see the full results, move the display slicer all the way to the right and hit the *Show 3D* button. Mine isn't perfect but it's done a decent job with minimal imputs. I can use the display slider to go back to my input display and keep updating with the paint tool until I get a better segmentation. 
   
   <img src="images/gfs_5.png">
 
