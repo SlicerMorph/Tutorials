@@ -172,7 +172,7 @@ We won't cover every tool in detail, but here are a few you should spend some ti
   
   <img src="images/gfs_4.png">
   
-  * Now we can switch to the **Grow from seeds** tool. Hit the *Initialize* button (orange box in the image below), mine says update because I've already hit the button to initialize. To see the full restuls move the display slicer all the way to the right and hit the *Show 3D* button. Mine isn't perfect but it's done a decent job with minimal imputs. I can use the display slider to go back to my input display and keep updating with the paint tool until I get a better segmentation. 
+  * Now we can switch to the **Grow from seeds** tool. Hit the *Initialize* button (orange box in the image below), mine says update because I've already hit the button to initialize. To see the full results, move the display slicer all the way to the right and hit the *Show 3D* button. Mine isn't perfect but it's done a decent job with minimal imputs. I can use the display slider to go back to my input display and keep updating with the paint tool until I get a better segmentation. 
   
   <img src="images/gfs_5.png">
 
