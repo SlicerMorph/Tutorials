@@ -1,6 +1,6 @@
 # The `FastModelAlign` module
 
-The `FastModelAlign module` in SlicerMorph is for conveniently testing 3D model registration. Currently, it perfroms rigid and affine registration. The rigid registration involves RANSAC and ICP steps using downsampled pointclouds. The pointcloud-based rigid registration is the foundation of ALPACA automated landmarking (see the [ALPACA publication](https://doi.org/10.1111/2041-210X.13689) and [ALPACA tutorial](https://github.com/SlicerMorph/Tutorials/blob/main/ALPACA/README.md) for more information). The rigid registration functions used in this module are based on the newly developed ITK-based `ALPACA (preview)`. The affine registration is based on the `pycpd` python package. 
+The `FastModelAlign module` in SlicerMorph is for 3D model registration. Currently, it perfroms rigid (with or without scaling) and affine registration. The rigid registration involves RANSAC and ICP steps from the downsampled pointclouds derived from 3D models. [For more technical implementation details, see the related ALPACA automated landmarking publication](https://doi.org/10.1111/2041-210X.13689). 
 
 ## 1. Download sample data
 We provided two partial models of the same mountain beaver skull derived from two separate photogrammetric runs as sample data: `partial_photogram_model1.obj` is a partial skull with no bottom, and `partial_photogram_model2.obj` is a partial skull with no top. After installing the SlicerMorph extension, they can be downloaded from the `Sample data module`: clicking the `partial photogrammetry models` button under the `FastModelAlign` tab will download the two sample models to the Slicer cache folder and load them into Slicer automatically (also downloadable here: [SlicerMorph sample data](https://github.com/SlicerMorph/SampleData). The following tutorial are based on these two sample models.
@@ -95,12 +95,3 @@ Users can adjust the parameter settings under the `Advanced Settings` tab before
 <p align="center">
 <img src="images/Figure_16.png" width = 400>
 </p>
-
-
-## Reload and test
-Click `Reload and Test` will load the two sample models used in this tutorial into Slicer and perform a scaling and rigid registration for the `partial_photogram_model2.obj`.
-
-<p align="center">
-<img src="images/Figure_17.png" width = 500>
-</p>
-
