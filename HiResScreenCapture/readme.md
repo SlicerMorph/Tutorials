@@ -11,10 +11,11 @@ This module is a part of the SlicerMorph extension for 3D Slicer, designed to ca
    - Look for the `HiResScreenCapture` module in the list of available modules.
 
 3. **Configure Settings:**
-   - Enter a filename for the screenshot in the `Filename` field, be sure to include the `.png` extension at the end.
-   - Click `Select Output Folder` to choose where the screenshot will be saved.
-   - Set the desired resolution for the screenshot using the `X Dimension` and `Y Dimension` fields.
-   - Select the 3D view you want to capture from the `3D View` dropdown list.
+   - ***Output File**: Specify the path to save the screenshot. You can type the path directly or click `Select Output File` to browse.
+   - ***Resolution Scaling Factor**: Use the spin box to set the scaling factor. The range is from 0.1 to 100.0.
+   - ***Current 3D Resolution**: Displays the current resolution of the 3D view.
+   - ***Expected Screenshot 3D Resolution**: Displays the resolution of the screenshot based on the scaling factor.
+
 
 4. **Capture Screenshot:** Click `Export Screenshot` to capture the screenshot with the specified settings.
 
