@@ -4,12 +4,12 @@
 
 # Automated landmarking through pointcloud alignment and correspondence analysis (ALPACA)
 
-`ALPACA` provides fast landmark transfer from a 3D model and its associated landmark set to target 3D model(s) through pointcloud alignment and deformable mesh registration (please see the original publication https://doi.org/10.1111/2041-210X.13689 for a throrough review). Unlike the Slicermorph's semi-landmark methods, it does not require presence of fixed landmarks. Optimal set of parameters that gives the best correspondence can be investigated (and outcome can be visualized) in single alignment mode, and then applied to a number of 3D models in batch mode. Invoked first time, `ALPACA` needs your permission to download `open3D` library. Depending on the internet speed, download may take sometime but it is a one-time event.
+`ALPACA` provides fast landmark transfer from a 3D model and its associated landmark set to target 3D model(s) through pointcloud alignment and deformable mesh registration (please see the original publication https://doi.org/10.1111/2041-210X.13689 for a throrough review). Compared to patch landmarking methods in SlicerMorph, it does not require presence of fixed landmarks. Optimal set of parameters that gives the best correspondence between a source model (one with the landmarks) and a target model (to which the landmarks will be transferred) can be investigated (and outcome can be visualized) in single alignment mode, and then applied to a number of 3D models in batch mode. Invoked first time, `ALPACA` will need to download necessary ITK libraries. Depending on the internet speed, download may take a few moments but it is a one-time event.
 
 ## Module Overview
 Open the ALPACA module. 
 
-:pencil2:  If this is the first time you are opening `ALPACA`, it will ask you if you are ok with installing `open3d`. If you are using a Windows machine, the installation process can take a few minutes. 
+:pencil2:  If this is the first time you are opening `ALPACA`, it inform you that it will be downloading necessary python libraries. This may take a few minutes. 
 
 <p align="center">
 <img src="images/ALPACA000.PNG" width = 500>
@@ -84,9 +84,9 @@ You can also use the Slicer's data loading capabilities by clicking the `Data lo
 
   * __Reference Target Landmark Set (optional)__: Leave this button blank for now. We will go over it in Step 6. 
 
-  * __Skip Scaling__: Optional argument that determines whether the source mesh should be scaled to match the size of the target mesh. Please leave this option unchecked.
+  * __Scaling__: Argument that determines whether the source mesh should be scaled to match the size of the target mesh (default). If you want to skip scaling, please uncheck this option.
 
-  * __Skip Projection__: Optional argument that determines whether the final landmark predictions should be projected to the surface of target mesh. Please leave this option unchecked.
+  * __Projection__: Argument that determines whether the final landmark predictions should be projected to the surface of target mesh (default). If you do not want the projection step, unchecked this option.
 
 <p align="center">
 <img src="images/ALPACA008.PNG", width = 600>
