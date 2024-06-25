@@ -10,9 +10,10 @@ Then find the `SkyscanReconImport` under **SlicerMorph->Input and Output** menu 
 <img src="SkyscanReconImport.png">
 
 ### Batch Mode
-If you have a large number of scans that you would like to convert, you can use the **Batch Mode**. The only requirement is that all scans to be converted are under a single directory tree. The user needs to point out to the root of the directory tree, and hit **Find Log Files**. This will parse all sub folders and output all the Nrecon reconstruction log files found in table. Then, the user can specify which wants to convert by checking the box next to log file path (red box). You need to specify output locations for full-resolution volumes, and if selected for downsampled volumes. You can specify 1/2 or 1/4 downsampling ration (per axis)
+If you have a large number of scans that you would like to convert, you can use the **Batch Mode**. The only requirement is that all scans to be converted are under a single directory tree. The user needs to point out to the root of the directory tree, and hit **Find Log Files**. This will parse all sub folders and output all the Nrecon reconstruction log files found in table. Then, the user can specify which ones to convert by checking the box next to log file path (red box). You need to specify output locations for full-resolution volumes, and if selected for downsampled volumes. You can specify 1/2 or 1/4 downsampling ration (per axis)
 
 <img src="Skyscan_Batchmode.png">
+
 ### About specimen transformation. 
 
 For this transformation to hold, the specimen should be oriented in the scanner bed such that the anterior of the specimen should be closest to the scanner, and operator should be looking down to the dorsal (top) surface (see the specimen picture above). We only tested this with Bruker 1076. So if you are Bruker users, we appreciate if you can provide further feedback about whether this transformation brings your specimen to the correct anatomical orentation. 
