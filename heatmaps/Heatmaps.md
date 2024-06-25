@@ -1,5 +1,5 @@
 # How to visualize heatmaps of surface difference in 3D Slicer
-This tutorial steps you through how to create models and heatmaps in Slicer that show the difference between the mean shape and shapes at an extreme of a principal component axis from a PCA. If you've analyzed your data in R, we've also included how to create the models in R, but all steps of this process can be done in Slicer!
+This tutorial steps you through how to create models and heatmaps in Slicer that show the difference between the mean shape and shapes at an extreme of a principal component axis from a PCA. 
 
 Things you will need to be able to do this on your own dataset: 
   - full landmark dataset
@@ -8,22 +8,22 @@ Things you will need to be able to do this on your own dataset:
   - Landmarks for your reference model
   - Install the Model To Model Distance Extension from the extension catalogue
   
-If you want to run the tutorial as written, you need to download (or git clone) the https://github.com/SlicerMorph/Mouse_Models repository. _
+If you want to run the tutorial as written, you need to download (or git clone) the https://github.com/SlicerMorph/Mouse_Models repository. Or you can use your own data.
 
 -----
-### Creating PCA shape models using from the GPA module
-Navigate to the GPA module, select all landmarks in the LM folder of the mouse_models folder. For the heatmaps to have physical meaning, you need to execute your analysis with Boas coordinates option enabled. This will make sure that the scale of data is preserved during the PCA decomposition. If you leave the Boas coordinates option unchecked, then the heatmap values will be in the unitless procrustes distances. Set your output folder and other options as usual and execute the GPA + PCA. 
+## Creating PCA shape models using from the GPA module
+Navigate to the GPA module, select all landmarks in the LM folder of the mouse_models repo you have downloaded. For heatmaps to have physical meaning, you need to execute your analysis with Boas coordinates option enabled. This will make sure that the scale of data is preserved during the PCA decomposition. If you leave the Boas coordinates option unchecked, then the heatmap values will be in the unitless procrustes distances. Set your output folder and other options as usual and execute the GPA + PCA. 
 
-For input if you have selected all LMs as instructed, then GPA module will report as the FVB_NJ specimen as the sample closest to the consensus shape. We will use the 3D model (and its corresponding LM) as our reference model. 
+For input if you have selected all LMs as instructed, then GPA module will report as the FVB_NJ specimen as the sample closest to the consensus shape. We will use the 3D model (and its corresponding LM) as our reference model. For your own data, make sure you choose the sample closest reported to be closest to the mean shape.
 
-Go to the `Interactive 3D Visualization` tab of GPA module and choose the 3D model visualization option. Navigate to the `FVB_NJ_.ply` file  and `FVJ_NJ_.fcsv` file as reference model and LM, respectively, and hit Apply. What this step would transform the original FVB_NJ model as the mean shape model. This model will provide the basis of heatmap visualization. Now slide the PC1 axis all the way to the +100 side. This will deform the mean model to the maximum of PC1. This would be the model we will calculate the difference from the mean model. We need to save these two models. To do that go to the `Data` module and:
+Go to the `Interactive 3D Visualization` tab of GPA module and choose the 3D model visualization option. Navigate to the `FVB_NJ_.ply` file  and `FVJ_NJ_.fcsv` file as reference model and LM, respectively, and hit Apply. What this step would do is to transform the original FVB_NJ model in the mean shape model of the study. This model will provide the basis of heatmap visualization. Now slide the PC1 axis all the way to the +100 side. This will deform the mean model to the maximum of PC1. This would be the model we will calculate and visualize its difference from the mean model. We need to save these two models. To do that go to the `Data` module and:
 
 1. Right-click on the `FVB_NJ_` 3D model object and choose "Export To File". In the popup window, set the filename to **meanModel.ply** and specify the output folder and export format (ply), and then hit export
 2. Right-clik on the 'PCA Warped Volume' and and choose "Export To File". In the popup window, set the filename to **PC1_Max.ply**, specify the output folder, export format (ply), and **make sure that Apply Transforms option is checked (important!)** then hit export. 
 
 Now, you have all the necessary ingredients to create distance heatmaps.
 
-### Creating heatmaps in Slicer
+## Creating heatmaps in Slicer
 1. Make sure you have installed the `Model to Model Distance` extension, and restarted your Slicer session for changes to take effect. 
 
 2. Load both meanModel and PC1_Max models into your scene. 
