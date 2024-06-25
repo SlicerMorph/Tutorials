@@ -22,7 +22,6 @@ library(SlicerMorphR)
 ### Step 3. Point to the location of the analysis.log file that was saved by SlicerMorph's GPA module. 
 We can do this either via coding the path OR interactively.
 
-If you are knitting the document, make sure to hard code the path. 
 ```{r load log file}
 # coding the path to log file example 
 # SM.log.file="/Users/amaga/Desktop/covariate_output/2024-06-24_15_42_13/analysis.json"
@@ -57,7 +56,7 @@ $skipped
 
 ```
 
-### Step 4. Read the OutputData.csv and pcScores.csv output by GPA module into a data matrix using the pointers stored in SM.log.
+### Step 4. Read the OutputData.csv and pcScores.csv output by SlicerMorph's GPA module into a data matrix using the file pointers stored in SM.log.
 ```
 SM.output <- read.csv(file = paste(SM.log$output.path, 
                                 SM.log$OutputData, 
@@ -108,13 +107,13 @@ dimnames(Coords) <- list(1:no.LM,
 ### Step 7. Running a regression model between GPA aligned coordiantes and centroids output by the GPA module
 We first construct a geomorph data frame withe data imported from SlicerMorph and fit a model to SlicerMorph's GPA aligned coordinates and centroid sizes
 ```
-gdf <- geomorph.data.frame(Size = SM.output$centeroid, Coords = Coords)
+gdf <- geomorph.data.frame(Size = SM.output$centroid, Coords = Coords)
 fit.slicermorph <- procD.lm(Coords ~ Size, data = gdf, print.progress = FALSE)
 ```
 * `SM.output$centeroid` stores the centroid sizes
 
 
-### Step 8. Read the raw landmark coordinates using the file pointers parsed by `parser()` and stored in `SM.log`, aligns them with `gpagen()`, and applies PCA
+### Step 8. Read the raw landmark coordinates using the file pointers parsed by `parser2()` and stored in `SM.log`, align them with `gpagen()`, and apply PCA
 ```
 gpa <- gpagen(SM.log$LM)
 pca <- gm.prcomp(gpa$coords)
@@ -124,7 +123,7 @@ geomorph.PCs <- pca$x
 * geomorph.PCs stores all PC scores
 
 
-### Step 9. Build the same allometric regression model based on the coordinates aligned in Step 8 and then compares it to the results in Step 7.
+### Step 9. Build the same allometric regression model based on the coordinates aligned in Step 8 and then compare it to the results in Step 7.
 ```
 gdf2 <- geomorph.data.frame(size = gpa$Csize, coords = gpa$coords)
 fit.rawcoords <- procD.lm(coords ~ size, data = gdf2, print.progress = FALSE)
@@ -132,7 +131,7 @@ fit.rawcoords <- procD.lm(coords ~ size, data = gdf2, print.progress = FALSE)
 
 Due to arbitrary rotations, we cannot compare procrustes coordinates directly, instead we look centroid sizes, procD, PC scores, and allometric regression model summary. 
 
-### Step 10. Calculate each sample's Procrustes distance to the consensus shape because geomorph does not report each sample's procD to the consensus shape.
+### Step 10. Calculate each sample's Procrustes distance to the consensus shape because geomorph does not report this.
 ```
 pd <- function(M, A) sqrt(sum(rowSums((M-A)^2)))
 geomorph.PD <- NULL
@@ -147,7 +146,7 @@ for (i in 1:length(SM.log$files))
 plot(gpa$Csize, SM.output$centroid, 
      pch = 20, ylab = 'SlicerMorph', 
      xlab = 'geomorph', main = "Centroid Size")
-cor(gpa$Csize, SM.output$centeroid)
+cor(gpa$Csize, SM.output$centroid)
 ```
 The results should be:
 <p align="center">
