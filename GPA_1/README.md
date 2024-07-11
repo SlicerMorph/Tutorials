@@ -1,32 +1,34 @@
 # Generalized Procrustes Analysis (GPA) Module I
 
 
-## Basics of GPA Fitting 
-This tutorial will walk you through to using the SlicerMorph GPA module to run GPA/PCA on a sample dataset of mouse skull landmarks and will show how to create visualizations of the PC vectors and variance at the landmark points. Instructions on creating an interactive 3D visualization and exporting the GPA module results to R are in the tutorials: [GPA II](../GPA_2/README.md) and [GPA III](../GPA_3/README.md)
+## Introduction
+This tutorial will walk you through using the SlicerMorph's GPA module to run GPA/PCA on a sample dataset. GPA is a complex module with multiple tabs that accomplish different tasks related to geometric morphometrics. This first tutorial will introduce the interface and explain the basics of the setting up the analysis (such data import, analysis options, output directory etc..) and executing the analysis. The other tutorials on GPA will show:
 
-### Data Import and GPA Analysis
-1. Download the **Mouse Skull Landmarks** from the `Sample Data` module as described in Tutorial 2: Sample Data. Please check the folder contents and note that there are 126 FCSV files. You can drag'n'drop one of the FCSV files into Slicer and see that it contains 55 landmarks (you may need to hit the center field of view button in 3D rendering window). Once you verify your contents hit `CTRL + W` to empty your Slicer scene.
+1. How to create visualizations of the PC vectors and variance at the landmark points and use of covariates to plot factors 
+2. How to create interactive 3D visualizations and heatmaps of deformed PC models
+3. How to interface output from SlicerMorph's GPA module with R. 
 
-2. Search for `GPA` module. You layout will switch to having two 3D rendering window, a single slice view, a chart view and a table view. The module has three tabs that partition the workflow. The first tab, `Setup Analysis` will load the data and run the GPA/PCA.
+### Setup Analysis
+1. Download the **Mouse Skull Landmarks** from the `Sample Data` module and unzip its contents somewhere on your Desktop folder. Quickly review the folder contents and note that there are 126 files that contains landmark coordinates (one file per specimen). You can drag'n'drop one of the landmark files into Slicer and see that it contains 55 landmarks (you may need to hit the center field of view button in 3D rendering window). Once you review the of files, hit `CTRL + W` to empty your Slicer scene. We always recommend running the GPA module in an empty Slicer scene to avoid complications that may arise from having other data loaded into the Slcier. 
 
-<img src="./images/Picture2.png" width="900">
+2. Search for `GPA` module in Module Finder (CTRL +F) or use the Module Selector dropdown menu and navigate to **SlicerMorph->Geometric Morphometrics->GPA**. You layout will switch to a custom layout with two 3D rendering windows, a single slice view, a chart view and a table view. We are ready to choose our study sample. 
 
-3. Click on the `Select Landmarks..` button next to the `Landmark Folder`. In the file browser pop-up, navigate to your Mouse_Skulls_LMs folder downloaded in step 1. Check that the file selection type is set to FCSV and select all the FCSV files in the folder. Click the `Open` button to confirm the selection. 
+3. Click on the `Select Landmarks..` button next to the `Landmark Folder`. In the file browser pop-up, navigate to folder you downloaded in step 1. GPA module supports both the legacy **fcsv** and the new **mrk.json** markup format (although we advise saving all your markups in mrk.json format). Select all the files in the folder. Click the `Open` button to confirm the selection. 
 
-<img src="./images/Picture3.png" width="900">
+4. In the GPA module, expand the `View selected landmark files` tab. This table will display the full paths of all files that will be included in the analysis. **Note:** If you want to exclude some samples from your analysis, simply repeat the selection process and do not choose the specimen(s) you wish to exclude from the analysis.
 
-4. In the GPA module, expand the `View selected landmark files` menu. In the file viewer, you will see a list of the file paths for the 126 selected FCSV files. This list can be edited manually when needed to exclude subjects from the analysis.
+5. Now specify the output directory by clicking the `..` button next to it. A time-stamped subfolder will be automatically created inside this folder when you execute the GPA. Each time you execute the GPA a new time-stamped subfolder will be created, so that results aren't overwritten. 
 
-<img src="./images/Picture3_5.png" width="500"> 
+6. Leave the **Use Boas Coordinates for GPA** option unchecked. If checked, this option will reintroduce the size for PCA decomposition by multiplying the procrustes aligned coordinates with the centroid size of the specimen. Otherwise PCA decomposition is done on procrustes aligned coordinates that are scaled to unit size.
 
-5. Click on the `..` button next to the `Output Folder` to specify where GPA module will save its out put (choosing the same folder as the previous one is fine). GPA module will create a time-stamped output folder each time you execute an analysis, so the results will not get overwritten. 
+<!--- 7. Next tab is called **Load Optional Covariates table** and allows the user to specify additional covariates in the analysis (e.g., sex, genotype, locomotor mode etc.). You need to specify the name(s) of the covariate(s) you want to include with your data. If you have more than one covariate, separate them by a comma (,). After you enter the labels, hit the `Generate Template` button for Slicer to create an empty csv file with the subject ID and factors labels prepopulated. No missing values are allowed in the covariate table.----> 
 
-6. Do not enter any landmarks to skip, and leave `Skip Scaling during GPA` unchecked, and hit `Execute GPA + PCA`.
+7. Hit `Execute GPA + PCA`.
 
 <img src="./images/Picture4.png" width="900">
 
 ### Viewing the Output Data
-7. To view the output from the GPA module, click the `View Output Files` button. This will open the unique results folder created from this run and named with the timestamp from the run time. Note the log file and five CSV files containing the eigenvalues, eigenvectors, mean shape, PC scores, and combined output that contains new procrustes aligned coordinates, centroid sizes and Procrustes distances from the output. If you want to do more specific analysis, these will be files you will import into R/geomorph or other shape analysis packages. T
+8. To view the output from the GPA module, click the `View Output Files` button. This will open the timestamped results subfolder created from this GPA run. Note the analysis.json (analysis.log in older versions) file and multiple CSV files containing the eigenvalues, eigenvectors, mean shape, PC scores, and combined output that contains new procrustes aligned coordinates, centroid sizes and Procrustes distances from the output. If you want to do more specific analysis, these will be files you will import into R/geomorph or other shape analysis packages.
 
 <img src="./images/Picture5.png" width="900">
 
