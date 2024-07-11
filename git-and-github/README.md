@@ -1,5 +1,5 @@
 ## Setting up your github account for ssh access.
-You need to be able to push (upload) changes to the repositories you have created or have write-access to, you need to setup an authentication method with github. This is most easily done using a secure key encryption. Much like ssh, once you set an ssh-key, you can push changes to the repositories (that you have access to) without having to enter password, or use another method of authentication. Instructions here cover Unix like operating systems (like Linux or MacOS), but they are almost identical to Windows. You can find [more detailed instructions from the github page: Connecting github with ssh](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)
+To be able to push (upload) changes to the GitHub repositories you have created or have write-access to, you need to setup an authentication method with github. This is most easily done using a secure key encryption. Much like ssh, once you set an ssh-key, you can push changes to the repositories (that you have access to) without having to enter password, or use another method of authentication. Instructions here cover Unix like operating systems (like Linux or MacOS), but they are almost identical to Windows. You can find [more detailed instructions from the relevant github page: Connecting github with ssh](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)
 
 Let's get started:
 
@@ -18,22 +18,23 @@ ssh-keygen -t ed25519 -C "your_email@example.com" -f myGitHubKey
 You can optionally create a passphrase for additional protection. Do not create a passphrase for this exercise. 
 
 4. Add the private key to the ssh agent to use by giving the command: 
-`ssh-add ~/.ssh/github_MLbox
+`ssh-add ~/.ssh/myGitHubKey
 `
 **NOTE:** for this command to work, the ssh agent should be running in the background. If you get an error, it means it is not running. In that case, type the command below, and then retry:
 ```
 eval `ssh-agent -s`
 ```
 
-5. Now you have two files created: myGitHubKey is your private key with your encryption signature that you will not share with anyone, and myGitHubKey.pub is your public key. You need to upload your public key to github. For that please follow their instructions:  https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
+5. Now you have two files created: **myGitHubKey** is your private key with your encryption signature that you will not share with anyone, and **myGitHubKey.pub** is your public key. You need to upload your public key to github. For that please follow their instructions:  https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
 
 6. To test whether everything has worked, type this command:
 `ssh -T git@github.com`
 
 you should get something that looks like this:
+
 <img src="gh1.png">
 
-If you got this, you are set. If there is an error, check your steps and read the detailed instructions on GH page carefully.
+If you got this, you are set. If there is an error, check your steps and re-read the detailed instructions on GH page carefully.
 
 **NOTE:** if you have another computer (e.g., office desktop) that you would like to be able to push changes to github, all you have to do is to copy the your **private** key to the appropriate folder (e.g., if this is a Windows computer, and your username is Murat, it would be `C:\Users\Murat\.ssh\myGitHubKey`). 
 
@@ -53,9 +54,9 @@ Git is a distributed (and decentralized) version tracking software. Meaning you 
 
 **Push:** Making the contents of the remote repository up to date with the local one. (this is only possible if you are the owner of the remote repository, or have been granted write-access as a collaborator by the owner of the repo). 
 
-**Fork:** Making an identical (of then current state) of somebody else’s repository under your account. When you are changing contents of the “forked” copy, these are not shown in the original repository. When developer communities disagree about how product development should continue, a group may “fork” a project and continue independently of the other group. These projects will share common development history till the fork, and continue independent of each other after fork. (in a biological analogy, this will be a cladogenetic -two lineages separating- event, like speciation). 
+**Fork:** Making an identical copy (of then current state) of somebody else’s repository under your account. When you are changing contents of the “forked” copy, these are not shown in the original repository. When developer communities disagree about how product development should continue, a group may “fork” a project and continue independently of the other group. These projects will share common development history till the fork, and continue independent of each other after fork. (in a biological analogy, this will be a cladogenetic -two lineages separating- event, like speciation). 
 
-**Commit:** a change made to the repository. Every commit has a short description of the change and an associated unique commit number. Commits are what is stored in the project timeline. You can rollback commits. You can of course create a commit for every single file changed, but for best operational practices, commits should be logically linked (e.g., in SlicerMorph changes related to ALPACA should be committed separately of the changes to the GPA module. Because these are two separate modules with different functionalities. However, if the change in GPA is required by a change in ALPACA, it makes sense to commit them together). This requires some thinking about what and when you want to commit. For example, if you committed a change for every single file modified or added to a project and you find that your project doesn’t work after these commits, you would have to rollback all these commits one by one until you can bring your project back to a working state. This can be very annoying, if you have lots of files (hence lots of commits). Conversely, in the case of committing unrelated GPA and ALPACA changes in the same commit, it would be impossible to unroll ALPACA commit but keep the GPA one (let’s assume changes broke ALPACA, but GPA is fine). So, think.  
+**Commit:** a change made to the repository. Every commit has a short description of the what the change is and an associated unique commit number. Commits are what is stored in the project timeline. You can rollback commits. You can of course create a commit for every single file changed, but for best operational practices, commits should be logically linked (e.g., in SlicerMorph changes related to ALPACA should be committed separately of the changes to the GPA module. Because these are two separate modules with different functionalities. However, if the change in GPA is required by a change in ALPACA, it makes sense to commit them together). This requires some thinking about what and when you want to commit. For example, if you committed a change for every single file modified or added to a project and you find that your project doesn’t work after these commits, you would have to rollback all these commits one by one until you can bring your project back to a working state. This can be very annoying, if you have lots of files (hence lots of commits). Conversely, in the case of committing unrelated GPA and ALPACA changes in the same commit, it would be impossible to unroll ALPACA commit but keep the GPA one (let’s assume changes broke ALPACA, but GPA is fine). So, think.  
 
 **Branch:**  In some ways you can think of creating an internal fork of the project without having to create a new repository. In multi-developer settings, branches are a must. Imagine we have two developers working on ALPACA and GPA module at the same time, and independent of each other. They start with the same code base at the same time. To avoid potential conflicts, both of them will create separate branches and continue their development and commit these changes independently of each other. Even, in a single developer situation, you want to use branches when you are ready to experiment on the code, but do not want to mess up the existing working code base. You create new branch, make your changes in there, and if they work you can merge that branch with the MAIN branch. Or discard it. 
 
