@@ -65,4 +65,9 @@ At this point you have two different actions happening simultaneously, you can p
 Select one of the rendering preset sizes (from 160x120 to 3820x2160) as **Animation Size**, the output file and format, and the hit **Export**. If you encounter an error about FFMPEF library, make sure that it is correctly installed (e.g., check the FFMPEG executable path specified in `ScreenCapture` module under Advanced tab).
 
 Alternatively, you can output the result of your animation as a sequence of rendered frames, which gives you more control over post-processing of the output (e.g., you can import the sequence into video maker software, enhance contrast, change the timing or add text, music/speech, etc). Once you are satisfied with the animation you created in `Animator`, go to `Screen Capture` module. Change the Animation mode setting to _sequence_. Check the other settings, and click **Capture**.
- 
+
+### Some Example Animations
+
+1. [diceCT scan of E15 mouse fetus displaying it is organs as segmented structures (done in conjunction with MEMOs extenions)](https://app.box.com/s/c7thqagk4zrd3uy4qu2pvm718tvvxvh1)
+2. [Adult mouse heart perfused with vascular dye](https://app.box.com/s/1ethu7omtm76jyyndohun7c8upvzb5ho)
+3. [Exploding mouse head](https://x.com/SlicerMorph/status/1395569101678940161/video/1)
