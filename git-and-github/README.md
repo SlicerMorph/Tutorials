@@ -5,10 +5,11 @@ Let's get started:
 
 1. In a UNIX systems `~` (tilda) sign is short for path to your home directory. For example if your home is /home/murat, then `cd /home/murat` and `cd ~` are equivalent.
 2. Open a terminal windows and type `cd ~/.ssh`. **NOTE:** If you get an error message, it means there is no .ssh folder under your account yet. First you have to create it with these commands:
-`
+```
 mkdir ~/.ssh
 chmod 700 ~/.ssh
-` 
+```
+
 3. To create a private and public key pair to use on github, type:
 `
 ssh-keygen -t ed25519 -C "your_email@example.com" -f myGitHubKey
