@@ -73,10 +73,10 @@ Now, let's play with git and github:
 git config -l |grep user
 `
 If the output doesn’t display the correct user name and/or email, you can set them via:
-`
+```
 git config --global user.name 'your github username’
 git config --global user.email 'email address you registered with github'
-`
+```
 3. Clone the freshly created repository to your local drive.  
 `
 git clone github.com/your_GH_username/demo
