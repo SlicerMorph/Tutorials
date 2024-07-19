@@ -133,7 +133,11 @@ git checkout development
 `
 After this if you type `dir` or use the file browser, you will see the new file (in my case **only_in_development**). 
 
-9. Ready for more in-depth knowledge? Software carpenteries have an excellent tutorial called [**Version Control with git (and github)**](https://swcarpentry.github.io/git-novice/) that covers much more than this brief intro.
+## Other resources
+
+* [Git cheatsheet by GitHub](https://training.github.com/downloads/github-git-cheat-sheet.pdf) provides a summary of most commonly used git commands. 
+
+* Software carpenteries have an excellent tutorial called [**Version Control with git (and github)**](https://swcarpentry.github.io/git-novice/) that covers much more than this brief intro.
 
 
 
