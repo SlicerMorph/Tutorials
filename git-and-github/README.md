@@ -33,7 +33,7 @@ eval `ssh-agent -s`
 
 you should get something that looks like this:
 
-<img src="gh1.png">
+<img src="./gh1.png">
 
 If you got this, you are set. If there is an error, check your steps and re-read the detailed instructions on GH page carefully.
 
@@ -43,7 +43,7 @@ If you got this, you are set. If there is an error, check your steps and re-read
 
 **Couple clarifications:** Git and github are not identical things. GIT is an open protocol for distributed version tracking. Github is a commercial (Microsoft) service built onto git protocol and is not open source.  You do not need GITHUB to use git. There are other git protocol service providers (e.g., gitlabs) or you can even create your own git service on the cloud (not advised).  
 
-Git is a distributed (and decentralized) version tracking software. Meaning you do not need to be connected to the internet to use git. You can make all the changes on your local repository and when you have connection (or ready to go) update the main (used to be called master) repository. Some git lingo that is important to understand are: 
+Git is a distributed (and decentralized) version tracking software. Meaning you do not need to be connected to the internet to use git. You can make all the changes on your local repository and when you have connection (or ready to go) update the main (used to be called master) branch. Some git lingo that is important to understand are: 
 
 **Local repository:** A repository that sits on your own computer. 
 
@@ -55,9 +55,9 @@ Git is a distributed (and decentralized) version tracking software. Meaning you 
 
 **Push:** Making the contents of the remote repository up to date with the local one. (this is only possible if you are the owner of the remote repository, or have been granted write-access as a collaborator by the owner of the repo). 
 
-**Fork:** Making an identical copy (of then current state) of somebody else’s repository under your account. When you are changing contents of the “forked” copy, these are not shown in the original repository. When developer communities disagree about how product development should continue, a group may “fork” a project and continue independently of the other group. These projects will share common development history till the fork, and continue independent of each other after fork. (in a biological analogy, this will be a cladogenetic -two lineages separating- event, like speciation). 
+**Commit:** a change made to the repository. Every commit has a short description of the what the change is and an associated unique commit number. Commits are what is stored in the project timeline. You can rollback commits. You can of course create a commit for every single file changed, but for best operational practices, commits should be logically linked (e.g., in SlicerMorph changes related to ALPACA should be committed separately of the changes to the GPA module. Because these are two separate modules with different functionalities. However, if the change in GPA is required by a change in ALPACA, it makes sense to commit them together). This requires some thinking about what and when you want to commit. For example, if you committed a change for every single file modified or added to a project and you find that your project doesn’t work after these commits, you would have to rollback all these commits one by one until you can bring your project back to a working state. This can be very annoying, if you have lots of files (hence lots of commits). Conversely, in the case of committing unrelated GPA and ALPACA changes in the same commit, it would be impossible to unroll ALPACA commit but keep the GPA one (let’s assume changes broke ALPACA, but GPA is fine). 
 
-**Commit:** a change made to the repository. Every commit has a short description of the what the change is and an associated unique commit number. Commits are what is stored in the project timeline. You can rollback commits. You can of course create a commit for every single file changed, but for best operational practices, commits should be logically linked (e.g., in SlicerMorph changes related to ALPACA should be committed separately of the changes to the GPA module. Because these are two separate modules with different functionalities. However, if the change in GPA is required by a change in ALPACA, it makes sense to commit them together). This requires some thinking about what and when you want to commit. For example, if you committed a change for every single file modified or added to a project and you find that your project doesn’t work after these commits, you would have to rollback all these commits one by one until you can bring your project back to a working state. This can be very annoying, if you have lots of files (hence lots of commits). Conversely, in the case of committing unrelated GPA and ALPACA changes in the same commit, it would be impossible to unroll ALPACA commit but keep the GPA one (let’s assume changes broke ALPACA, but GPA is fine). So, think.  
+**Fork:** Making an identical copy (of then current state) of somebody else’s repository under your account. When you are changing contents of the “forked” copy under your account, these changes are not **pushed** to the original repository, but only existed in your **fork**. (a crude biological analogy would be a cladogenetic -two lineages separating- event, like speciation.)  The most basic purpose and motivation of forking is to enable permissionless (you do not need permission to make changes to a repository under your account) and distributed contribution (see Pull Request).  
 
 **Branch:**  In some ways you can think of creating an internal fork of the project without having to create a new repository. In multi-developer settings, branches are a must. Imagine we have two developers working on ALPACA and GPA module at the same time, and independent of each other. They start with the same code base at the same time. To avoid potential conflicts, both of them will create separate branches and continue their development and commit these changes independently of each other. Even, in a single developer situation, you want to use branches when you are ready to experiment on the code, but do not want to mess up the existing working code base. You create new branch, make your changes in there, and if they work you can merge that branch with the MAIN branch. Or discard it. 
 
@@ -103,9 +103,15 @@ However this will indiscriminately add all the files that have modified and crea
 
  
 6. So far the changes are in the local copy of your git repository. To update the remote server with these changes we will use the git command `push`. Push syntax with SSH keys is slightly different. You replace the https:// with the git@github.com and then instead of / you type “:” and enter your username. So the full syntax looks like this:  
-`
+```
 git push git@github.com:your_GH_username/demo.git
-`
+````
+
+you can also use the same syntax for cloning repositories:
+```
+git clone git@github.com:your_GH_username/demo.git
+```
+
 
 7. Go to the repository's page on github, and confirm that the README.md file now reflects your recent changes, and shows your brief commit description. 
 Congratulations, you have now mastered the basics git :fireworks: 
@@ -126,6 +132,8 @@ But if you type `dir` or use the file browser to see the contents of the folder,
 git checkout development
 `
 After this if you type `dir` or use the file browser, you will see the new file (in my case **only_in_development**). 
+
+9. Ready for more in-depth knowledge? Software carpenteries have an excellent tutorial called [**Version Control with git (and github)**](https://swcarpentry.github.io/git-novice/) that covers much more than this brief intro.
 
 
 
