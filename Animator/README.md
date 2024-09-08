@@ -7,7 +7,7 @@ To output animations either in animated GIF or in MP4, `Animator` relies on the 
 
 ### Setting up the animator
 1. Load the "Bruker/Skyscan mCT Recon sample" dataset from Sample Data module using the ImageStacks or SkyscanReconImport as described in their respective tutorials.
-2. Go to Volume Rendering module, and enable the volume rendering for the mouse volume. Choose  "Mouse_CT" from the preset. Note that Mouse_CT preset is only available if you enabled the SlicerMorph customizations in Application Settings.
+2. Go to Volume Rendering module, and enable the volume rendering for the mouse volume. Choose  "uCT-Skull" from the preset dropdown menu. 
 3. If you want to alter the volume property (VP) to your liking (or optimize it for your dataset) do it now. When done, go to "Save Data" and save the Mouse_CT.vp. 
 
 <img src="./VR1.png">
