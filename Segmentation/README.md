@@ -64,11 +64,13 @@ In this tutorial we will first introduce the different tools in the `Segment Edi
       2.  Allow overlap: None of the other segments are overwritten in the image below the brown segment is overlapping with the green and yellow segments. * If you're not sure which option to use for the *Modify other segments* option, the *Allow overlap* is the safest option. 
       3.  Overwrite visible: I made the green and yellow segments invisible by clicking the eye buttons next to each segment, then painted with the blue segment, and it overwrote the brown segment. But when I turned the visibility of the green and yellow segments back on, they were overlapping with the blue segment and not overwritten. 
     
-**Important Note:** By default, **Modify other segments** is set to _Overwrite All_. This can be changed to _Allow Overlap_ by user through the Application Settings (Edit->Application Settings->Segmentation). This menu allows other customization, such as choosingt the default segmentation terminology to be used. 
+**Important Note:** By default, **Modify other segments** is set to _Overwrite All_. This can be changed to _Allow Overlap_ by user through the Application Settings (Edit->Application Settings->Segmentation). This menu allows other customization, such as choosing the default segmentation terminology to be used. 
 
-    <img src="images/image5.png">
-    <img src="images/image6.png">
-    <img src="images/image7.png"> 
+<img src="images/image5.png">
+
+<img src="images/image6.png">
+    
+<img src="images/image7.png"> 
     
   
 ------
