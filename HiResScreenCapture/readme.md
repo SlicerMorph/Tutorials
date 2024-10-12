@@ -19,3 +19,8 @@ This module is a part of the SlicerMorph extension for 3D Slicer, designed to ca
    - ***Expected Screenshot Resolution**: Displays the resolution of the screenshot based on the scaling factor. For example, if you would like the final output to be image of 10" wide with 600DPI, you need to have the X dimension of the screenshot resolution to be 6000px. You can adjust the scaling factor based on this. 
  
 5. **Capture Screenshot:** Click `Export Screenshot` to capture the screenshot with the specified settings.
+
+6. **Example Output:**
+
+[Molar, 14530x12560 px](https://js2.jetstream-cloud.org:8001/swift/v1/SampleData/Rendering/molar.png)
+[Mouse Turbinates, 12200x12928 px](https://js2.jetstream-cloud.org:8001/swift/v1/SampleData/Rendering/Turbinates.png)
