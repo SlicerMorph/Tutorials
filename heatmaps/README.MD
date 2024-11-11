@@ -1,15 +1,13 @@
 # How to visualize heatmaps of surface difference in 3D Slicer
 This tutorial steps you through how to create models and heatmaps in Slicer that show the difference between the mean shape and shapes at an extreme of a principal component axis from a PCA. 
 
-Things you will need to be able to do this on your own dataset: 
+If you want to run the tutorial as written, you need to download (or git clone) the https://github.com/SlicerMorph/Mouse_Models repository. Or you can use your own data. If you choose to use your own dataset, these are the things you will need: 
   - full landmark dataset
   - a reference model - this can be an average image or just a single model from your dataset
     - Depending on your computer and the size of your model, you may need to decimate your model (make it smaller), which you can do in the `Surface Toolbox` module in 3D Slicer.
   - Landmarks for your reference model
   - Install the Model To Model Distance Extension from the extension catalogue
   
-If you want to run the tutorial as written, you need to download (or git clone) the https://github.com/SlicerMorph/Mouse_Models repository. Or you can use your own data.
-
 -----
 ## Creating PCA shape models using from the GPA module
 Navigate to the GPA module, select all landmarks in the LM folder of the mouse_models repo you have downloaded. For heatmaps to have physical meaning, you need to execute your analysis with Boas coordinates option enabled. This will make sure that the scale of data is preserved during the PCA decomposition. If you leave the Boas coordinates option unchecked, then the heatmap values will be in the unitless procrustes distances. Set your output folder and other options as usual and execute the GPA + PCA. 
