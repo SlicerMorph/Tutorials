@@ -12,7 +12,7 @@ Then find the `SkyscanReconImport` under **SlicerMorph->Input and Output** menu 
 ### Batch Mode
 If you have a large number of scans that you would like to convert, you can use the **Batch Mode**. The only requirement is that all scans to be converted are under a single directory tree. The user needs to point out to the root of the directory tree, and hit **Find Log Files**. This will parse all sub folders and output all the Nrecon reconstruction log files found in table. Then, the user can specify which ones to convert by checking the box next to log file path (red box). You need to specify output locations for full-resolution volumes, and if selected for downsampled volumes. You can specify 1/2 or 1/4 downsampling ration (per axis)
 
-<img src="Skyscan_Batchmode.png">
+<img src="Skyscan_BatchmodeNew.png">
 
 ### About specimen transformation. 
 
