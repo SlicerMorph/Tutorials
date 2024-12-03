@@ -234,7 +234,8 @@ Let's go and check volume properties in `Volumes` module. Our image and LabelMap
 #### Models
 Go back to `Segmentations` module and export a Model of your segment. You can leave the output node as it is and it will create a new model hierarchy. If your segment is relatively small, it should take a short time. 
 
-This representation is not a volume anymore, it looks like the thing you saw when you hit Show 3D button in Segment Editor but this is not just a visualization. This is a new data structure with 3D points and polygons, a surface mesh. Go into the Data module and see it. You can turn off the visibility here and change the color etc. Slicer assigns the same name and color from the Segmentation. Models are not show in slice views. The color is again just for visualization and when you save the model, it is not written to the file. 
+This representation is not a volume anymore, it looks like the thing you saw when you hit Show 3D button in Segment Editor but this is not just a visualization. This is a new data structure with 3D points and polygons, a surface model. Go into the Data module and see it. You can turn off the visibility here and change the color etc. Slicer assigns the same name and color from the Segmentation. Models are not show in slice views. The color is again just for visualization and when you save the model, it is not written to the file. 
+
 ------
 
 ### Part 4: Additional tips, tricks, and more modules to check out
