@@ -3,6 +3,12 @@ This tutorial describes how to create a series of grid patches using the `PlaceL
 
 To use this method, you will need a 3D model(s) and its accompanying set of fixed landmarks. For this tutorial download the mouse skull models and landmarks posted here: [mouse skull sample data](https://github.com/SlicerMorph/Mouse_Models/tree/newModels/newModels).
 
+## Before Starting the tutorial  
+Due to an issue that was discovered later, for `PlaceLMGrid` functionality to work as intended, you need to scale both the sample models and corresponding landmarks by a factor of 20. To do that, use the `Transforms` module to create a transform whose first three diagonals are 20. Then assign all the samples to this transform, harden it, and then save the scaled version same where on the disk, and then proceed with the tutorial.
+
+This issue is now fixed, but it is integrated after the workshop is started, so the Slicer version you are using still had the problem. 
+
+
 ----
 
 ### PlaceLandmarkGrid
