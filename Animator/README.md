@@ -10,7 +10,7 @@ To output animations either in animated GIF or in MP4, `Animator` relies on the 
 2. Go to Volume Rendering module, and enable the volume rendering for the mouse volume. Choose  "uCT-Skull" from the preset dropdown menu. 
 3. If you want to alter the volume property (VP) to your liking (or optimize it for your dataset) do it now. When done, go to "Save Data" and save it as **Mouse_CT.vp**. 
 
-<img src="./VR1.png">
+<img src="https://raw.githubusercontent.com/SlicerMorph/Tutorials/refs/heads/main/Animator/VR1.png">
 
 ### Volume Property action
 
