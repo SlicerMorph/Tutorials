@@ -30,6 +30,7 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 1. #### [Overview of Segmentation and related data types](https://github.com/SlicerMorph/Spr_2021/blob/main/Day_2/Segmentation/Segmentation.md)
 7. #### [Segmentation tutorial](https://github.com/SlicerMorph/Tutorials/blob/main/Segmentation/README.md)
 10. #### [Mesh Editing via Surface Toolbox and Dynamic Modeler](https://github.com/SlicerMorph/Spr_2021/blob/main/Day_2/Surface_Toolbox/Mesh_edits.md)
+11. #### [Creating Solid Models from Segmentations](https://github.com/SlicerMorph/Tutorials/tree/main/WaterTightModels#readme)
 
 ### Geometric Morphometrics Related
 1. #### [**Grid-based Semi-Landmarking:**](https://github.com/SlicerMorph/Tutorials/blob/main/GridBasedLandmarking/README.md)
