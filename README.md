@@ -41,6 +41,7 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 16. #### [**GPA-I:** Basics of GPA: Setting the analysis, exploring the morphospace](https://github.com/SlicerMorph/Tutorials/tree/main/GPA_1)
 17. #### [**GPA-II:** 3D interactive visualization of morphospace and exporting animations](https://github.com/SlicerMorph/Tutorials/tree/main/GPA_2)
 18. #### [**GPA-III:** Exporting data/results for R](https://github.com/SlicerMorph/Tutorials/tree/main/GPA_3#readme)
+19. #### [DeCaL Automated semi and fixed landmarking tutorial](https://github.com/SlicerMorph/Tutorials/blob/main/DeCAL/README.md)
 
 ### Others
 1. #### [**SlicerMorph preferences:** Explains what customizations can be done to Slicer as well as how to set download directory](https://github.com/SlicerMorph/Tutorials/tree/main/MorphPrefs)
