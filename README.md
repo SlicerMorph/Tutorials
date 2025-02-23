@@ -43,6 +43,10 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 18. #### [**GPA-III:** Exporting data/results for R](https://github.com/SlicerMorph/Tutorials/tree/main/GPA_3#readme)
 19. #### [DeCaL Automated semi and fixed landmarking tutorial](https://github.com/SlicerMorph/Tutorials/blob/main/DeCAL/README.md)
 
+### Photogrammetry
+1. #### [User Guide for the Photogrammetry Extension](https://github.com/SlicerMorph/SlicerPhotogrammetry?tab=readme-ov-file#user-guide)
+2. #### [Photogrammetry module video tutorial](https://www.youtube.com/watch?v=YRHlb0dGyNc&t=9s) 
+
 ### Others
 1. #### [**SlicerMorph preferences:** Explains what customizations can be done to Slicer as well as how to set download directory](https://github.com/SlicerMorph/Tutorials/tree/main/MorphPrefs)
 11. #### [Discourse thread on how to reorient and resample in Slicer](https://discourse.slicer.org/t/how-to-properly-use-the-segment-editor-with-transformed-volumes/21861/11?u=muratmaga)
