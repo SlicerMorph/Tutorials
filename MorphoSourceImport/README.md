@@ -29,7 +29,7 @@ When preparing to execute a data retrieval query in MorphoSource within the 3D S
 
 - **Query Keyword**: Input your primary search term that describes the dataset you are seeking, such as `Skull`. This field is mandatory.
 
-You can do compound keyword searches using `+` symbol for **AND** and `|`symbol for **OR**. If you can use parentheses to create more complex searches such as:
+You can do compound keyword searches using `+` symbol for **AND** and `|`symbol for **OR**. You can use parentheses to create more complex searches such as:
 
 `(lower+jaw)|head`: would mean searching for everything that has "lower jaw" OR "head" keywords. </br>
 `skull|SKULL|head|HEAD|cranium|CRANIUM`: would mean searching for records that contain ANY of these words.</br>
