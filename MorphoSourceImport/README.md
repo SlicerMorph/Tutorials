@@ -25,17 +25,15 @@ Before using the MorphoSourceImport module, ensure the following prerequisites a
 ## MorphoSource Query Fields 
 ![Query MorphoSourceImport](MS1_Query.png)
 
-When preparing to execute a data retrieval query in MorphoSource within the 3D Slicer environment, adhere to the following steps to specify your search criteria:
-
 - **Query Keyword**: Input your primary search term that describes the dataset you are seeking, such as `Skull`. This field is mandatory.
 
-You can do compound keyword searches using `+` symbol for **AND** and `|`symbol for **OR**. You can use parentheses to create more complex searches such as:
+You can do multiple keyword searches using `+` symbol for **AND** and `|`symbol for **OR**. You can use parentheses to create more complex searches such as:
 
-`(lower+jaw)|head`: would mean searching for everything that has "lower jaw" OR "head" keywords. </br>
+`(lower+jaw)|head`: would mean searching for everything that has ("lower" AND "jaw") OR "head" keywords. </br>
 `skull|SKULL|head|HEAD|cranium|CRANIUM`: would mean searching for records that contain ANY of these words.</br>
 
-When using compound search **DO NOT** leave any spaces between keywords, and do not use `""` for compund terms (i.e., if you want to find specifically **lower jaw** enter as `lower+jaw`, not `"lower jaw"` as you might do in google or other searches)
-  
+You can also use compound searches using double quotes `""`. For example compound keyword search `"lower jaw"` will return different results then the search `lower+jaw`. The former is more restrictive in the sense that keywords have to appear next to each other with a space in between, whereas in the latter as long as both "lower" and "jaw" keywords appear simultaneously in the metadata of the same media, a result will be returned. 
+
 - **Taxon**: To restrict your results to a specific taxon, input the appropriate classification level, for instance, `Primates` or `Carnivora`. This field is optional
 - **Media Tag**: To further refine your search, provide a relevant media tag if applicable. This field is optional. 
 - **Data Types**: Select the modality of 3D dataset. Either `Mesh` or `Volumetric Image Series`. You need to select one of these options for results to be returned. 
