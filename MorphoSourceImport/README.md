@@ -27,7 +27,15 @@ Before using the MorphoSourceImport module, ensure the following prerequisites a
 
 When preparing to execute a data retrieval query in MorphoSource within the 3D Slicer environment, adhere to the following steps to specify your search criteria:
 
-- **Query Keyword**: Input your primary search term that describes the dataset you are seeking, such as `Skull`. This field is mandatory. 
+- **Query Keyword**: Input your primary search term that describes the dataset you are seeking, such as `Skull`. This field is mandatory.
+
+You can do compound keyword searches using `+` symbol for **AND** and `|`symbol for **OR**. If you can use parentheses to create more complex searches such as:
+
+`(lower+jaw)|head`: would mean searching for everything that has "lower jaw" OR "head" keywords. </br>
+`skull|SKULL|head|HEAD|cranium|CRANIUM`: would mean searching for records that contain ANY of these words.</br>
+
+When using compound search **DO NOT** leave any spaces between keywords, and do not use `""` for compund terms (i.e., if you want to find specifically **lower jaw** enter as `lower+jaw`, not `"lower jaw"` as you might do in google or other searches)
+  
 - **Taxon**: To restrict your results to a specific taxon, input the appropriate classification level, for instance, `Primates` or `Carnivora`. This field is optional
 - **Media Tag**: To further refine your search, provide a relevant media tag if applicable. This field is optional. 
 - **Data Types**: Select the modality of 3D dataset. Either `Mesh` or `Volumetric Image Series`. You need to select one of these options for results to be returned. 
