@@ -32,7 +32,7 @@ You can do multiple keyword searches using `+` symbol for **AND** and `|`symbol 
 `(lower+jaw)|head`: would mean searching for everything that has ("lower" AND "jaw") OR "head" keywords. </br>
 `skull|SKULL|head|HEAD|cranium|CRANIUM`: would mean searching for records that contain ANY of these words.</br>
 
-You can also use compound searches using double quotes `""`. For example compound keyword search `"lower jaw"` will return different results then the search `lower+jaw`. The former is more restrictive in the sense that keywords have to appear next to each other with a space in between, whereas in the latter as long as both "lower" and "jaw" keywords appear simultaneously in the metadata of the same media, a result will be returned. 
+You can also use compound searches using double quotes `""`. For example compound keyword search `"lower jaw"` will return different results than the search `lower+jaw`. The former is more restrictive in the sense that keywords have to appear next to each other with a space in between, whereas in the latter as long as both "lower" and "jaw" keywords appear simultaneously in the metadata of the same media, a result will be returned. 
 
 - **Taxon**: To restrict your results to a specific taxon, input the appropriate classification level, for instance, `Primates` or `Carnivora`. This field is optional
 - **Media Tag**: To further refine your search, provide a relevant media tag if applicable. This field is optional. 
