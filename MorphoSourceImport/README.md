@@ -30,11 +30,13 @@ Before using the MorphoSourceImport module, ensure the following prerequisites a
 You can do multiple keyword searches using `+` symbol for **AND** and `|`symbol for **OR**. You can use parentheses to create more complex searches such as:
 
 `(lower+jaw)|head`: would mean searching for everything that has ("lower" AND "jaw") OR "head" keywords. </br>
-`skull|SKULL|head|HEAD|cranium|CRANIUM`: would mean searching for records that contain ANY of these words.</br>
+`skull|head|cranium`: would mean searching for records that contain ANY of these words.</br>
 
 You can also use compound searches using double quotes `""`. For example compound keyword search `"lower jaw"` will return different results than the search `lower+jaw`. The former is more restrictive in the sense that keywords have to appear next to each other with a space in between, whereas in the latter as long as both "lower" and "jaw" keywords appear simultaneously in the metadata of the same media, a result will be returned. 
-
 - **Taxon**: To restrict your results to a specific taxon, input the appropriate classification level, for instance, `Primates` or `Carnivora`. This field is optional
+
+**Case Sensitivity:** While the keyword search is NOT case sensitive (skull vs SKULL), Taxon field **is**. Furthermore, Taxon field does not support multi or compound keywords. If you want to search for `Gorilla beringei`, you need to enter either `Gorilla` or `beringei`. The former will return records from all species of genus Gorilla, whereas the latter will return any genera that has `beringei` as species. An Taxon entry 'gorilla' will only return records belonging to binomial name `Gorilla gorilla`, since it will only match to the species level. When in doubt what to capitalize, follow GBIF conventions (ie., any taxonomic field other then species level needs to have the first letter capitalized). 
+
 - **Media Tag**: To further refine your search, provide a relevant media tag if applicable. This field is optional. 
 - **Data Types**: Select the modality of 3D dataset. Either `Mesh` or `Volumetric Image Series`. You need to select one of these options for results to be returned. 
 - **Open Access Datasets Only**: Enable this option to limit your search results to datasets available under open access. Note that you cannot download restricted datasets, unless access already has been granted to you.
