@@ -51,8 +51,12 @@ As a convenience, we also provide an interface to select a subset of the atlas l
 
 <img src="./images/DeCAL5.png" width="500">
 
+### Merging Fixed and SemiLM 
+
+10. DeCaL output does not contain the fixed landmarks used to align the models. If you want to create a combined dataset that contains both initial fixed LMs and the semiLMs from DeCaL, you can use the **BatchMerge** tab of the SlicerMorph's `MergeMarkups` module. For fixed landmarks, choose the files in the **Aligned LM** folder of the DeCaL output folder you specified in the step #6. For semiLMs, selected the files in the **DeCaLOutput** folder created in Step #9. Note that this folder also contains the landmarks for the atlas model. When merging, make sure to exclude this file. Finally, specify where the merged markup files will be stored and then hit `Merge Fixed and SemiLandmark Nodes` button. 
+
 ### Excluding points from the atlas
-10. As an optional step, DeCAL provides a convenience function to subset the DeCAL landmark set. This is provided so that pseudolandmarks can be easly removed from The landmarks to include are selected from the atlas landmarks in the scene. To set up the point selection, expand the menu `Subset output points`.
+11. As an optional step, DeCAL provides a convenience function to subset the DeCAL landmark set. This is provided so that pseudolandmarks can be easly removed from The landmarks to include are selected from the atlas landmarks in the scene. To set up the point selection, expand the menu `Subset output points`.
 
 <img src="./images/DeCAL6.png" width="500">
 
