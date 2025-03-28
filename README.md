@@ -42,6 +42,7 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 17. #### [**GPA-II:** 3D interactive visualization of morphospace and exporting animations](https://github.com/SlicerMorph/Tutorials/tree/main/GPA_2)
 18. #### [**GPA-III:** Exporting data/results for R](https://github.com/SlicerMorph/Tutorials/tree/main/GPA_3#readme)
 19. #### [DeCaL Automated semi and fixed landmarking tutorial](https://github.com/SlicerMorph/Tutorials/blob/main/DeCAL/README.md)
+20. #### [DeCA: Dense Surface Correspondence Analysis](https://github.com/SlicerMorph/Tutorials/tree/main/DeCA#readme)
 
 ### Photogrammetry
 1. #### [User Guide for the Photogrammetry Extension](https://github.com/SlicerMorph/SlicerPhotogrammetry?tab=readme-ov-file#user-guide)
