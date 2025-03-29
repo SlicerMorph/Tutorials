@@ -16,7 +16,7 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 
 ### Visualization
 1. #### [Volume Rendering](https://github.com/SlicerMorph/Tutorials/blob/main/Slicer_Modules/Volume_Rendering/README.MD)
-5. #### [Lighting](https://github.com/SlicerMorph/Spr_2021/blob/main/Day_2/Lighting/Lights.md)
+5. #### [Lights](https://github.com/SlicerMorph/Tutorials/blob/main/Slicer_Modules/Lighting/Lights.md)
 7. #### [**Animator:** How to create keyframe-based animations of microCT scans](https://github.com/SlicerMorph/Tutorials/tree/main/Animator)
 8. #### [**HiResScreenCapture:** How to generate highDPI still images](https://github.com/SlicerMorph/Tutorials/tree/main/HiResScreenCapture#readme)
 
