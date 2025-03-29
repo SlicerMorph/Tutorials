@@ -65,7 +65,7 @@ To use your new SlicermorphColors table in the segmentation, simply drag and dro
 
 <img src="./10.png" width="512">
 
-Proceed with your segmentation as usual. When you create your first segment, it will still show up as **Segment_1**. To rename, double-click the its name and the terminology selector window will popup. It will again default to Slicer's built-in terminologies (including the UBERON you have added). Click the terminology selector dropdown and the use the custom color table you have loaded into the scene (in my case it is called SlicermorphColors). And then from there choose the proper term you will like to assign. Repeat the same steps for all other segments you create. ß
+Proceed with your segmentation as usual. When you create your first segment, it will still show up as **Segment_1**. To rename, double-click the its name and the terminology selector window will popup. It will again default to Slicer's built-in terminologies (including the UBERON you have added). Click the terminology selector dropdown and the use the custom color table you have loaded into the scene (in my case it is called SlicermorphColors). And then from there choose the proper term you will like to assign. Repeat the same steps for all other segments you create.
 
 <img src="./11.png" width="512">
 
