@@ -31,7 +31,7 @@ An recent addition to Slicer is the `Dynamic Modeler` tool, which provide functi
 
 8. Visually nothing will happen. We will need to rearrange the scene to changes. Go to `Data` module. Turn off the visibility of the input model (gorilla one). Change the colors of the left and right models different from each other and the original model for better visibility. Turn on/off one by one and if necessary reverse the labels to match the side of the skull they are representing. 
 
-<img src="./PlaneCut.png" width="600">
+<img src="./Plane2.png" width="600">
 
 9. Experiment with the other effects using the similar approach. E.g., give `Curve cut` a try to extract an arbitrarily shaped polygon. 
 
