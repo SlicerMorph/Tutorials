@@ -73,7 +73,7 @@ Proceed with your segmentation as usual. When you create your first segment, it 
 
 As you can see it does take a some clicks to create a custom color table. But once you create a list (or multiple lists broken down by clades or development or anatomy), you can share them with your students, colleagues or collaborators. This will allow everyone in the team to use the same terms and colors, and provide visually consistent segmentations, easing data sharing and reuse. 
 
-Currently there is no automated way to share these custom color tables. To enable re-use, we have created a github repository, https://github.com/SlicerMorph/terms-and-colors that provide currently provides a few sample color tables. 
+Currently there is no automated way to share these custom color tables. To enable re-use, we have created a github repository, https://github.com/SlicerMorph/terms-and-colors that currently provides a few sample color tables. 
 
 One that is of potential interest is the ["Colors of Skulls" collection created by Dr. Jaimi Gray](https://www.graysvertebrateanatomy.com/work/colorsofskullanatomy/) (University of Texas, formerly @UFL) during her work on the oVert project. It contains the most of the cranial bones in the tetrapod skulls mapped to unique colors. Using the same color coding, we converted this color table to Slicer's format and mapped them to their UBERON terms. This can be found at [in this link.](https://raw.githubusercontent.com/SlicerMorph/terms-and-colors/refs/heads/main/JaimiGrayTetrapodSkulls.csv) 
 
