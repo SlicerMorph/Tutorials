@@ -11,7 +11,7 @@ UBERON is an integrated cross-species anatomy ontology representing a variety of
 
 While UBERON distributes its full terminology in JSON format, we need it to be in a specific JSON format to be compatible with Slicer's Terminologies module. Each terms needs to have a color assigned to it and indication of what it represent (e.g., anatomical structure or tissue). Since we cannot assign unique colors to over 17,000 terms UBERON ontology contains, we randomly assigned a small set of colors to each of these terms. The custom color table will allow you to change these colors to whatever you like.
 
-To obtain the full set of UBERON terms (converted mid 2024), [follow this link](https://github.com/SlicerMorph/terms-and-colors/blob/main/uberon.full.json) and save the page as `uberon.full.json` somewhere on your computer.
+To obtain the full set of UBERON terms (converted mid 2024), [follow this link](https://raw.githubusercontent.com/SlicerMorph/terms-and-colors/refs/heads/main/uberon.full.json) and save the page as `uberon.full.json` somewhere on your computer.
 
 ## Importing UBERON to 3D Slicer.
 1. Hit CTRL+F, and search for Terminologies.
