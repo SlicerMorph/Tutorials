@@ -7,6 +7,7 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 1. #### [**Getting Data:** Shows how to use the Slicer's `Sample Data` and SlicerMorph's `ImportFromURL` modules to download and access sample data to be used in tutorials](https://github.com/SlicerMorph/Tutorials/tree/main/SampleData)
 3. #### [**ImageStacks:** Tutorial on how to import non-DICOM imagestacks easily into Slicer.](https://github.com/SlicerMorph/Tutorials/tree/main/ImageStacks)
 4. #### [**SkyscanReconImport:** How to import output from Bruker/Skyscan MicroCT](https://github.com/SlicerMorph/Tutorials/tree/main/SkyscanReconImport)
+5. #### [**GEVolImport:** A utility module import 3D volumes from GE/Phoenix scanners with PCR/VOL combination](https://github.com/SlicerMorph/SlicerMorph/tree/master/GEVolImport#gevolimport)
 7. #### [DICOM](https://github.com/SlicerMorph/Tutorials/blob/main/Slicer_Modules/DICOM/README.md)
 2. #### [CropVolume](https://github.com/SlicerMorph/Tutorials/blob/main/Slicer_Modules/Crop_Volume/Readme.MD)
 3. #### [Volumes](https://github.com/SlicerMorph/Tutorials/blob/main/Slicer_Modules/Volumes/Readme.MD)
