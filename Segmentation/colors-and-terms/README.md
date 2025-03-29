@@ -17,7 +17,8 @@ To obtain the full set of UBERON terms (converted mid 2024), [follow this link](
 1. Hit CTRL+F, and search for Terminologies.
 2. In the Terminologies module click the `+` right of the terminology drop-down selector, and navigate to the `uberon.full.json` file you have downloaded previously. 
 
-<img src="./1.png"><br>
+<img src="./1.png" width="512">
+
 3. You should see a message like the one shown in the screenshot, confirming the successful import of the UBERON terms. 
 
 ## Creating a custom color table to be used during segmentation
@@ -29,44 +30,44 @@ In this exercise we will use three terms from UBERON to create a custom color ta
 1. Hit CTRL+F and search for Colors
 2. Hit `Add empty color table node` button (top row, far right), and give you new color table a name (e.g., SlicerMorphColors)
 
-<img src="./2.png">
+<img src="./2.png" width="512">
 
 3. Hit the `+` button three times to add three rows to your blank table. Do not directly edit the `Number of Colors` field. This field will change as you add more rows via the `+`. You can use the `-` button to delete extraneous row.
 
-<img src="./3.png">
+<img src="./3.png" width="512">
 
 4. To enter your first term (`urohyal`), click the **Terminology** field of the 2nd row (with the index number of 1). It is important **not to enter anything accidentally to the top row with black color**. This is reserved for background color, which is always 0. Then, click the `Select from Terminology` button to fill the necessary fields in the window that popped up. 
 
-<img src="./4.png">
+<img src="./4.png" width="512">
 
 5. This will bring up the terminology selector. From the dropdown, make sure you have chosen the **Uberon anatomical structures** terminology, not the default Slicer ones. Then in the right panel, type in the first few letters of the urohyal until it filters terms with urohyal. Choose the correct one (the first entry) and hit `Select` button. 
 
-<img src="./5.png">
+<img src="./5.png" width="512">
 
 6. This will auto-populate the necessary fields in the `Edit Terminology` window with the unique identifier values from UBERON. Do not change anything, and hit `Save`.
 
-<img src="./6.png">
+<img src="./6.png" width="512">
 
 7. You can now change the color of the term to your liking by clicking the color button. If any reason you need to change the displayed label (e.g., from the shown urohyal to something like Urohyal), you can. The unique identifier that was entered will allow you (or others) to trace the origin of this term as [the UBERON entry 2000452](https://www.ebi.ac.uk/ols4/ontologies/uberon/classes/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FUBERON_2000452). Although, with the exception of few cases (where the formal UBERON term might be too long e.g., tetrapod frontal bone vs actinopterygian frontal bone), we suggest you keep the label as shown in UBERON ontology.
 
-<img src="./7.png">
+<img src="./7.png" width="512">
 
 8. Repeat these steps for the two other terms (carpometacarpus, preopercle)
 
-<img src="./8.png">
+<img src="./8.png" width="512">
 
 9. Once your color table is completed, remember to save (CTRL+S) it to a location you can find. 
 
-<img src="./9.png">
+<img src="./9.png" width="512">
 
 ## Using the custom color tables in segmentations.
 To use your new SlicermorphColors table in the segmentation, simply drag and drop the resultant SlicermorphColors.csv (or whatever you called your color table) in the Slicer scene, and hit ok. This should be automatically recognized as a color object. Hit OK.
 
-<img src="./10.png">
+<img src="./10.png" width="512">
 
 Proceed with your segmentation as usual. When you create your first segment, it will still show up as **Segment_1**. To rename, double-click the its name and the terminology selector window will popup. It will again default to Slicer's built-in terminologies (including the UBERON you have added). Click the terminology selector dropdown and the use the custom color table you have loaded into the scene (in my case it is called SlicermorphColors). And then from there choose the proper term you will like to assign. Repeat the same steps for all other segments you create. ß
 
-<img src="./11.png">
+<img src="./11.png" width="512">
 
 ## Sharing existing custom color-mapped anatomical terms
 
