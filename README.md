@@ -51,6 +51,7 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 2. #### [Photogrammetry module video tutorial](https://www.youtube.com/watch?v=YRHlb0dGyNc&t=9s) 
 
 ### Others
+0. #### [**What is a microCT:** If you have not worked with microCT images before, this short review might be useful](https://www.microphotonics.com/what-is-micro-ct-an-introduction/)
 1. #### [**SlicerMorph preferences:** Explains what customizations can be done to Slicer as well as how to set download directory](https://github.com/SlicerMorph/Tutorials/tree/main/MorphPrefs)
 11. #### [Discourse thread on how to reorient and resample in Slicer](https://discourse.slicer.org/t/how-to-properly-use-the-segment-editor-with-transformed-volumes/21861/11?u=muratmaga)
 12. #### [Discourse thread on rendering multi-channel (RGB) microscopy datasets in Slicer](https://discourse.slicer.org/t/best-data-import-practices-for-microscopy/22056/4?u=muratmaga)
