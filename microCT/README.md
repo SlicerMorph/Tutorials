@@ -56,9 +56,10 @@ Problems with Saving as Individual 2D Images (e.g., PNG)
    
 ### Advantages of DICOM Format
 DICOM (Digital Imaging and Communications in Medicine) is a widely used format in medical imaging. It addresses many of the issues associated with 2D bitmap formats:
-•	Metadata Storage: DICOM files include detailed metadata about the scan, such as voxel dimensions, patient information, and imaging parameters, ensuring that the data is self-descriptive.
-•	Integration: DICOM is a standardized format, making it compatible with a wide range of medical imaging software and systems.
-•	3D Context: DICOM files can store entire 3D datasets in a single file or a structured series, preserving the spatial relationships between slices.
+
+*	**Metadata Storage:** DICOM files include detailed metadata about the scan, such as voxel dimensions, patient information, and imaging parameters, ensuring that the data is self-descriptive.
+*	**Integration:** DICOM is a standardized format, making it compatible with a wide range of medical imaging software and systems.
+*	**3D Context:** DICOM files can store entire 3D datasets in a single file or a structured series, preserving the spatial relationships between slices.
 
 However, DICOM is not always ideal for microCT imaging, as it was primarily designed for clinical applications and may include unnecessary overhead for research-focused workflows.
 
