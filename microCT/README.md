@@ -9,33 +9,31 @@ In contrast, medical CT uses a larger spot size and broader X-ray beam to image 
 
 The smaller beam diameter or spot size in microCT systems provides the ability to focus on tiny details, making it ideal for research applications like analyzing bone microstructure, studying the internal anatomy of small organisms, or examining the porosity of materials. However, the trade-off is that microCT has a much smaller field of view, longer scan times, and may not be suitable for imaging larger specimens efficiently. Medical CT scans are used for diagnosing diseases in humans, while microCT is often used in research, engineering, and studying biological specimens.
 
-## Shadow (or Projection) Images
+## Projection (Shadow) Images
 Shadow, or projection, images in microCT imaging are the 2D X-ray images that are captured during the scanning process. They are formed when an X-ray beam passes through the object being scanned and creates a pattern of varying intensities on the detector. These patterns resemble shadows because they display the silhouette and internal structure of the object, depending on how much the X-rays are absorbed—or attenuated—by different parts of the material.
 
  <figure>
   <img src="./projection.png" alt="projection images">
-  <figcaption><b>Fig.1 Examples of X-ray projection images.</b></figcaption>
+  <figcaption><b>Fig.1 X-ray projection images vs Cross-sectional images.</b> Three images on the left are examples of projection image taken by the scanner at various angles during the scanning. These projection images are then mathematically reconstructed into cross-sectional images shown on the right (hence the name tomography). It is these cross-sectional images that we can go through in program like 3D Slicer and visualize as a virtual 3D object.   </figcaption>
 </figure> 
 
 
 ### How Shadows/Projection Images Are Created
 The X-ray source emits a beam of X-rays, which travel in straight lines toward the object. As the X-rays interact with the object, their intensity is reduced in certain areas depending on the object's thickness, density, and composition. This reduction in X-ray intensity is known as attenuation, which occurs because X-rays are absorbed or scattered by the material.
 
-For example:
+Dense materials, like bone or metal, attenuate more X-rays because they absorb or scatter a larger portion of the beam. This results in darker areas on the shadow or projection image. For example, in mammalian skulls enamel of the tooth is typically the densest material , followed by the inner ear. In images above, those regions are the darkest, indicating that a lot of the X-ray is being absored.
 
-Dense materials, like bone or metal, attenuate more X-rays because they absorb or scatter a larger portion of the beam. This results in darker areas on the shadow or projection image.
-
-Less dense materials, like soft tissue or air, attenuate fewer X-rays, leading to lighter areas on the image.
+Less dense materials, like soft tissue or air, attenuate fewer X-rays, leading to lighter areas on the image. Again in the images above, particularly in the middle one, the lightest shade of gray (on the right). Similarly the regions of the skull with large spaces such as endocranial cavity, nasal passages etc, show in lighter shades of gray compared to the bony part of the skull
 
 After passing through the object, the remaining X-rays strike the detector, which records the variation in X-ray intensity across the surface. This results in a 2D projection image that reflects both the external outline and internal structure of the object, based on how much X-rays were attenuated in different regions.
 
+### Where Projection Images Are Captured
+The shadows are captured on an X-ray detector, which is positioned opposite the X-ray source, with the object placed between them. As the object rotates during the scan, multiple shadow or projection images are captured from various angles. This rotational capture process allows the system to collect sufficient data for reconstructing a 3D model of the object.
  <figure>
   <img src="https://www.microphotonics.com/wp-content/uploads/2015/05/micro-CT-x-ray-source-schematic.png" alt="microCT schematic">
   <figcaption><b>Fig.2 Schematic of a microCT system (source Microphotonics).</b></figcaption>
 </figure> 
 
-### Where Projection Images Are Captured
-The shadows are captured on an X-ray detector, which is positioned opposite the X-ray source, with the object placed between them. As the object rotates during the scan, multiple shadow or projection images are captured from various angles. This rotational capture process allows the system to collect sufficient data for reconstructing a 3D model of the object.
 
 ### Why Attenuation is Important
 Attenuation is a key factor in creating shadow images because it reveals the differences in material properties within the object. The degree of attenuation depends on factors like the material's atomic number and density. High attenuation areas (such as bone) appear darker on the image, while low attenuation areas (such as soft tissue) appear lighter. These variations are what make it possible to distinguish different structures within the object.
