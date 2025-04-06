@@ -57,6 +57,13 @@ To overcome this limitation, researchers use diffusible stains, which are contra
 
 For instance, diffusible iodine-based contrast-enhanced computed tomography (diceCT) has been successfully used to visualize the internal anatomy of small animals, embryos, and even human soft tissues. This technique allows researchers to study delicate structures like blood vessels, nerves, and ligaments in three dimensions without damaging the specimen. In one study, PTA staining was used to reveal the intricate arrangement of muscle fibers in a mouse limb, providing insights into its functional morphology. Similarly, iodine staining has been applied to study the internal anatomy of insects, enabling detailed visualization of their organs and tissues.
 
+
+<figure>
+  <img src="./pone.0142974.g001.png" alt="microCT scan of stained mouse heads">
+  <figcaption> <i>Fig.3 Comparison of high-resolutiom microMRI of a mouse head (A) to microCT mouse heads stained using iodine.</i> <img src="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0142974"> (Figure 1 from  Anderson R, Maga AM (2015) A Novel Procedure for Rapid Imaging of Adult Mouse Brains with MicroCT Using Iodine-Based Contrast. PLoS ONE 10(11): e0142974. https://doi.org/10.1371/journal.pone.0142974)</A> </figcaption>
+</figure> 
+
+
 ## MicroCT Reconstructions Data Formats
 Saving reconstructed microCT images as individual 2D images in formats like PNG/JPG/TIFF/BMP can lead to several challenges, especially when compared to more specialized formats like DICOM or NRRD.
 
@@ -75,7 +82,7 @@ Problems with Saving as Individual 2D Images (e.g., PNG)
 
 However, DICOM is not always ideal for microCT imaging, as it was primarily designed for clinical applications and may include unnecessary overhead for research-focused workflows.
 
-### Why NRRD is Preferred for MicroCT
+### Why we prefer NRRD for MicroCT
 [NRRD (Nearly Raw Raster Data)](https://teem.sourceforge.net/nrrd/format.html) is a format specifically designed for scientific imaging, making it well-suited for microCT data:
 1.	**Compact and Flexible:** NRRD files store the entire 3D dataset in a single file or a pair of files (data and header), reducing fragmentation and simplifying data management.
 2.	**Rich Metadata:** The NRRD header is highly customizable, allowing researchers to include detailed information about voxel size, spatial orientation, and other scan parameters.
