@@ -12,6 +12,12 @@ The smaller beam diameter or spot size in microCT systems provides the ability t
 ## Shadow (or Projection) Images
 Shadow, or projection, images in microCT imaging are the 2D X-ray images that are captured during the scanning process. They are formed when an X-ray beam passes through the object being scanned and creates a pattern of varying intensities on the detector. These patterns resemble shadows because they display the silhouette and internal structure of the object, depending on how much the X-rays are absorbed—or attenuated—by different parts of the material.
 
+ <figure>
+  <img src="./projection.png" alt="projection images">
+  <figcaption><b>Fig.1 Examples of X-ray projection images.</b></figcaption>
+</figure> 
+
+
 ### How Shadows/Projection Images Are Created
 The X-ray source emits a beam of X-rays, which travel in straight lines toward the object. As the X-rays interact with the object, their intensity is reduced in certain areas depending on the object's thickness, density, and composition. This reduction in X-ray intensity is known as attenuation, which occurs because X-rays are absorbed or scattered by the material.
 
@@ -25,10 +31,10 @@ After passing through the object, the remaining X-rays strike the detector, whic
 
  <figure>
   <img src="https://www.microphotonics.com/wp-content/uploads/2015/05/micro-CT-x-ray-source-schematic.png" alt="microCT schematic">
-  <figcaption><i>Fig.1 Schematic of a microCT system (source Microphotonics).</i></figcaption>
+  <figcaption><b>Fig.2 Schematic of a microCT system (source Microphotonics).</b></figcaption>
 </figure> 
 
-### Where Shadows Are Captured
+### Where Projection Images Are Captured
 The shadows are captured on an X-ray detector, which is positioned opposite the X-ray source, with the object placed between them. As the object rotates during the scan, multiple shadow or projection images are captured from various angles. This rotational capture process allows the system to collect sufficient data for reconstructing a 3D model of the object.
 
 ### Why Attenuation is Important
@@ -46,7 +52,7 @@ This lack of calibration has consequences. It makes comparisons between microCT 
 
  <figure>
   <img src="./medCTvmicroCT.png" alt="Medical CT compared to microCT">
-  <figcaption><i>Fig.2 Medical CT of a human head compared to microCT of a dry mouse skull.</i> In both dataset redline provides the <b>Line Profile</b> of the intensities along its path. The plot of the line profile shows that in medical CT values start around -1000 (which is air), then jump about 1500 (dense cranial bone), then drops down to 0 (which is brain tissue. Most of the soft tissue is water, hence HU value of 0). In contrast, microCT values are not calibrated and range from 0 to 22,000 in this datasets. While the values are different, profiles are similar (with the exception of lack of brain tissue in the mouse skull). The resolution of medical CT is 1.0x1.0x5mm whereas the resolution of microCT dataset is 0.023x0.023x0.023 (or 23 micrometers). Compared to medical CT, microCT provides extremely detailed view of the cranial bones, such as the delicate turbinates in mouse.   </figcaption>
+  <figcaption><b>Fig.3 Medical CT of a human head compared to microCT of a dry mouse skull.</b> In both dataset redline provides the <b>Line Profile</b> of the intensities along its path. The plot of the line profile shows that in medical CT values start around -1000 (which is air), then jump about 1500 (dense cranial bone), then drops down to 0 (which is brain tissue. Most of the soft tissue is water, hence HU value of 0). In contrast, microCT values are not calibrated and range from 0 to 22,000 in this datasets. While the values are different, profiles are similar (with the exception of lack of brain tissue in the mouse skull). The resolution of medical CT is 1.0x1.0x5mm whereas the resolution of microCT dataset is 0.023x0.023x0.023 (or 23 micrometers). Compared to medical CT, microCT provides extremely detailed view of the cranial bones, such as the delicate turbinates in mouse.   </figcaption>
 </figure> 
 
 
@@ -60,7 +66,7 @@ For instance, diffusible iodine-based contrast-enhanced computed tomography (dic
 
 <figure>
   <img src="./pone.0142974.g001.png" alt="microCT scan of stained mouse heads">
-  <figcaption> <i>Fig.3 MicroCT images of mouse heads stained using iodine.</i> (From Figure 1 of Anderson R, Maga AM (2015) A Novel Procedure for Rapid Imaging of Adult Mouse Brains with MicroCT Using Iodine-Based Contrast. PLoS ONE 10(11): e0142974. https://doi.org/10.1371/journal.pone.0142974)</A> </figcaption>
+  <figcaption> <b>Fig.4 MicroCT images of mouse heads stained using iodine.</b> (From Figure 1 of Anderson R, Maga AM (2015) A Novel Procedure for Rapid Imaging of Adult Mouse Brains with MicroCT Using Iodine-Based Contrast. PLoS ONE 10(11): e0142974. https://doi.org/10.1371/journal.pone.0142974)</A> </figcaption>
 </figure> 
 
 
