@@ -23,6 +23,11 @@ Less dense materials, like soft tissue or air, attenuate fewer X-rays, leading t
 
 After passing through the object, the remaining X-rays strike the detector, which records the variation in X-ray intensity across the surface. This results in a 2D projection image that reflects both the external outline and internal structure of the object, based on how much X-rays were attenuated in different regions.
 
+ <figure>
+  <img src="https://www.microphotonics.com/wp-content/uploads/2015/05/micro-CT-x-ray-source-schematic.png" alt="microCT schematic">
+  <figcaption><i>Fig.1 Schematic of a microCT system (source Microphotonics).</i></figcaption>
+</figure> 
+
 ### Where Shadows Are Captured
 The shadows are captured on an X-ray detector, which is positioned opposite the X-ray source, with the object placed between them. As the object rotates during the scan, multiple shadow or projection images are captured from various angles. This rotational capture process allows the system to collect sufficient data for reconstructing a 3D model of the object.
 
