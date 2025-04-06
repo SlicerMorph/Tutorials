@@ -60,7 +60,7 @@ For instance, diffusible iodine-based contrast-enhanced computed tomography (dic
 
 <figure>
   <img src="./pone.0142974.g001.png" alt="microCT scan of stained mouse heads">
-  <figcaption> <i>Fig.3 Comparison of high-resolutiom microMRI of a mouse head (A) to microCT mouse heads stained using iodine.</i> <img src="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0142974"> (Figure 1 from  Anderson R, Maga AM (2015) A Novel Procedure for Rapid Imaging of Adult Mouse Brains with MicroCT Using Iodine-Based Contrast. PLoS ONE 10(11): e0142974. https://doi.org/10.1371/journal.pone.0142974)</A> </figcaption>
+  <figcaption> <i>Fig.3 MicroCT images of mouse heads stained using iodine.</i> (From Figure 1 of Anderson R, Maga AM (2015) A Novel Procedure for Rapid Imaging of Adult Mouse Brains with MicroCT Using Iodine-Based Contrast. PLoS ONE 10(11): e0142974. https://doi.org/10.1371/journal.pone.0142974)</A> </figcaption>
 </figure> 
 
 
