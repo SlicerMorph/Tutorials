@@ -23,7 +23,7 @@ The X-ray source emits a beam of X-rays, which travel in straight lines toward t
 
 Dense materials, like bone or metal, attenuate more X-rays because they absorb or scatter a larger portion of the beam. This results in darker areas on the shadow or projection image. For example, in mammalian skulls enamel of the tooth is typically the densest material , followed by the inner ear. In images above, those regions are the darkest, indicating that a lot of the X-ray is being absored.
 
-Less dense materials, like soft tissue or air, attenuate fewer X-rays, leading to lighter areas on the image. Again in the images above, particularly in the middle one, the lightest shade of gray (on the right). Similarly the regions of the skull with large spaces such as endocranial cavity, nasal passages etc, show in lighter shades of gray compared to the bony part of the skull
+Less dense materials, like soft tissue or air, attenuate fewer X-rays, leading to lighter areas on the image. Again in the images above, particularly in the middle one, the lightest shade of gray (on the right) indicates air. Similarly the regions of the skull with large spaces such as endocranial cavity, nasal passages etc, show in lighter shades of gray compared to the bony part of the skull
 
 After passing through the object, the remaining X-rays strike the detector, which records the variation in X-ray intensity across the surface. This results in a 2D projection image that reflects both the external outline and internal structure of the object, based on how much X-rays were attenuated in different regions.
 
