@@ -42,8 +42,8 @@ Attenuation is a key factor in creating shadow images because it reveals the dif
 
 By understanding attenuation and capturing these 2D projection images, microCT systems provide the raw data necessary to reconstruct detailed 3D models of an object’s internal and external features. These shadow images are the foundation of the imaging process, bridging the physical characteristics of the object with the final reconstructed visualization.
 
-## Reconstruction
-Reconstruction is the process of combining all the 2D projection images into a detailed 3D model. Complex mathematical algorithms are used to achieve this. One widely used algorithm is [the Feldkamp-Davis-Kress (FDK) algorithm](https://opg.optica.org/josaa/abstract.cfm?uri=josaa%E2%80%901%E2%80%906%E2%80%90612), which is specifically designed for cone-beam CT systems like microCT. The FDK algorithm is efficient and well-suited for reconstructing high-resolution images from a large number of projections. It is particularly effective for small-scale objects, making it a popular choice in microCT imaging. Throught the reconstruction process, scientists and researchers to visualize the internal structure of an object layer by layer, without physically cutting it open. 
+## Reconstructing slices 
+Reconstruction is the process of combining all the 2D projection images into a detailed 3D representation of the object. Complex mathematical algorithms are used to achieve this. One widely used algorithm is [the Feldkamp-Davis-Kress (FDK) algorithm](https://opg.optica.org/josaa/abstract.cfm?uri=josaa%E2%80%901%E2%80%906%E2%80%90612), which is specifically designed for cone-beam CT systems like microCT. The FDK algorithm is efficient and well-suited for reconstructing high-resolution images from a large number of projections. It is particularly effective for small-scale objects, making it a popular choice in microCT imaging. Throught the reconstruction process, scientists and researchers to visualize the internal structure of an object layer by layer, without physically cutting it open. 
 
 ### Hounsfield Units and Calibration
 Hounsfield Units (HU) are used in medical CT imaging to measure tissue density, with water at 0 HU, air at -1000 HU, and dense bone above 1000 HU. This standardized scale helps doctors differentiate between various tissues. In microCT imaging, however, values in the images are not necessarily calibrated to a standard like HUs. Instead, the images display relative differences in X-ray absorption, meaning the values are not standardized across scans or systems. 
@@ -65,7 +65,7 @@ For instance, diffusible iodine-based contrast-enhanced computed tomography (dic
 
 
 <figure>
-  <img src="./pone.0142974.g001.png" alt="microCT scan of stained mouse heads">
+  <img src="./pone.0142974.g001.png" alt="microCT scan of stained mouse heads" width="800">
   <figcaption> <b>Fig.4 MicroCT images of mouse heads stained using iodine.</b> (From Figure 1 of Anderson R, Maga AM (2015) A Novel Procedure for Rapid Imaging of Adult Mouse Brains with MicroCT Using Iodine-Based Contrast. PLoS ONE 10(11): e0142974. https://doi.org/10.1371/journal.pone.0142974)</A> </figcaption>
 </figure> 
 
