@@ -55,7 +55,7 @@ Problems with Saving as Individual 2D Images (e.g., PNG)
 4.	**Limited Interoperability:** 2D bitmaps files are not standardized for medical or scientific imaging, making it harder to integrate them into workflows that rely on specialized software for analysis or visualization.
    
 ### Advantages of DICOM Format
-DICOM (Digital Imaging and Communications in Medicine) is a widely used format in medical imaging. It addresses many of the issues associated with 2D bitmap formats:
+[DICOM (Digital Imaging and Communications in Medicine)](https://www.dicomstandard.org/current) is a widely used format in medical imaging. It addresses many of the issues associated with 2D bitmap formats:
 
 *	**Metadata Storage:** DICOM files include detailed metadata about the scan, such as voxel dimensions, patient information, and imaging parameters, ensuring that the data is self-descriptive.
 *	**Integration:** DICOM is a standardized format, making it compatible with a wide range of medical imaging software and systems.
@@ -64,7 +64,7 @@ DICOM (Digital Imaging and Communications in Medicine) is a widely used format i
 However, DICOM is not always ideal for microCT imaging, as it was primarily designed for clinical applications and may include unnecessary overhead for research-focused workflows.
 
 ### Why NRRD is Preferred for MicroCT
-NRRD (Nearly Raw Raster Data) is a format specifically designed for scientific imaging, making it well-suited for microCT data:
+[NRRD (Nearly Raw Raster Data)](https://teem.sourceforge.net/nrrd/format.html) is a format specifically designed for scientific imaging, making it well-suited for microCT data:
 1.	**Compact and Flexible:** NRRD files store the entire 3D dataset in a single file or a pair of files (data and header), reducing fragmentation and simplifying data management.
 2.	**Rich Metadata:** The NRRD header is highly customizable, allowing researchers to include detailed information about voxel size, spatial orientation, and other scan parameters.
 3.	**Open and Interoperable:** NRRD is an open format supported by many scientific imaging tools, such as 3D Slicer and ImageJ, as well as programming environments like Python and R, making it easy to integrate into research workflows.
