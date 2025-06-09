@@ -10,7 +10,7 @@ The first step in the DeCA workflow is calculating or loading an atlas model and
 In the second step of DeCA will rigidly align each subject to the atlas, followed by a non-rigid deformable registration. The point correspondences are assigned and the distance between each atlas point and corresponding point on the target specimen is calculated and stored at that point. Once the correspondences have been calculated, a heat map of distances can be visualized on the atlas model for each individual in the dataset. The pointwise average and standard deviation of the distances over the datasets can also be displayed on the atlas model.
 
 ### Create or load the atlas model and landmarks
-1. Download the **Mouse Models** dataset from https://github.com/SlicerMorph/Mouse_Models. The **Models** folder will contain 62 models and the **LMs** folder contains a corresponding landmark file for each model with 53 manually placed landmark points.
+1. Download the **Mouse Models** dataset from https://github.com/SlicerMorph/Mouse_Models. The **Models** folder will contain 62 models and the **LMs** folder contains a corresponding landmark file for each model with 51 manually placed landmark points.
 
 2. Search for `DeCA` module in Module Finder (CTRL +F) to switch to the DeCA module. From the module's tabs, select `DeCA`
 <img src="./images/DeCA1.png" width="500">
