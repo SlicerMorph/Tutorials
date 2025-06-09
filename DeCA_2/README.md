@@ -1,4 +1,4 @@
-# DeCA Symmetry Analysis
+# DeCA Asymmetry Analysis
 
 
 ## Introduction
