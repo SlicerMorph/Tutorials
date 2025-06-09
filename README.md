@@ -13,6 +13,7 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 3. #### [**Volumes**](https://github.com/SlicerMorph/Tutorials/blob/main/Slicer_Modules/Volumes/Readme.MD)
 9. #### [**Models**](https://github.com/SlicerMorph/Tutorials/blob/main/Slicer_Modules/Models/README.md)
 8. #### [**Transforms**](https://github.com/SlicerMorph/Tutorials/blob/main/Slicer_Modules/Transforms/README.md)
+9. #### [**FastModelAlign:** How to scale & rigidly align 3D models using point clouds registration](https://github.com/SlicerMorph/Tutorials/tree/main/FastModelAlign#readme)
 
 ### Visualization
 1. #### [Volume Rendering](https://github.com/SlicerMorph/Tutorials/blob/main/Slicer_Modules/Volume_Rendering/README.MD)
@@ -44,7 +45,8 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 17. #### [**GPA-II:** 3D interactive visualization of morphospace and exporting animations](https://github.com/SlicerMorph/Tutorials/tree/main/GPA_2)
 18. #### [**GPA-III:** Exporting data/results for R](https://github.com/SlicerMorph/Tutorials/tree/main/GPA_3#readme)
 19. #### [DeCaL Automated semi and fixed landmarking tutorial](https://github.com/SlicerMorph/Tutorials/blob/main/DeCAL/README.md)
-20. #### [DeCA: Dense Surface Correspondence Analysis](https://github.com/SlicerMorph/Tutorials/tree/main/DeCA#readme)
+20. #### [DeCA-I: Dense Surface Correspondence Analysis](https://github.com/SlicerMorph/Tutorials/blob/main/DeCA_1/README.md)
+21. #### [DeCA-II: Symmetry Analysis](https://github.com/SlicerMorph/Tutorials/blob/main/DeCA_2/README.md)
 
 ### Photogrammetry
 1. #### [User Guide for the Photogrammetry Extension](https://github.com/SlicerMorph/SlicerPhotogrammetry?tab=readme-ov-file#user-guide)
