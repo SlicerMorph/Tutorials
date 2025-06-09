@@ -14,7 +14,7 @@ Once the number of output points has been selected, DeCAL can be run for the dat
 As a convenience, we also provide an interface to select a subset of the atlas landmarks in the scene, and then run the same subsetting over the DeCAL data directory. This function is useful in cases where there is a spatial region where pseudo-landmarks should not be included.
 
 ### Create or load the atlas model and landmarks
-1. Download the **Mouse Models** dataset from https://github.com/SlicerMorph/Mouse_Models. The **Models** folder will contain 62 models and the **LMs** folder contains a corresponding landmark file for each model with 53 manually placed landmark points.
+1. Download the **Mouse Models** dataset from https://github.com/SlicerMorph/Mouse_Models. The **Models** folder will contain 62 models and the **LMs** folder contains a corresponding landmark file for each model with 51 manually placed landmark points.
 
 2. Search for `DeCA` module in Module Finder (CTRL +F) to switch to the DeCA module. From the module's tabs, select `DeCAL`
 <img src="./images/DeCAL1.png" width="500">

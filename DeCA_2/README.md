@@ -10,7 +10,7 @@ The process begins by generating an average model from a group of specimens. Eac
 The magnitude of difference between corresponding points on each side is calculated as a measure of asymmetry. These asymmetry values can be visualized as heat maps for individual specimens or the average and standard deviation of the asymmetry magnitudes can be visualized to reveal consistent patterns.
 
 ### Create or load the atlas model and landmarks
-1. Download the **Mouse Models** dataset from https://github.com/SlicerMorph/Mouse_Models. The **Models** folder will contain 62 models and the **LMs** folder contains a corresponding landmark file for each model with 53 manually placed landmark points.
+1. Download the **Mouse Models** dataset from https://github.com/SlicerMorph/Mouse_Models. The **Models** folder will contain 62 models and the **LMs** folder contains a corresponding landmark file for each model with 51 manually placed landmark points.
 
 2. Search for `DeCA` module in Module Finder (CTRL +F) to switch to the DeCA module. From the module's tabs, select `DeCA`
 
