@@ -44,9 +44,10 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 16. #### [**GPA-I:** Basics of GPA: Setting the analysis, exploring the morphospace](https://github.com/SlicerMorph/Tutorials/tree/main/GPA_1)
 17. #### [**GPA-II:** 3D interactive visualization of morphospace and exporting animations](https://github.com/SlicerMorph/Tutorials/tree/main/GPA_2)
 18. #### [**GPA-III:** Exporting data/results for R](https://github.com/SlicerMorph/Tutorials/tree/main/GPA_3#readme)
-19. #### [DeCaL Automated semi and fixed landmarking tutorial](https://github.com/SlicerMorph/Tutorials/blob/main/DeCAL/README.md)
-20. #### [DeCA-I: Dense Surface Correspondence Analysis](https://github.com/SlicerMorph/Tutorials/blob/main/DeCA_1/README.md)
-21. #### [DeCA-II: Symmetry Analysis](https://github.com/SlicerMorph/Tutorials/blob/main/DeCA_2/README.md)
+19. #### [**GPA-IV:** Visualizing PCA results as heatmaps](https://github.com/SlicerMorph/Tutorials/blob/main/heatmaps/README.MD)
+20. #### [DeCaL Automated semi and fixed landmarking tutorial](https://github.com/SlicerMorph/Tutorials/blob/main/DeCAL/README.md)
+21. #### [DeCA-I: Dense Surface Correspondence Analysis](https://github.com/SlicerMorph/Tutorials/blob/main/DeCA_1/README.md)
+22. #### [DeCA-II: Symmetry Analysis](https://github.com/SlicerMorph/Tutorials/blob/main/DeCA_2/README.md)
 
 ### Photogrammetry
 1. #### [User Guide for the Photogrammetry Extension](https://github.com/SlicerMorph/SlicerPhotogrammetry?tab=readme-ov-file#user-guide)
