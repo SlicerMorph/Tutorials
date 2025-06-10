@@ -61,18 +61,20 @@ This tutorial will demonstrate both methods. After placement of the grids, the `
 
 <img src="./images/LMSelect3.png">
 
-### Using MergeMarkups to export a single landmark file
-After generating patches of semilandmarks, these will need to be combined into a single landmark file for analysis or transfer to other specimens. In this example we will merge the two landmark grids with the manual landmark set using the `MergeMarkups` module. The manual landmarks will be labeled `Fixed` and the semi-landmark points will be labeled `Semi` so they can be handled appropriately in subsequent analysis.
+### Mergine Grid and Manual landmarks to export a single landmark file
+After generating patches of semilandmarks, these will need to be combined into a single landmark file for analysis or to transfer to other specimens. In this example we will merge the two landmark grids with the manual landmark set using the `MergeGrids` tab of the module. The manual landmarks will be labeled `Fixed` and the semi-landmark points will be labeled `Semi` so they can be handled appropriately in subsequent analysis.
 
-1. Open the `MergeMarkups` module. Switch to the last tab, labeled `Merge Landmark Grids`.
+**NOTE:** Screenshots are from an earlier version of SlicerMorph in which the `MergeGrids` was part of the `MergeMarkups` module. Since then it has been moved to its own tab in `PlaceLandmarkGrid` module. Functionality is the same. 
 
-2. There are two types of file viewers. The first will show only Markups Grids and the second will show all Point Lists in the scene. In the Grid Viewer, select the two Markups Grids to be merged. All nodes created using the `PlaceLandmarkGrid` module will be within a folder with the grid name, so expand these folders if needed to see the Markups Grid node types.
+1. Switch to the tab, labeled `Merge Grids`.
+
+2. There are two types of node viewers. The top will show only Markups Grids and the bottom will show all MarkupLists (e.g., your manual landmarks) in the scene. In the Grid Viewer, select the two Markups Grids to be merged. 
 <img src="./images/MergeModule.png">
 
-3. In Point List viewer, select the manual landmark Point List that will be merged with the Markups Grid semi-landmarks. In this example it will be named `A_J_Skull`. With these Markups Grid and Point List nodes selected, click the `Merge highlighted nodes` button.
+3. In Markup List viewer, select the manual landmark Point List that will be merged with the Markups Grid semi-landmarks. In this example it will be named `A_J_Skull`. With these Markups Grid and Point List nodes selected, click the `Merge highlighted nodes` button.
 <img src="./images/MergeSelection.png">
 
-4. A new node, labeled `mergedGridMarkupsNode` will be created. Open the Python Console to view the output of the merge process. The number of each catagory of landmark is reported. For the above example, the final, merged Point List should contain: 96 total landmark points, 51 fixed landmark points, and 85 semi-landmark points. View this merged node in the `Markups` module to see the point type listed in the control point description field.
+4. A new node, labeled `mergedGridMarkupsNode` will be created. Open the Python Console to view the output of the merge process. The number of each catagory of landmark is reported. For the above example, the final, merged Point List should contain: 53 fixed landmark points and 85 semi-landmark points for a total of 138 landmarks. View this merged node in the `Markups` module to see the point type listed in the control point description field.
 <img src="./images/MergeNode.png">
 
 5. Open the `Data` module. Right click on the merged node and select `Export to file` to save a copy of the output.
