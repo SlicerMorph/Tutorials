@@ -59,6 +59,8 @@ Imaging soft tissue with microCT presents unique challenges because soft tissues
 
 To overcome this limitation, researchers use diffusible stains, which are contrast agents that enhance the visibility of soft tissues in microCT scans. These stains work by binding to specific components of the tissue, increasing their X-ray attenuation and thereby improving contrast. One commonly used stain is iodine-based solutions, such as Lugol's iodine (I2KI), which binds to glycogen and other tissue components. Another example is phosphotungstic acid (PTA), which interacts with proteins and provides excellent contrast for imaging muscle fibers and other soft tissues.
 
+<img src="https://github.com/SlicerMorph/Tutorials/blob/main/microCT/liquid%20phantoms.png" width="800">
+
 For instance, diffusible iodine-based contrast-enhanced computed tomography (diceCT) has been successfully used to visualize the internal anatomy of small animals, embryos, and even human soft tissues. This technique allows researchers to study delicate structures like blood vessels, nerves, and ligaments in three dimensions without damaging the specimen. In one study, PTA staining was used to reveal the intricate arrangement of muscle fibers in a mouse limb, providing insights into its functional morphology. Similarly, iodine staining has been applied to study the internal anatomy of insects, enabling detailed visualization of their organs and tissues.
 
 
