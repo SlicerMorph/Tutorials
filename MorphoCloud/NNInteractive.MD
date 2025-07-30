@@ -1,4 +1,4 @@
-# Setting Using NNInteractive extension on the MorphoCloud instances
+# Setting & Using NNInteractive extension on the MorphoCloud instances
 nnInteractive is a deep learning-based framework for interactive segmentation of 3D images, allowing for fast voxel-wise segmentation using prompts like points, scribbles, bounding boxes, and lasso. It is a very useful and effective tool for rapid 3D segmentation with few clicks. It is a little different from the typical Slicer extensions, because it is a client and server application. While Slicer installation on the MOrphoCloud instances come with SlicerNNInteractive, that's only the **client**; you still have to install and then run the server each time you are planning to use NNInteractive. 
 
 The official repository and most up-to-date instructions on how to install NNInteractive can be found at XXX. This guide covers specific steps specific known to work with on MorphoCloud.
