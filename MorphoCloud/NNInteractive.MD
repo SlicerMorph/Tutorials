@@ -4,7 +4,7 @@ nnInteractive is a deep learning-based framework for interactive segmentation of
 The official repository and most up-to-date instructions on how to install NNInteractive can be found at https://github.com/coendevente/SlicerNNInteractive/blob/main/README.md. This guide covers specific steps specific known to work with on MorphoCloud.
 
 ## Installing the server and running it.
-There are multiple ways of running the server. On MorphoCloud we suggest you use the []**pip install** option as documented in the official documentation](https://github.com/coendevente/SlicerNNInteractive?tab=readme-ov-file#option-2-using-pip). 
+There are multiple ways of running the server. On MorphoCloud we suggest you use the [**pip install** option as documented in the official documentation](https://github.com/coendevente/SlicerNNInteractive?tab=readme-ov-file#option-2-using-pip). 
 
 1. Open a terminal window 
 2. To create a python virtual environment specific to NNinteractive copy and paste this command to the terminal window (one-time only)
