@@ -8,6 +8,11 @@ The template used to place the pseudo-landmarks can be generated from the geomet
 
 The pseudo-landmark set can optionally be symmetrized. If this option is selected, the user will specify a plane of symmetry using the 'Create and place plane' tool. Four output landmark sets will be generated, containing: landmarks on the normal side of the plane, landmarks on the inverse side of the plane, midline landmarks, and the total landmark set. Individual landmark names contain an 'n' 'i', or 'm' prefix indicating their relationship to the symmetry plane. It is reccommended that this option be used with a symmetric model as the placement of the plane on a non-symmetric model is challenging and can lead to variable results.
 
+# Important Note:
+For the best results out of PseudoLMGenerator, we suggest using models that are **watertight**. Watertight means the model has one closed surface, it does not contain any hole and have a clearly defined inside. By default most models generated out of microCT volumes is not watertight. To make your segmentation watertight, you need to use the additional effects in segment editor, and in particular the **Wrap Surface Solidy** extensionm which will allow you to easily fill the **inside** of your segmentation. If you have watertight models, you can drop the **Project Points** value (see below) to 0 in most cases, which should give you more uniform pseudoLM coverage. 
+
+Unfortunately, some structures (e.g., vertebrate skulls) are difficult to create watertight models from. 
+
 ## Template from the specimen geometry
 
 1. Download the Gorilla Skull Reference Model from the 'Sample Data' module. Load the skull model (PLY) into Slicer.
