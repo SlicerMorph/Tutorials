@@ -22,4 +22,4 @@
 
 * The point placement should be evaluated before semi-landmarks are used for shape analysis.
 
-* If points are not placed in corresponding regions across images, the `ProjectSemiLM` or `Alpaca` modules can provide a more robust alternative for transferring the semi-landmarks from the original patch-placed set.
+* If points are not placed in corresponding regions across images, the `ProjectSemiLM` or `Alpaca` modules can provide a more robust alternative for transferring the semi-landmarks from the original patch-placed set. You might also want to consider using the [**PlaceLandmark**](https://github.com/SlicerMorph/Tutorials/blob/main/GridBasedLandmarking/README.md) module instead.
