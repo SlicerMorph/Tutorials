@@ -19,6 +19,10 @@ Once the ScriptEditor is activated it should look like this:
 
 <img src="./editor1.png">
 
+You can switch between **dark** and **light** themes, and also adjust the font size. 
+
+You can set the default location for the script objects to be saved via the **Save Location:** 
+
 Go ahead and click on the **Script Node** selector and choose **Create New Text as** and then name the object as **MyScript**
 
 Then copy and paste the following code into the editor:
@@ -41,11 +45,9 @@ slicer.util.setSliceViewerLayers(background=smoothedVolume)
 ```
 <img src='./editor2.png'>
 
-You can expand the width of the editor window, by dragging the module pane to the right.  To save this script into the into the Slicer scene tree (Data module) click 'Save' button. (You will use the regular Slicer Save as or Export File As functionality to save the file to disk). 
+You can expand the width of the editor window, by dragging the module pane to the right.  
 
-You can highlight any section of the code by clicking the left mouse button and dragging the text, then use the right mouse click to bring the context menu (e.g., choose Copy) and then paste it into the Python console. If your python console is not visible in the application window, you can make it visible by pressing `CTRL+3` (on macs `CMD+3`). 
-
-To copy the entire code press the `Copy` button on the top of the Editor
+You can highlight any section of the code by clicking the left mouse button and dragging the text, then use the right mouse click to bring the context menu, which will allow you to execute the highlighted section in the python console (CTRL+Enter). If your python console is not visible in the application window, you can make it visible by pressing `CTRL+3` (on macs `CMD+3`). 
 
 <img src="./editor3.png">
  
@@ -53,7 +55,7 @@ When you paste the full code into the python console, it should download the MRH
 
 <img src="./editor4.png">
 
-To save the MyScript python script onto the disk, go to `Data` module, and right-click on MyScript object (it should have the Python icon to distinguish it from other text objects). Then, in the pop-up dialog box, chose the directory to be saved, and set the Export format to **Python Script (.py)** from the default .txt. 
+It is important to understand that your scripts are saved into your scene like any other object in Slicer. To save the script object to the disk, go to `Data` module, and right-click on MyScript object (it should have the Python icon to distinguish it from other text objects). Then, in the pop-up dialog box, chose the directory to be saved (it should default to the location specified in the Save Location, but double check), and set the Export format to **Python Script (.py)** from the default .txt. 
 
 <img src="./editor5.png">
 
