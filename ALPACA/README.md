@@ -274,6 +274,8 @@ Now click the `Change ALPACA settings`, then return to the the `Single Alignment
 
 * Choose a local ` Target output landmark directory`. After this step, the `Run-autolandmarking` button can be pressed.
 
+* We advise enabling the QC (quality control) option. When enabled, a basic quality control applied to the models to discover potential issues that may cause problem during the batch process. Models identified to be problematic is listed in the text box, after which the user is expected to take action (correct the issues, remove the models from the target directory, or ignore by disabling QC button). Note that problematic models will may crash ALPACA, meaning that all the jobs after that model will not run. As such we advise running the QC for long batch jobs to avoid stoppage. 
+
 <p align="center">
  <img src="images/ALPACA027.PNG", width = 600>
 </p>
