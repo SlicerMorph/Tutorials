@@ -21,7 +21,7 @@ GitHub issues.
 - **Automated lifecycle management**: Create, shelve, unshelve, renew, or delete
   instances via simple `/commands`.
 - **Support research and teaching**: Ideal for occasional high-performance
-  computing needs in morphology and imaging. Support for short-courses and workshops.
+  computing needs in morphology and imaging. Support for short-courses and workshops. Try AI assisted segmentation tools easily (often already come preconfigured).
   
 ## 🖥️ Available Instance Types
 
@@ -60,7 +60,6 @@ GitHub issues.
   - **Important Usage note**: after the approval is granted, you can create your instance by entering the `/create` command on your GH issue page. When the instance becomes online you will receive an email from the MorphoCloudPortal that will provide the access credentails (see below). After becoming online an instance stays online only for 4 hours (unless you choose to extend your session, by clicking the icon on the desktop). After 4 hours, the instance shelves (suspends) itself. The next time you want to use it, you don't need to create the instance, but simply type `/unshelve` on your issue page to make it available online again. Each time your instance becomes online, MorphoCloudPortal will send you a new email with access credential, as those may change from time to time. 
 
 
-
 ## 🖼️ Desktop Environment
 
 MorphoCloud instances provide graphical user interface (GUI) as well as command line interface (ssh). 
@@ -72,10 +71,10 @@ MorphoCloud instances provide graphical user interface (GUI) as well as command 
   - **Side toolbar** (Ctrl/Cmd + Alt + Shift) for file transfers & clipboard.
   - **Shortcuts** for Slicer, SlicerMorph, and MyData storage.
   - **Right-click menu** to adjust resolution and display settings.
-  - **Extend session** with one click (+4 hours).
+  - **Extend session** with one click (resets your 4 hour countdown).
 
   
-You have two options to connect to GUI:
+### You have two options to connect to GUI:
 
 1. **Connect via web browser by clicking the Web connect link in the email**. This interface is called **Guacamole** and provides additional conveniences such as the side bar that allows for file transfers and clipboard functionality. The downside of the guacamole interface is that is doesn't handle the font and display scaling very well, and the clipboard functionality is cumbersome to use. 
 
@@ -85,10 +84,12 @@ You have two options to connect to GUI:
 You probably want to use both access methods in tandem (e.g., use Guacamole for easy file transfer to and from), and TurboVNC for nice visualizations. 
 
 ## ❗ Important Things to Consider ❗
-1. Getting started on MorphoCloud is a two-step procedure. First, you make the request and get approved, and then you need to create your instance to start using MorphoCloud
+1. Getting started on MorphoCloud is a two-step procedure. First, you make the request and get approved, and then you need to create your instance to start using MorphoCloud by entering the `/create` command. 
 2. You cannot change instance types after you created the issue and it is approved. If you need to switch to a different instance type, you will need to open a new issue.
-3. Whether an instance can be created, or a created instance can become online depends on the resource availability on the JetStream at the time of the command. Because JetStream can be heavily used at times, we advise checking the availability of a specific instance type before creating or unshelving an instance. https://docs.jetstream-cloud.org/overview/status/#availability-of-scarce-resources.
-4. On GPU instances (g3.l and g3.xl) the interactivity and performance of 3D Slicer greatly diminishes (almost to the point of not being able to use the instance), when you **volume render a 3D volume with any dimension equal to (or larger than) 4096 voxels**. If you have to work with such large volumes, consider other instance types. 
+3. Whether an instance can be created, or a created instance can become online after `/unshelve` command depends on the resource availability on the JetStream at the time. Because JetStream can be heavily used at times, we advise checking the availability of a specific instance type before creating or unshelving an instance. https://docs.jetstream-cloud.org/overview/status/#availability-of-scarce-resources.
+4. Your instance (and the data on it the root disk) is considered ephemeral. Make sure your important documents and datasets are always saved to your persistent storage volume, which is located at **/media/volumes/MyData**. That way when you (or us) have to delete and recreate your instance, you will not loose any data. 
+5. On GPU instances (g3.l and g3.xl) the interactivity and performance of 3D Slicer greatly diminishes (almost to the point of not being able to use the instance), when you **volume render a 3D volume with any dimension equal to (or larger than) 4096 voxels**. If you have to work with such large volumes, consider using other instance types.
+
 
 
  
