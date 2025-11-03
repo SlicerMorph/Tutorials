@@ -17,19 +17,15 @@ If trying to use a data that is :
 1. In a format that can be read into Slicer directly (e.g., NRRD, PLY, mrk.json) without having to the import steps
 2. Data has a publicly accessible URL (i.e., none of the data on MorphoSource has a directly accessible URL). 
 
-You can use the SlicerMorph extensions `ImportFromURL` module to load it directly into the Slicer. For example these three datasets are some of our datasets on github:
+You can use the **Load Data from URL** feature of the SampleData module. Scroll down in the module panel, find the relevant section, and paste these URLs to download directly into Slicer. 
 
 * https://github.com/SlicerMorph/SampleData/blob/master/IMPC_sample_data.nrrd (A mid-gestation mouse embryo)
 * https://github.com/SlicerMorph/SampleData/blob/master/Gor_template_low_res.ply (3D model of a gorilla skull in PLY format)
 * https://github.com/SlicerMorph/SampleData/blob/master/Gorilla_template_LM1.json (some cranial landmarks associated with the gorilla skull above)
 
+An earlier implementation of this functionality is (still) available as the SlicerMorph's `ImportFromURL` module. However, we suggest using the functionality in SampleData, as it is now a core feature of Slicer and allows downloading more than one dataset at a time.
+
 To load any of these data into Slicer:
-
-1. Hit CTLR+F and search for `ImportFromURL` or go to `SlicerMorph->Input and Output->ImportFromURL` from the module selector dropdown menu.
-2. In the `ImportFromURL` module panel, copy and paste one of the URLs from above into the URL field. The other two fields will be auto-populated once you enter URL.
-3. Hit `Import Data`
-
-If the data you have loaded is a 3D volume (like the mouse embryo above), it will also automatically volume rendered. Other datasets (such as 3D surface models, markups) are automatically shown in the 3D view.
 
 Remember, this functionality only works for data formats that you can directly load into Slicer (like dragging and dropping into the application window). It will not work with raw image stacks. For that you will have to use the `ImageStacks` functionality of SlicerMorph.
 
