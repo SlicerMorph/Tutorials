@@ -18,24 +18,29 @@ The magnitude of difference between corresponding points on each side is calcula
 
 4. The `DeCA` module can be used to analyze the pointwise magnitude of each individual's shape difference from the computed atlas image or the pointwise magnitude of asymmetry for each individual. In this example, we will be using the module to assess asymmetry, so confirm that the `Symmetry analysis` option is selected in the Dense Correspondence I/O menu.
 
-<img src="./images/DeCA_1.png" width="500">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/ac3af1c0-ea79-46fb-99b2-f7be25c08563" />
 
 5. Set the `Model directory` to the downloaded folder of mouse models.
 
 6. Set the `Landmark directory` to the downloaded folder of mouse model landmarks. It is critical that the filenames for the landmarks are identical to their corresponding models, with the exception of the extension, so they can be matched.
 
-7. To set the analysis type to asymmetry, select the option `Symmetry analysis` The `Symmetry Options` menu will now be displayed, with the text field `Mirror landmark index`. This field is needed to define the landmark order for the mirrored landmark lists that will be created for each subject. To support comparison between the original and mirrored models, the order of bilateral paired landmarks will need to be flipped, while midline landmarks order is preserved. The landmark ordering starts at zero and each index number should be separated by a comma. For this dataset, copy and paste the following text into this the `Mirror landmark index` field:
-    1,0,6,5,4,3,2,8,7,12,11,10,9,13,14,15,21,22,23,24,25,16,17,18,19,20,26,28,27,30,29,32,31,34,33,36,35,38,37,41,40,39,46,45,44,43,42,48,47,49,50
+7. To set the analysis type to asymmetry, select the option `Symmetry analysis` The `Symmetry Options` menu will now be displayed, with the three text fields called  `Midline`, `Left` and `Right Landmarks`. This field is needed to define the landmark order for the mirrored landmark lists that will be created for each subject. Indexing is 1-based, meaning index of first landmark is 1, second is 2, so forth. Ordering for midline landmarks doesn't matter. However, for left and right landmarks the order of the landmarks should match the pairing, i.e., if landmark 1 and 3 are the first two entries for left landmarks field, and their right corresponding landmark indices are 2 and 7, then the right landmark list should start with those two and proceed following the convention. For the tutorial, copy and paste these values:
+  
+**Midline Landmarks:** 5,14,15,16,27,41,45,50,51 </br>
+**Left Landmarks:** 1,3,4,8,10,11,17,18,19,20,21,29,31,33,35,37,39,42,46,47,49</br>
+**Right Landmarks:** 2,7,6,9,13,12,22,23,24,25,26,28,30,32,34,36,38,40,44,43,48
 
-8. Create a folder where the output files of the DeCAL module will be stored. This will be a top level directory and each run of DeCA will create a new, timestamped folder containing the files and folders that are generated.
+Every landmark in the dataset should be assigned to one of these three fields, and should be assigned uniquely for analysis to proceed. Otherwise errors will be produced (e.g., duplicate landmark index, not all landmarks entered, or mismatch in the number of left and right landmarks)
 
-9. The DeCA workflow provides the option to remove scale from the analysis. If this option is selected, all specimens will be scaled to the atlas and the pointwise shape difference will be calculated usign the scaled versions. This option is useful when there are large size differences in the data that are not relevant to the shape change. For this example, remove the scale from the analysis by checking the checkbox "Remove Scale".
+11. Create a folder where the output files of the DeCAL module will be stored. This will be a top level directory and each run of DeCA will create a new, timestamped folder containing the files and folders that are generated.
 
-10. The DeCA workflow also provides an option to create an additional output directory of the models and atlas in the aligned space where the point correspondences are assigned. In this aligned space, the scale of the models is irrelevant, but the alignment between the models should be very close. Any regions that are not aligned well with the model in this space should be addressed by adding additional manual or pseudo-landmark points. To create this output, giving us the option to assess the success of our registration, check the checkbox "Create output for error checking".
+12. The DeCA workflow provides the option to remove scale from the analysis. If this option is selected, all specimens will be scaled to the atlas and the pointwise shape difference will be calculated usign the scaled versions. This option is useful when there are large size differences in the data that are not relevant to the shape change. For this example, remove the scale from the analysis by checking the checkbox "Remove Scale".
 
-11. Run the DeCA workflow by clicking `Run DeCA`. This step can take a few to several minutes, depending on the size of the dataset and whether the atlas is being calculated or loaded in this step.
+13. The DeCA workflow also provides an option to create an additional output directory of the models and atlas in the aligned space where the point correspondences are assigned. In this aligned space, the scale of the models is irrelevant, but the alignment between the models should be very close. Any regions that are not aligned well with the model in this space should be addressed by adding additional manual or pseudo-landmark points. To create this output, giving us the option to assess the success of our registration, check the checkbox "Create output for error checking".
 
-12. In the DeCA log information window at the bottom of the module, the details of the atlas calculation and location where the atlas model and points will be displayed. When this step is complete, the atlas model and landmarks will be loaded into the scene.
+14. Run the DeCA workflow by clicking `Run DeCA`. This step can take a few to several minutes, depending on the size of the dataset and whether the atlas is being calculated or loaded in this step.
+
+15. In the DeCA log information window at the bottom of the module, the details of the atlas calculation and location where the atlas model and points will be displayed. When this step is complete, the atlas model and landmarks will be loaded into the scene.
 
 <img src="./images/DeCA_2.png" width="900">
 
