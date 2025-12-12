@@ -1,11 +1,11 @@
 ## Run NNinteractive without installing any libraries:
 
-We maintain a python virtual environment all necessary files for running the NNInteractiver server is install. For quick tests, it might be faster to use this environment instead of creating one for yourself as explained in the NNInteractive readme.  There are a few downsides of using this environment: 
+We maintain a python virtual environment with all necessary files for running the NNInteractiver server is already installed. For quick tests, it might be faster to use this environment instead of creating one for yourself as explained in the NNInteractive readme.  There are a few downsides of using this environment: 
 
-1. If the share is not available, you can't use it
-2. It is a read-onl folder, you cannot make changes if things don't work out for you.
+1. If the share is not available, you can't use it.
+2. It is a read-only folder, you cannot make changes if things don't work out for you.
 
-As such, if you are planning to use NNInteractive regularly, we still suggest creating your own python virtual environment where you have the full control over. 
+As such, if you are planning to use NNInteractive regularly, we still suggest creating your own python virtual environment where you have the full control over it. 
 
 Here are the quick instructions.
 1. First paste this command in a terminal window to map the share that contains NNinteractive virtual environment (one time setup):
