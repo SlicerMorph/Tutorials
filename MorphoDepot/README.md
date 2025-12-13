@@ -17,13 +17,13 @@ Think of **GitHub** as the "Project Manager" (where assignments and discussions 
 
 #### **The Project Repo (The Blue Star):**  
    * **What it is:** This is the "Master Copy" of your dataset  
-   * **Who creates it**: The Instructor/Project Owner creates this in Section 5 (Creating the Repository)  
+   * **Who creates it**: The Instructor/Project Owner creates this in [Section 5 (Creating the Repository)](https://github.com/SlicerMorph/Tutorials/tree/main/MorphoDepot#5-creating-the-repository)  
    * **Where it lives:** On GitHub, but managed through MorphoDepot  
    * **Analogy**: Think of this as the "reference textbook" that everyone works from but nobody except the author is allowed to modify it.  
 
 #### **Task Management (Purple Box):**  
    * **Location:** GitHub Website.  
-   * **Action:** You define *what* needs to be done by creating "Issues." This is how assignments are handed out. See **Section 6.1 \- 6.3** (Project Management).  
+   * **Action:** You define *what* needs to be done by creating "Issues." This is how assignments are handed out. See [**Section 6.1 \- 6.3** (Project Management).](https://github.com/SlicerMorph/Tutorials/tree/main/MorphoDepot#6-project-management--assignments)  
 
 #### **The Fork (Blue Branch Icon):**  
    * **What it is:** An independent copy of the project created under the student’s github account.  
@@ -37,7 +37,7 @@ Think of **GitHub** as the "Project Manager" (where assignments and discussions 
    * **How it works**: As the student segments, they click **"Commit and Push"** to save their work to their Fork  
    * **Frequency**: Should be done every 20–30 minutes to prevent data loss  
    * **Analogy**: Like saving your Word document and backing it up to the cloud  
-   * **See**: Section 6.5 (Saving Progress)  
+   * **See**: [Section 6.5 (Saving Progress)](https://github.com/SlicerMorph/Tutorials/tree/main/MorphoDepot#65-saving-progress-student-action)  
 
 #### **Pull Request / "PR" (Blue Box):**  
    * **Location**: Bridge between MorphoDepot and GitHub  
@@ -48,7 +48,7 @@ Think of **GitHub** as the "Project Manager" (where assignments and discussions 
      1. **Draft**: Work in progress, not ready for review  
      2. **Ready for Review**: Student has submitted for grading  
      3. **Approved & Merged**: Work is accepted and added to the Master Copy and the issue is closed.  
-   * **See**: Section 6.6 (Submitting for Review)  
+   * **See**: [Section 6.6 (Submitting for Review)](https://github.com/SlicerMorph/Tutorials/tree/main/MorphoDepot#66-submitting-for-review-student-action)  
 
 #### **The Review Loop:**  
    * **Location**: MorphoDepot (Review Tab) & GitHub (Comments)  
@@ -60,7 +60,7 @@ Think of **GitHub** as the "Project Manager" (where assignments and discussions 
      5. Student clicks **"Request PR Review"** to resubmit  
      6. Loop continues until work is approved  
    * **End result**: Once approved, the work is **Merged** back into the main Project Repo and the task is complete  
-   * **See**: Section 7 (Reviewing)
+   * **See**: [Section 7 (Reviewing)](https://github.com/SlicerMorph/Tutorials/tree/main/MorphoDepot#7-reviewing--merging-submissions)
 
 #### **7\. Merged (Right side: checkmark icon labeled "Merged")**
 
@@ -75,7 +75,7 @@ Think of **GitHub** as the "Project Manager" (where assignments and discussions 
   * Find reference datasets for comparison  
   * Explore example segmentations for teaching  
   * Preview data before deciding to use it  
-* **See**: Section 8 (Search & Discovery)
+* **See**: [Section 8 (Search & Discovery)](https://github.com/SlicerMorph/Tutorials/tree/main/MorphoDepot#section-8-search--discovery-new-section)
 
 ### **Summary: The Complete Cycle**
 
@@ -104,7 +104,7 @@ First, you need to configure your operating system to communicate with GitHub. E
 
 ### **1.2 Install Command Line Tools**
 
-**Note:** you can skip to Section 1.3 if you are using MorphoCloud.
+**Note:** [you can skip to Section 1.3](https://github.com/SlicerMorph/Tutorials/tree/main/MorphoDepot#13-authenticate-with-github-via-terminal) if you are using MorphoCloud.
 
 You must install git (for version control) and gh (GitHub CLI for authentication) on your computer.  
 Important: Make a note of the exact folder path where you install gh. You may need this in the next step.
@@ -142,11 +142,11 @@ Important: Make a note of the exact folder path where you install gh. You may ne
 5. **Success:** The terminal should verify that you are logged in. If not, you will need to redo the procedure.
 
 
-## **2\. Slicer Installation & Setup**
+## **2. Slicer Installation & Setup**
 
 Now that your system credentials are set, you can set up the software.
 
-**Note:** you can skip to Section 2.3,  if you are using MorphoCloud.
+**Note:** [You can skip to Section 2.3,](https://github.com/SlicerMorph/Tutorials/tree/main/MorphoDepot#23-verify-connection-the-configure-tab)  if you are using MorphoCloud.
 
 ### **2.1 Install Slicer**
 
@@ -454,7 +454,7 @@ If you requested changes, the student needs to follow this specific workflow to 
 
 ---
 
-## **Section 8: Search & Discovery (NEW SECTION)**
+## **Section 8: Search & Discovery**
 
 The Search tab allows you to discover and preview MorphoDepot repositories created by other researchers. This is useful for finding reference datasets, teaching examples, or comparative anatomy studies.
 
