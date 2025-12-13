@@ -62,13 +62,13 @@ Think of **GitHub** as the "Project Manager" (where assignments and discussions 
    * **End result**: Once approved, the work is **Merged** back into the main Project Repo and the task is complete  
    * **See**: [Section 7 (Reviewing)](https://github.com/SlicerMorph/Tutorials/tree/main/MorphoDepot#7-reviewing--merging-submissions)
 
-#### **7\. Merged (Right side: checkmark icon labeled "Merged")**
+#### **Merged (Right side: checkmark icon labeled "Merged")**
 
 * **What it means**: The student's segmentation has been approved and permanently added to the Master Copy  
 * **What happens**: The Issue is closed, the PR is merged, and that anatomical structure is now complete in the project  
 * **Important**: After merging, no further edits to that specific submission are possible (though a new Issue could be created if needed)
 
-#### **8\. Search MorphoDepot (Optional: Top left, dashed arrow)**
+#### **Search MorphoDepot (Optional: Top left, dashed arrow)**
 
 * **What it is**: A discovery tool to browse existing MorphoDepot repositories created by other researchers  
 * **Use cases**:  
@@ -266,7 +266,7 @@ Fill out the metadata. This generates the README.md for the repository.
   * *CC BY-NC 4.0:* Open, attribution required, non-commercial only.  
 * **Repository Name:** Create a short, unique name (No spaces, e.g., Project\_FishSkull\_2024).
 
-## **Section 5.3: Adding Screenshots** 
+### **5.3: Adding Screenshots** 
 
 You can capture and annotate screenshots to showcase your dataset. These images will be embedded in the repository's README and visible in search results.
 
@@ -454,7 +454,7 @@ If you requested changes, the student needs to follow this specific workflow to 
 
 ---
 
-## **Section 8: Search & Discovery**
+## **8: Search & Discovery**
 
 The Search tab allows you to discover and preview MorphoDepot repositories created by other researchers. This is useful for finding reference datasets, teaching examples, or comparative anatomy studies.
 
