@@ -43,7 +43,7 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 15. #### [**ProjectSemiLMs:** allows you to transfer a semiLM template to new samples using fixed LMs and TPS ](https://github.com/SlicerMorph/Tutorials/blob/main/ProjectSemiLM/README.md)
 14. #### [**MergeMarkups:** Merging different kinds of LMs for analysis](https://github.com/SlicerMorph/Tutorials/tree/main/MergeMarkups)
 15. #### [**ALPACA:** Automated Landmarking through Point cloud Alignment and Correspondence Analysis](https://github.com/SlicerMorph/Tutorials/tree/main/ALPACA)
-15. #### [**MALPACA:** Multi-template ALPACA and Kmeans based template selection:](https://github.com/SlicerMorph/Tutorials/tree/main/MALPACA)
+15. #### [**MALPACA:** Multi-template ALPACA and Kmeans based template selection:](https://github.com/SlicerMorph/Tutorials/blob/main/MALPACA/MALPACA.md)
 16. #### [**GPA-I:** Basics of GPA: Setting the analysis, exploring the morphospace](https://github.com/SlicerMorph/Tutorials/tree/main/GPA_1)
 17. #### [**GPA-II:** 3D interactive visualization of morphospace and exporting animations](https://github.com/SlicerMorph/Tutorials/tree/main/GPA_2)
 18. #### [**GPA-III:** Exporting data/results for R](https://github.com/SlicerMorph/Tutorials/tree/main/GPA_3#readme)
