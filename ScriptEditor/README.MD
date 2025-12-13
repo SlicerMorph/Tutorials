@@ -13,7 +13,7 @@ Slicer's `ScriptEditor` extension provides a such simple programming editor insi
 
 ## Getting Started
 
-For proper functionality, you need a Slicer revision 33050 or higher (October 2024 or later), as it relies on certain specific functionality only found in releases after that revision. After you make sure you have the right revision number, go to the extension manager, search for **ScriptEditor** and install the extension. Restart Slicer for changes to take affect. Once Slicer is restarted search for ScriptEditor (CTRL/CMD +F). When initialized first time ScriptEditor is going to install a few dependencies. So it may take a minute for your module pane to get activated.
+Make sure, you are using the latest stable (as of right now v5.10), as ScriptEditor does not work with well with older version of Slicer. Go to the extension manager, search for **ScriptEditor** and install the extension. Restart Slicer for changes to take effect. Once Slicer is restarted search for ScriptEditor (CTRL/CMD +F).
 
 Once the ScriptEditor is activated it should look like this:
 
@@ -23,7 +23,7 @@ You can switch between **dark** and **light** themes, and also adjust the font s
 
 You can set the default location for the script objects to be saved via the **Save Location:** 
 
-Go ahead and click on the **Script Node** selector and choose **Create New Text as** and then name the object as **MyScript**
+Go ahead and click on the **Script:** dropdown selector and choose **(Create New Python Script)** which will create a new Python text node. You can rename it by right-clicking the node name in the selector
 
 Then copy and paste the following code into the editor:
 
@@ -47,7 +47,7 @@ slicer.util.setSliceViewerLayers(background=smoothedVolume)
 
 You can expand the width of the editor window, by dragging the module pane to the right.  
 
-You can highlight any section of the code by clicking the left mouse button and dragging the text, then use the right mouse click to bring the context menu, which will allow you to execute the highlighted section in the python console (CTRL+Enter). If your python console is not visible in the application window, you can make it visible by pressing `CTRL+3` (on macs `CMD+3`). 
+You can highlight any section of the code by clicking the left mouse button and dragging the text, then use the right mouse click to bring the context menu, which will allow you to execute the highlighted section in the python console using **Send Selection to Python Console** (CTRL+Enter or CMD+Enter). If your python console is not visible in the application window, you can make it visible by pressing `CTRL+3` (on macs `CMD+3`). 
 
 <img src="./editor3.png">
  
@@ -55,7 +55,14 @@ When you paste the full code into the python console, it should download the MRH
 
 <img src="./editor4.png">
 
-It is important to understand that your scripts are saved into your scene like any other object in Slicer. To save the script object to the disk, go to `Data` module, and right-click on MyScript object (it should have the Python icon to distinguish it from other text objects). Then, in the pop-up dialog box, chose the directory to be saved (it should default to the location specified in the Save Location, but double check), and set the Export format to **Python Script (.py)** from the default .txt. 
+It is important to understand that your scripts are saved into your scene like any other object in Slicer. The scripts are automatically stored as Python text nodes in your scene. To save the script object to disk:
+
+1. Go to `Data` module
+2. Right-click on your script object (it should have the Python icon to distinguish it from other text objects)
+3. In the pop-up dialog box, choose the directory where you want to save it
+4. Set the **Export format** to **Python Script (.py)** from the default .txt
+
+Alternatively, you can set a default save location in the ScriptEditor module using the **Save Location:** field and **Browse...** button. When you set a save location, your scripts will automatically be configured to save to that directory as .py files. 
 
 <img src="./editor5.png">
 
