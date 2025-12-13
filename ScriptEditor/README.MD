@@ -15,6 +15,8 @@ Slicer's `ScriptEditor` extension provides a such simple programming editor insi
 
 Make sure, you are using the latest stable (as of right now v5.10), as ScriptEditor does not work with well with older version of Slicer. Go to the extension manager, search for **ScriptEditor** and install the extension. Restart Slicer for changes to take effect. Once Slicer is restarted search for ScriptEditor (CTRL/CMD +F).
 
+**NOTE:** Screenshots belong to an earlier version of the ScriptEditor, but the functionality is the same. In the current version you can also adjust the theme (light vs dark), as well as the Editor's font size. 
+
 Once the ScriptEditor is activated it should look like this:
 
 <img src="./editor1.png">
