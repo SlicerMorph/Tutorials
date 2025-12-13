@@ -77,7 +77,7 @@ Think of **GitHub** as the "Project Manager" (where assignments and discussions 
   * Preview data before deciding to use it  
 * **See**: [Section 8 (Search & Discovery)](https://github.com/SlicerMorph/Tutorials/tree/main/MorphoDepot#section-8-search--discovery-new-section)
 
-### **Summary: The Complete Cycle**
+### **Summary: The Complete MorphoDepot Cycle**
 
 1. **Instructor** creates the project repository with volume and color table (and optionally with an existing segmentation).  
 2. **Student** creates an Issue requesting to work on a specific structure  
@@ -90,9 +90,9 @@ Think of **GitHub** as the "Project Manager" (where assignments and discussions 
 9. Once approved, work is merged into the Master Copy  
 10. **Instructor** creates versioned releases at project milestones
 
-**The beauty of this system**: Everyone works independently on their own copy, preventing conflicts, while the instructor maintains quality control before any work becomes "official."
+**The beauty of this system**: Everyone works independently on their own copy, preventing conflicts, while the repository owner maintains quality control before any work becomes "official."
 
-## **1\. Prerequisites & System Configuration**
+## **1. Prerequisites & System Configuration**
 
 First, you need to configure your operating system to communicate with GitHub. Experience shows that setting up these credentials *before* installing Slicer prevents critical connectivity errors later. We also strongly advise using [MorphoCloud Instances](https://morphocloud.org) to cut down the necessary time for setup. On MorphoCloud all prerequisites are installed for you. 
 
@@ -100,7 +100,7 @@ First, you need to configure your operating system to communicate with GitHub. E
 
 1. **Register:** Create an account at [GitHub.com](https://github.com/) if you do not have one.  
 2. **Security:** Enable Two-Factor Authentication (2FA).  
-3. **Mobile App:** Install the GitHub Mobile App on your phone. This creates a seamless loop for approving the login requests in step 1.3.
+3. **Mobile App:** Install the GitHub Mobile App on your phone. This is the easiest way for approving 2FA requests.
 
 ### **1.2 Install Command Line Tools**
 
@@ -126,25 +126,26 @@ Important: Make a note of the exact folder path where you install gh. You may ne
 
 ### **1.3 Authenticate with GitHub via Terminal**
 
-1. Open your computer’s **Terminal** (Mac/Linux) or **PowerShell** (Windows).  
+1. Open your computer’s **Terminal** (Mac/Linux) or **Command window** (Windows).  
 2. Run the following command:
 
-   gh auth login
+   `gh auth login`
 
-   **Troubleshooting:** If you receive a **"Command not found"** or **"File not found"** error, the gh executable is not in your system path. You must locate the installation folder from Section 1.2 and run the command using the **full path**.  
+   **Troubleshooting:** If you receive a **"Command not found"** or **"File not found"** error, it means `gh` executable is not in your system path. You must locate the installation folder from Section 1.2 and run the command using the **full path**.  
    * *Example (Mac/Linux):* /Users/yourname/downloads/gh\_2.20.0/bin/gh auth login  
    * *Example (Windows):* "C:\\Program Files\\GitHub CLI\\gh.exe" auth login  
 3. Follow the prompts:  
    * **Account:** GitHub.com  
    * **Protocol:** HTTPS  
    * **Authenticate:** Login with a web browser.  
-4. Copy the one-time code provided in the terminal, paste it into the browser window that opens, and authorize the connection. You might also need to use the GitHub Mobile to do the 2FA (two factor authentication)  
+4. Copy the one-time code provided in the terminal, paste it into the browser window that opens, and authorize the connection. You might also need to use the GitHub Mobile to do the 2FA.  
 5. **Success:** The terminal should verify that you are logged in. If not, you will need to redo the procedure.
 
+You can confirm you have successfully logged in via command `gh auth status`, which should display that you are logged in and your username.
 
 ## **2. Slicer Installation & Setup**
 
-Now that your system credentials are set, you can set up the software.
+Now that your github credentials are set, you can set up the software.
 
 **Note:** [You can skip to Section 2.3,](https://github.com/SlicerMorph/Tutorials/tree/main/MorphoDepot#23-verify-connection-the-configure-tab)  if you are using MorphoCloud.
 
@@ -159,8 +160,7 @@ Now that your system credentials are set, you can set up the software.
 2. Navigate to the **Extensions Manager**.  
 3. Search for and install the following extensions:  
    * SlicerMorph  
-   * MorphoDepot  
-   * SlicerRT (Required for segment comparison tools).  
+   * MorphoDepot   
 4. **Restart Slicer** to complete the installation.
 
 ### **2.3 Verify Connection (The "Configure" Tab)**
@@ -173,12 +173,11 @@ Now that your system credentials are set, you can set up the software.
 
 These fields are required for commit histories and tracking of the issues. 
 
-2. Because you completed Section 1, you should see green checkmarks indicating git and gh are found.  
-   * *Troubleshooting:* If you see red errors, you may need to manually point Slicer to the full path where you installed git or gh (the same path used in Section 1.3).
-
+2. Because you completed Section 1, MorphoDepot should be able to detect where git and gh are installed.  
+   * *Troubleshooting:* If you see encounter errors, you may need to manually point Slicer to the full path where you installed git or gh (the same path used in Section 1.3).
 ---
 
-## **3\. Data Preparation Steps: 3D Volume**
+## **3. Preparing Data for MorphoDepot Repository: 3D Volume**
 
 **CRITICAL STEP:** Data must be cleaned, posed, and padded *before* uploading. Once a repository is created, the source volume cannot be easily changed without restarting the project.
 
@@ -210,22 +209,21 @@ Use the **Crop Volume** module in Slicer to prepare the specific Region of Inter
 
 ---
 
-## **4\. Data Preparation Steps: Color Table with Terminologies.**
+## **4. Preparing Data for MorphoDepot Repository: Color Table with Terminologies.**
 
-You must define what anatomical structures will be segmented. This ensures all collaborators use the exact same label values and names.
+You must define what anatomical structures will be segmented. This ensures all collaborators use the exact same label values and names. We suggest creating these color table comprehensively (include as much structural detail as possible), You can see some examples of existing terminology color tables at https://github.com/SlicerMorph/terms-and-colors
 
-### **4.1 Selection Options**
+### **4.1 Color Table Creation**
 
-* **Default Tables:** Slicer includes basic tables, but these are rarely specific enough for research.  
-* **Custom Tables (Recommended):** Create a .csv file defining your labels. We recommend using **Uberon** anatomical terms as reference.   
-  * *Reference:* [SlicerMorph Color Table Tutorial](https://github.com/SlicerMorph/Tutorials/blob/main/Segmentation/colors-and-terms/README.md)  
-* **Load from URL:** You can host a CSV on GitHub and load it directly.  
+* **Custom Color Table:** Use the `Colors` module of Slicer to create the color table in the csv format. We recommend using **Uberon** anatomical terms as reference. *For more details See:* [SlicerMorph Color Table Creation Tutorial](https://github.com/SlicerMorph/Tutorials/blob/main/Segmentation/colors-and-terms/README.md)  
+
+* **Load from URL:** If you find a directly relevant color table in the referenced Terms-and-Colors repository, you can load it directly into Slicer using the Sample Data modules `Load From URL` feature  
   * *Example:* Copy the Raw URL of a CSV file (e.g., from the SlicerMorph repo).  
   * Use the **Sample Data** module \-\> **Load data from URL**.
 
 ---
 
-## **5\. Creating the Repository**
+## **5. Creating the Repository**
 
 This step uploads your volume and creates the collaborative space on GitHub.
 
@@ -242,7 +240,7 @@ Before filling the accession form, you must choose the intended lifespan of your
 * **Short-term (e.g., repositories for classroom exercises)**:  
   * Use for teaching demonstrations, workshops, or temporary projects  
   * Terminology validation is relaxed  
-  * These repositories may not be suitable for long-term archival or citation
+  * These repositories are meant to be ephemeral. If your short-term repository becomes useful and informative, consider creating an archival one from that point on. 
 
 ### **5.1 Subject Data**
 
