@@ -3,7 +3,39 @@ nnInteractive is a deep learning-based framework for interactive segmentation of
 
 The official repository and most up-to-date instructions on how to install NNInteractive can be found at https://github.com/coendevente/SlicerNNInteractive/blob/main/README.md. This guide covers specific steps specific known to work with on MorphoCloud.
 
+## Run NNinteractive without installing any libraries:
+
+We maintain a python virtual environment with all necessary files for running the NNInteractiver server is already installed. For quick tests, it might be faster to use this environment instead of [creating one for yourself as explained below](#installing-the-server-and-running-it).  There are a few downsides of using this environment: 
+
+1. If the share is not available for any reason, you can't launch the server.
+2. It is a read-only folder, you cannot make changes if things don't work out for you.
+
+As such, if you are planning to use NNInteractive regularly, we still suggest creating your own python virtual environment where you have the full control over it. 
+
+Here are the quick instructions.
+1. First paste this command in a terminal window to map the share that contains NNinteractive virtual environment (one time setup):
+```
+curl https://jetstream2.exosphere.app/exosphere/assets/scripts/mount_ceph.py | sudo python3 - mount \
+  --access-rule-name="NNInteractive-ro" \
+  --access-rule-key="AQCMQTxpTikzNxAAssyTNC8+spC8seJJVnZ+BQ==" \
+  --share-path="149.165.158.38:6789,149.165.158.22:6789,149.165.158.54:6789,149.165.158.70:6789,149.165.158.86:6789:/volumes/_nogroup/b27879c9-bfd4-4290-a87e-91a3dad87107/55c933bc-5291-450d-997c-ee407a05c740" \
+  --share-name="NNInteractive"
+```
+2. In the same window, type this command to activate the environment
+```
+source /media/share/NNInteractive/bin/activate
+```
+3. Start the NNInteractive server: 
+```
+nninteractive-slicer-server --host 0.0.0.0 --port 1527
+```
+
+For subsequent usages, you do not need to do the step 1. Just activate your environment and start the server.
+
+
 ## Installing the server and running it.
+(you can skip this section, if the pre-configured python environment worked for you and you successfully launched the server)
+
 There are multiple ways of running the server. On MorphoCloud we suggest you use the [**pip install** option as documented in the official documentation](https://github.com/coendevente/SlicerNNInteractive?tab=readme-ov-file#option-2-using-pip). 
 
 1. Open a terminal window 
