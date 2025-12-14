@@ -14,7 +14,7 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 3. #### [**Volumes**](https://github.com/SlicerMorph/Tutorials/blob/main/Slicer_Modules/Volumes/Readme.MD)
 9. #### [**Models**](https://github.com/SlicerMorph/Tutorials/blob/main/Slicer_Modules/Models/README.md)
 8. #### [**Transforms**](https://github.com/SlicerMorph/Tutorials/blob/main/Slicer_Modules/Transforms/README.md)
-9. #### [**FastModelAlign:** How to scale & rigidly align 3D models using point clouds registration](https://github.com/SlicerMorph/Tutorials/tree/main/FastModelAlign#readme)
+9. 
 
 ### Visualization
 1. #### [**Volume Rendering**](https://github.com/SlicerMorph/Tutorials/blob/main/Slicer_Modules/Volume_Rendering/README.MD)
@@ -73,8 +73,10 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 6. #### [**Review and Merging Submissions:** Covers how repo owners review and send feedback to students?](https://github.com/SlicerMorph/Tutorials/tree/main/MorphoDepot#7-reviewing--merging-submissions)
 7. #### [**Search:** How to find MorphoDepot repositories](https://github.com/SlicerMorph/Tutorials/tree/main/MorphoDepot#8-search--discovery)
 
-### Image Registration and Analysis with ANTsPy
-1. #### [**ANTsPy Registration Tutorial**](https://github.com/SlicerMorph/Tutorials/blob/main/ANTsPy/README.md)
+### Image and Surface Model Registration
+1. #### [**ANTsPy Volumetric Registration Tutorial**](https://github.com/SlicerMorph/Tutorials/blob/main/ANTsPy/README.md)
+2. #### [**FastModelAlign:** Fast Model registration via point-clouds (for stable version)](https://github.com/SlicerMorph/Tutorials/tree/main/FastModelAlign#readme)
+2. #### [**FastModelAlign:** Fast Model registration with deformation (for preview version)](https://github.com/SlicerMorph/Tutorials/blob/main/FastModelAlign/README_preview.md)
 
 ### Deep-Learning based segmentation models
 1. #### [**MEMOS:** A pre-trained segmentation model for E15 fetal mouse scans](https://github.com/SlicerMorph/SlicerMEMOS)
