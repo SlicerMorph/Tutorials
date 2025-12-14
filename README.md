@@ -73,6 +73,9 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 6. #### [**Review and Merging Submissions:** Covers how repo owners review and send feedback to students?](https://github.com/SlicerMorph/Tutorials/tree/main/MorphoDepot#7-reviewing--merging-submissions)
 7. #### [**Search:** How to find MorphoDepot repositories](https://github.com/SlicerMorph/Tutorials/tree/main/MorphoDepot#8-search--discovery)
 
+### Image Registration and Analysis with ANTsPy
+1. #### [**ANTsPy Registration Tutorial**](https://github.com/SlicerMorph/Tutorials/blob/main/ANTsPy/README.MD)
+
 ### Deep-Learning based segmentation models
 1. #### [**MEMOS:** A pre-trained segmentation model for E15 fetal mouse scans](https://github.com/SlicerMorph/SlicerMEMOS)
 2. #### [**MonaiLabel:** a server-client system that facilitates segmentation by using AI ](https://github.com/Project-MONAI/MONAILabel/tree/main/plugins/slicer) 
