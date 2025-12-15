@@ -62,7 +62,7 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 
 ### MorphoCloud 
 1. #### [**MorphoCloud:** Explains what MorphoCloud is and how you can get started with it](https://github.com/SlicerMorph/Tutorials/blob/main/MorphoCloud/README.md)
-2. #### [**NNInteractive:** How to setup AI-assisted interactive segmentation on MorphoCloud](https://github.com/SlicerMorph/Tutorials/blob/main/MorphoCloud/NNInteractive.MD)
+2. #### [**NNInteractive:** How to setup AI-assisted interactive segmentation on MorphoCloud](https://github.com/SlicerMorph/Tutorials/blob/main/MorphoCloud/NNInteractive/NNInteractive.MD)
 
 ### MorphoDepot
 1. #### [**MorphoDepot Overview:** How does collabration segmentation workflows work in a nutshell ](https://github.com/SlicerMorph/Tutorials/tree/main/MorphoDepot#0-conceptual-overview-the-morphodepot-workflow)
