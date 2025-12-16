@@ -192,15 +192,16 @@ Use the **Crop Volume** module in Slicer to prepare the specific Region of Inter
 
 1. Load your volume into Slicer.  
 2. Open **Crop Volume**.  
-3. **Reorient:** Use the "Reorient Volume" dropdown to align the specimen using the rotation handles in the 3D viewer.  
-4. **Set ROI:** Drag the ROI box to encase the specimen with a padding of approximately **10 voxels** on all sides.  
-5. **ROI Settings:**  
+3. **Reorient:** Use the "Reorient Volume" dropdown to align the specimen using the rotation handles in the 3D viewer. Hit **Apply** when done.   
+4. **Input ROI:** Create a new ROI.
+5. **Crucial:** Set "Fit to Volume" mode to **Align to world axes \+ Resize**. Then, hit **Fit to Volume** button to expand the ROI to span the new alignment.   
+6. Drag the ROI box to encase the specimen with a padding of approximately **5%** of image on all sides.  
+7. **ROI Settings:**  
    * Set **Interpolated cropping** to "Enabled".  
    * Set **Fill value** to the background intensity (usually 0 for microCT, and \-1000 for medical CT. If unsure, check specifics for your dataset using the Volumes module).  
-   * **Crucial:** Set "Fit to Volume" mode to **Align to world axes \+ Resize**.   
-   * Click **Crop**. This creates a new resampled volume in the user specified orientation.  
-6. **Image Metadata:** Check the volume has correct image spacing (resolution) entered.   
-7. **Size:** The final .nrrd file **must be under 2 GB** when saved on disk (with compression enabled). 
+   * Click **Apply**. This creates a new resampled volume in the user specified orientation.  
+8. **Image Metadata:** Check the volume has correct image spacing (resolution) entered.   
+9. **Size:** The final .nrrd file **must be under 2 GB** when saved on disk (with compression enabled). 
 
 ### **3.3 File Naming**
 
