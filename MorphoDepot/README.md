@@ -1,7 +1,7 @@
 # **MorphoDepot Project Creation & Management**
 
-Scope: This SOP covers the complete lifecycle of a MorphoDepot project, from initial system configuration to repository creation, collaborator assignment, and segmentation review.  
-Target Audience: Data Owners (PIs, Instructors) and researchers and students who use them.
+Scope: This tutorial covers the complete lifecycle of a MorphoDepot project, from initial system configuration to repository creation, collaborator assignment, and segmentation review.  
+Target Audience: Data Owners (PIs, Instructors) and researchers and students who use need to edit (segment) them.
 
 ## **0\. Conceptual Overview: The MorphoDepot Workflow**
 
