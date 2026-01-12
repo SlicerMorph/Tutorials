@@ -16,7 +16,7 @@ Think of **GitHub** as the "Project Manager" (where assignments and discussions 
 ### **Key Concepts from the Diagram:**
 
 #### **The Project Repo (The Blue Star):**  
-   * **What it is:** This is the "Master Copy" of your dataset  
+   * **What it is:** This is the "Main Copy" of your dataset  
    * **Who creates it**: The Instructor/Project Owner creates this in [Section 5 (Creating the Repository)](https://github.com/SlicerMorph/Tutorials/tree/main/MorphoDepot#5-creating-the-repository)  
    * **Where it lives:** On GitHub, but managed through MorphoDepot  
    * **Analogy**: Think of this as the "reference textbook" that everyone works from but nobody except the author is allowed to modify it.  
@@ -28,26 +28,26 @@ Think of **GitHub** as the "Project Manager" (where assignments and discussions 
 #### **The Fork (Blue Branch Icon):**  
    * **What it is:** An independent copy of the project created under the student’s github account.  
    * **When it happens:** Automatically created when a student first loads an assigned issue in MorphoDepot.  
-   * **Why it matters:** Students don't edit the Master Copy directly—they work on their own safe copy  
-   * **Analogy:** Like making copies on a photocopy of a library book, not in the book itself  
+   * **Why it matters:** Students don't edit the main repo directly—they work on their own safe copy  
+   * **Analogy:** Like making edits on a photocopy of a library book, not in the book itself  
 
 #### **Commits (Peach/Orange Line):**  
    * **Location**: MorphoDepot (Slicer)  
    * **What it is**: A "save point" that records your progress  
-   * **How it works**: As the student segments, they click **"Commit and Push"** to save their work to their Fork  
+   * **How it works**: As the student segments, they click **"Commit and Push"** to save their work to their Fork of the repo.
    * **Frequency**: Should be done every 20–30 minutes to prevent data loss  
    * **Analogy**: Like saving your Word document and backing it up to the cloud  
    * **See**: [Section 6.5 (Saving Progress)](https://github.com/SlicerMorph/Tutorials/tree/main/MorphoDepot#65-saving-progress-student-action)  
 
 #### **Pull Request / "PR" (Blue Box):**  
    * **Location**: Bridge between MorphoDepot and GitHub  
-   * **What it is**: A formal request to merge your work back into the Master Copy  
+   * **What it is**: A formal request to merge your work back into the main repo where it derived from.  
    * **When it happens**: After the student clicks **"Request PR Review"**  
-   * **Analogy**: Handing in your homework—you're asking the instructor to review and accept your work  
+   * **Analogy**: Handing in your homework: you're asking the instructor to review your work  
    * **Status tracking**:  
      1. **Draft**: Work in progress, not ready for review  
-     2. **Ready for Review**: Student has submitted for grading  
-     3. **Approved & Merged**: Work is accepted and added to the Master Copy and the issue is closed.  
+     2. **Ready for Review**: Student has submitted for review  
+     3. **Approved & Merged**: Work is accepted and added to the main repo and the issue is closed.  
    * **See**: [Section 6.6 (Submitting for Review)](https://github.com/SlicerMorph/Tutorials/tree/main/MorphoDepot#66-submitting-for-review-student-action)  
 
 #### **The Review Loop:**  
@@ -55,17 +55,17 @@ Think of **GitHub** as the "Project Manager" (where assignments and discussions 
    * **How it works**:  
      1. Instructor reviews the segmentation in Slicer  
      2. If changes are needed, instructor types feedback and clicks **"Request Changes"**  
-     3. Student reads the feedback (by clicking **"PR Link"** button)  
+     3. Student reads the feedback on the GitHub (by clicking **"PR Link"** button)  
      4. Student makes corrections and commits again  
      5. Student clicks **"Request PR Review"** to resubmit  
-     6. Loop continues until work is approved  
+     6. Loop continues until work is approved and finalized.  
    * **End result**: Once approved, the work is **Merged** back into the main Project Repo and the task is complete  
    * **See**: [Section 7 (Reviewing)](https://github.com/SlicerMorph/Tutorials/tree/main/MorphoDepot#7-reviewing--merging-submissions)
 
 #### **Merged (Right side: checkmark icon labeled "Merged")**
 
-* **What it means**: The student's segmentation has been approved and permanently added to the Master Copy  
-* **What happens**: The Issue is closed, the PR is merged, and that anatomical structure is now complete in the project  
+* **What it means**: The student's segmentation has been approved and permanently added to the main repo.  
+* **What happens**: The Issue is closed, the PR is merged, and that anatomical structure is now completely segmented in the project  
 * **Important**: After merging, no further edits to that specific submission are possible (though a new Issue could be created if needed)
 
 #### **Search MorphoDepot (Optional: Top left, dashed arrow)**
@@ -161,7 +161,7 @@ Now that your github credentials are set, you can set up the software.
 3. Search for and install the following extensions:  
    * SlicerMorph  
    * MorphoDepot   
-4. **Restart Slicer** to complete the installation.
+4. **Restart Slicer** to for changes to take effect. 
 
 ### **2.3 Verify Connection (The "Configure" Tab)**
 
@@ -171,22 +171,25 @@ Now that your github credentials are set, you can set up the software.
    * **User Name**: Your full name (e.g., "Jane Smith")  
    * **User Email**: The email address associated with your GitHub account
 
-These fields are required for commit histories and tracking of the issues. 
+These fields are required for accurate commit histories and tracking of the issues. 
 
-2. Because you completed Section 1, MorphoDepot should be able to detect where git and gh are installed.  
-   * *Troubleshooting:* If you see encounter errors, you may need to manually point Slicer to the full path where you installed git or gh (the same path used in Section 1.3).
+4. Because you completed Section 1, MorphoDepot should be able to detect where git and gh are installed.  
+   * *Troubleshooting:* If you encounter errors, you may need to manually point Slicer to the full path where you installed git or gh (the same path used in Section 1.3).
+
+5. **Applying Changes:** After modifying any settings in the Configure tab (repository directory, git path, gh path, or user credentials), click the **Apply Changes** button to reload the module with your new settings. This eliminates the need to restart Slicer after configuration changes. You will not be able to proceed to other tab of MorphoDepot, unless you configure the extension fully. 
+
 ---
 
 ## **3. Preparing Data for MorphoDepot Repository: 3D Volume**
 
-**CRITICAL STEP:** Data must be cleaned, posed, and padded *before* uploading. Once a repository is created, the source volume cannot be easily changed without restarting the project.
+**CRITICAL STEP:** Data must be cleaned, posed, and padded *before* uploading. Once a repository is created, the source volume cannot be changed without restarting the project.
 
 ### **3.1 Volume Quality Control**
 
 * **Cleaning:** Ensure the scan has minimal noise and no background artifacts (holders, markers, packing peanuts).  
-* **Orientation:** The specimen should be aligned with the standard world axes (Anterior-Posterior, Dorsal-Ventral; see below).
+* **Orientation:** We suggest aligning the specimen with the standard world axes (Anterior-Posterior, Dorsal-Ventral; see below).
 
-### **3.2 Cropping and Posing**
+### **3.2 Cropping and Posing your Data**
 
 Use the **Crop Volume** module in Slicer to prepare the specific Region of Interest (ROI).
 
@@ -206,17 +209,17 @@ Use the **Crop Volume** module in Slicer to prepare the specific Region of Inter
 ### **3.3 File Naming**
 
 * Rename the resulting cropped volume node in the **Data** module.  
-* **Rules:** No spaces. Use alphanumerics, underscores, or dashes only (e.g., Sebastes\_caurinus\_Skull\_01). In general, keep the filename simple. Repository metadata provides far more information about the specimen and the scan that you can include in the filename.
+* **Rules:** No spaces. Use alphanumerics, underscores, or dashes only (e.g., Sebastes\_caurinus\_Skull\_01). In general, keep the filename simple. Repository metadata provides far more information about the specimen and the scan that you can possibly include in the filename.
 
 ---
 
 ## **4. Preparing Data for MorphoDepot Repository: Color Table with Terminologies.**
 
-You must define what anatomical structures will be segmented. This ensures all collaborators use the exact same label values and names. We suggest creating these color table comprehensively (include as much structural detail as possible), You can see some examples of existing terminology color tables at https://github.com/SlicerMorph/terms-and-colors
+You must define what anatomical structures will be segmented. This ensures all collaborators use the exact same terminology for labels. We suggest creating these color table comprehensively (include as much structural detail as possible), You can see some examples of existing terminology color tables at https://github.com/SlicerMorph/terms-and-colors
 
 ### **4.1 Color Table Creation**
 
-* **Custom Color Table:** Use the `Colors` module of Slicer to create the color table in the csv format. We recommend using **Uberon** anatomical terms as reference. *For more details See:* [SlicerMorph Color Table Creation Tutorial](https://github.com/SlicerMorph/Tutorials/blob/main/Segmentation/colors-and-terms/README.md)  
+* **Custom Color Table:** Use the `Colors` module of Slicer to create the color table in the csv format. We recommend using **Uberon** anatomical terms as reference. *For more detail about importing and using Uberon See:* [SlicerMorph Color Table Creation Tutorial](https://github.com/SlicerMorph/Tutorials/blob/main/Segmentation/colors-and-terms/README.md)  
 
 * **Load from URL:** If you find a directly relevant color table in the referenced Terms-and-Colors repository, you can load it directly into Slicer using the Sample Data modules `Load From URL` feature  
   * *Example:* Copy the Raw URL of a CSV file (e.g., from the SlicerMorph repo).  
@@ -247,7 +250,7 @@ Before filling the accession form, you must choose the intended lifespan of your
 
 * **Source Volume:** Select your cropped, cleaned, and properly named volume from the dropdown. (Mandatory field)  
 * **Color Table:** Select your custom or loaded color table. (Mandatory field). If you do not choose a color table with terminology, you will not be able to proceed.   
-* **Baseline Segmentation (Optional):** If you have started the segmentation (e.g., to demonstrate boundaries), select it here.
+* **Baseline Segmentation (Optional):** If you have an existing segmentation that serves as a starting point. 
 
 ### **5.2 Accession Form**
 
@@ -305,20 +308,31 @@ When the repository is created:
 * The README.md automatically embeds images with their captions  
 * Search results will show a screenshot icon and thumbnails in tooltips
 
-**Note**: Screenshots are optional but highly recommended—they appear in the MorphoDepot repository search (within 3D Slicer; see Section 8 below) and help others discover and understand your data.
+**Note**: Screenshots are optional but highly recommended to give the users a sense of the data visually without having to download the full repository.
 
 ### **5.4 Execution**
 
-* Click **Create Repository**.  
-* Carefully review the information  (image spacing, specimen information, etc). in the pop-up window. This is your final chance to make corrections. If necessary go back to previous steps to fix them. Otherwise click **Proceed** (to be implemented).   
+* Click **Create Repository**.
+* A **confirmation dialog** will appear displaying critical information about your repository:
+  * **Volume dimensions** (in voxels)
+  * **Voxel spacing** (resolution in mm)
+  * **Image size** (file size)
+  * **Specimen information** from the accession form
+* **Review carefully:** This is your final chance to catch errors before the repository is created. Common issues to verify:
+  * Spacing values look correct for your imaging modality
+  * Dimensions match your expected volume size
+  * Species name is spelled correctly
+* If corrections are needed, click **Cancel** and return to previous steps to fix them. Otherwise, click **Proceed**.
 * *Wait Time:* Depending on internet speed and volume size (max 2GB), this may take several minutes.   
-* **Success:** The button un-grays, and the repo appears in your GitHub account. 
+* **Success:** The button un-grays, and the repo appears in your GitHub account.
+
+**Note on Terminologies for Short-term Repositories:** For **short-term repositories**, if your color table lacks complete terminology information, MorphoDepot can automatically assign default terminology entries to allow repository creation (every entry in the color table is assigned to Tissue type with the SnoMed CT (SCT) code 85756007). This is intended for quick classroom exercises or other short-term repositories where formal ontology linking is not necessarily required. 
 
 ---
 
 ## **6\. Project Management & Assignments**
 
-In MorphoDepot, tasks are tracked via GitHub Issues. The workflow is bidirectional: **The Student creates the Issue** (requesting the work), and **The Owner assigns it back** **to the student for them to begin to work on the task.** It may seem more logical for instructors to create issues rather than students creating them, but GitHub will only allow you to assign issues to users who have expressed interest in the issue by creating or commenting on them (presumably to prevent spammers from assigning issues to people who don't want them).
+In MorphoDepot, tasks are tracked via GitHub Issues. The workflow is bidirectional: **The Student creates the Issue** (requesting the work), and **The Owner assigns it back** **to the student for them to begin to work on the task.** It may seem more logical for instructors to create issues rather than students creating them, but GitHub will only allow you to assign issues to users who have expressed interest in the issue by creating or commenting on them.
 
 ### **6.1 Preparation (Owner)**
 
@@ -352,7 +366,12 @@ In MorphoDepot, tasks are tracked via GitHub Issues. The workflow is bidirection
 1. Student opens Slicer \-\> **MorphoDepot** \-\> **Annotate** tab.  
 2. Clicks **Refresh GitHub**.  
 3. The issue (now assigned to them) will appear in the list.  
-4. Student double-clicks the issue to download the data and begins segmentation.
+4. Student double-clicks the issue to download the data.
+5. **Automatic Baseline Import:** If the repository owner included a baseline segmentation when creating the repository, it will be automatically imported into the student's working segmentation. This allows students to:
+   * Start from a partial segmentation provided by the instructor
+   * See reference boundaries for complex structures
+   * Build upon existing work rather than starting from scratch
+6. The student begins segmentation using Segment Editor.
 
 ### **6.5 Saving Progress (Student Action)**
 
@@ -415,9 +434,12 @@ As the Project Owner, you review work directly inside Slicer.
 
 1. Open MorphoDepot \-\> **Review** tab.  
 2. Click **Refresh GitHub**.  
-   * This pulls all "Open Pull Requests" (submitted assignments) from your repositories.  
-3. **Select a Request:** Click on a row in the table to download the student's segmentation overlay.  
-4. **Inspect:** Use Slicer's 2D and 3D views to check the quality.  
+   * This pulls all "Open Pull Requests" (submitted assignments) from your repositories.
+3. **Filtering PRs:** Use the **Hide Drafts** checkbox to control which Pull Requests are displayed:
+   * **Checked (default):** Shows only PRs that are "Ready for Review"—these are submissions where students have clicked **Request PR Review**
+   * **Unchecked:** Shows all PRs including drafts—useful for monitoring work-in-progress from students who haven't yet submitted for review  
+4. **Select a Request:** Double-click on a row in the table to download the student's segmentation overlay.  
+5. **Inspect:** Use Slicer's 2D and 3D views to check the quality.  
    * *Comparison:* You can use the **Segment Comparison** module (from SlicerRT) to compare against a ground truth if available.
 
 ### **7.2 Taking Action (Owner)**
@@ -500,36 +522,37 @@ The search form provides multiple filter options:
 
 **8.3 Viewing Results**
 
-The results table displays:
+The results table displays (in order):
 
 | Column | Description |
 | ----- | ----- |
-| 📷 | Screenshot icon (if available) with count |
+| Size (GB) | Volume file size (first column for quick assessment) |
 | Repo | Repository name |
 | Owner | GitHub username |
 | Species | Scientific name (or subject description) |
 | Modality | Imaging technique |
-| Size (GB) | Volume file size |
+| Last Active | Time since last commit (e.g., "3 days ago", "2 months ago") |
 | Spacing | Voxel spacing in mm |
 | Dimensions | Volume dimensions (voxels) |
 
 **Interactive Features:**
 
-* **Hover over a row**: Tooltip shows detailed information and screenshot thumbnails (up to 5\)  
-* **Click column headers**: Sort the table (alphabetically or numerically)
+* **Hover over a row**: Tooltip shows detailed information and screenshot thumbnails (up to 5)  
+* **Click column headers**: Sort the table by any column (alphabetically or numerically)
+* **Save to CSV**: Click the **Save Search Results** button to export the current filtered results to a CSV file for external analysis or record-keeping
+
+**Note:** The "Last Active" column helps identify repositories that are actively maintained versus those that may be abandoned or completed projects.
 
 **8.4 Taking Action**
 
-**Option A: Right-Click Context Menu**
+**Right-Click Context Menu**
 
 1. Right-click any repository in the table  
 2. Choose:  
    * **"Open Repository Page"**: Opens the GitHub repository in your browser  
    * **"Preview in Slicer"**: Downloads and loads the data (see 8.5)
 
-**Option B: Double-Click**
-
-* Double-click any row to immediately preview that repository
+Alternatively, you can double-click on any entry, which will automatically download the dataset.
 
 **8.5 Previewing a Repository**
 
@@ -537,16 +560,22 @@ When you preview a repository:
 
 1. **Confirmation**: A dialog asks "Close scene and load repository for preview?" (click OK)  
 2. **Download**:  
-   * The repository is cloned to your local MorphoDepot cache  
-   * The source volume is downloaded (if not already cached)  
-   * All segmentations are loaded  
-3. **Viewing**:  
+   * The repository is cloned to your local MorphoDepot cache.  
+   * The source volume and segmentations are loaded.   
+   * Cloned repository is removed from the cache.  
+3. **Preview Mode Warning**: After loading completes, a notification dialog appears reminding you:
+   * You are in **Preview mode**
+   * The currently loaded data is **not saved by default**
+   * To contribute segmentations, right-click on the search results row and open the repository web page to request access via an Issue
+   * This dialog can be dismissed permanently using the "Don't show again" option
+4. **Viewing**:  
    * The volume and segmentations appear in Slicer  
    * You can examine the data in 2D/3D views  
    * Measurements and visualization tools work normally  
-4. **Read-Only**:  
-   * You cannot commit changes to someone else's repository  
-   * This is for reference and learning purposes only
+5. **Read-Only**:  
+   * You cannot commit changes to someone else's repository
+   * Any edits you make will be lost when you close the scene or load another dataset  
+   * This is for looking at the data. 
 
 **Use Cases:**
 
