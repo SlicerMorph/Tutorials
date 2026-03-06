@@ -35,44 +35,10 @@ This tutorial demonstrates a complete morphometric analysis workflow using the *
 ### Software Requirements
 
 #### 3D Slicer
-- Download and install the **latest preview** version of 3D Slicer from [slicer.org](https://download.slicer.org/)
+- Download and install the **latest stable** version of 3D Slicer from [slicer.org](https://download.slicer.org/)
 
 #### SlicerANTsPy Extension 
-This tutorial covers the features available in the development version of the SlicerANTsPy extension, which is available for the preview builds of Slicer (r34314 or later). If you are using the current stable (v5.10), and installed ANTsPy, some of the functionality will be slightly different.  To obtain the development branch of the SlicerANTsPy, you will need to manually install it following the instructions below.
-
-If you are using the preview version, just install SlicerANTsPy from the extension catalogue, and skip these steps. 
-
-**Installation Steps:**
-
-1. **Clone the SlicerANTsPy repository:**
-   
-   Open a terminal (Mac/Linux) or Git Bash (Windows) and run:
-   
-   ```bash
-   cd ~/Desktop  # or your preferred location
-   git clone https://github.com/SlicerMorph/SlicerANTsPy.git
-   cd SlicerANTsPy
-   git checkout main
-   ```
-
-2. **Add the extension to Slicer:**
-   
-   - Launch 3D Slicer
-   - Go to `Edit → Application Settings`
-   - Click on **Modules** in the left panel
-   - Under **Additional module paths**, click the `>>` button to add a new path
-   - Click the folder icon and navigate to the `SlicerANTsPy` folder you just cloned
-   - Select the folder and click **OK**
-   - Click **OK** to close Application Settings
-   - **Restart Slicer**
-
-3. **Verify installation:**
-   
-   - After restarting, search for "ANTsRegistration" in the module search bar
-   - You should see the **ANTsRegistration** module with tabs: Pairwise, Template, Group-wise, Average, and Analysis
-   - If you don't see these tabs, double-check that you selected the correct folder path
-
-**Note:** Once these features are merged into the main branch and released through the Extension Manager, you can switch to the standard installation method.
+Install the ANTsPy Extension from the Extension Catalogue
 
 ### Hardware Recommendations
 We advise to run this tutorial using [MorphoCloudInstances](https://morphocloud.org) as registration operations are memory and compute intensive. Standard MorphoCloud instances (g3.l) provide 60GB of RAM and 16 cores. 
