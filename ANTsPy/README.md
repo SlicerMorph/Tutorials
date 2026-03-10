@@ -1,4 +1,4 @@
-# ANTsRegistration Tutorial: Mouse Craniometric Analysis
+# ANTsPyRegistration Tutorial: Mouse Craniometric Analysis
 
 A comprehensive guide to template building, registration, and Jacobian analysis using the SlicerANTsPy extension.
 
@@ -17,7 +17,7 @@ A comprehensive guide to template building, registration, and Jacobian analysis 
 
 ## Introduction
 
-This tutorial demonstrates a complete morphometric analysis workflow using the **ANTsRegistration** module in 3D Slicer. You will:
+This tutorial demonstrates a complete morphometric analysis workflow using the **ANTsPyRegistration** module in 3D Slicer. You will:
 - Create one canonically oriented sample as a reference
 - Build a population-averaged template from mouse microCT scans
 - Register individual specimens to the template
@@ -200,10 +200,10 @@ For detailed instructions, see the [CropVolume tutorial](https://github.com/Slic
 
 Now we'll register all specimens to the reoriented reference using rigid registration. This brings them into a common space without changing their shape. We'll use the **Group-wise** registration tab to process all specimens at once.
 
-#### Open ANTsRegistration Module - Group-wise Tab
+#### Open ANTsPyRegistration Module - Group-wise Tab
 
-1. In the module search bar, type "ANTs"
-2. Select **ANTsRegistration**
+1. In the module search bar, type "ANTsPy"
+2. Select **ANTsPyRegistration**
 3. Click the **"Group-wise"** tab
 
 #### Configure Rigid Registration Settings
@@ -304,9 +304,9 @@ Navigate to `ANTsamples/RigidAligned/` and you should see:
 
 Now we'll create an average of all rigidly aligned specimens. This becomes our unbiased initial reference volume to initialize the iterative template building procedure.
 
-#### Open ANTsRegistration Module - Average Tab
+#### Open ANTsPyRegistration Module - Average Tab
 
-1. In the **ANTsRegistration** module
+1. In the **ANTsPyRegistration** module
 2. Click the **"Average"** tab
 
 #### Configure Average Settings
@@ -453,10 +453,10 @@ else:
 
 **TO DO: Explain why we are not using the output of our rigid registration (-transformed volumes) as input to this procedure. Effects of doing image resampling multiple times etc...
 
-### Open the ANTsRegistration Module
+### Open the ANTsPyRegistration Module
 
-1. In the module search bar (top left), type "ANTs"
-2. Select **ANTsRegistration**
+1. In the module search bar (top left), type "ANTsPy"
+2. Select **ANTsPyRegistration**
 3. Go to the **Template** tab
 
 ### Configure Template Building Settings
@@ -985,7 +985,7 @@ TALLYHO_JNGJ_,B
 
 ### Open the Analysis Tab
 
-1. In **ANTsRegistration** module
+1. In **ANTsPyRegistration** module
 2. Click the **"Analysis"** tab
 
 ### Configure Jacobian Analysis Inputs
@@ -1370,7 +1370,7 @@ referenceLandmarks = "NZBWF1_J_reoriented_landmarks"
 volumeFiles = [f for f in os.listdir(volumesDir) if f.endswith('.nii.gz')]
 
 # Get module logic
-logic = slicer.modules.antsregistration.widgetRepresentation().self().logic
+logic = slicer.modules.antspyregistration.widgetRepresentation().self().logic
 
 # Get reference nodes
 fixedVolume = slicer.util.getNode(referenceVolume)
