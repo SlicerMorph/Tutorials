@@ -22,6 +22,7 @@ This module is a part of the SlicerMorph extension for 3D Slicer, designed to ca
    - **Viewer Size**: Displays the current X and Y dimensions of the 3D viewer (shows "custom" if undocked)
    - **Output Size**: Shows the final output resolution after applying the scaling factor. For example, for a 10" wide print at 600 DPI, you need an output X dimension of 6000px. Adjust the scaling factor and viewer size to achieve your target resolution.
    - **Output File**: Specify the path to save the screenshot. Type the path directly or click `Select Output File` to browse. Supported formats: PNG, BMP, JPG, JPEG, TIFF.
+   - **Transparent Background:** If you want to a transparent background as opposed to bluegradient (or solid white or black), check this option. For this option to work, you need to specify the output format as PNG.
  
 6. **Capture Screenshot:** Click `Export Screenshot` to capture the screenshot with the specified settings. If the viewer was not previously undocked, it will be temporarily undocked for capture and automatically redocked afterward.
 
