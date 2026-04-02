@@ -79,7 +79,7 @@ In this tutorial we will first introduce the different tools in the `Segment Edi
 We won't cover every tool in detail, but here are a few you should spend some time playing with: 
   
 1. **Paint/Erase** are very useful as a starting point for some of the semi-automated methods. It is literally painting over pixels (or voxels). The important thing is to adjust the diameter and select between the sphere and circle brushes.
-  * Try using the pait tool without changing anything: simply paint over a slice in any of the red/yellow/green slice views. Then, move between slices (mouse wheel on any of the red/yellow/green views or use the slider at the top of them). Then, change to a sphere brush and try again. When you use a sphere brush, you are painting/erasing in 3D. Note the spherical or disk-shaped brush in 3D view when you are painting in slice view. 
+  * Try using the paint tool without changing anything: simply paint over a slice in any of the red/yellow/green slice views. Then, move between slices (mouse wheel on any of the red/yellow/green views or use the slider at the top of them). Then, change to a sphere brush and try again. When you use a sphere brush, you are painting/erasing in 3D. Note the spherical or disk-shaped brush in 3D view when you are painting in slice view. 
   
   <img src="images/image8.png">
   
