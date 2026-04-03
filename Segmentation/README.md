@@ -157,7 +157,7 @@ We won't cover every tool in detail, but here are a few you should spend some ti
   * The most commonly used smoothing filters are Gaussian and Median filters. 
   * Closing and Opening in the *Smoothing method* drop down menu have interesting effects, such as removing parts sticking out of your segment and filling holes. The size of parts to be removed and holes to be filled depends on the kernel size option of your tool. 
 
- 12. **Mask volume** tool lets you use a segmentation or LabelMap to mask raw images and remove unnecessary objects for clean up. In the image below I've used ti to remove everything that wasn't part of my tumor segmentation. 
+ 12. **Mask volume** tool lets you use a segmentation or LabelMap to mask raw images and remove unnecessary objects for clean up. In the image below I've used it to remove everything that wasn't part of my tumor segmentation. 
 
   <img src="images/image18.png">  
 
