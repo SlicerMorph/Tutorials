@@ -4,7 +4,9 @@ nnInteractive is a deep learning-based framework for interactive segmentation of
 The official repository and most up-to-date instructions on how to install NNInteractive can be found at https://github.com/coendevente/SlicerNNInteractive/blob/main/README.md. This guide covers specific steps specific known to work with on MorphoCloud.
 
 ## Installing the server and running it.
-There are multiple ways of running the server. On MorphoCloud we suggest you use the [**pip install** option as documented in the official documentation](https://github.com/coendevente/SlicerNNInteractive?tab=readme-ov-file#option-2-using-pip). 
+There are two primary ways of running the server: Either using docker (if available) or pip install (to your user space). Both work fine on MorphoCloud
+
+**Install NNInteractiveServer via pip**
 
 1. Open a terminal window 
 2. To create a python virtual environment specific to NNinteractive copy and paste this command to the terminal window (one-time only)
@@ -24,11 +26,23 @@ pip install nninteractive-slicer-server
 nninteractive-slicer-server --host 0.0.0.0 --port 1527
 ```
 
-When you complete these steps your server should be running with this output on the terminal window:
+**Install NNInteractiveServer via Docker**
+
+1. Open a terminal window and type: 
+```
+docker pull coendevente/nninteractive-slicer-server:latest
+```
+Pulling the docker images and extracting them will take a few minutes, but this is a one time operation. 
+
+2. To activate the installed server type:
+```
+docker run --gpus all --rm -it -p 1527:1527 coendevente/nninteractive-slicer-server:latest
+```
+Regardless of the method you chose, if you successfully installed the NNInteractive server and started it, your terminal window should be displaying an output like this.:
 
 <img src="./server.png">
 
-As shown in the screenshot, the server is now successfully running and will continue to run unless you hit CTRL+C (quit), close the terminal window, or your instance shelves. Also, once you completed these steps, to run the server next time (e.g., after an unshelving) you need to open the terminal window, and **copy and paste the commands in steps 3 and 5 only** (no need to recreate the environment or reinstall the server). 
+As shown in the screenshot, the server is now successfully running and will continue to run unless you hit CTRL+C (quit), close the terminal window, or your instance shelves. Also, once you completed these steps, to run the server next time (e.g., after an unshelving) you need to open to start the server again. This will depend on the method you chose to install if. If you used **pip**, then **copy and paste the commands in steps 3 and 5 only** (no need to recreate the environment or reinstall the server). If you used docker, you should run the second command `docker run....`
 
 ## Configuring the NNInteractive Slicer Extension
 NNInteractive extension comes automatically installed with the Slicer installation in the MorphoCloud instances. However, if any reason you cannot find the NNInteractive module (CTRL+F then search for NNInteractive), you can always use the Extension Manager (CTRL+4) mechanism to reinstall it. 
