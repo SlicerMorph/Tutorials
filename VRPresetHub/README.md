@@ -9,13 +9,21 @@ The module has two tabs:
 
 > **Note:** Submitting a preset requires a free [GitHub account](https://github.com/signup). Browsing and loading presets does not.
 
-<img src="./images/Tabs.png">
+In a couple of clicks you can restyle your own volume with a community preset — select a preset in the **Preset Browser** and click **Apply to Active Volume**:
+
+<img src="./images/Apply_Before.png">
+
+*Before: your volume with its original rendering, with a community preset selected in the Preset Browser.*
+
+<img src="./images/Apply_After.png">
+
+*After: clicking **Apply to Active Volume** restyles your volume with the selected community preset.*
 
 ----
 
 ## Preset Browser
 
-Use this tab to find a preset built by someone else and apply it to your own volume.
+Use this tab to find a preset built by others and apply it to your own volume.
 
 1. Open the `VR Preset Hub` module (`Modules` > `SlicerMorph` > `Utilities` > `VR Preset Hub`) and switch to the **Preset Browser** tab.
 2. Click **Refresh Catalog** to fetch the latest list of presets from the SlicerMorph VPs repository.
@@ -46,8 +54,8 @@ Use this tab to contribute one of your own presets to the community catalog.
 2. Under **Select Preset**, choose your preset from the **Preset (Property node)** dropdown. If it is not listed (for example, you just created or renamed it), click **Refresh** to re-scan the scene.
 <img src="./images/Share_SelectPreset.png">
 
-3. **Preset name** auto-fills from the selected volume's name. Edit it if you like; only letters, digits, `_`, and `-` are allowed.
-4. (Optional) Add a one-line **Description**, and your name or GitHub `@username` as the **Author**.
+3. **Preset name** auto-fills from the selected volume's name. Change it to something short and descriptive (for example `warm_bone`) rather than leaving a built-in preset name — this is the name everyone will see in the gallery, so give it some thought before submitting. Only letters, digits, `_`, and `-` are allowed.
+4. (Optional) Add a one-line **Description**, and your name or GitHub `@username` as the **Author**, if you want to be acknowledged.
 5. Under **Screenshot Source**, pick the 3-D view to capture for the preview thumbnail. Arrange the view (rotation, zoom, lighting) exactly the way you want it to appear in the gallery before continuing.
 <img src="./images/Share_Screenshot.png">
 
@@ -56,8 +64,4 @@ Use this tab to contribute one of your own presets to the community catalog.
    * upload both files to cloud storage, and
    * open a **pre-filled GitHub issue** in your browser.
 7. In the browser, simply click **Submit new issue** — the issue body is already filled in, so no editing is needed.
-<img src="./images/Share_Issue.png">
-
-Once submitted, a SlicerMorph maintainer reviews the issue. After it is accepted, your preset is added to the [SlicerMorph/VPs](https://github.com/SlicerMorph/VPs) catalog and becomes available to everyone through the **Preset Browser** tab.
-
-> **Note:** No files are permanently written to your computer during submission — the preset and screenshot are exported to a temporary folder and uploaded directly from there.
+After a few minutes, your preset will be displayed in the [SlicerMorph/VPs gallery](https://github.com/SlicerMorph/VPs#readme).
