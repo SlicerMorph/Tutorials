@@ -30,7 +30,8 @@ guarantee that shared resources are free at any given moment.
 ## The core idea
 
 - **Request** an instance from the [morphocloud.org](https://morphocloud.org) landing page — click
-  **Instance Management** and open an issue.
+  **Instance Management**, then click **New Issue** if you haven't created one before, or open your
+  existing issue from the list.
 - **Create and control** it with slash-command comments on that same issue — `/create`, `/shelve`,
   `/unshelve`, `/renew`, `/delete_instance`. `/create` is a one-time step you run *after* approval;
   instances are not provisioned automatically.
