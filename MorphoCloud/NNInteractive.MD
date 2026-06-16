@@ -19,7 +19,7 @@ source /media/volume/MyData/nninteractive/bin/activate
 ```
 4. To install the NNinteractive server copy and paste this command to the terminal window (one-time only)
 ```
-pip install nninteractive-slicer-server
+pip install "nninteractive-slicer-server" "nnunetv2<2.7"
 ```
 5. To start the NNinteractive server copy and paste this command to the terminal window (everytime you want to run the server)
 ```
