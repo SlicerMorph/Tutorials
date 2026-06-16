@@ -29,8 +29,8 @@ guarantee that shared resources are free at any given moment.
 
 ## The core idea
 
-- **Request** an instance by opening an issue in the
-  [MorphoCloud Instances repository](https://github.com/MorphoCloud/Instances/issues/new/choose).
+- **Request** an instance from the [morphocloud.org](https://morphocloud.org) landing page — click
+  **Instance Management** and open an issue.
 - **Create and control** it with slash-command comments on that same issue — `/create`, `/shelve`,
   `/unshelve`, `/renew`, `/delete_instance`. `/create` is a one-time step you run *after* approval;
   instances are not provisioned automatically.
@@ -54,7 +54,7 @@ guarantee that shared resources are free at any given moment.
 | ------------------------------------------------- | ----- |
 | Check real-time resource availability             | [morphocloud.org](https://morphocloud.org) |
 | Full user guide (connect, commands, storage, GPU) | [MorphoCloud/docs](https://github.com/MorphoCloud/docs) |
-| Request or manage an instance                     | [MorphoCloud Instances issues](https://github.com/MorphoCloud/Instances/issues/new/choose) |
+| Request or manage an instance                     | [morphocloud.org](https://morphocloud.org) → **Instance Management** |
 | Become a member                                   | [join.morphocloud.org](https://join.morphocloud.org) |
 | Run a workshop or teach a course                  | [Access pathways](https://github.com/MorphoCloud/docs#access-pathways) |
 | AI-assisted segmentation on MorphoCloud           | [NNInteractive tutorial](NNInteractive.MD) |
