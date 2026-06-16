@@ -92,6 +92,8 @@ Think of **GitHub** as the "Project Manager" (where assignments and discussions 
 
 **The beauty of this system**: Everyone works independently on their own copy, preventing conflicts, while the repository owner maintains quality control before any work becomes "official."
 
+---
+
 ## **1. Prerequisites & System Configuration**
 
 First, you need to configure your operating system to communicate with GitHub. Experience shows that setting up these credentials *before* installing Slicer prevents critical connectivity errors later. We also strongly advise using [MorphoCloud Instances](https://morphocloud.org) to cut down the necessary time for setup. On MorphoCloud all prerequisites are installed for you. 
@@ -104,7 +106,8 @@ First, you need to configure your operating system to communicate with GitHub. E
 
 ### **1.2 Install Command Line Tools**
 
-**Note:** [you can skip to Section 1.3](https://github.com/SlicerMorph/Tutorials/tree/main/MorphoDepot#13-authenticate-with-github-via-terminal) if you are using MorphoCloud.
+> [!NOTE]
+> [You can skip to Section 1.3](https://github.com/SlicerMorph/Tutorials/tree/main/MorphoDepot#13-authenticate-with-github-via-terminal) if you are using MorphoCloud.
 
 You must install git (for version control) and gh (GitHub CLI for authentication) on your computer.  
 Important: Make a note of the exact folder path where you install gh. You may need this in the next step.
@@ -143,11 +146,14 @@ Important: Make a note of the exact folder path where you install gh. You may ne
 
 You can confirm you have successfully logged in via command `gh auth status`, which should display that you are logged in and your username.
 
+---
+
 ## **2. Slicer Installation & Setup**
 
 Now that your github credentials are set, you can set up the software.
 
-**Note:** [You can skip to Section 2.3,](https://github.com/SlicerMorph/Tutorials/tree/main/MorphoDepot#23-verify-connection-the-configure-tab)  if you are using MorphoCloud.
+> [!NOTE]
+> [You can skip to Section 2.3](https://github.com/SlicerMorph/Tutorials/tree/main/MorphoDepot#23-verify-connection-the-configure-tab) if you are using MorphoCloud.
 
 ### **2.1 Install Slicer**
 
@@ -178,11 +184,16 @@ These fields are required for accurate commit histories and tracking of the issu
 
 5. **Applying Changes:** After modifying any settings in the Configure tab (repository directory, git path, gh path, or user credentials), click the **Apply Changes** button to reload the module with your new settings. This eliminates the need to restart Slicer after configuration changes. You will not be able to proceed to other tab of MorphoDepot, unless you configure the extension fully. 
 
+<img src="./configure-tab.png" width="560">
+
+*The Configure tab. MorphoDepot auto-detects your `git` and `gh` paths after Section 1; enter your name and the email tied to your GitHub account, then click **Apply Changes**. The remaining tabs stay disabled until configuration is complete.*
+
 ---
 
 ## **3. Preparing Data for MorphoDepot Repository: 3D Volume**
 
-**CRITICAL STEP:** Data must be cleaned, posed, and padded *before* uploading. Once a repository is created, the source volume cannot be changed without restarting the project.
+> [!CAUTION]
+> **CRITICAL STEP:** Data must be cleaned, posed, and padded *before* uploading. Once a repository is created, the source volume cannot be changed without restarting the project.
 
 ### **3.1 Volume Quality Control**
 
@@ -308,7 +319,8 @@ When the repository is created:
 * The README.md automatically embeds images with their captions  
 * Search results will show a screenshot icon and thumbnails in tooltips
 
-**Note**: Screenshots are optional but highly recommended to give the users a sense of the data visually without having to download the full repository.
+> [!TIP]
+> Screenshots are optional but highly recommended to give the users a sense of the data visually without having to download the full repository.
 
 ### **5.4 Execution**
 
@@ -326,7 +338,8 @@ When the repository is created:
 * *Wait Time:* Depending on internet speed and volume size (max 2GB), this may take several minutes.   
 * **Success:** The button un-grays, and the repo appears in your GitHub account.
 
-**Note on Terminologies for Short-term Repositories:** For **short-term repositories**, if your color table lacks complete terminology information, MorphoDepot can automatically assign default terminology entries to allow repository creation (every entry in the color table is assigned to Tissue type with the SnoMed CT (SCT) code 85756007). This is intended for quick classroom exercises or other short-term repositories where formal ontology linking is not necessarily required. 
+> [!NOTE]
+> **Terminologies for Short-term Repositories:** For **short-term repositories**, if your color table lacks complete terminology information, MorphoDepot can automatically assign default terminology entries to allow repository creation (every entry in the color table is assigned to Tissue type with the SnoMed CT (SCT) code 85756007). This is intended for quick classroom exercises or other short-term repositories where formal ontology linking is not necessarily required.
 
 ---
 
@@ -397,7 +410,9 @@ In the Annotate tab, you'll see three text fields:
 3. **Auto-generated Details** (read-only, grey box):  
    * Lists specific segment names (see the screenshot)
 
-![][image2]
+<img src="./annotate-commit.png" width="760">
+
+*The Annotate tab while working on an assigned issue. The **Refresh Github** button shows the logged-in student (`amm554`); assigned issues appear in the top list. MorphoDepot auto-generates the commit title (here `Edited issue-1 - 1 modified - 1 added`) and the read-only details box listing exactly which segments were modified (`cranium`) and added (`premaxilla`). Edit the title or add an optional body, then click **Commit and Push**.*
 
 **6.5.3 Committing Your Work**
 
@@ -441,6 +456,10 @@ As the Project Owner, you review work directly inside Slicer.
 4. **Select a Request:** Double-click on a row in the table to download the student's segmentation overlay.  
 5. **Inspect:** Use Slicer's 2D and 3D views to check the quality.  
    * *Comparison:* You can use the **Segment Comparison** module (from SlicerRT) to compare against a ground truth if available.
+
+<img src="./review-tab.png" width="760">
+
+*The Review tab (Owner view). Submissions that are **ready for review** appear in the list; the **Hide drafts** checkbox controls whether in-progress drafts are shown too. Double-click a row to load the student's segmentation into Slicer, then either **Approve pull request** (merges the work and closes the issue) or type feedback in the comment box and click **Request changes**.*
 
 ### **7.2 Taking Action (Owner)**
 
@@ -535,13 +554,18 @@ The results table displays (in order):
 | Spacing | Voxel spacing in mm |
 | Dimensions | Volume dimensions (voxels) |
 
+<img src="./search-tab.png" width="820">
+
+*The Search tab after clicking **Load Searchable Repository Data**. Every public MorphoDepot repository is listed with its size, owner, species, modality, and last-active time. Click any column header to sort, hover a row for screenshot thumbnails, or double-click a row to preview that dataset directly in Slicer.*
+
 **Interactive Features:**
 
 * **Hover over a row**: Tooltip shows detailed information and screenshot thumbnails (up to 5)  
 * **Click column headers**: Sort the table by any column (alphabetically or numerically)
 * **Save to CSV**: Click the **Save Search Results** button to export the current filtered results to a CSV file for external analysis or record-keeping
 
-**Note:** The "Last Active" column helps identify repositories that are actively maintained versus those that may be abandoned or completed projects.
+> [!NOTE]
+> The "Last Active" column helps identify repositories that are actively maintained versus those that may be abandoned or completed projects.
 
 **8.4 Taking Action**
 
@@ -592,4 +616,5 @@ Repository metadata becomes stale over time. To update:
 2. MorphoDepot re-downloads all metadata  
 3. New repositories appear; updated information reflects recent changes
 
-**Recommendation**: Refresh monthly or before starting a new search session.
+> [!TIP]
+> **Recommendation:** Refresh monthly or before starting a new search session.
