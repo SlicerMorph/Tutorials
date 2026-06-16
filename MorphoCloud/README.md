@@ -1,95 +1,60 @@
-# MorphoCloud: On-Demand Cloud for 3D Slicer & SlicerMorph
-
+# MorphoCloud
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/MorphoCloud/MorphoCloudInstances/main/MC_Logo.png" alt="MorphoCloud Logo" width="280">
+  <img src="https://raw.githubusercontent.com/MorphoCloud/.github/main/profile/MC_Logo.png" alt="MorphoCloud Logo" width="280">
 </p>
 
-**What is MorphoCloud:** MorphoCloud provides **on-demand cloud instances** to support computational morphology, 3D morphometrics, and
-biomedical imaging research. It allows researchers and educators to launch powerful
-[JetStream2](https://jetstream-cloud.org/) virtual machines — preloaded with
-[3D Slicer](https://download.slicer.org) and
-[SlicerMorph](https://SlicerMorph.org) — by simply opening and commenting on
-GitHub issues.
+MorphoCloud gives SlicerMorph users **on-demand, GPU-enabled cloud workstations** — full
+[3D Slicer](https://download.slicer.org) + [SlicerMorph](https://slicermorph.org) desktops running on
+[JetStream2](https://jetstream-cloud.org/) and reachable from any web browser. You request and control an
+instance entirely through GitHub Issues, so it is well suited to occasional high-performance work,
+AI-assisted segmentation, and teaching.
 
-## ✨ What You Can Do with MorphoCloud
+> **The authoritative documentation lives at [morphocloud.org](https://morphocloud.org) and in the
+> [MorphoCloud user guide](https://github.com/MorphoCloud/docs).** This page is only a short orientation
+> for SlicerMorph users. For anything beyond it — connecting, file transfer, storage, commands, instance
+> types, GPU notes — use those, as they are kept current.
 
-- **Run Slicer in your browser**: GPU-enabled remote desktops with up to 40GB
-  GPUs and 1TB RAM.
-- **Request and manage instances with GitHub Issues**: no portals, no manual
-  provisioning.
-- **Automated lifecycle management**: Create, shelve, unshelve, renew, or delete
-  instances via simple `/commands`.
-- **Support research and teaching**: Ideal for occasional high-performance
-  computing needs in morphology and imaging. Support for short-courses and workshops. Try AI assisted segmentation tools easily (often already come preconfigured).
-  
-## 🖥️ Available Instance Types
+## Before you start: become a member
 
-  | Flavor | RAM    | Cores | GPU         | Storage |
-  | ------ | ------ | ----- | ----------- | ------- |
-  | g3.l\* | 60GB   | 16    | A100 (20GB) | 100GB   |
-  | g3.xl  | 125GB  | 32    | A100 (40GB) | 100GB   |
-  | m3.x   | 250GB  | 64    | None        | 100GB   |
-  | r3.l   | 500GB  | 64    | None        | 100GB   |
-  | r3.xl  | 1000GB | 128   | None        | 100GB   |
+MorphoCloud is members-only. Joining is free and takes a couple of minutes:
 
-  \*`g3.l` is the default instance.<br>
-  [Check real-time JetStream2 resource availability →](https://docs.jetstream-cloud.org/overview/status/#availability-of-scarce-resources)
+1. Go to **[join.morphocloud.org](https://join.morphocloud.org)** and sign in with your
+   [ORCID iD](https://orcid.org) (free to create).
+2. Fill in the short form and accept the [Usage Terms](https://github.com/MorphoCloud/docs/blob/main/terms.MD).
+3. Confirm your email, then accept the GitHub organization invitation that is sent to you.
 
-## 🔑 Commands
+You also need a [GitHub account](https://github.com). Membership lets you *request* instances; it does not
+guarantee that shared resources are free at any given moment.
 
-  Once approved, you can control your instance from the issue itself:
+## The core idea
 
-  | Command            | Description                 |
-  | ------------------ | --------------------------- |
-  | `/create`          | Provision a new instance (typically done only once)   |
-  | `/shelve`          | Suspend (turn off) instance |
-  | `/unshelve`        | Resume a shelved instance     |
-  | `/delete_instance` | Delete an instance          |
-  | `/delete_volume`   | Remove associated storage   |
-  | `/renew`           | Extend lifespan of the instance for another 60 days  |
-  | `/email`           | Resend access email (available only when the instance is online)        |
-  
-  
-## 🚀 Quick Start
+- **Request** an instance by opening an issue in the
+  [MorphoCloud Instances repository](https://github.com/MorphoCloud/Instances/issues/new/choose).
+- **Create and control** it with slash-command comments on that same issue — `/create`, `/shelve`,
+  `/unshelve`, `/renew`, `/delete_instance`. `/create` is a one-time step you run *after* approval;
+  instances are not provisioned automatically.
+- **Connect** using the credentials email you receive — either the in-browser desktop (Guacamole) or the
+  [TurboVNC](https://github.com/TurboVNC/turbovnc/releases) client.
+- **It auto-shelves** after roughly 4 hours online to conserve shared resources. Bring it back later with
+  `/unshelve`; each time it comes online you receive a fresh credentials email.
+- **Mind your data.** The instance is ephemeral — keep anything you want to survive in your persistent
+  **MyData** volume (your home directory is stored there).
+- **Check availability first.** JetStream2 is a nationally shared cloud. Before `/create` or `/unshelve`,
+  check the [real-time availability dashboard](https://morphocloud.org).
 
-  - **For Researchers / Educators**: 👉 Request an instance via
-    [MorphoCloudInstances issue templates](https://github.com/MorphoCloud/MorphoCloudInstances/issues/new/choose).
-    Approval typically takes <24h.
-	
-  - **Important Usage note**: Instance creation after the approval is not automatic. After the approval is granted, you **need to create your instance** by entering the `/create` command on your GH issue page. When the instance becomes online you will receive an email from the MorphoCloudPortal that will provide the access credentails (see below). After becoming online an instance stays online only for 4 hours (unless you choose to extend your session, by clicking the icon on the desktop). After 4 hours, the instance shelves (suspends) itself. The next time you want to use it, you don't need to create the instance, but simply type `/unshelve` on your issue page to make it available online again. Each time your instance becomes online, MorphoCloudPortal will send you a new email with access credential, as those may change from time to time. 
+<p align="center">
+  <img src="heart.png" width="650"><br>
+  <em>3D Slicer + SlicerMorph running on a MorphoCloud cloud desktop, used entirely in the browser.</em>
+</p>
 
+## Where to go next
 
-## 🖼️ Desktop Environment
-
-MorphoCloud instances provide graphical user interface (GUI) as well as command line interface (ssh). 
-
-  <p align="center">
-    <img src="https://raw.githubusercontent.com/MorphoCloud/MorphoCloudInstances/main/MCI_Desktop.png" width="650">
-  </p>
-
-  - **Side toolbar** (Ctrl/Cmd + Alt + Shift) for file transfers & clipboard.
-  - **Shortcuts** for Slicer, SlicerMorph, and MyData storage.
-  - **Right-click menu** to adjust resolution and display settings.
-  - **Extend session** with one click (resets your 4 hour countdown).
-
-  
-### You have two options to connect to GUI:
-
-1. **Connect via web browser by clicking the Web connect link in the email**. This interface is called **Guacamole** and provides additional conveniences such as the side bar that allows for file transfers and clipboard functionality. The downside of the guacamole interface is that is doesn't handle the font and display scaling very well, and the clipboard functionality is cumbersome to use. 
-
-  
-2. **You can also use the TurboVNC** application, which you can download and install for your computer from https://github.com/TurboVNC/turbovnc/releases/tag/3.2.1 (Expand the Assets tab, and find the correct package for your computer). The benefit of TurboVNC is that it provides a much more realistic desktop experience with improved image quality and scaling, as well as copy/paste buffer that works natively. However, you cannot do file transfers from the TurboVNC connection. The access address for TurboVNC connection is also provided in the credentials email sent to you. The passphrase is the same whether you use the web browser (guacamole interface) or TurbovVNC.
-
-You probably want to use both access methods in tandem (e.g., use Guacamole for easy file transfer to and from), and TurboVNC for nice visualizations. 
-
-## ❗ Important Things to Consider ❗
-1. Getting started on MorphoCloud is a two-step procedure. First, you make the request and get approved, and then you need to create your instance to start using MorphoCloud by entering the `/create` command. 
-2. You cannot change instance types after you created the issue and it is approved. If you need to switch to a different instance type, you will need to open a new issue.
-3. Whether an instance can be created, or a created instance can become online after `/unshelve` command depends on the resource availability on the JetStream at the time. Because JetStream can be heavily used at times, we advise checking the availability of a specific instance type before creating or unshelving an instance. https://docs.jetstream-cloud.org/overview/status/#availability-of-scarce-resources.
-4. Your instance (and the data on it the root disk) is considered ephemeral. Make sure your important documents and datasets are always saved to your persistent storage volume, which is located at **/media/volumes/MyData**. That way when you (or us) have to delete and recreate your instance, you will not loose any data. 
-5. On GPU instances (g3.l and g3.xl) the interactivity and performance of 3D Slicer greatly diminishes (almost to the point of not being able to use the instance), when you **volume render a 3D volume with any dimension equal to (or larger than) 4096 voxels**. If you have to work with such large volumes, consider using other instance types.
-
-
-
- 
+| You want to…                                      | Go to |
+| ------------------------------------------------- | ----- |
+| Check real-time resource availability             | [morphocloud.org](https://morphocloud.org) |
+| Full user guide (connect, commands, storage, GPU) | [MorphoCloud/docs](https://github.com/MorphoCloud/docs) |
+| Request or manage an instance                     | [MorphoCloud Instances issues](https://github.com/MorphoCloud/Instances/issues/new/choose) |
+| Become a member                                   | [join.morphocloud.org](https://join.morphocloud.org) |
+| Run a workshop or teach a course                  | [Access pathways](https://github.com/MorphoCloud/docs#access-pathways) |
+| AI-assisted segmentation on MorphoCloud           | [NNInteractive tutorial](NNInteractive.MD) |
