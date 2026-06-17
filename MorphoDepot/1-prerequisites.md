@@ -42,11 +42,14 @@ Important: Make a note of the exact folder path where you install gh. You may ne
 1. Open your computer’s **Terminal** (Mac/Linux) or **Command window** (Windows).  
 2. Run the following command:
 
-   `gh auth login`
+   `gh auth login -s user:email`
+
+   > [!IMPORTANT]
+   > The `-s user:email` flag lets the GitHub CLI share your registered email address with the tools you authorize. This makes your email visible to the **MorphoDepot extension**, which uses it to **auto-populate** your contact email (and commit identity) so you do not have to type it in. Without this flag, GitHub keeps your email private even from your own authorized tools, so MorphoDepot cannot read it and you must enter it manually. (The `workflow` scope that MorphoDepot also requires is granted automatically by the interactive login, so `user:email` is the only scope you need to add.)
 
    **Troubleshooting:** If you receive a **"Command not found"** or **"File not found"** error, it means `gh` executable is not in your system path. You must locate the installation folder from Section 1.2 and run the command using the **full path**.  
-   * *Example (Mac/Linux):* /Users/yourname/downloads/gh\_2.20.0/bin/gh auth login  
-   * *Example (Windows):* "C:\\Program Files\\GitHub CLI\\gh.exe" auth login  
+   * *Example (Mac/Linux):* /Users/yourname/downloads/gh\_2.20.0/bin/gh auth login -s user:email  
+   * *Example (Windows):* "C:\\Program Files\\GitHub CLI\\gh.exe" auth login -s user:email  
 3. Follow the prompts:  
    * **Account:** GitHub.com  
    * **Protocol:** HTTPS  
