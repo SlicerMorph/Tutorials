@@ -18,7 +18,7 @@ Before filling the accession form, you must choose the intended lifespan of your
 | --- | --- | --- |
 | Who can create | Anyone | MorphoDepot **organization members** only |
 | Where it lives | Your personal GitHub account | The **MorphoDepot organization** |
-| Scan storage | GitHub attachment, up to 2 GB | Jetstream2 cloud storage (10 GB by default, up to 1 TB) with off-site backup |
+| Scan storage | GitHub attachment, up to 2 GB | Jetstream2 cloud storage (10 GB by default) |
 | Citable with a DOI | No | **Yes** — minted through Zenodo at each release |
 | Governance | Yours alone; delete anytime | Community-governed (see below) |
 | Best for | Teaching, drafts, experiments | Lasting, citable datasets |
@@ -26,26 +26,7 @@ Before filling the accession form, you must choose the intended lifespan of your
 * **Short-term** repositories are for teaching demonstrations, workshops, or temporary projects. Terminology validation is relaxed and they are meant to be ephemeral. If a short-term repository becomes useful and informative, consider creating an archival one from that point on.
 * **Archival** repositories are for research publications and datasets meant for long-term citation. They live in the MorphoDepot organization, are stored on dedicated cloud storage, and become **citable with a DOI** at their first release that contains a segmentation. Creating archival datasets requires joining the organization at [join.morphodepot.org](https://join.morphodepot.org).
 
-> [!IMPORTANT]
-> Creating an archival dataset is a **one-way door**. While it is still private and being prepared you can discard it freely, but once it is **published you cannot quietly delete or hide it** — removal becomes an organization-level action, not something the curator does alone. That durable commitment is what makes the DOI meaningful. If you want something you can delete at any time, use a short-term repository instead.
-
-### Archival datasets: additional requirements & the publication review
-
-Because archival datasets are held in trust for the community, each one passes a short **editorial review** before it is made public — in the spirit of a journal's handling editor (the PLOS ONE model). The editor confirms the dataset is **sound and well-formed**; they do *not* judge whether the segmentation is anatomically perfect or scientifically important. Accuracy stays the community's ongoing job and improves over time.
-
-When you request publication (or cut a release), the app **automatically re-checks your latest commit**. A **hard** check that fails sends the request straight back to you with a list of fixes — no reviewer is involved. A **soft** finding does not block; it is flagged for the editor to look at. Design your dataset to meet these from the start to avoid round-trips:
-
-1. **Name it for the specimen.** Use `Genus-species` plus what the dataset contains (e.g., `Ariopsis-felis-cranium`), not `my-repo`, `project1`, or `test123`. The name is permanent and public — it is how others find and cite the dataset.
-2. **Segment with real terminology** *(hard check)*. The color table must be a real terminology table with populated ontology codes (Category, Type, and Region) — a plain or default 3D Slicer color table is rejected. Every segment must be named from that table, and segment names must be unique.
-3. **Describe a real specimen.** The accession form must record a real species (checked against GBIF) and, if the specimen is accessioned, a resolvable iDigBio record.
-4. **Set a correct voxel size in millimeters.** The scale must be physically plausible. Many scans are acquired in microns — convert before you set it (a 10 µm voxel = 0.010 mm).
-5. **Build any baseline on the source volume** *(hard check)*. A dataset may publish as a bare scan with no segmentation, but any baseline you include must be built on the dataset's own source volume (its reference geometry must match the scan) and must follow the terminology rules above.
-6. **Provide a license and a screenshot** *(hard check)*. Choose CC BY 4.0 or CC BY-NC 4.0, and include at least one screenshot that actually shows the data (and the segmentation, if the dataset has one).
-
-In return, archival datasets give contributors **automatic credit** (organization members by their verified ORCID name and affiliation, others by GitHub handle) and **citable Zenodo DOIs** on every release — a version DOI per release plus a concept DOI that always resolves to the latest, added to the repository's front-page README automatically.
-
-> [!NOTE]
-> The requirements above are summarized for this tutorial. The authoritative, up-to-date version is the **[Community Guidelines for MorphoDepot Archival Datasets](https://github.com/MorphoDepot/docs/blob/main/MorphoDepot-archival-guidelines.md)**.
+The steps below walk through creating the repository (the common, short-term case). **Archival** datasets must also meet a few [additional requirements](#archival-datasets-additional-requirements), described at the end of this page.
 
 ### **5.1 Subject Data**
 
@@ -130,6 +111,24 @@ When the repository is created:
 
 > [!NOTE]
 > **Terminologies for Short-term Repositories:** For **short-term repositories**, if your color table lacks complete terminology information, MorphoDepot can automatically assign default terminology entries to allow repository creation (every entry in the color table is assigned to Tissue type with the SnoMed CT (SCT) code 85756007). This is intended for quick classroom exercises or other short-term repositories where formal ontology linking is not necessarily required.
+
+### Archival datasets: additional requirements
+
+The steps above create any repository. **Archival** datasets (created inside the MorphoDepot organization) carry extra requirements, because once published they are citable and community-governed. Publishing is a **one-way door**: a private, staged dataset can be discarded freely, but a published one cannot be quietly deleted or hidden by the curator alone.
+
+Before an archival dataset is made public it passes a short **editorial review** — in the spirit of a journal's handling editor (the PLOS ONE model): the editor confirms the dataset is **sound and well-formed**, not that the segmentation is anatomically perfect or important. When you request publication (or cut a release), the app automatically re-checks your latest commit — a **hard** check that fails is bounced straight back with a list of fixes, while a **soft** finding is flagged for the editor. Design your dataset to meet these from the start:
+
+1. **Name it for the specimen** — `Genus-species` plus what the dataset contains (e.g., `Ariopsis-felis-cranium`), not `my-repo`, `project1`, or `test123`.
+2. **Segment with real terminology** *(hard)* — a real terminology color table with populated ontology codes (Category, Type, Region); every segment named from it; names unique.
+3. **Describe a real specimen** — a real species (checked against GBIF) and, if accessioned, a resolvable iDigBio record.
+4. **Set a correct voxel size in millimeters** — a physically plausible scale; convert microns first (10 µm = 0.010 mm).
+5. **Build any baseline on the source volume** *(hard)* — its reference geometry must match the scan, and its segments follow the terminology rules above.
+6. **Provide a license and a screenshot** *(hard)* — CC BY 4.0 or CC BY-NC 4.0, and at least one screenshot that actually shows the data.
+
+In return, archival datasets give contributors automatic credit (verified ORCID name and affiliation for organization members) and citable Zenodo DOIs on every release.
+
+> [!NOTE]
+> The authoritative, up-to-date requirements are the **[Community Guidelines for MorphoDepot Archival Datasets](https://github.com/MorphoDepot/docs/blob/main/MorphoDepot-archival-guidelines.md)**.
 
 ---
 
