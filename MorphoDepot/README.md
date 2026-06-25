@@ -88,7 +88,7 @@ Think of **GitHub** as the "Project Manager" (where assignments and discussions 
 7. **Instructor** reviews and either approves (merge) or requests changes  
 8. If changes needed, student revises and resubmits  
 9. Once approved, work is merged into the Master Copy  
-10. **Instructor** creates versioned releases at project milestones
+10. **Instructor** creates [versioned releases](./9-releases.md) at project milestones (archival datasets only)
 
 **The beauty of this system**: Everyone works independently on their own copy, preventing conflicts, while the repository owner maintains quality control before any work becomes "official."
 
@@ -96,7 +96,7 @@ Think of **GitHub** as the "Project Manager" (where assignments and discussions 
 
 ## Tutorial Contents
 
-This tutorial is split into 8 parts. Work through them in order, or jump straight to the part you need:
+This tutorial is split into 9 parts. Work through them in order, or jump straight to the part you need:
 
 1. **[Prerequisites & System Configuration](./1-prerequisites.md)** — GitHub account, 2FA, and installing git + gh.
 2. **[Slicer Installation & Setup](./2-slicer-setup.md)** — Install Slicer and the extensions, then verify the connection.
@@ -106,3 +106,4 @@ This tutorial is split into 8 parts. Work through them in order, or jump straigh
 6. **[Project Management & Assignments](./6-project-management.md)** — Issues, assignments, segmenting, and committing work.
 7. **[Reviewing & Merging Submissions](./7-review.md)** — Review pull requests and approve or request changes.
 8. **[Search & Discovery](./8-search.md)** — Find and preview existing MorphoDepot repositories.
+9. **[Releases & DOIs](./9-releases.md)** — Cut a versioned, citable release of an archival dataset (archival repositories only).

@@ -1,6 +1,6 @@
-_MorphoDepot Tutorial · Part 8 of 8 — Search & Discovery_
+_MorphoDepot Tutorial · Part 8 of 9 — Search & Discovery_
 
-[⬅ Overview](./README.md)  ·  [⬅ Prev: Reviewing & Merging Submissions](./7-review.md)
+[⬅ Overview](./README.md)  ·  [⬅ Prev: Reviewing & Merging Submissions](./7-review.md)  ·  [Next: Releases & DOIs ➡](./9-releases.md)
 
 ---
 
@@ -131,4 +131,4 @@ Repository metadata becomes stale over time. To update:
 
 ---
 
-[⬅ Overview](./README.md)  ·  [⬅ Prev: Reviewing & Merging Submissions](./7-review.md)
+[⬅ Overview](./README.md)  ·  [⬅ Prev: Reviewing & Merging Submissions](./7-review.md)  ·  [Next: Releases & DOIs ➡](./9-releases.md)

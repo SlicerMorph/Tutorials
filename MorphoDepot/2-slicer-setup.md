@@ -1,4 +1,4 @@
-_MorphoDepot Tutorial · Part 2 of 8 — Slicer Installation & Setup_
+_MorphoDepot Tutorial · Part 2 of 9 — Slicer Installation & Setup_
 
 [⬅ Overview](./README.md)  ·  [⬅ Prev: Prerequisites & System Configuration](./1-prerequisites.md)  ·  [Next: Preparing Data: 3D Volume ➡](./3-prepare-volume.md)
 

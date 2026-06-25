@@ -1,4 +1,4 @@
-_MorphoDepot Tutorial · Part 1 of 8 — Prerequisites & System Configuration_
+_MorphoDepot Tutorial · Part 1 of 9 — Prerequisites & System Configuration_
 
 [⬅ Overview](./README.md)  ·  [Next: Slicer Installation & Setup ➡](./2-slicer-setup.md)
 

@@ -1,4 +1,4 @@
-_MorphoDepot Tutorial · Part 5 of 8 — Creating the Repository_
+_MorphoDepot Tutorial · Part 5 of 9 — Creating the Repository_
 
 [⬅ Overview](./README.md)  ·  [⬅ Prev: Preparing Data: Color Table](./4-color-table.md)  ·  [Next: Project Management & Assignments ➡](./6-project-management.md)
 

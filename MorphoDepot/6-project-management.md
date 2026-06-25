@@ -1,4 +1,4 @@
-_MorphoDepot Tutorial · Part 6 of 8 — Project Management & Assignments_
+_MorphoDepot Tutorial · Part 6 of 9 — Project Management & Assignments_
 
 [⬅ Overview](./README.md)  ·  [⬅ Prev: Creating the Repository](./5-create-repo.md)  ·  [Next: Reviewing & Merging Submissions ➡](./7-review.md)
 

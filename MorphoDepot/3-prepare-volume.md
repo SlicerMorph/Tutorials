@@ -1,4 +1,4 @@
-_MorphoDepot Tutorial · Part 3 of 8 — Preparing Data: 3D Volume_
+_MorphoDepot Tutorial · Part 3 of 9 — Preparing Data: 3D Volume_
 
 [⬅ Overview](./README.md)  ·  [⬅ Prev: Slicer Installation & Setup](./2-slicer-setup.md)  ·  [Next: Preparing Data: Color Table ➡](./4-color-table.md)
 
