@@ -85,6 +85,8 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 
 ### Others
 0. #### [**What is a microCT:** A short review of what microCT imaging is, and how it compares to medical CT and some additional details](https://github.com/SlicerMorph/Tutorials/blob/main/microCT/README.md)
+0. #### [**What is photogrammetry:** Background on Structure-from-Motion photogrammetry for biological specimens — how it works, capture/scaling, and what it is good at](https://github.com/SlicerMorph/Tutorials/blob/main/photogrammetry/README.md)
+0. #### [**What is surface 3D scanning:** Background on structured-light and laser surface scanning of specimens — how they work, capture considerations, and outputs](https://github.com/SlicerMorph/Tutorials/blob/main/surfaceScanning/README.md)
 1. #### [**ScriptEditor:** An extension to write and embed python code in Slicer scenes](https://github.com/SlicerMorph/Tutorials/blob/main/ScriptEditor/README.MD)
 1. #### [**SlicerMorph preferences:** Explains what customizations can be done to Slicer as well as how to set download directory](https://github.com/SlicerMorph/Tutorials/tree/main/MorphPrefs)
 11. #### [Discourse thread on how to reorient and resample in Slicer](https://discourse.slicer.org/t/how-to-properly-use-the-segment-editor-with-transformed-volumes/21861/11?u=muratmaga)
