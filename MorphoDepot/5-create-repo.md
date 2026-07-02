@@ -25,7 +25,7 @@ Your first choice is the repository **type**, and it is **permanent** — it can
 | Best for | Teaching, drafts, experiments | Lasting, citable datasets |
 
 > [!NOTE]
-> The **Archival** option is available only to MorphoDepot **organization members**. If you are not a member it is disabled, and you are guided to create a **Personal** repository instead (or to [join the organization](https://join.morphodepot.org)).
+> The **Archival** option is available only to MorphoDepot **organization members**. If you are not a member it is disabled, and you are guided to create a **Personal** repository instead (or to join the organization from the [MorphoDepot landing page](https://morphodepot.org)).
 
 The two sections below are **standalone walkthroughs** — follow the one that matches your choice. Both share the same accession form and screenshot tools; those field-by-field details are collected once in the [reference](#53-reference-the-accession-form) at the end so they are not repeated.
 
@@ -48,7 +48,7 @@ A **personal** repository lives on your own GitHub account. It needs no organiza
 An **archival** repository lives in the **MorphoDepot organization**, is stored on dedicated cloud storage, and is **community-governed**. It becomes **citable with a DOI** at its first release that contains a segmentation. Use it for research publications and datasets meant for long-term citation.
 
 > [!IMPORTANT]
-> Only MorphoDepot **organization members** can create archival datasets ([join here](https://join.morphodepot.org)). Publishing one is a **one-way door**: while it is private and staged you can discard it freely, but once it is **public you cannot quietly delete or hide it** — removal becomes an organization-level action. That durable commitment is what makes its DOI meaningful.
+> Only MorphoDepot **organization members** can create archival datasets — join from the [MorphoDepot landing page](https://morphodepot.org). Publishing one is a **one-way door**: while it is private and staged you can discard it freely, but once it is **public you cannot quietly delete or hide it** — removal becomes an organization-level action. That durable commitment is what makes its DOI meaningful.
 
 1. **Repository type** — select **Archival**. *(Disabled if you are not an organization member.)*
 2. **Subject Data** — choose your **Source Volume** and a **real terminology Color Table** (a plain or default Slicer color table is rejected). If you include a baseline segmentation, it must be built on **this** source volume. See the [accession-form reference](#53-reference-the-accession-form).

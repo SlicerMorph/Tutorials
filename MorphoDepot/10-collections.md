@@ -11,7 +11,7 @@ A **collection** groups existing MorphoDepot repositories under a common theme â
 Everything below happens in the **Collections** tab of the MorphoDepot module (the right-most tab).
 
 > [!NOTE]
-> **Browsing** collections is open to everyone. **Creating** a collection requires MorphoDepot **organization membership**, because the collection itself lives in the organization. If you are not a member, the *Create a Collection* section is disabled; join at [join.morphodepot.org](https://join.morphodepot.org).
+> **Browsing** collections is open to everyone. **Creating** a collection requires MorphoDepot **organization membership**, because the collection itself lives in the organization. If you are not a member, the *Create a Collection* section is disabled; you can join the organization from the [MorphoDepot landing page](https://morphodepot.org).
 
 ### 10.1 Browse existing collections
 
