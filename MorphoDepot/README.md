@@ -96,7 +96,7 @@ Think of **GitHub** as the "Project Manager" (where assignments and discussions 
 
 ## Tutorial Contents
 
-This tutorial is split into 9 parts. Work through them in order, or jump straight to the part you need:
+This tutorial is split into 10 parts. Work through them in order, or jump straight to the part you need:
 
 1. **[Prerequisites & System Configuration](./1-prerequisites.md)** — GitHub account, 2FA, and installing git + gh.
 2. **[Slicer Installation & Setup](./2-slicer-setup.md)** — Install Slicer and the extensions, then verify the connection.
@@ -107,3 +107,4 @@ This tutorial is split into 9 parts. Work through them in order, or jump straigh
 7. **[Reviewing & Merging Submissions](./7-review.md)** — Review pull requests and approve or request changes.
 8. **[Search & Discovery](./8-search.md)** — Find and preview existing MorphoDepot repositories.
 9. **[Releases & DOIs](./9-releases.md)** — Cut a versioned, citable release of an archival dataset (archival repositories only).
+10. **[Collections](./10-collections.md)** — Group related MorphoDepot repositories into a themed, browsable gallery (organization members create; anyone browses).

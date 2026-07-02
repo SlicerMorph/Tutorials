@@ -1,12 +1,14 @@
-_MorphoDepot Tutorial · Part 9 of 9 — Releases & DOIs_
+_MorphoDepot Tutorial · Part 9 of 10 — Releases & DOIs_
 
-[⬅ Overview](./README.md)  ·  [⬅ Prev: Search & Discovery](./8-search.md)
+[⬅ Overview](./README.md)  ·  [⬅ Prev: Search & Discovery](./8-search.md)  ·  [Next: Collections ➡](./10-collections.md)
 
 ---
 
 ## **9. Releases & DOIs**
 
 > [!IMPORTANT]
+> If you are not a member of the MorphoDepot organization, the **Release** tab will be grayed out for you.
+>
 > Releases are an **archival-only** feature. Only datasets created inside the **MorphoDepot organization** can be released, and a release is what mints a **citable DOI**. **Short-term (personal) repositories have no release cycle** — there is nothing to do here for them.
 
 A **release** is a permanent, versioned snapshot of an archival dataset's segmentation. Each release is minted a citable **Zenodo DOI**, so the dataset — and everyone who contributed to it — can be cited. Releases are cut by the dataset's **curator** (its creator) at project milestones, consolidating the contributions accepted since the last release into a new canonical baseline segmentation. The underlying scan (`source_volume`) never changes between releases; only the segmentation layer — and, optionally, the color table — does.
@@ -49,4 +51,4 @@ Everything below happens in the **Release** tab of the MorphoDepot module, in th
 
 ---
 
-[⬅ Overview](./README.md)  ·  [⬅ Prev: Search & Discovery](./8-search.md)
+[⬅ Overview](./README.md)  ·  [⬅ Prev: Search & Discovery](./8-search.md)  ·  [Next: Collections ➡](./10-collections.md)

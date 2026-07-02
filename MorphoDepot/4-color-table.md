@@ -1,4 +1,4 @@
-_MorphoDepot Tutorial · Part 4 of 9 — Preparing Data: Color Table_
+_MorphoDepot Tutorial · Part 4 of 10 — Preparing Data: Color Table_
 
 [⬅ Overview](./README.md)  ·  [⬅ Prev: Preparing Data: 3D Volume](./3-prepare-volume.md)  ·  [Next: Creating the Repository ➡](./5-create-repo.md)
 

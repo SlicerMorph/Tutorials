@@ -1,4 +1,4 @@
-_MorphoDepot Tutorial · Part 8 of 9 — Search & Discovery_
+_MorphoDepot Tutorial · Part 8 of 10 — Search & Discovery_
 
 [⬅ Overview](./README.md)  ·  [⬅ Prev: Reviewing & Merging Submissions](./7-review.md)  ·  [Next: Releases & DOIs ➡](./9-releases.md)
 

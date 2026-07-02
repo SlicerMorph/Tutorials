@@ -1,4 +1,4 @@
-_MorphoDepot Tutorial · Part 7 of 9 — Reviewing & Merging Submissions_
+_MorphoDepot Tutorial · Part 7 of 10 — Reviewing & Merging Submissions_
 
 [⬅ Overview](./README.md)  ·  [⬅ Prev: Project Management & Assignments](./6-project-management.md)  ·  [Next: Search & Discovery ➡](./8-search.md)
 
