@@ -53,11 +53,11 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 22. #### [**DeCA-II**: Symmetry Analysis](https://github.com/SlicerMorph/Tutorials/blob/main/DeCA_2/README.md)
 
 ### SlicerMorph Photogrammetry
-1. #### [**User Guide for the Photogrammetry Extension (This is for stable v5.10)**](https://github.com/SlicerMorph/SlicerPhotogrammetry?tab=readme-ov-file#user-guide)
-2. #### [**PhotoMasking (This is for preview builds)**](https://github.com/SlicerMorph/SlicerPhotogrammetry/blob/master/docs/PhotoMasking.md)
-3. #### [**VideoMasking (This is for preview builds)**](https://github.com/SlicerMorph/SlicerPhotogrammetry/blob/master/docs/VideoMasking.md)
-4. #### [**OpenDroneMap (This is for preview builds)**](https://github.com/SlicerMorph/SlicerPhotogrammetry/blob/master/docs/ODM.md)
-5. #### [**ClusterPhotos (This is for preview builds)**](https://github.com/SlicerMorph/SlicerPhotogrammetry/blob/master/docs/ClusterPhotos.md)
+1. #### [**User Guide for the Photogrammetry Extension (previous version, v5.10)**](https://github.com/SlicerMorph/SlicerPhotogrammetry?tab=readme-ov-file#user-guide)
+2. #### [**PhotoMasking**](https://github.com/SlicerMorph/SlicerPhotogrammetry/blob/master/docs/PhotoMasking.md)
+3. #### [**VideoMasking**](https://github.com/SlicerMorph/SlicerPhotogrammetry/blob/master/docs/VideoMasking.md)
+4. #### [**OpenDroneMap**](https://github.com/SlicerMorph/SlicerPhotogrammetry/blob/master/docs/ODM.md)
+5. #### [**ClusterPhotos**](https://github.com/SlicerMorph/SlicerPhotogrammetry/blob/master/docs/ClusterPhotos.md)
 6. #### [**Photogrammetry module video tutorial**](https://www.youtube.com/watch?v=YRHlb0dGyNc&t=9s) 
 
 ### MorphoCloud 
