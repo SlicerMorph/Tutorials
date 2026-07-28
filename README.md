@@ -3,6 +3,11 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 
 ## Tutorial descriptions
 
+### Imaging Modalities
+1. #### [**What is a microCT:** A short review of what microCT imaging is, and how it compares to medical CT and some additional details](https://github.com/SlicerMorph/Tutorials/blob/main/microCT/README.md)
+2. #### [**What is photogrammetry:** Background on Structure-from-Motion photogrammetry for biological specimens — how it works, capture/scaling, and what it is good at](https://github.com/SlicerMorph/Tutorials/blob/main/photogrammetry/README.md)
+3. #### [**What is surface 3D scanning:** Background on structured-light and laser surface scanning of specimens — how they work, capture considerations, and outputs](https://github.com/SlicerMorph/Tutorials/blob/main/surfaceScanning/README.md)
+
 ### Data Import/Export, Downsampling,  Transformations
 1. #### [**Getting Data:** Shows how to use the Slicer's `Sample Data` and SlicerMorph's `ImportFromURL` modules to download and access sample data to be used in tutorials](https://github.com/SlicerMorph/Tutorials/tree/main/SampleData)
 3. #### [**ImageStacks:** Tutorial on how to import non-DICOM imagestacks easily into Slicer.](https://github.com/SlicerMorph/Tutorials/tree/main/ImageStacks)
@@ -84,14 +89,8 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 3. #### [**MonaiLabel:** How to train new AI based segmentation models from scratch](https://www.youtube.com/watch?v=3HTh2dqZqew) 
 
 ### Others
-0. #### [**What is a microCT:** A short review of what microCT imaging is, and how it compares to medical CT and some additional details](https://github.com/SlicerMorph/Tutorials/blob/main/microCT/README.md)
-0. #### [**What is photogrammetry:** Background on Structure-from-Motion photogrammetry for biological specimens — how it works, capture/scaling, and what it is good at](https://github.com/SlicerMorph/Tutorials/blob/main/photogrammetry/README.md)
-0. #### [**What is surface 3D scanning:** Background on structured-light and laser surface scanning of specimens — how they work, capture considerations, and outputs](https://github.com/SlicerMorph/Tutorials/blob/main/surfaceScanning/README.md)
 1. #### [**ScriptEditor:** An extension to write and embed python code in Slicer scenes](https://github.com/SlicerMorph/Tutorials/blob/main/ScriptEditor/README.MD)
 1. #### [**SlicerMorph preferences:** Explains what customizations can be done to Slicer as well as how to set download directory](https://github.com/SlicerMorph/Tutorials/tree/main/MorphPrefs)
-11. #### [Discourse thread on how to reorient and resample in Slicer](https://discourse.slicer.org/t/how-to-properly-use-the-segment-editor-with-transformed-volumes/21861/11?u=muratmaga)
-12. #### [Discourse thread on rendering multi-channel (RGB) microscopy datasets in Slicer](https://discourse.slicer.org/t/best-data-import-practices-for-microscopy/22056/4?u=muratmaga)
-13. #### [How to use sequences module to store rendering and orientation states to come back](https://discourse.slicer.org/t/new-feature-basic-support-for-physically-based-rendering-pbr/21725/17)
 14. #### [Dr. Jaimi Gray's Quick Guide for various 3D Slicer modules. Icons are clickable and will take you to her YT videos:](http://www.graysvertebrateanatomy.com/__static/c0e61a322fc1f771762f9a4d60fbf7ee/gray-3d-slicer-quick-guide.pdf)
 
 
