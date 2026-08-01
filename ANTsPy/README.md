@@ -7,11 +7,13 @@ A comprehensive guide to template building, registration, and Jacobian analysis 
 2. [Prerequisites](#prerequisites)
 3. [Step 1: Obtaining the Data](#step-1-obtaining-the-data)
 4. [Step 2: Loading Data into 3D Slicer](#step-2-loading-data-into-3d-slicer)
-5. [Step 3: Building a Population Template](#step-3-building-a-population-template)
-6. [Step 4: Group-wise Registration to Template](#step-4-group-wise-registration-to-template)
-7. [Step 5: Jacobian Analysis](#step-5-jacobian-analysis)
-8. [Troubleshooting](#troubleshooting)
-9. [Advanced Topics](#advanced-topics)
+5. [Step 3: Prepare Reference Specimen](#step-3-prepare-reference-specimen)
+6. [Step 4: Building a Population Template](#step-4-building-a-population-template)
+7. [Step 5: Group-wise Registration to Template](#step-5-group-wise-registration-to-template)
+8. [Step 6: Create Template Mask for Statistical Analysis](#step-6-create-template-mask-for-statistical-analysis)
+9. [Step 7: Jacobian Analysis](#step-7-jacobian-analysis)
+10. [Troubleshooting](#troubleshooting)
+11. [Advanced Topics](#advanced-topics)
 
 ---
 
@@ -1284,6 +1286,24 @@ If group A shows significant expansion (positive log-Jacobian, low q-value) in t
 4. Verify group assignments in CSV are correct
 5. Check sample size is adequate (need at least 3-5 per group)
 
+### Issue: "Registration failed with error code 1" when using an existing initial transform
+
+**Cause:** ANTs could not read the transform it was given to start from. Earlier versions of the module wrote every transform node as an ITK `.h5` file, including thin plate spline nodes, whose type the ITK build inside ANTs does not recognize. ANTs reports only the exit code, not the reason.
+
+**Solution:**
+1. Update the extension - non-linear transforms are now converted to a displacement field automatically, and an unreadable transform is reported with the actual ITK error instead of an exit code
+2. If a transform is still refused, the error message names the file and the reason; check that the selected node still holds a transform (**Data** module)
+3. Manual workaround on an older version: **Transforms** module → **Convert to grid transform** using the fixed image as reference, then select the resulting node as the initial transform
+
+### Issue: An existing initial transform aligns the specimens less than expected
+
+**Cause:** A transform node that has a parent carries only part of the alignment on its own. Selecting a node in the middle of a chain initializes the registration with that link alone.
+
+**Solution:**
+1. Open the **Data** module and find the transform chain
+2. Select the last node of the chain, which carries the complete alignment - for FastModelAlign output that is `<name>_deformable`
+3. See [Advanced Topics H](#h-using-an-existing-transform-as-the-initial-transform)
+
 ### Issue: "Transform could not be loaded" error
 
 **Cause:** Incompatible transform file format or corrupted file.
@@ -1484,6 +1504,30 @@ print(f"Max error: {np.max(errors):.2f} mm")
 - Use **Fiducial Registration Wizard** module for TPS or affine
 - Faster but less detailed than image-based
 
+### H. Using an Existing Transform as the Initial Transform
+
+The **Pair-wise** tab can start a registration from a transform that is already in the scene, instead of computing one from landmarks. This is useful when the two specimens are far apart to begin with, and when another tool has already produced an alignment: a previous registration, ALPACA, or FastModelAlign.
+
+1. Make sure the transform is loaded in the scene (**Data** module)
+2. Open the **Pair-wise** tab and set **Fixed Image** and **Moving Image**
+3. Check ☑ **Initial Transform**
+4. Select ◉ **Use existing transform:** and pick the transform node
+5. Set **Transform Type** as usual and click **Run Registration**
+
+**Pick the last node of a chain.** Tools that align in several steps leave a chain of transforms in the scene - FastModelAlign, for example, leaves `<name>_scaling` → `<name>_rigid` → `<name>_deformable` - and only the last node carries the complete alignment. The module follows the whole parent chain of the node you select, so selecting the leaf is correct; selecting a node in the middle initializes the registration with only part of the alignment. Check the **Data** module if you are not sure which node is the leaf.
+
+**Linear and non-linear transforms are handled differently.** A linear transform (rigid, similarity, affine) is passed to ANTs as-is. A non-linear one - a thin plate spline, a grid transform, or any chain that contains one - is first flattened into a displacement field sampled on the **fixed image** grid, because ANTs cannot read the transform types Slicer writes for those.
+
+**Displacement field downsampling** controls the resolution of that field. The field holds one vector per voxel of the fixed image, so at micro-CT resolution it becomes large: a 0.1 mm scan of a mouse skull produces a field of several hundred MB, which is slow to write and to read back.
+
+- **1.0** (default) - the field matches the fixed image resolution. Most accurate, largest field.
+- **2.0 to 4.0** - recommended when the initial transform is a smooth, landmark-driven warp. A factor of 2 makes the field 8 times smaller, a factor of 4 makes it 64 times smaller. In testing, a landmark warp resampled at a factor of 4 reproduced the original transform to about 0.002 mm, far below one voxel.
+- Leave it at 1.0 when the initial transform carries fine local detail, such as the output of a previous deformable registration.
+
+The control is only active for **Use existing transform**, since a landmark-based initial transform does not need it. The **Label Image Reg** tab has the same control, where the field is sampled on the fixed label image instead.
+
+**The inverse transform is not available with a non-linear initial transform.** ANTs can only produce an inverse when every part of the registration can be inverted, and a displacement field cannot be inverted analytically. If you select an **Inverse Transform** output in this case, the registration still completes and the forward transform and the resampled volume are correct, but the inverse output node is left empty and a message explains why. Use a linear initial transform if you need the inverse.
+
 ---
 
 ## Summary
@@ -1537,6 +1581,6 @@ If you use this workflow in your research, please cite:
 
 ---
 
-**Tutorial Version:** 1.0  
-**Last Updated:** November 21, 2025  
+**Tutorial Version:** 1.1  
+**Last Updated:** July 31, 2026  
 **Questions?** Open an issue on the SlicerANTsPy GitHub repository
