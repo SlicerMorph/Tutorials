@@ -38,7 +38,11 @@ In MorphoDepot, tasks are tracked via GitHub Issues. The workflow is bidirection
    * *Note:* This step is critical. If the student is not explicitly listed in the "Assignees" field, MorphoDepot will not download the task to their computer.
 
 > [!NOTE]
-> Auto-assignment is a small GitHub Actions workflow that MorphoDepot puts in the repository at creation. It needs your GitHub login to carry the `workflow` scope; if it does not, the option is offered but disabled, and running `gh auth refresh -s workflow` in a terminal enables it for the *next* repository you create. It cannot be added to a repository after the fact from the extension — assign by hand there.
+> **How it works, and its one prerequisite.** Auto-assignment is a small GitHub Actions workflow that MorphoDepot commits into the repository **at creation**. It runs on GitHub, triggered whenever an issue is opened, and uses GitHub's own per-run token — there is nothing to configure and no secret to manage.
+>
+> Writing a file under `.github/workflows/` requires your GitHub login to carry the **`workflow` scope**. If it does not, the checkbox is shown unticked and disabled with a hint. To grant it, run `gh auth refresh -s workflow` in a terminal and then return to the **Create** tab — MorphoDepot re-checks the scope every time you enter the tab, so it takes effect immediately; no Slicer restart, no module reload.
+>
+> The workflow can only be added when the repository is created. MorphoDepot will not add it to an existing repository — assign issues by hand there, or add the workflow file yourself on GitHub.
 
 ### **6.4 Starting Work (Student Action)**
 
