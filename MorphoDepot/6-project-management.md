@@ -27,7 +27,7 @@ In MorphoDepot, tasks are tracked via GitHub Issues. The workflow is bidirection
 
 ### **6.3 Assigning Issues (Owner Action)**
 
-**If you left "auto-assign" ticked when you created the repository** ([Part 5](./5-create-repo.md#53-creating-a-personal-repository)), there is nothing to do: GitHub assigns each new issue to whoever opened it, within seconds. This is the recommended setup for a class — it removes the step instructors most often forget.
+**If you left "auto-assign" ticked when you created the repository** — an option offered for [either repository type](./5-create-repo.md#5-creating-the-repository) — there is nothing to do: GitHub assigns each new issue to whoever opened it, within seconds. This is the recommended setup for a class — it removes the step instructors most often forget.
 
 *Otherwise, assign them by hand once students have created their issues:*
 

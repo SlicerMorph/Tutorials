@@ -72,7 +72,7 @@ Each **Save Changes** rewrites the staged repository as a single clean commit, s
 1. **Repository type** — select **Personal**.
 2. **Subject Data** — choose your **Source volume** and a **Color table**; a **Baseline segmentation** is optional. See the [accession-form reference](#56-reference-the-accession-form).
 3. **Screenshots** *(optional, recommended)* — capture a few views. See the [screenshot reference](#57-reference-screenshots).
-4. **Auto-assign** *(optional, on by default)* — leave "Set the GitHub workflow to auto-assign new issues to their creators" ticked so that students' issues are assigned to them automatically. See [Part 6](./6-project-management.md#63-assigning-issues-owner-action).
+4. **Auto-assign** *(optional, on by default)* — leave "Set the GitHub workflow to auto-assign new issues to their creators" ticked so that students' issues are assigned to them automatically. It works the same for either repository type, and needs the `workflow` scope on your GitHub login. See [Part 6](./6-project-management.md#63-assigning-issues-owner-action).
 5. **Accession Form** — fill in the specimen metadata and choose a **license**. MorphoDepot suggests a repository name from what you enter (e.g. `mus-musculus-microct-whole`) and tells you whether that name is free on your account; edit it if you like.
 6. **Stage** — click **Create (stage privately)** and review the confirmation dialog: destination, repository name, volume, color table, specimen details, and the computed physical size, voxel dimensions and spacing. Click **OK**.
 7. MorphoDepot uploads the scan, creates the private repository, and resets the scene and the form. You are told where to find it again — the **Staged repositories — not yet published** list at the top of the Create tab.
@@ -93,13 +93,14 @@ An **archival** repository lives in the **MorphoDepot organization**, is stored 
 2. **Subject Data** — choose your **Source volume** and a **real terminology color table**. A generic or built-in Slicer color table (Labels, GenericAnatomyColors, a continuous colormap, …) is **rejected**, and so is a table with any entry missing its terminology. If you include a baseline segmentation, it must be built on **this** source volume.
 3. **Accession Form** — fill in the specimen metadata, choose a **license**, set a **repository name**, and tick the **redistribution acknowledgement** in Section 6 (archival only). If the species name does not resolve cleanly in GBIF you get an advisory warning — it never blocks staging, but a reviewer may follow up.
 4. **Screenshots** *(required)* — include at least one screenshot that actually shows the data (and the segmentation, if present).
-5. **Stage** — click **Create (stage privately)** and confirm. The dialog names the organization explicitly, so there is no doubt about where the repository is going. It is staged **privately inside the organization** and appears in the **Staged repositories** list.
-6. **Submit for review** — reopen it and click **Publish**:
+5. **Auto-assign** *(optional, on by default)* — exactly as for a personal repository: leave "Set the GitHub workflow to auto-assign new issues to their creators" ticked so contributors' issues are assigned to them automatically. The option is independent of the repository type.
+6. **Stage** — click **Create (stage privately)** and confirm. The dialog names the organization explicitly, so there is no doubt about where the repository is going. It is staged **privately inside the organization** and appears in the **Staged repositories** list.
+7. **Submit for review** — reopen it and click **Publish**:
    * If your dataset ships a **baseline segmentation**, you are asked *"Who made the baseline segmentation?"* so that people other than yourself can be credited. You are added as lead author automatically; click **Done** if there is no one else to add. Cancelling here cancels the publish.
    * MorphoDepot then runs automated quality controls. If a **hard check fails** you get the specific list of things to fix and the repository stays staged: fix them, **Save Changes**, and click **Publish** again.
    * If the checks pass, a review request is emailed to the MorphoDepot reviewers and the entry in the staged list shows **⏳ pending review**.
-7. **Finish the publish** — when a reviewer approves, you get an email and the entry reads **✓ approved — right-click ▸ Publish**. **Right-click it and choose Publish (make public)**. That final flip is yours to make; do it **within 14 days** of approval.
-8. The dataset is now public inside the organization, and a DOI is minted. Further DOIs follow at each [release](./9-releases.md).
+8. **Finish the publish** — when a reviewer approves, you get an email and the entry reads **✓ approved — right-click ▸ Publish**. **Right-click it and choose Publish (make public)**. That final flip is yours to make; do it **within 14 days** of approval.
+9. The dataset is now public inside the organization, and a DOI is minted. Further DOIs follow at each [release](./9-releases.md).
 
 > [!WARNING]
 > Do **not** reopen an approved repository to edit it. MorphoDepot deliberately refuses — editing would change the reviewed content and invalidate both the review and the DOI. If something really must change after approval, edit it and submit for review again.
