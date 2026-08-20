@@ -15,11 +15,12 @@ Think of **GitHub** as the "Project Manager" (where assignments and discussions 
 
 ### **Key Concepts from the Diagram:**
 
-#### **The Project Repo (The Blue Star):**  
-   * **What it is:** This is the "Main Copy" of your dataset  
-   * **Who creates it**: The Instructor/Project Owner creates this in [Section 5 (Creating the Repository)](./5-create-repo.md#5-creating-the-repository)  
-   * **Where it lives:** On GitHub, but managed through MorphoDepot  
-   * **Analogy**: Think of this as the "reference textbook" that everyone works from but nobody except the author is allowed to modify it.  
+#### **The Project Repo (The Blue Star):**
+   * **What it is:** This is the "Main Copy" of your dataset
+   * **Who creates it**: The Instructor/Project Owner creates this in [Section 5 (Creating the Repository)](./5-create-repo.md#5-creating-the-repository)
+   * **Where it lives:** On GitHub, but managed through MorphoDepot. It is either a **Personal** repository on your own GitHub account, or an **Archival** repository in the MorphoDepot organization — that choice is made once, when you create it, and it decides where the data lives, whether the dataset gets a citable DOI, and who governs it. See [Section 5](./5-create-repo.md#repository-type-personal-vs-archival).
+   * **How it is created:** in two steps — it is first **staged** privately, so you can correct it as often as you need, and only then **published**. The scan itself is fixed once staged.
+   * **Analogy**: Think of this as the "reference textbook" that everyone works from but nobody except the author is allowed to modify it.
 
 #### **Task Management (Purple Box):**  
    * **Location:** GitHub Website.  
@@ -27,7 +28,7 @@ Think of **GitHub** as the "Project Manager" (where assignments and discussions 
 
 #### **The Fork (Blue Branch Icon):**  
    * **What it is:** An independent copy of the project created under the student’s github account.  
-   * **When it happens:** Automatically created when a student first loads an assigned issue in MorphoDepot.  
+   * **When it happens:** Automatically created when a student first loads an assigned issue in MorphoDepot, and kept in step with the main copy every time they load another one.
    * **Why it matters:** Students don't edit the main repo directly—they work on their own safe copy  
    * **Analogy:** Like making edits on a photocopy of a library book, not in the book itself  
 
@@ -80,14 +81,14 @@ Think of **GitHub** as the "Project Manager" (where assignments and discussions 
 ### **Summary: The Complete MorphoDepot Cycle**
 
 1. **Instructor** creates the project repository with volume and color table (and optionally with an existing segmentation).  
-2. **Student** creates an Issue requesting to work on a specific structure  
-3. **Instructor** assigns the Issue to the student  
+2. **Student** creates an Issue requesting to work on a specific structure
+3. The Issue is assigned to that student — automatically, if the repository was created with auto-assignment on; otherwise the **Instructor** assigns it
 4. **Student** loads the issue in MorphoDepot, which automatically creates a Fork  
 5. **Student** segments and commits frequently to save progress  
 6. **Student** requests review when finished  
 7. **Instructor** reviews and either approves (merge) or requests changes  
 8. If changes needed, student revises and resubmits  
-9. Once approved, work is merged into the Master Copy  
+9. Once approved, work is merged into the Master Copy
 10. **Instructor** creates [versioned releases](./9-releases.md) at project milestones (archival datasets only)
 
 **The beauty of this system**: Everyone works independently on their own copy, preventing conflicts, while the repository owner maintains quality control before any work becomes "official."
@@ -99,10 +100,10 @@ Think of **GitHub** as the "Project Manager" (where assignments and discussions 
 This tutorial is split into 10 parts. Work through them in order, or jump straight to the part you need:
 
 1. **[Prerequisites & System Configuration](./1-prerequisites.md)** — GitHub account, 2FA, and installing git + gh.
-2. **[Slicer Installation & Setup](./2-slicer-setup.md)** — Install Slicer and the extensions, then verify the connection.
-3. **[Preparing Data: 3D Volume](./3-prepare-volume.md)** — Clean, reorient, crop, and name your source volume.
+2. **[Slicer Installation & Setup](./2-slicer-setup.md)** — Install Slicer and the extensions, verify the connection, and keep MorphoDepot up to date.
+3. **[Preparing Data: 3D Volume](./3-prepare-volume.md)** — Clean, reorient, crop, and name your source volume — and what becomes unchangeable once you stage it.
 4. **[Preparing Data: Color Table](./4-color-table.md)** — Define the anatomical labels and terminologies.
-5. **[Creating the Repository](./5-create-repo.md)** — Fill the accession form, add screenshots, and create the repo.
+5. **[Creating the Repository](./5-create-repo.md)** — Choose Personal or Archival, stage the repository privately, then publish it.
 6. **[Project Management & Assignments](./6-project-management.md)** — Issues, assignments, segmenting, and committing work.
 7. **[Reviewing & Merging Submissions](./7-review.md)** — Review pull requests and approve or request changes.
 8. **[Search & Discovery](./8-search.md)** — Find and preview existing MorphoDepot repositories.
