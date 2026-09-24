@@ -23,7 +23,7 @@ The **Mouse Skull GPA Tutorial Set** contains:
 | `809-3.obj.zip` | A 3D surface model of specimen 809-3's skull (about 55 MB unzipped). We use it in GPA II and III. Its landmarks, `809-3.fcsv`, are already in the landmark folder. |
 | `matched_metadata.csv` | A covariate table: one row per specimen, with the columns `ID`, `Sex`, `CrossDirection`, `rs6268443`, `rs3712541`, `rs3676545`. |
 
-> **The covariates are not real.** The values in `matched_metadata.csv` were made up to show how the covariate tools work. Any pattern you see when you color a plot by `Sex` or fit a model with `CrossDirection` is an artifact of that made-up table. Do not read biology into it.
+> **Where the covariates come from.** `Sex`, `CrossDirection` and the three SNP genotypes (`rs…`) come from the mouse backcross of Maga et al. (2015), a quantitative-trait-locus study of skull shape (A/J × C57BL/6J F1 mice backcrossed to A/J, so every genotype is either `AA` or `AB`). They are real data, but these tutorials use them to show how the covariate tools work, not to analyse that cross. For the biology, see the original paper.
 
 > **About the `.fcsv` format.** The landmarks in this dataset are stored as `.fcsv`, an older Slicer markups format. That is fine for this exercise, because all 55 points are fixed landmarks. **Do not use `.fcsv` for new projects.** It lacks the newer markups features that grid-based and other semi-landmark workflows need in order to work properly. Its plain comma-separated layout is also fragile: a free-text field such as the point description, which GPA reads to decide which points are semi-landmarks ([GPA IV](../GPA_4/README.md)), is easily broken by a stray comma or an editor. Save your landmarks as `.mrk.json`, the current Slicer markups format and the default in SlicerMorph.
 
@@ -210,7 +210,7 @@ Pick a covariate in **Select factor** and click **Scatter Plot** again. Each gro
 
 <img src="./images/16_pca_scatter_by_crossdirection.png" width="600">
 
-Only text (factor) columns are listed here, for the reason given in step 6. With `CrossDirection`, group B sits mostly on the negative side of PC1. Remember that these labels are made up, so this pattern tells us nothing about mice. With real data, a separation like this is a cue to test the factor formally, which is what GPA III does.
+Only text (factor) columns are listed here, for the reason given in step 6. With `CrossDirection`, group B sits mostly on the negative side of PC1. A separation like this is a cue to test the factor formally, which is what GPA III does.
 
 ## 11. Seeing shape variation in 3D
 
@@ -267,6 +267,10 @@ With your own data, work through outliers like this:
 ## Next steps
 
 Continue with **[GPA II](../GPA_2/README.md)** to warp the 809-3 skull model along the PCs and record animations, and then **[GPA III](../GPA_3/README.md)** to fit linear models with the covariates you loaded here. If your own data include semi-landmarks, finish with **[GPA IV](../GPA_4/README.md)** on sliding.
+
+## Reference
+
+- Maga, A. M., Navarro, N., Cunningham, M. L., and Cox, T. C. (2015). Quantitative trait loci affecting the 3D skull shape and size in mouse and prioritization of candidate genes in-silico. *Frontiers in Physiology*, 6, 92. https://doi.org/10.3389/fphys.2015.00092
 
 ## Other resources
 

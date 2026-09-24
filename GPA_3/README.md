@@ -8,7 +8,7 @@ Until recently this meant exporting the GPA output, reading it into R, rebuildin
 
 In this tutorial we test for **allometry** (shape change with size) and for a difference between the sexes in the mouse skull tutorial set, then warp the skull along the size effect.
 
-> As in GPA I and II, **the covariates in this dataset are made up** for illustration. The statistics below show you how to run and read the model. They say nothing about mice.
+> The covariates come from the mouse backcross of Maga et al. (2015) (see [GPA I](../GPA_1/README.md), step 6). This tutorial uses them to show how to run and read a model. It is not a reanalysis of that cross; for the biology, see the original paper.
 
 ## What you need
 
@@ -143,6 +143,7 @@ If your data include semi-landmarks, continue with **[GPA IV](../GPA_4/README.md
 
 ## References
 
+- Maga, A. M., Navarro, N., Cunningham, M. L., and Cox, T. C. (2015). Quantitative trait loci affecting the 3D skull shape and size in mouse and prioritization of candidate genes in-silico. *Frontiers in Physiology*, 6, 92. https://doi.org/10.3389/fphys.2015.00092
 - Adams, D. C., Collyer, M. L., Kaliontzopoulou, A., and Baken, E. K. (2025). geomorph: Software for geometric morphometric analyses. R package version 4.0.10. https://CRAN.R-project.org/package=geomorph
 - Baken, E. K., Collyer, M. L., Kaliontzopoulou, A., and Adams, D. C. (2021). geomorph v4.0 and gmShiny: Enhanced analytics and a new graphical interface for a comprehensive morphometric experience. *Methods in Ecology and Evolution*, 12, 2355–2363.
 - Collyer, M. L., and Adams, D. C. (2024). RRPP: Linear model evaluation with randomized residuals in a permutation procedure. R package version 2.1.2. https://CRAN.R-project.org/package=RRPP
