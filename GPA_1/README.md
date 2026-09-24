@@ -4,13 +4,14 @@
 
 SlicerMorph's **GPA** module runs a Generalized Procrustes Analysis on a set of landmark files and follows it with a Principal Component Analysis (PCA) of the aligned shapes. It then lets you explore the result in Slicer's plot, table and 3D views, and, if you have R installed, fit linear models with geomorph without leaving Slicer.
 
-This is the first of three tutorials on the module:
+This is the first of four tutorials on the module:
 
 1. **GPA I (this tutorial):** getting the sample data, setting up the analysis (including covariates), running GPA/PCA, and reading the results: Procrustes distances, PCA scatter plots, landmark variance and lollipop plots.
 2. **[GPA II](../GPA_2/README.md):** warping a 3D model of a skull along the PCs, driving the warp from the scatter plot, and exporting animations.
 3. **[GPA III](../GPA_3/README.md):** fitting Procrustes linear models (geomorph's `procD.lm`) from within Slicer and visualizing the regression as a shape change.
+4. **[GPA IV](../GPA_4/README.md):** sliding semi-landmarks: how to do it in SlicerMorph, and when not to. It uses its own dataset, with semi-landmarks.
 
-All three use the same dataset, so work through them in order. Everything in this tutorial was done in 3D Slicer 5.12 with the current SlicerMorph extension.
+GPA I–III use the same dataset, so work through them in order. Everything in this tutorial was done in 3D Slicer 5.12 with the current SlicerMorph extension.
 
 ## The tutorial dataset
 
@@ -265,7 +266,7 @@ With your own data, work through outliers like this:
 
 ## Next steps
 
-Continue with **[GPA II](../GPA_2/README.md)** to warp the 809-3 skull model along the PCs and record animations, and then **[GPA III](../GPA_3/README.md)** to fit linear models with the covariates you loaded here.
+Continue with **[GPA II](../GPA_2/README.md)** to warp the 809-3 skull model along the PCs and record animations, and then **[GPA III](../GPA_3/README.md)** to fit linear models with the covariates you loaded here. If your own data include semi-landmarks, finish with **[GPA IV](../GPA_4/README.md)** on sliding.
 
 ## Other resources
 
