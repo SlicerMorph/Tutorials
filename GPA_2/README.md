@@ -86,7 +86,7 @@ Instead of one PC at a time, you can move through the PC1/PC2 plane directly:
 
 Hold **Shift** while dragging to lock the vertical (PC2) component and sweep along PC1 only, or **Ctrl/Cmd** to lock the horizontal component. Drag the cursor onto one of the outlying specimens from GPA I (for example 157-35, at the far left of PC1) to see the shape the model predicts for it. Uncheck the box when you are done, so that clicking the plot behaves normally again.
 
-The plot is colored by `Sex` here because that was the last factor used. As before, the labels are made up.
+The plot is colored by `Sex` here because that was the last factor used.
 
 ## 5. Record the deformation as an animation
 
@@ -124,7 +124,7 @@ For a figure rather than a video, set **Output type** to `image series` (one PNG
 
 ## Next steps
 
-Continue with **[GPA III](../GPA_3/README.md)** to test whether size and the (made-up) covariates affect shape with geomorph's `procD.lm`, and to warp the skull along the fitted regression.
+Continue with **[GPA III](../GPA_3/README.md)** to test whether size and the covariates affect shape with geomorph's `procD.lm`, and to warp the skull along the fitted regression.
 
 ## Other resources
 
