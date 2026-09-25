@@ -1,52 +1,114 @@
-# QuickAlign
-In research 3D imaging, often there is no fixed orientation in which samples are scanned consistently. For comparative purposes, it is often easier to bring these 3D specimen into approximately similar anatomical orientation to compare. If precision is required and necessary, this can be done by using the automated registration tools in Slicer and SlicerMorph, depending on whether the data is a volume or a 3D model. However, for simpler side-by-side comparison of two objects, **QuickAlign** module can provide a convenient alternative to align volumes, models and landmarks (pointLists). 
+# QuickAlign: compare two specimens side by side
 
-Additionally, **QuickAlign** provides linking two landmarks sets in this orientation, so that point-to-point correspondences of dense landmarksets can be easily compared by selecting specific points, which then gets highlighted in the linked dataset as well. 
+Specimens are rarely scanned in the same position. Comparing two of them is hard when one faces left and the other right, or one lies on its side. **QuickAlign** shows two specimens (volumes, models or landmark sets) side by side in linked 3D views. You turn each one to roughly the same anatomical orientation, and from then on the two views move together: rotate, zoom or pan one, and the other follows.
 
-Using sample data from SlicerMorph, this tutorial explains how to align two specimens that might be in different orientation and size side-by-side. To follow the rest of the tutorial, download both **Gorilla Skull Reference Model** and **Mouse Skull Reference Model** from the `Sample Data` module of Slicer. Save the downloaded zip files somewhere you can easily find, and unzip them. 
+QuickAlign does not change your data. The alignment is temporary and is removed when you end the session. It is by eye, so it is only as good as your orientation of the two specimens. When you need a precise alignment, use a registration tool instead: rigid registration in [ALPACA](../ALPACA/README.md) for models, or image registration for volumes.
 
-1. Drag and drop both two models into Slicer (**4074_skull.vtk** is the mouse model, and **Gor_template_low_res.ply** is the gorilla model.)
-2. Find the `QuickAlign` module in the module finder (CTRL+F or CMD+F in MacOS) and switch to it
-3. Assign Mouse model as **Object 1** and gorilla model as **Object 2**
-4. Hit **Initialize View** button. This will change your Slicer layout to a 2x2 grid showing four 3D views:
-   - **View 1** (top-left): Object 1 superior view (looking down from top)
-   - **View 2** (top-right): Object 2 superior view
-   - **View 3** (bottom-left): Object 1 lateral/side view
-   - **View 4** (bottom-right): Object 2 lateral/side view
-5. Both objects are automatically centered at the origin. Adjust the views such that you are looking at the dorsal surface of the skulls, with snouts pointing upwards in the superior views. The zoom levels of superior and side views are automatically synchronized for each object.
-6. Hit the **Link** button to synchronize Object 1 and Object 2. The layout will switch to a dual horizontal view showing only Views 1 and 2 (the two superior views).
-7. Use your mouse to rotate/zoom/pan one of the models, and notice that the same movement is applied to the other. 
-8. When done, hit the **Unlink** button to de-synchronize the objects. You can change your layout back to whatever it was using the **Layout Manager** module. 
+QuickAlign can also show a landmark set on each specimen and link them, so that selecting a landmark on one specimen selects the same landmark on the other. And you can place new landmarks on one specimen while you look at the other, already landmarked one, in the same orientation.
 
-## Working with Landmarks
+## Get the data
 
-QuickAlign can also be used to align and jointly edit landmark sets. Landmark sets can be specified in two ways:
+We use two micro-CT scans of mouse heads, from the inbred strains A/J and NZBWF1/J, and their landmarks (45 per specimen). They come from the [mouse CT atlas](https://github.com/muratmaga/mouse_CT_atlas) repository ([Maga et al., 2017](https://www.ncbi.nlm.nih.gov/pubmed/28656622)). The scans are small: 0.14 mm voxels, under 1 MB each.
 
-### Option 1: Using Landmark Files as Objects
+Open the Python console (**View → Python Console**, or the Python icon in the toolbar), paste the code below, and press Enter:
 
-You can directly use landmark point lists as Object 1 and Object 2. When both objects are fiducial markups, joint editing is automatically enabled.
+```python
+import SampleData
+base = "https://raw.githubusercontent.com/muratmaga/mouse_CT_atlas/master/data/"
+nodes = SampleData.downloadFromURL(
+    uris=[base + "targets/A_J_.nii.gz", base + "targets/NZBWF1_J_.nii.gz",
+          base + "target_LMs/A_J_.mrk.json", base + "target_LMs/NZBWF1_J_.mrk.json"],
+    fileNames=["A_J_.nii.gz", "NZBWF1_J_.nii.gz", "A_J_.mrk.json", "NZBWF1_J_.mrk.json"],
+    nodeNames=["A_J", "NZBWF1_J", "A_J_LMs", "NZBWF1_J_LMs"])
+```
 
-### Option 2: Using Separate Landmark Selectors
+This loads four nodes: the volumes `A_J` and `NZBWF1_J`, and their landmark sets `A_J_LMs` and `NZBWF1_J_LMs`. The files are kept in Slicer's download cache, so running the code again loads them without downloading.
 
-You can align models or volumes as objects, and separately specify landmark point lists for joint editing using the **Landmarks 1** and **Landmarks 2** selectors (these selectors become available after you hit the **Link** button).
+The two heads were scanned in very different positions. Seen from the same direction, A/J faces right and NZBWF1/J faces left:
 
-**Important:** For joint editing to work, both landmark sets must have the same number of landmarks.
+<img src="images/01_before.png" width="800">
 
-### Tutorial: Linking Landmark Sets
+## 1. Set up the views
 
-We can't use the landmarks that came with gorilla and mouse datasets because they have different numbers of points. Download the **Large Apes Skull LMs** sample data, save it to a convenient location, and unzip its contents.
+1. Open the **QuickAlign** module (**Modules → SlicerMorph → Utilities → QuickAlign**, or search for it with the module finder, Ctrl+F or Cmd+F on macOS).
+2. Set **Object 1** to `A_J` and **Object 2** to `NZBWF1_J`.
+3. Click **Initialize View**.
 
-1. Reset your Slicer scene (CTRL+W or CMD+W in MacOS)
-2. Drag and drop these two landmark files into Slicer: **gorUSNM252577_LM1.mrk.json** and **ponUSNM145309_LM1.mrk.json** 
-3. Switch to QuickAlign module and assign gorilla to **Object 1** and pongo to **Object 2**
-4. Hit **Initialize View** button. The layout switches to the 2x2 grid view with four 3D views
-5. Arrange the point lists such that they have similar orientations in the superior views (Views 1 and 2)
-6. Hit the **Link** button. The layout switches to dual horizontal view, and the landmarks are aligned and synchronized
-7. The **Joint Editing** checkbox should be automatically checked (it auto-enables when objects are fiducial markups)
-8. Interact with the landmarks and observe they retain your alignment and zoom levels
-9. In the right viewer (pongo dataset), hover your mouse over one of the points. This should turn its color to yellow (active state). While still yellow, right-click and from the popup menu, choose **Toggle select control point**. This will toggle the control point state from selected to unselected, or vice versa (review the Markups tutorial to refresh your memory about control point states and their colors: select, unselect, active)
-10. Notice that its color will change to light blue, and the corresponding landmark in the gorilla dataset will also change its state and color automatically
-11. If you wish to select more than one point at a time, use the MarkupEditor functionality (see the tutorial)
-12. When done, hit **Unlink** to end the synchronized session
+<img src="images/02_initialized.png" width="900">
 
-**Note:** If you're using separate landmark selectors, the landmark files cannot be the same as Object 1 or Object 2. The module will automatically filter them out from the landmark selector dropdowns. 
+The layout changes to four 3D views. Object 1 is shown in views 1 and 3, object 2 in views 2 and 4. Everything else in the scene is hidden for now.
+
+- Volumes are shown with volume rendering. If a volume does not have one yet, QuickAlign creates it with the **MR-Default** preset, which works well for these scans. For a different look, set up the volume rendering in the **Volume Rendering** module before you click **Initialize View**.
+- Both objects are moved to the center of the scene, and all four views are zoomed to fit the larger of the two. All views get the same zoom, so the two specimens keep their true relative size.
+- Views 1 and 2 look at the scene from above, views 3 and 4 from its right side. These are directions of the scene, not of the specimens, so what you see depends on how each specimen was scanned. Here, view 4 shows NZBWF1/J from below.
+
+## 2. Orient each specimen
+
+In **view 1**, rotate A/J with the mouse until you look at the top (dorsal side) of the skull, with the snout pointing up. In **view 2**, do the same for NZBWF1/J.
+
+<img src="images/03_oriented.png" width="900">
+
+Take your time here: QuickAlign aligns the two specimens exactly as you oriented them in views 1 and 2. Views 3 and 4 do not rotate with views 1 and 2; they keep showing each object from the same side, and only follow the zoom. Use them to check that the skull is not tilted.
+
+Do not zoom views 1 and 2 differently unless you want to (see [Specimens of different size](#specimens-of-different-size)).
+
+## 3. Start the sync
+
+Click **Start Sync**. The layout changes to views 1 and 2, and NZBWF1/J is turned to match the orientation of A/J in view 1:
+
+<img src="images/04_synced.png" width="900">
+
+The two views are now linked. Rotate, zoom or pan either view, and the other follows, so you always see both specimens from the same direction. Here we rotated them to a side view.
+
+### Specimens of different size
+
+When you click **Start Sync**, QuickAlign compares how far views 1 and 2 are zoomed in, and scales object 2 by that ratio. If you did not zoom them differently, nothing is scaled and the specimens keep their true relative size, as here. If the two specimens are of very different sizes, for example a mouse and a gorilla skull, zoom views 1 and 2 separately in step 2 so that each specimen fills its view. After **Start Sync**, both are shown at the size you gave them. Their relative size is then no longer true, and the scale bar in view 2 does not apply to object 2.
+
+## 4. Add the landmarks
+
+The landmark selectors become available once the sync is running.
+
+1. In **Synchronize View**, set **Landmarks 1** to `A_J_LMs` and **Landmarks 2** to `NZBWF1_J_LMs`.
+
+Each landmark set is shown in its specimen's view and moves with it:
+
+<img src="images/05_landmarks.png" width="900">
+
+The objects themselves cannot be selected here: if an object is a point list, it is left out of these lists.
+
+### Select a landmark on both specimens at once
+
+Two landmark sets with the same number of points can be linked, so that selecting or unselecting a point on one specimen does the same to the point with the same number on the other.
+
+1. Check **Enable joint editing of point lists**.
+2. In view 2, hover over a landmark until it is highlighted, right-click, and choose **Toggle select control point**. The landmark changes color from red (selected) to light blue (unselected), and so does the same landmark on A/J in view 1.
+
+Here we unselected landmarks 10, 13 and 32 on NZBWF1/J:
+
+<img src="images/06_joint_selection.png" width="900">
+
+Use this to check that a landmark was placed at the same anatomical location on both specimens. To select or unselect many landmarks at once, use the [MarkupEditor](../MarkupsEditor) module.
+
+Only the selection is linked, not the positions. While joint editing is on, points cannot be added to or deleted from either set; uncheck the box to add or delete points again.
+
+### Place new landmarks with a landmarked specimen as a guide
+
+A common use of QuickAlign is to landmark a new specimen while you look at one that is already landmarked, in the same orientation. Suppose NZBWF1/J had no landmarks yet:
+
+1. Leave **Enable joint editing of point lists** unchecked.
+2. Create a new, empty point list: click the first button of the **Markups** toolbar (**Create new Point List**), and rename the new list (e.g. `NZBWF1_J_new`) in the **Data** module.
+3. Set **Landmarks 2** to the new point list, and **Landmarks 1** to `A_J_LMs`, the guide.
+4. With the new point list active in the Markups toolbar, place points on NZBWF1/J in view 2, in the same order as on A/J. Rotate either view to see the next landmark; both turn together.
+
+<img src="images/07_new_landmarks.png" width="900">
+
+The points are stored in NZBWF1/J's own coordinates. When you end the sync, they stay on the skull where you placed them. Save the point list as usual (**File → Save Data**).
+
+## 5. End the sync
+
+Click **End Sync**. The two objects and their landmarks go back to their original positions, the views are unlinked, and everything that QuickAlign hid is shown again. The layout stays as it is; switch back with the layout button in the toolbar.
+
+## Landmark sets without a scan
+
+**Object 1** and **Object 2** can also be point lists, e.g. two landmark files without their scans. Then **Enable joint editing of point lists** is checked automatically, joint editing starts when you click **Start Sync**, and the landmark selectors are not needed.
+
