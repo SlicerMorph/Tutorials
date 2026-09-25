@@ -7,7 +7,7 @@ Imagestacks also optionally converts 16 (or higher) bit data to 8 bit. This is d
 
 
 
-To use the `ImageStacks` module in SlicerMorph, first go to the `Sample Data` module and download the **Bruker/Skyscan mCT Recon Sample.** If you are not familiar with the `Sample Data` module or how to find where Slicer downloads files, please review the tutorials for [`Sample Data`](https://github.com/SlicerMorph/Tutorials/tree/main/SampleData) and [`SlicerMorph Preferences`](https://github.com/SlicerMorph/Tutorials/tree/main/MorphPrefs). 
+To use the `ImageStacks` module in SlicerMorph, first go to the `Sample Data` module and download the **Bruker/Skyscan mCT Recon Sample.** If you are not familiar with the `Sample Data` module or how to find where Slicer downloads files, please review the tutorials for [`Sample Data`](https://github.com/SlicerMorph/Tutorials/blob/main/SampleData/README.md) and [`SlicerMorph Preferences`](https://github.com/SlicerMorph/Tutorials/blob/main/MorphPrefs/README.md). 
 
 Then find the `ImageStacks` under **SlicerMorph->Input and Output** module menu folder and:
 

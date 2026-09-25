@@ -28,5 +28,5 @@ This tutorial explains how to resample a curve using the `Markups` module. In th
 
 ## Links to Learn More: 
 * [Markups documentation from 3D Slicer](https://slicer.readthedocs.io/en/latest/user_guide/modules/markups.html)
-* [Introduction to landmarks tutorial](https://github.com/SlicerMorph/Tutorials/tree/main/Markups_1)
-* [Creating landmark templates tutorial](https://github.com/SlicerMorph/Tutorials/tree/main/Markups_3)
+* [Introduction to landmarks tutorial](https://github.com/SlicerMorph/Tutorials/blob/main/Markups_1/README.md)
+* [Creating landmark templates tutorial](https://github.com/SlicerMorph/Tutorials/blob/main/Markups_3/README.md)

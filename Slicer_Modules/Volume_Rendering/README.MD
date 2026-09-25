@@ -209,13 +209,13 @@ Two things flatten this histogram. First, with only 256 levels, tissues whose in
 Both scans come from [MorphoDepot](https://morphodepot.org), an open platform where 3D specimen scans (CT, microCT and other volumes) are shared together with their segmentations, each in its own GitHub repository (Maga et al., 2026). It is a good source of real microCT data for practicing volume rendering:
 
 - **Browse the datasets** on the [RepoClerk dashboard](https://repoclerk.morphodepot.org), or in the [MorphoDepot GitHub organization](https://github.com/MorphoDepot). The two scans used here are in the [Mouse Anatomy Collection](https://github.com/MorphoDepot/collection-2716acfd).
-- **Load them into Slicer** with the **MorphoDepot** extension (install it from the Extensions Manager). Its **Search** tab lists the repositories. See the [MorphoDepot tutorial](../../MorphoDepot) for how to open a scan with its segmentation, and how to contribute segmentations yourself.
+- **Load them into Slicer** with the **MorphoDepot** extension (install it from the Extensions Manager). Its **Search** tab lists the repositories. See the [MorphoDepot tutorial](../../MorphoDepot/README.md) for how to open a scan with its segmentation, and how to contribute segmentations yourself.
 - **Use the segmentations.** Where a transfer function cannot separate tissues, a segmentation can. The E15 repository comes with a segmentation of 50 organs and tissues; show a single organ in 3D by displaying its segment.
 - **Compare with a 16-bit scan.** Most MorphoDepot scans are 8-bit. The diceCT scan of a cow eyeball ([MorphoDepot/bos-taurus-diceCT-eyeball-2026](https://github.com/MorphoDepot/bos-taurus-diceCT-eyeball-2026)) is a real, 16-bit specimen; look at how its histogram differs from the E15 atlas (it is a large download, 1.2 GB).
 
 ## Practice
 
-The turtle CT from the [DICOM tutorial](../DICOM), with carapace, skull and soft tissue, is a good scan to practice on. Try to show the skull and the soft tissue at the same time.
+The turtle CT from the [DICOM tutorial](../DICOM/README.md), with carapace, skull and soft tissue, is a good scan to practice on. Try to show the skull and the soft tissue at the same time.
 
 ## References
 
