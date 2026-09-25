@@ -143,8 +143,8 @@ The organs start fully transparent inside the solid volume rendering, and the tw
 
    <img src="images/07_explode_editor.png" width="600">
 
-3. **Exploded (7 s).** Turn the view further and zoom out a little, so that the separated organs fit. Capture.
-4. **Exploded, turning (10 s).** Turn the view once more and capture, so that the camera keeps circling until the end.
+3. **Exploded (7 s).** Turn the view further and zoom out a little, so that the separated organs fit. Capture. It lands halfway between 3 s and the end, at 6.5 s; set its time to **7 s**.
+4. **Exploded, turning (10 s).** Turn the view once more and capture, so that the camera keeps circling until the end. Set its time to **10 s**.
 
 The volume rendering fades and the organs fade in between 0 and 3 s (**Interpolate to next**), then the organs separate between 3 and 7 s, and stay separated to the end. To bring them back together, set **After this** of a later keyframe to **Implode models to next**, with the same folder.
 
