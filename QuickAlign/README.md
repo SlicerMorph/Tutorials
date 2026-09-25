@@ -58,7 +58,7 @@ Click **Start Sync**. The layout changes to views 1 and 2, and NZBWF1/J is turne
 
 <img src="images/04_synced.png" width="900">
 
-The two views are now linked. Rotate, zoom or pan either view, and the other follows, so you always see both specimens from the same direction. Here we rotated them to a side view.
+The two views are now linked. Rotate, zoom or pan either view, and the other follows, so you always see both specimens from the same direction. The next screenshots show both rotated together to a side view.
 
 ### Specimens of different size
 
