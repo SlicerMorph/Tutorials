@@ -1,94 +1,98 @@
-# Executing Multi-Template ALPACA (MALPACA) 
-This tutorial contains instructions for executing the multi-template ALPACA (MALPACA) pipeline for automated landmarking that can accomodate large morphological disparity within a sample. The MALPACA pipeline is essentially performing multiple independent ALPACA runs, each of which based on a single template. It then calculate the median from the results of all these ALPACA runs as the final output of landmark estimates. The same parameter setting of ALPACA applies to MALPACA. For the publication of MALPACA, please see https://doi.org/10.1371/journal.pone.0278035. For tutorials of how to run ALPACA and , please refer to: https://github.com/SlicerMorph/Tutorials/blob/main/ALPACA/README.md. 
+# ALPACA IV: Multi-template landmarking (MALPACA)
 
-Download sample data here: https://github.com/SlicerMorph/mouse_models. Extract the files.
+## Introduction
 
-### Step 1. Switch to the ALPACA module in 3D Slicer and choose the Batch Processing tab (red). 
-In the `Method` entry (dark blue box in the picture below), select the `Multi-Template (MALPACA)` option from the dropdown menu.
+A single template works well for targets that look like it. The further a target is from the template, the more the deformable registration has to do, and the larger the landmark errors tend to be. **MALPACA** (multi-template ALPACA) runs ALPACA once per template on every target, and combines the estimates landmark by landmark, taking the **median** of each coordinate. One template that fits a target badly does not pull the median much, and with templates spread across the sample, every target has some templates that are close to it (Zhang et al., 2022).
 
-<p align="center">
-<img src="./kmeans_MALPACA_images/MALPACA_019.png", width = 700>
-<p/>
+MALPACA uses the same settings as ALPACA (the **Advanced Settings** tab), so tune them first on a single pair ([ALPACA I](../ALPACA/README.md)).
 
-### Step 2. Select required input and output directories (see the picture above).
-* In the `Source model(s)` entry (yellow), select the folder that contains the templates (ply format). 
-  * **If you are uncertain about which specimens to be used as templates, you may use the accompanied k-means multi-template selection method (see [kmeans templates selection tutorial](https://github.com/SlicerMorph/Tutorials/blob/main/MALPACA/K-means_templates_selection.md)).**
-  * If you have used the K-means method to select templates, you can select the dirctory that contains the output templates. 
-* In the `Source landmarks` entry (green), select the folder that contains the manual landmark files for the selected templates. **The file names of the template model and landmark files must be identical (without extensions). For example, a mesh file named `specimen1.ply` should have a corresponding landmark file named `specimen1.mrk.json` or `specimen1.fcsv`.** The format of the landmark files should be either 'mrk.json' or 'fcsv'. The 'mrk.json' format is recommended.
-* In the `Target model directory` entry (dark grey), select the folder that contains the target models (ply format). These are the specimens that will be landmarked by the MALPACA pipeline.
-* In the `Target output landmark directory` (light blue), select the folder for storing the MALPACA output landmark files (mrk.json format) of the target specimens.
-* Optional settings
-  * `Skip scaling` (blue arrow): skip scaling for the rigid registration
-  * `Skip projection` (green arrow): skip projecting estimated landmarks to the surface of the target models
-  * `Mesh Quality Control (QC)`: When enabled (recommended), MALPACA will perform quality control checks on all meshes before processing begins. This QC step detects:
-    * Degenerate meshes (meshes with no points or faces)
-    * Meshes containing NaN (Not a Number) values in point coordinates
-    * Meshes containing infinite values in point coordinates
-    * Meshes that failed to load properly
-    
-    If any mesh fails QC checks, batch processing will stop and display detailed error messages identifying the problematic files. This prevents wasted computation time on invalid data. You can disable this option to proceed anyway, but this is not recommended as it may lead to processing failures or invalid results.
-  * `Replication Analysis` (grey arrow): check this option to allow replicating ALPACA/MALPACA using the same setting and sample. When this option is checked, the following entry `Number of Replications` will be enables for inputing the number of replication. Each replication will be saved in a separate folder in the `Target output landmark directory`.
+## What you need
 
-### Step 3. Click the `Run auto-landmarking` button (red arrow) to execute the MALPACA pipeline (see the picture above).
-Slicer may appear to be in a “no response” condition. This is because the MALPACA is executing, so do not forcing closing the Slicer program.
+- The **Mouse_Models** data ([ALPACA I](../ALPACA/README.md#get-the-sample-data)).
+- A set of templates: specimens that have manual landmarks. We use the five selected for the whole sample in [ALPACA III](K-means_templates_selection.md): **SPRET, PERC, SF, FVB_NJ** and **B6129PF1**. If you already know which specimens to use, for example one from each group in your study, you can skip ALPACA II and III.
+- The `targets` folder from [ALPACA I](../ALPACA/README.md#part-2-batch-processing-with-one-template), with four skulls: B6C3F1, BALB_CJ, CAST_EIJ and NZO. None of them is a template. All of them have manual landmarks, which lets us measure the error.
 
-### Step 4. See MALPACA output.
-Open the target output landmark directory specified in Step 2 that stores the MALPACA output landmark files.
-* The `advancedparameters.txt` file stores the MALPACA settings.
-* The `individual estimates` folder contains landmarks estimated by each individual template stored in the mrk.json format.
+## 1. Put the templates in folders
 
-<p align="center">
-<img src="./kmeans_MALPACA_images/MALPACA_020.png", width = 700>
-<p/>
+MALPACA takes two folders: one with the template models, one with their landmarks. Make two new folders (we called them `templates_models` and `templates_LMs`) and copy into them:
 
+| `templates_models` | `templates_LMs` |
+|---|---|
+| `SPRET.ply` | `SPRET.mrk.json` |
+| `PERC.ply` | `PERC.mrk.json` |
+| `SF.ply` | `SF.mrk.json` |
+| `FVB_NJ.ply` | `FVB_NJ.mrk.json` |
+| `B6129PF1.ply` | `B6129PF1.mrk.json` |
 
-* Each file name's prefix specifies the target specimen, while its postfix specifies the template that is used for landmarking this specimen. For example, the file name`129X1_SVJ_B6CBAF1` suggests that the estimated landmarks of the specimen 129X1_SVJ is derived from using the template B6CBAF1. See the picture below.
+from `Mouse_Models-main/Models` and `Mouse_Models-main/LMs`.
 
+The two folders must match exactly: every model needs a landmark file with the same name (only the extension differs), and there must be nothing else in them. Do not point **Source landmarks** at the full `LMs` folder. MALPACA checks this before it starts and lists any file without a partner.
 
-<p align="center">
-<img src="./kmeans_MALPACA_images/MALPACA_021.png", width = 700>
-<p/>
+## 2. Set up the batch
 
+On the **Batch processing** tab:
 
-* The `medianEstimates` folder contains the final output of the MALPACA pipeline (mrk.json format). Each landmark file name has a suffix `_median`, suggesting it is the median of all the landmark estimates derived from each template. As of recent updates, MALPACA also generates geometric median estimates (suffix `_geomedian`), which are more robust to outliers than arithmetic medians.
+1. **Method:** `Multi-Template(MALPACA)`. The two source fields now ask for folders instead of files, and are cleared.
+2. **Source model(s):** the `templates_models` folder.
+3. **Source landmarks:** the `templates_LMs` folder.
+4. **Target model directory:** the `targets` folder.
+5. **Target output landmark directory:** an empty folder for the results.
+6. Leave **Scaling**, **Projection** and **Enable Mesh Quality Control** checked.
 
-<p align="center">
-<img src="./kmeans_MALPACA_images/MALPACA_022.png", width = 700>
-<p/>
+## 3. Run
+
+Click **Run auto-landmarking**. The mesh check runs first (`OK: All 9 meshes passed QC checks`: 5 templates and 4 targets). Then every target is landmarked with every template. The box reports each target as it is finished:
+
+<img src="images/malpaca_02_after_run_panel.png" width="600">
+
+That is 20 ALPACA runs here, and it took 43 minutes, about 11 minutes per target. The time grows with the number of templates times the number of targets, so estimate it from a small test before you start a large run.
+
+If a run is interrupted, start it again with the same folders. Targets that already have a median file are skipped.
+
+## 4. The output
+
+The output folder contains:
+
+- `individualEstimates/`: one file per target and template, named `<target>_<template>.mrk.json`, e.g. `NZO_SPRET.mrk.json`, the NZO landmarks estimated from the SPRET template. Twenty files here.
+- `medianEstimates/`: the final estimates, two per target:
+  - `<target>_median.mrk.json`: the median of the template estimates, coordinate by coordinate. **This is the MALPACA result.**
+  - `<target>_geomedian.mrk.json`: the geometric median, the point with the smallest total distance to the template estimates, per landmark. It is even less affected by a single far-off estimate. (In current versions of SlicerMorph the geometric median is not computed correctly, and this file is a copy of the median. Computed correctly, it agreed with the median within 0.005 mm in this example.)
+- `advancedParameters.txt`: the templates, targets and every setting used.
+
+The landmark files are ordinary `.mrk.json` files: drag them into Slicer to view them, or analyze them in the [GPA module](../GPA_1/README.md).
+
+## 5. Is it better than one template?
+
+All four targets have manual landmarks, so we can measure each estimate's error: the RMSE between the estimated and the manual landmarks, in mm (as in [ALPACA I](../ALPACA/README.md), step 6). The first column is the single-template run from ALPACA I (A/J as the template). The next five are the individual MALPACA templates, read from `individualEstimates`. The last is the MALPACA median.
+
+| Target | A/J alone | SPRET | PERC | SF | FVB_NJ | B6129PF1 | **MALPACA median** |
+|---|---|---|---|---|---|---|---|
+| B6C3F1 | 0.26 | 0.43 | 0.44 | 0.45 | 0.23 | 0.23 | **0.19** |
+| BALB_CJ | 0.36 | 0.44 | 0.50 | 0.49 | 0.25 | 0.24 | **0.23** |
+| CAST_EIJ | 0.35 | 0.32 | 0.38 | 0.46 | 0.33 | 0.31 | **0.26** |
+| NZO | 0.35 | 0.42 | 0.45 | 0.54 | 0.34 | 0.34 | **0.28** |
+
+Three things to notice:
+
+- **The median is better than every single template, for every target.** It is also better than the best template for that target, which you would not know in advance without manual landmarks.
+- **Single templates vary a lot.** The three wild-derived templates (SPRET, PERC, SF) are the least accurate for these four targets, all laboratory or F1 mice except CAST_EIJ. Yet including them did not hurt: a median is little affected by estimates that disagree with the majority, and for CAST_EIJ, a wild-derived target, SPRET was the second-best single template.
+- **The largest remaining errors are at a few landmarks**, mainly landmark 47 (0.70–0.97 mm in three targets). A landmark that is hard for every template will stay hard. Check such landmarks by hand.
+
+Here are the MALPACA median (purple) and the manual landmarks (green) on NZO, the target with the largest error:
+
+<img src="images/malpaca_04_NZO_median_vs_manual.png" width="700">
+
+This is a small example: four targets, with the error measured against one person's landmarks. For a real study, landmark a few specimens by hand that were not used as templates, and compare, as here, before you run MALPACA on the whole sample.
 
 ## Troubleshooting
 
-### File Name Matching Issues
-**Problem:** Error message "Could not find the file corresponding to [filename]"
+**"Source Files Mismatch".** The template model and landmark folders do not match. The message lists the models without landmarks and the landmarks without models. Every model needs a landmark file with the same name, e.g. `SPRET.ply` and `SPRET.mrk.json`; names are case-sensitive on some systems.
 
-**Solution:** Ensure that:
-- Template mesh files and their corresponding landmark files have identical base names (excluding file extensions)
-- For example: `mouse1.ply` must have a landmark file named `mouse1.mrk.json` or `mouse1.fcsv`
-- File names are case-sensitive on some operating systems
-- There are no extra spaces or special characters in file names
+**Mesh QC fails.** A model is empty, has invalid (NaN or infinite) coordinates, or does not load. Re-export it from its source, or remove it from the folder. You can turn the check off, but then a bad mesh can stop the batch partway.
 
-### Mesh Quality Control (QC) Failures
-**Problem:** Batch processing stops with QC failure messages
+**Slicer does not respond during the run.** That is expected; do not close it. Watch the output folder fill up instead.
 
-**Possible causes and solutions:**
-1. **"Mesh contains NaN values in points"**
-   - The mesh file is corrupted or was improperly generated
-   - Try re-exporting the mesh from your original source
-   - Check the mesh in another 3D viewer to verify it displays correctly
+## References
 
-2. **"Mesh contains infinite values in points"**
-   - Similar to NaN values, indicates corrupted mesh data
-   - Re-export the mesh with proper coordinate bounds
-
-3. **"Mesh has no points" or "Mesh has no faces/cells"**
-   - The mesh file is empty or severely corrupted
-   - Verify the file size is non-zero
-   - Try loading the mesh in 3D Slicer's Data module to confirm it's valid
-
-4. **"Failed to load mesh"**
-   - The file format may not be supported or the file is corrupted
-   - Supported formats: .ply, .obj, .vtk, .vtp, .stl
-   - Try converting the mesh to .ply format using another tool
-
-**Note:** While you can disable Mesh QC to proceed with processing, this is **not recommended** as invalid meshes will likely cause processing failures later in the pipeline or produce incorrect results. It's better to fix the problematic meshes first.
-
+- Zhang, C., Porto, A., Rolfe, S., Kocatulum, A., and Maga, A. M. (2022). Automated landmarking via multiple templates. *PLOS ONE*, 17(12), e0278035. https://doi.org/10.1371/journal.pone.0278035
+- Porto, A., Rolfe, S., and Maga, A. M. (2021). ALPACA: A fast and accurate computer vision approach for automated landmarking of three-dimensional biological structures. *Methods in Ecology and Evolution*, 12(11), 2129–2144. https://doi.org/10.1111/2041-210X.13689

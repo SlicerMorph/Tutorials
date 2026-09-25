@@ -47,8 +47,6 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 13. #### [**Creating a template of Pseudo-landmarks via PseudoLMGenerator:**](https://github.com/SlicerMorph/Tutorials/tree/main/PseudoLMGenerator)
 15. #### [**ProjectSemiLMs:** allows you to transfer a semiLM template to new samples using fixed LMs and TPS ](https://github.com/SlicerMorph/Tutorials/blob/main/ProjectSemiLM/README.md)
 14. #### [**MergeMarkups:** Merging different kinds of LMs for analysis](https://github.com/SlicerMorph/Tutorials/tree/main/MergeMarkups)
-15. #### [**ALPACA:** Automated Landmarking through Point cloud Alignment and Correspondence Analysis](https://github.com/SlicerMorph/Tutorials/tree/main/ALPACA)
-15. #### [**MALPACA:** Multi-template ALPACA and Kmeans based template selection:](https://github.com/SlicerMorph/Tutorials/blob/main/MALPACA/MALPACA.md)
 16. #### [**GPA-I:** Basics of GPA: setting up the analysis (including covariates), exploring the morphospace](https://github.com/SlicerMorph/Tutorials/tree/main/GPA_1)
 17. #### [**GPA-II:** 3D interactive visualization of morphospace and exporting animations](https://github.com/SlicerMorph/Tutorials/tree/main/GPA_2)
 18. #### [**GPA-III:** Linear models with geomorph (procD.lm), from within Slicer](https://github.com/SlicerMorph/Tutorials/tree/main/GPA_3#readme)
@@ -57,6 +55,13 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 21. #### [**DeCaL:** Automated semi and fixed landmarking tutorial](https://github.com/SlicerMorph/Tutorials/blob/main/DeCAL/README.md)
 22. #### [**DeCA-I:** Dense Surface Correspondence Analysis](https://github.com/SlicerMorph/Tutorials/blob/main/DeCA_1/README.md)
 23. #### [**DeCA-II**: Symmetry Analysis](https://github.com/SlicerMorph/Tutorials/blob/main/DeCA_2/README.md)
+
+### ALPACA: Automated Landmarking
+1. #### [**ALPACA-I:** Automated landmarking with a single template (single alignment and batch processing)](https://github.com/SlicerMorph/Tutorials/tree/main/ALPACA#readme)
+2. #### [**ALPACA-II:** Building a consensus atlas for unbiased template selection](https://github.com/SlicerMorph/Tutorials/blob/main/MALPACA/Consensus_atlas.md)
+3. #### [**ALPACA-III:** Selecting templates with K-means (shape or form space, with or without groups)](https://github.com/SlicerMorph/Tutorials/blob/main/MALPACA/K-means_templates_selection.md)
+4. #### [**ALPACA-IV:** Multi-template landmarking (MALPACA)](https://github.com/SlicerMorph/Tutorials/blob/main/MALPACA/MALPACA.md)
+5. #### [**ALPACA-V:** Advanced settings, tuning for your data, and BCPD acceleration](https://github.com/SlicerMorph/Tutorials/blob/main/ALPACA/Advanced_settings.md)
 
 ### SlicerMorph Photogrammetry
 1. #### [**User Guide for the Photogrammetry Extension (previous version, v5.10)**](https://github.com/SlicerMorph/SlicerPhotogrammetry?tab=readme-ov-file#user-guide)
