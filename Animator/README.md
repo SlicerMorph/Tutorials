@@ -27,7 +27,7 @@ On macOS and Linux, tell Slicer where ffmpeg is. Open the **Screen Capture** mod
 
 ## 1. Load and render the sample data
 
-1. In the **Sample Data** module, under **SlicerMorph**, click **Bruker/Sykscan mCT Recon sample**. Choose a folder for it. It downloads a ZIP file and extracts a folder `png_recon` with 490 image slices of a mouse skull and the scanner's log file.
+1. In the **Sample Data** module, under **SlicerMorph**, click **Bruker/Skyscan mCT Recon sample**. Choose a folder for it. It downloads a ZIP file and extracts a folder `png_recon` with 490 image slices of a mouse skull and the scanner's log file.
 2. Open the **SkyscanReconImport** module, set **Choose log file from image series** to `png_recon/left_side_damaged__rec.log`, and click **Apply**. The skull is loaded as the volume `left_side_damaged__rec` (444 × 444 × 488 voxels of 0.035 mm). See the [SkyscanReconImport tutorial](../SkyscanReconImport) for details.
 3. Open the **Volume Rendering** module, select the volume, and click the eye icon to show it. Choose the **uCT-Skull** preset.
 
