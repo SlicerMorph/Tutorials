@@ -69,7 +69,7 @@ We'll use semi-automatic and manual tools to define the cranium and mandible.
    - **Smoothing effect:**
      - Select **"Smoothing"**
      - Choose "Median" method
-     - Kernel size: 3-5 voxels. The kernel is entered in mm, so multiply by the voxel size: for this data (0.141 mm voxels), 0.5-0.7 mm
+     - Kernel size: 3-5 voxels. The kernel is entered in mm and rounded to a whole, odd number of voxels: for this data (0.141 mm voxels), 0.5 mm gives a 3-voxel and 0.7 mm a 5-voxel kernel
      - Click **"Apply"**
      - This reduces noise and stair-stepping
 

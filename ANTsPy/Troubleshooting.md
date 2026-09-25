@@ -148,7 +148,7 @@ This allows region-specific hypothesis testing.
 For more complex experimental designs:
 
 ```csv
-specimen,group,sex,age
+ID,group,sex,age
 C57BL6_J_,A,M,8
 BALB_CJ_,A,F,10
 DBA_2J_,B,M,9
