@@ -7,13 +7,16 @@ A comprehensive guide to template building, registration, and Jacobian analysis 
 2. [Prerequisites](#prerequisites)
 3. [Step 1: Obtaining the Data](#step-1-obtaining-the-data)
 4. [Step 2: Loading Data into 3D Slicer](#step-2-loading-data-into-3d-slicer)
-5. [Step 3: Prepare Reference Specimen](#step-3-prepare-reference-specimen)
-6. [Step 4: Building a Population Template](#step-4-building-a-population-template)
-7. [Step 5: Group-wise Registration to Template](#step-5-group-wise-registration-to-template)
-8. [Step 6: Create Template Mask for Statistical Analysis](#step-6-create-template-mask-for-statistical-analysis)
-9. [Step 7: Jacobian Analysis](#step-7-jacobian-analysis)
-10. [Troubleshooting](#troubleshooting)
-11. [Advanced Topics](#advanced-topics)
+5. [Step 3: Prepare a Reference Specimen (Crop Volume)](#step-3-prepare-a-reference-specimen-crop-volume)
+6. [Step 4: Group-wise Tab - Rigidly Align All Specimens to the Reference](#step-4-group-wise-tab---rigidly-align-all-specimens-to-the-reference)
+7. [Step 5: Average Tab - Create an Average Reference Volume](#step-5-average-tab---create-an-average-reference-volume)
+8. [Step 6: Template Tab - Build a Population Template](#step-6-template-tab---build-a-population-template)
+9. [Step 7: Group-wise Tab - Register All Specimens to the Template](#step-7-group-wise-tab---register-all-specimens-to-the-template)
+10. [Step 8: Create a Template Mask for Statistical Analysis (Segment Editor)](#step-8-create-a-template-mask-for-statistical-analysis-segment-editor)
+11. [Step 9: Analysis Tab - Jacobian Analysis](#step-9-analysis-tab---jacobian-analysis)
+12. [Pair-wise Tab - Register One Image to Another](#pair-wise-tab---register-one-image-to-another)
+13. [Troubleshooting](#troubleshooting)
+14. [Advanced Topics](#advanced-topics)
 
 ---
 
@@ -26,7 +29,7 @@ This tutorial demonstrates a complete morphometric analysis workflow using the *
 - Perform statistical shape analysis using Jacobian determinants
 - Compare morphological variation between groups
 
-**Dataset:** Low-resolution mouse head microCT scans from 29 different inbred and hybrid mouse strains, with 45 craniometric landmarks per specimen. Landmarks are necessary to provide an initial alignment, as most automated registration methods fail if the positional difference between two volumes are too large. Most cases you do not need as many landmark to do an approximate alignment, 4-8 are usually enough.
+**Dataset:** Low-resolution mouse head microCT scans from 30 different inbred and hybrid mouse strains, with 45 craniometric landmarks per specimen. Landmarks are necessary to provide an initial alignment, as most automated registration methods fail if the positional difference between two volumes are too large. Most cases you do not need as many landmark to do an approximate alignment, 4-8 are usually enough.
 
 **Biological Context:** Mouse strains exhibit cranial shape variation due to genetic differences. This tutorial shows how to quantify and analyze these differences.
 
@@ -62,23 +65,24 @@ This will create a folder `ANTsamples` with the following structure:
 
 ```
 ANTsamples/
-├── LMs/           # 29 landmark files (.mrk.json)
-└── volumes/       # 29 volume files (.nii.gz)
+├── LMs/           # 30 landmark files (.mrk.json)
+└── volumes/       # 30 volume files (.nii.gz)
 ```
+
 
 ### Verify the Data
 
-Check that you have 29 paired files:
+Check that you have 30 paired files:
 
 ```bash
 cd ANTsamples
-ls volumes/*.nii.gz | wc -l    # Should show: 29
-ls LMs/*.mrk.json | wc -l      # Should show: 29
+ls volumes/*.nii.gz | wc -l    # Should show: 30
+ls LMs/*.mrk.json | wc -l      # Should show: 30
 ```
 
 ### Sample List
 
-The dataset includes these mouse strains (we'll use all 29 for this tutorial):
+The dataset includes these mouse strains (we'll use all 30 for this tutorial):
 
 - **C57BL6_J_** - C57BL/6J (most common laboratory strain)
 - **BALB_CJ_** - BALB/cJ 
@@ -88,7 +92,7 @@ The dataset includes these mouse strains (we'll use all 29 for this tutorial):
 - **AKR_J_** - AKR/J
 - **129S1_SVLMJ_** - 129S1/SvlmJ
 - **FVB_NJ_** - FVB/NJ
-- ... and 21 more strains
+- ... and 22 more strains
 
 ---
 
@@ -130,9 +134,13 @@ The dataset includes these mouse strains (we'll use all 29 for this tutorial):
    - Use the **3D** view to see the full volume
 
 3. To view landmarks:
-   - In the **Markups** module, select `C57BL6_J_` from the dropdown
+   - In the **Markups** module, select `C57BL6_J__1` from the dropdown (a landmark file loaded after a volume with the same name gets the suffix `_1`)
    - Landmarks will appear as small spheres on the skull
    - Adjust visibility/size in the Display section if needed
+
+
+<img src="images/01_loaded_data.png" width="900">
+
 
 ### Understanding the data better
 
@@ -142,7 +150,7 @@ The dataset includes these mouse strains (we'll use all 29 for this tutorial):
 
 ---
 
-## Step 3: Prepare Reference Specimen
+## Step 3: Prepare a Reference Specimen (Crop Volume)
 
 Before building the template, we need to prepare a reference specimen that will serve as the initial template. This involves reorienting the specimen to align with anatomical planes and creating an average from rigidly aligned samples.
 
@@ -163,52 +171,61 @@ Using a reference specimen (rather than starting from scratch) has advantages an
 
 **Best Practice:** To minimize bias, we'll create an average of rigidly aligned specimens rather than using an actual specimen from our dataset as references. This provides a reasonable starting point while reducing individual specimen bias.
 
-### Step 3A: Reorient a Reference Specimen
+### Reorient a Reference Specimen
 
 We'll use the **NZBWF1_J_** specimen as our initial reference and reorient it so the major axes align with anatomical planes.
 
 #### Load the Reference Specimen
 
 0. Reset the scene to remove other data.
-1. If not already loaded: `File → Add Data`
-2. Navigate to `ANTsamples/volumes/`
-3. Select `NZBWF1_J_.nii.gz`
-4. Click `Open`, then `OK`
+1. `File → Add Data`
+2. Select `ANTsamples/volumes/NZBWF1_J_.nii.gz` and `ANTsamples/LMs/NZBWF1_J_.mrk.json`
+3. Click `Open`, then `OK`. The landmarks are loaded as `NZBWF1_J__1`, because the volume already has the name `NZBWF1_J_`.
 
 #### Open the Crop Volume Module
 
 1. In the module search bar, type "Crop"
 2. Select **Crop Volume**
+3. Set **Input volume** to `NZBWF1_J_`, expand **Reorient volume** and click **Initialize**. This creates a transform, `Reorient_NZBWF1_J_`, and rotation handles in the slice and 3D views.
+4. Rotate the volume with the handles until the anatomical planes are aligned with the slice views.
 
 For detailed instructions, see the [CropVolume tutorial](https://github.com/SlicerMorph/Tutorials/blob/main/Slicer_Modules/Crop_Volume/Readme.MD#using-cropvolume-to-simulatenously-reorient-and-resample-your-data).
 
+<img src="images/02_reorient_widget.png" width="900">
+
+#### Reorient the Landmarks
+
+**Important:** Do this before you apply the reorientation. Applying it deletes the `Reorient_NZBWF1_J_` transform, and the landmarks must be moved with the same transform.
+
+1. Open the **Transforms** module and select `Reorient_NZBWF1_J_` as the **Active Transform**
+2. Under **Apply transform**, move the landmarks (`NZBWF1_J__1`) to the **Transformed** list
+3. Click **Harden transform** to make it permanent
 
 #### Apply Reorientation
 
-1. Click **Apply**
-2. The reoriented volume appears in the scene (it will have the **Cropped** suffix)
-3. This will also create a new transformation in the scene that start with **Re-orient**
-3. Verify in slice viewers that anatomical planes are aligned with slice views.
-4. Save the result: Right-click `NZBWF1_J_reoriented` → Export to file
+1. In **Crop Volume**, click **Apply** under **Reorient volume**. The rotation is written into the volume, and the `Reorient_NZBWF1_J_` transform is removed.
+2. Resample the volume onto the anatomical axes: set **Input ROI** to **Create new ROI**, open the menu next to **Fit to Volume** and choose **Align to world axes + Resize**, click **Fit to Volume**, then click the main **Apply**.
+3. The reoriented volume appears in the scene with the **cropped** suffix (`NZBWF1_J_ cropped`)
+4. Verify in slice viewers that anatomical planes are aligned with slice views.
+5. Save the result: Right-click `NZBWF1_J_ cropped` → Export to file
    - Save as `ANTsamples/NZBWF1_J_reoriented.nii.gz`
+6. Save the landmarks (`NZBWF1_J__1`) as `NZBWF1_J_reoriented.mrk.json` in the same folder.
 
-**Important:** Also reorient the corresponding landmarks:
+<img src="images/03_reoriented.png" width="900">
 
-1. Load `NZBWF1_J_.mrk.json` if not already loaded
-2. Apply the same transform `NZBWF1_J_.mrk.json` landmarks and harden the transform to make it permenant.
-3. Save as `NZBWF1_J_reoriented.mrk.json` in the same folder where you save the volume from previous step.
+---
 
-### Step 3B: Rigidly Align All Specimens to Reference
+## Step 4: Group-wise Tab - Rigidly Align All Specimens to the Reference
 
 Now we'll register all specimens to the reoriented reference using rigid registration. This brings them into a common space without changing their shape. We'll use the **Group-wise** registration tab to process all specimens at once.
 
-#### Open ANTsPyRegistration Module - Group-wise Tab
+### Open ANTsPyRegistration Module - Group-wise Tab
 
 1. In the module search bar, type "ANTsPy"
 2. Select **ANTsPyRegistration**
 3. Click the **"Group-wise"** tab
 
-#### Configure Rigid Registration Settings
+### Configure Rigid Registration Settings
 
 1. **Template:** Select `NZBWF1_J_reoriented`
    - This is your reoriented reference specimen
@@ -236,7 +253,7 @@ Now we'll register all specimens to the reoriented reference using rigid registr
    - ☐ **Inverse Transform** - Not needed for this step, as all linear transformations (rigid, similarity, affine) are invertable.
    - ☑ **Transformed Volume** - **REQUIRED** - This is what we need for averaging
 
-#### Configure Landmark-based Initial Transform
+### Configure Landmark-based Initial Transform
 
 To ensure accurate rigid alignment:
 
@@ -252,11 +269,14 @@ To ensure accurate rigid alignment:
 
 4. ☑ **Save volume aligned LMs** (REQUIRED)
    - **Must check this** to save transformed landmarks
-   - These are essential for creating averaged landmarks in Step 3C
+   - These are essential for creating averaged landmarks in Step 5
    - Creates files with `-transformed.mrk.json` suffix
    - Without these, you cannot compute the average landmark positions for the averaged image.
 
-#### Run Group-wise Rigid Registration
+
+<img src="images/04_groupwise_rigid.png" width="900">
+
+### Run Group-wise Rigid Registration
 
 1. Click **"Register"**
 
@@ -269,7 +289,7 @@ To ensure accurate rigid alignment:
 
 3. **Progress:**
    - Button text: "Group registration in progress"
-   - 29 specimens will be processed sequentially
+   - 30 specimens will be processed sequentially
    - **Time estimate:** 5-15 minutes total (~10-30 seconds per specimen)
    - Much faster than deformable registration!
 
@@ -277,18 +297,19 @@ To ensure accurate rigid alignment:
    - Button returns to "Register"
    - Check the output directory for results
 
-#### Verify Outputs
+### Verify Outputs
 
 Navigate to `ANTsamples/RigidAligned/` and you should see:
 
 **For each specimen:**
-- `[specimen]_Composite.h5` - Rigid transform file
+- `[specimen]-forward.h5` - Rigid transform file
 - `[specimen]-transformed.nii.gz` - **Rigidly aligned volume** (required for averaging)
 - `[specimen]-transformed.mrk.json` - **Transformed landmarks** (required for averaging)
 
-**Total:** 29 rigidly aligned volumes + 29 transformed landmark sets ready for averaging
+**Total:** 30 rigidly aligned volumes + 30 transformed landmark sets ready for averaging
 
-#### Verify Rigid Alignment
+
+### Verify Rigid Alignment
 
 1. Load the reference: `File → Add Data → NZBWF1_J_reoriented.nii.gz`
 2. Load several rigidly aligned volumes from `ANTsamples/RigidAligned/`:
@@ -302,16 +323,18 @@ Navigate to `ANTsamples/RigidAligned/` and you should see:
    - Individual shape differences should be clearly visible
    - No warping or deformation (only rotation/translation)
 
-### Step 3C: Create Average Reference Volume
+---
+
+## Step 5: Average Tab - Create an Average Reference Volume
 
 Now we'll create an average of all rigidly aligned specimens. This becomes our unbiased initial reference volume to initialize the iterative template building procedure.
 
-#### Open ANTsPyRegistration Module - Average Tab
+### Open ANTsPyRegistration Module - Average Tab
 
 1. In the **ANTsPyRegistration** module
 2. Click the **"Average"** tab
 
-#### Configure Average Settings
+### Configure Average Settings
 
 1. **Input directory:** Click the folder icon
    - Navigate to `ANTsamples/RigidAligned/`
@@ -323,7 +346,7 @@ Now we'll create an average of all rigidly aligned specimens. This becomes our u
    - It will create a node called `Volume`
    - Rename it to `RigidAverage_Template` (click on the name to edit)
 
-#### Run Averaging
+### Run Averaging
 
 1. Click **"Compute Average"**
 
@@ -337,20 +360,23 @@ Now we'll create an average of all rigidly aligned specimens. This becomes our u
    - The averaged volume `RigidAverage_Template` appears in the Data module
    - Verify it loaded correctly by displaying in slice viewers
 
-#### Save the Average Template
+
+<img src="images/05_average.png" width="900">
+
+### Save the Average Template
 
 1. Right-click `RigidAverage_Template` in the Data module
 2. Select **"Export to file..."**
 3. Save as `ANTsamples/RigidAverage_Template.nii.gz`
 
-#### Create Average Landmarks (REQUIRED)
+### Create Average Landmarks (REQUIRED)
 
 **Critical:** You must average the landmark positions to match your averaged volume. There is no tool in ANTsPy extension to do that. We will use a simple python script to do this in Slicer.
 
 1. **Load all transformed landmark files:**
    - `File → Add Data`
    - Navigate to `ANTsamples/RigidAligned/`
-   - Select all 29 `*-transformed.mrk.json` files
+   - Select all 30 `*-transformed.mrk.json` files
    - Click `Open`, then `OK`
 
 2. **Average the landmarks using Python:**
@@ -449,7 +475,7 @@ else:
 
 ---
 
-## Step 4: Building a Population Template
+## Step 6: Template Tab - Build a Population Template
 
 **Overview:** Template building creates an average shape representing your population using deformable registration. We'll use the original unaligned volumes as the input volumes, and use the landmarks to bring them into alignment with the reference, then run **2 iterations** of template refinement. At the end of the first step module will calculate a new template, and start the second iteration using that template as the reference. 
 
@@ -487,7 +513,7 @@ else:
 1. Click **"Select input images..."**
 2. A file browser opens
 3. Navigate to `ANTsamples/volumes/`
-4. Select **all 29 .nii.gz files**:
+4. Select **all 30 .nii.gz files**:
    - Click the first file
    - Scroll down, hold Shift, click the last file
    - Or use Ctrl+A (Cmd+A on Mac) to select all
@@ -495,7 +521,7 @@ else:
 
 **View Input Image Paths:**
 - Click the **"View input image paths"** collapsible button
-- You should see all 29 file paths listed
+- You should see all 30 file paths listed
 - Verify the order is correct
 - Use **"Remove Selected Path"** or **"Move Path to Top"** if you need to adjust
 - **"Clear input path list"** removes all files
@@ -510,7 +536,7 @@ This ensures specimens are aligned to the reference before template building beg
 
 3. Navigate to `ANTsamples/LMs/`
 
-4. Select **all 29 .mrk.json files** (same order as volumes)
+4. Select **all 30 .mrk.json files** (same order as volumes)
    - The order must match your volume files!
    - First volume → first landmark file, etc.
 
@@ -518,7 +544,7 @@ This ensures specimens are aligned to the reference before template building beg
 
 **Verify landmark selection:**
 - Click **"View landmark file paths"** to expand
-- Check that you have 29 landmark files
+- Check that you have 30 landmark files
 - Ensure the basenames match the volume files
   - Example: `C57BL6_J_.nii.gz` ↔ `C57BL6_J_.mrk.json`
 
@@ -565,7 +591,7 @@ This ensures specimens are aligned to the reference before template building beg
    - Console output shows registration progress (View → Python Interactor)
    - **Time estimate:** 10-30 minutes depending on your computer
      - Per specimen: ~30 seconds to 2 minutes
-     - 29 specimens × 2 iterations = 58 registrations
+     - 30 specimens × 2 iterations = 60 registrations
 
 4. **Completion:**
    - Button returns to "Run Template Building"
@@ -577,8 +603,12 @@ This ensures specimens are aligned to the reference before template building beg
 1. In the **Data** module, find your template volume (e.g., `MouseCranium_Template`)
 2. Click the eye icon to show it in the viewers
 3. In the **Markups** module, select `Template_Landmarks`
-4. The template represents the average cranial shape of all 29 mouse strains
+4. The template represents the average cranial shape of all 30 mouse strains
 5. Review for anatomical detail. You can try increasing the number of iterations. 
+
+
+<img src="images/06_template.png" width="900">
+
 
 ### Save the Template
 
@@ -592,7 +622,7 @@ This ensures specimens are aligned to the reference before template building beg
 
 ---
 
-## Step 5: Group-wise Registration to Template
+## Step 7: Group-wise Tab - Register All Specimens to the Template
 
 Now we'll register all individual specimens to the template and save the deformation fields (needed for Jacobian analysis). These deformations are going to be used to calculate systematic localized shape difference between groups. 
 
@@ -645,36 +675,34 @@ Click the **"Group-wise"** tab
 
 When you select "Separate files", ANTs creates a multi-step transformation for each specimen:
 
-1. **Affine component** (`*0GenericAffine.mat`):
+1. **Forward affine component** (`*-1forwardAffine.mat`):
    - Global alignment (rotation, translation, scaling, shearing)
    - Applied first to roughly align specimen to template
-   - Small text file (~1-2 KB)
-   - Example: `C57BL6_J_0GenericAffine.mat`
+   - Small file (a few hundred bytes)
+   - Example: `C57BL6_J_-1forwardAffine.mat`
 
-2. **Forward deformable warp** (`*1Warp.nii.gz`):
+2. **Forward deformable warp** (`*-0forwardWarp.nii.gz`):
    - Local, non-linear deformations
    - Captures shape differences after global alignment
-   - Large image file (same dimensions as input, ~10-50 MB)
+   - Large image file (a displacement vector for every voxel of the template; about 100 MB for this data)
    - **This is what we use for Jacobian analysis**
-   - Example: `C57BL6_J_1Warp.nii.gz`
+   - Example: `C57BL6_J_-0forwardWarp.nii.gz`
 
-3. **Inverse deformable warp** (`*1InverseWarp.nii.gz`) - Optional:
-   - Reverses the forward warp
+3. **Inverse transform** (`*-0inverseAffine.mat` and `*-1inverseWarp.nii.gz`) - Optional:
+   - Reverses the forward transform
    - Useful for mapping results back to original specimen space
-   - Same size as forward warp
-   - Example: `C57BL6_J_1InverseWarp.nii.gz`
+   - The warp is the same size as the forward warp
+   - Example: `C57BL6_J_-0inverseAffine.mat`, `C57BL6_J_-1inverseWarp.nii.gz`
 
 **Files per specimen:**
 - If you check **only Forward Transform**: 2 files (1 affine + 1 forward warp)
-- If you check **both Forward and Inverse**: 3 files (1 affine + 1 forward warp + 1 inverse warp)
+- If you check **both Forward and Inverse**: 4 files (forward affine and warp + inverse affine and warp)
 
-**For 29 specimens:**
-- Forward only: 58 files total (29 affine + 29 forward warps)
-- Forward + Inverse: 87 files total (29 affine + 29 forward + 29 inverse)
+**For 30 specimens:**
+- Forward only: 60 files total (30 affines + 30 forward warps)
+- Forward + Inverse: 120 files total
 
-The numbering (0, 1) indicates the order of application:
-- Step 0: Apply affine transform first
-- Step 1: Apply deformable warp second
+The numbers (0, 1) give the position of each file in the list of transforms that ANTs returns. ANTs applies such a list from the last to the first: for the forward transform, the affine (1) first, then the deformable warp (0).
 
 #### F. Select Outputs to Save
 
@@ -705,6 +733,9 @@ To improve registration accuracy:
    - Useful for validation and quality control
    - Creates files with `-transformed.mrk.json` suffix
 
+
+<img src="images/07_groupwise_syn.png" width="900">
+
 ### Run Group Registration
 
 1. Click **"Register"**
@@ -717,30 +748,31 @@ To improve registration accuracy:
 
 3. **Progress:**
    - Button text: "Group registration in progress"
-   - 29 specimens will be processed sequentially
+   - 30 specimens will be processed sequentially
    - **Time estimate:** 15-45 minutes total (~30-90 seconds per specimen)
 
 4. **Completion:**
    - Button returns to "Register"
    - Check the output directory for results
 
+
 ### Verify Outputs
 
 Navigate to `ANTsamples/GroupRegistration/` and you should see:
 
 **For each specimen (example for C57BL6_J_):**
-- `C57BL6_J_0GenericAffine.mat` - Affine transform component
-- `C57BL6_J_1Warp.nii.gz` - **Forward deformable warp** (used for Jacobian analysis)
-- `C57BL6_J_1InverseWarp.nii.gz` - Inverse warp (if you enabled inverse transforms)
+- `C57BL6_J_-1forwardAffine.mat` - Affine transform component
+- `C57BL6_J_-0forwardWarp.nii.gz` - **Forward deformable warp** (used for Jacobian analysis)
+- `C57BL6_J_-0inverseAffine.mat` and `C57BL6_J_-1inverseWarp.nii.gz` - Inverse transform (if you enabled inverse transforms)
 - `C57BL6_J_-transformed.nii.gz` - Registered volume (if you checked that option)
 - `C57BL6_J_-transformed.mrk.json` - Transformed landmarks (if you checked that option)
 
 **Total files:**
-- 29 affine transforms (.mat files)
-- 29 forward warps (.nii.gz files) - **These are used for Jacobian analysis**
-- 29 inverse warps (if selected)
-- 29 transformed volumes (if selected)
-- 29 transformed landmarks (if selected)
+- 30 forward affine transforms (.mat files)
+- 30 forward warps (.nii.gz files) - **These are used for Jacobian analysis**
+- 30 inverse affines and 30 inverse warps (if selected)
+- 30 transformed volumes (if selected)
+- 30 transformed landmarks (if selected)
 
 ### Quality Control
 
@@ -757,13 +789,16 @@ To verify registration quality:
    - They should be well-aligned
    - Anatomical features should overlap
 
+
+<img src="images/08_groupwise_qc.png" width="900">
+
 4. Use the **Markups** module to check landmark alignment:
    - Load template landmarks and a few transformed landmark sets
    - They should be close to each other
 
 ---
 
-## Step 6: Create Template Mask for Statistical Analysis
+## Step 8: Create a Template Mask for Statistical Analysis (Segment Editor)
 
 Before performing Jacobian analysis, we need to create a mask that defines the anatomical region of interest. This restricts the statistical analysis to biologically relevant structures (skull and mandible) and excludes background, soft tissue, and other elements.
 
@@ -802,6 +837,9 @@ We'll use semi-automatic and manual tools to define the cranium and mandible.
 
 #### Method 1: Threshold-based Segmentation (Faster)
 
+<img src="images/09_mask.png" width="900">
+
+
 1. **Add a new segment:**
    - Click **"Add"** button
    - Name it "Skull_Mandible"
@@ -825,9 +863,10 @@ We'll use semi-automatic and manual tools to define the cranium and mandible.
    - **Smoothing effect:**
      - Select **"Smoothing"**
      - Choose "Median" method
-     - Kernel size: 3-5 mm
+     - Kernel size: 3-5 voxels. The kernel is entered in mm, so multiply by the voxel size: for this data (0.141 mm voxels), 0.5-0.7 mm
      - Click **"Apply"**
      - This reduces noise and stair-stepping
+
 
 4. **Remove unwanted structures:**
    - If soft tissue, nasal turbinates, or other elements are included:
@@ -902,14 +941,14 @@ If automatic threshold doesn't work well:
 1. In **Segment Editor**, click **"Segmentations"** button (or go to Segmentations module)
 
 2. In the **Segmentations** module:
-   - Select your segmentation
+   - Select your segmentation, and rename it `Template_Mask-label` (the exported file is named after the segmentation, and the `-label` suffix makes Slicer load the file as a label map)
    - Under **"Export/Import"** section
    - Click **"Export to files"**
 
 3. Configure export:
    - **Destination:** Choose `ANTsamples/`
    - **File format:** Select "NRRD" or "NIfTI"
-   - **Filename:** `Template_Mask.nrrd` (or `.nii.gz`)
+   - The file is saved as `Template_Mask-label.nrrd` (or `.nii.gz`)
    - Click **"Export"**
 
 **Alternative export method:**
@@ -917,20 +956,21 @@ If automatic threshold doesn't work well:
 2. Select **"Export visible segments to binary labelmap"**
 3. This creates a labelmap node
 4. Right-click the labelmap → Export to file
-5. Save as `Template_Mask.nrrd`
+5. Save as `Template_Mask-label.nrrd`
+
 
 ### Load the Mask for Analysis
 
 1. `File → Add Data`
-2. Select `Template_Mask.nrrd`
-3. The mask appears as a labelmap volume
+2. Select `Template_Mask-label.nrrd`
+3. The mask appears as a labelmap volume (the `-label` in the file name checks **LabelMap** in the Add Data options)
 4. Verify it loaded correctly by displaying it
 
 **The mask is now ready to use in Jacobian analysis!**
 
 ---
 
-## Step 7: Jacobian Analysis
+## Step 9: Analysis Tab - Jacobian Analysis
 
 Jacobian determinant analysis quantifies local volume changes (expansion/contraction) between each specimen and the template. We'll compare two groups of mouse strains, restricting analysis to the skull and mandible mask we just created.
 
@@ -945,7 +985,7 @@ Since you'll provide a CSV file later, we'll use a random split for now.
 2. Add this content (random group assignment):
 
 ```csv
-specimen,group
+ID,group
 129S1_SVLMJ_,A
 129X1_SVJ_,B
 AKR_J_,A
@@ -981,9 +1021,12 @@ TALLYHO_JNGJ_,B
 3. Save the file
 
 **Note:** When you provide your real CSV file later, replace this with your actual groupings. The CSV must have:
-- Column 1: `specimen` (basename without extensions)
+- A column named `ID`: the specimen name (e.g. `C57BL6_J_`) or the name of its warp file (e.g. `C57BL6_J_-0forwardWarp.nii.gz`). Rows are matched to the files by this ID, so their order does not matter.
 - Column 2: `group` (categorical factor)
 - Optional: Additional columns for covariates (age, sex, etc.)
+
+Alternatively, **Generate new covariate table template** (in the **Regression** section of the Analysis tab) writes a table with one row per input file, with the file names as IDs, for you to fill in.
+
 
 ### Open the Analysis Tab
 
@@ -1000,12 +1043,13 @@ TALLYHO_JNGJ_,B
 
 #### B. Filename Pattern
 
-- **Filename end pattern:** Enter `1Warp.nii.gz`
+- **Filename end pattern:** Keep the default, `forwardWarp.nii.gz`
   - This matches the forward deformable warp files from group registration
   - The module will find all files ending with this pattern
-  - Example: finds `C57BL6_J_1Warp.nii.gz`, `BALB_CJ_1Warp.nii.gz`, etc.
-  - **Important:** We use only the deformable component (1Warp), NOT the composite or affine transforms
+  - Example: finds `C57BL6_J_-0forwardWarp.nii.gz`, `BALB_CJ_-0forwardWarp.nii.gz`, etc.
+  - **Important:** We use only the deformable component (the forward warp), NOT the composite or affine transforms
   - This isolates local shape changes from global scaling/rotation effects
+
 
 #### C. Template Volume
 
@@ -1015,12 +1059,12 @@ TALLYHO_JNGJ_,B
 
 #### D. Template Mask (Required)
 
-- **Template Mask:** Select `Template_Mask` from the dropdown
-  - This is the skull/mandible segmentation we created in Step 6
+- **Template Mask:** Select `Template_Mask-label` from the dropdown
+  - This is the skull/mandible segmentation we created in Step 8
   - Restricts analysis to biologically relevant bone structures
   - Excludes background, air spaces, and soft tissue
   - **Critical:** Without a mask, analysis includes irrelevant voxels and wastes computation
-  - If you skipped Step 6, go back and create the mask now
+  - If you skipped Step 8, go back and create the mask now
 
 ### Load Input Images
 
@@ -1030,11 +1074,11 @@ The module needs to know which transform files correspond to which specimens.
 
 2. The list should auto-populate with files matching your pattern
 
-3. Verify you see 29 files listed
+3. Verify you see 30 files listed
 
 If the list is empty:
 - Double-check the directory path
-- Verify the filename pattern (`1Warp.nii.gz`)
+- Verify the filename pattern (`forwardWarp.nii.gz`)
 - Make sure forward warp files exist in that directory
 - Ensure you selected "Separate files" (not "Composite") during group registration
 
@@ -1099,74 +1143,78 @@ Expand the **"Image Generation"** section.
 
 #### Configure Output Image
 
-1. **Q Values Image:** Select **"Create new ScalarVolume"**
-   - This will create a volume showing q-values (FDR-corrected p-values)
-   - Defaults to name `QValuesImage`
-   - Rename if desired (e.g., `MouseCranium_QValues_GroupComparison`)
+1. **Effect Image:** Select **"Create new ScalarVolume"**
+   - This will create a volume with the effect of the factor (its regression coefficient, a difference in log-Jacobian) at the voxels where it is significant, and 0 elsewhere
+   - Defaults to name `EffectImage`
+   - Rename if desired (e.g., `MouseCranium_Effect_GroupComparison`)
 
 2. **Analysis Cache:** Click folder icon
    - Select `ANTsamples/JacobianCache.pkl` (the file you just created)
    - This loads the pre-computed analysis
 
-3. **Factor for QValue computation:** Select `group`
-   - This is the factor you want to visualize
+3. **Factor:** Select `group[T.B]`
+   - This is the effect of group B compared with group A (the reference group)
    - If you had multiple factors, you'd choose which one to map
+
+4. **Apply FDR correction:** Leave checked
+   - Checked: a voxel is significant when its FDR-corrected q-value is below 0.05
+   - Unchecked: when its uncorrected p-value is below 0.05
 
 #### Generate Images
 
 1. Click **"Generate Output Images"**
 
 2. **What happens:**
-   - Q-value map is created showing where groups differ significantly
-   - False Discovery Rate (FDR) correction is applied
-   - Output volume appears in the Data module
+   - Voxels where the groups differ significantly are found
+   - The effect image is created and appears in the Data module
+   - The status bar reports the number of significant voxels
 
-3. **Completion:**
-   - Q-value image appears in slice viewers
-   - Lower q-values (darker) = more significant differences
-   - Higher q-values (brighter) = less significant
+#### Why the FDR Correction Matters
+
+Generate the image twice, once with **Apply FDR correction** unchecked (name it e.g. `EffectImage_uncorrected`) and once checked (`EffectImage_FDR`). With the random grouping of this tutorial, 2,283 of the 100,276 voxels in the mask have an uncorrected p-value below 0.05, but none has a q-value below 0.05 (the smallest is 0.915). The groups do not differ, yet a test at p < 0.05 repeated at a hundred thousand voxels finds thousands of "significant" voxels by chance alone. The FDR correction accounts for the number of tests, and nothing survives it.
+
+<img src="images/10_analysis_tab.png" width="900">
 
 ### Visualize Results
 
-#### View Q-value Map
+#### View the Effect Image
 
 1. In the **Volumes** module:
-   - Select your Q-value volume (e.g., `QValuesImage`)
-   
-2. Adjust the **Window/Level** to enhance visualization:
-   - In the slice viewers, click the link icon (top left)
-   - Drag to adjust brightness/contrast
-   - Or use the Volume Rendering module for 3D visualization
+   - Select your effect image (e.g., `EffectImage_uncorrected`)
 
-3. **Interpretation:**
-   - **Dark regions** (low q-values, e.g., < 0.05): Significant group differences
-   - **Bright regions** (high q-values, e.g., > 0.05): No significant difference
-   - Q-values are FDR-corrected for multiple comparisons
+2. **Interpretation:**
+   - **Positive values:** group B has locally larger volume than group A (expansion)
+   - **Negative values:** group B has locally smaller volume than group A (contraction)
+   - **0:** not significant, or outside the mask
 
 #### Create a Threshold Map
 
-To see only significant regions:
+To see the significant regions:
 
 1. Go to **Segment Editor** module
-2. Create a new segmentation
-3. Use **Threshold** effect:
-   - Set range: 0.0 to 0.05 (for q < 0.05)
-   - Click "Apply"
-4. This creates a binary mask of significant regions
+2. Create a new segmentation, with the effect image as **Source volume**
+3. Use **Threshold** effect twice:
+   - A segment for positive effects: set range from just above 0 (e.g. 0.000001) to the maximum, click "Apply"
+   - A segment for negative effects: set range from the minimum to just below 0 (e.g. -0.000001), click "Apply"
+4. This creates maps of the regions where group B is larger (expansion) and smaller (contraction)
+
+<img src="images/11_effect_uncorrected.png" width="900">
+
+*The uncorrected effect image, thresholded into voxels where group B is larger (red, 875 voxels) and smaller (blue, 1,408 voxels). With the FDR correction the effect image is empty.*
 
 #### Overlay on Template
 
 1. In **Data** module:
-   - Load both template and Q-value image
+   - Load both template and effect image
 2. In **Volumes** module:
    - Set template as background
-   - Set Q-value as foreground
+   - Set the effect image as foreground
    - Adjust foreground opacity slider
 
 #### Generate 3D Visualization
 
 1. Go to **Volume Rendering** module
-2. Select your Q-value volume
+2. Select your effect image
 3. Click the eye icon to enable rendering
 4. Adjust **Shift** slider to set threshold
 5. Change colormap to highlight significant regions
@@ -1175,9 +1223,9 @@ To see only significant regions:
 
 Save your analysis results:
 
-1. **Q-value volume:**
+1. **Effect image:**
    - Right-click in Data module → Export to file
-   - Save as `MouseCranium_QValues_GroupAvsB.nii.gz`
+   - Save as `MouseCranium_Effect_GroupAvsB.nii.gz`
 
 2. **Analysis cache:**
    - Already saved as `JacobianCache.pkl`
@@ -1199,13 +1247,40 @@ Save your analysis results:
 - **log(J) = 0**: No change
 - **log(J) < 0**: Contraction
 
-**Q-values:**
-- **< 0.05**: Statistically significant difference (5% FDR)
-- **< 0.01**: Highly significant (1% FDR)
-- **> 0.05**: Not significant after multiple comparison correction
+**Effect image:**
+- The value at a voxel is the difference in log-Jacobian between the groups (group B minus group A), shown only where it is significant
+- With **Apply FDR correction**, significant means q < 0.05 (5% FDR); without it, uncorrected p < 0.05
 
 **Example Biological Interpretation:**
-If group A shows significant expansion (positive log-Jacobian, low q-value) in the frontal region compared to group B, this suggests group A has relatively larger frontal bones.
+If the effect image shows positive values (significant after FDR correction) in the frontal region, group B has relatively larger frontal bones than group A.
+
+---
+
+## Pair-wise Tab - Register One Image to Another
+
+### Using an Existing Transform as the Initial Transform
+
+The **Pair-wise** tab can start a registration from a transform that is already in the scene, instead of computing one from landmarks. This is useful when the two specimens are far apart to begin with, and when another tool has already produced an alignment: a previous registration, ALPACA, or FastModelAlign.
+
+1. Make sure the transform is loaded in the scene (**Data** module)
+2. Open the **Pair-wise** tab and set **Fixed Image** and **Moving Image**
+3. Check ☑ **Initial Transform**
+4. Select ◉ **Use existing transform:** and pick the transform node
+5. Set **Transform Type** as usual and click **Run Registration**
+
+**Pick the last node of a chain.** Tools that align in several steps leave a chain of transforms in the scene - FastModelAlign, for example, leaves `<name>_scaling` → `<name>_rigid` → `<name>_deformable` - and only the last node carries the complete alignment. The module follows the whole parent chain of the node you select, so selecting the leaf is correct; selecting a node in the middle initializes the registration with only part of the alignment. Check the **Data** module if you are not sure which node is the leaf.
+
+**Linear and non-linear transforms are handled differently.** A linear transform (rigid, similarity, affine) is passed to ANTs as-is. A non-linear one - a thin plate spline, a grid transform, or any chain that contains one - is first flattened into a displacement field sampled on the **fixed image** grid, because ANTs cannot read the transform types Slicer writes for those.
+
+**Displacement field downsampling** controls the resolution of that field. The field holds one vector per voxel of the fixed image, so at micro-CT resolution it becomes large: a 0.1 mm scan of a mouse skull produces a field of several hundred MB, which is slow to write and to read back.
+
+- **1.0** (default) - the field matches the fixed image resolution. Most accurate, largest field.
+- **2.0 to 4.0** - recommended when the initial transform is a smooth, landmark-driven warp. A factor of 2 makes the field 8 times smaller, a factor of 4 makes it 64 times smaller. In testing, a landmark warp resampled at a factor of 4 reproduced the original transform to about 0.002 mm, far below one voxel.
+- Leave it at 1.0 when the initial transform carries fine local detail, such as the output of a previous deformable registration.
+
+The control is only active for **Use existing transform**, since a landmark-based initial transform does not need it. The **Label Image Reg** tab has the same control, where the field is sampled on the fixed label image instead.
+
+**The inverse transform is not available with a non-linear initial transform.** ANTs can only produce an inverse when every part of the registration can be inverted, and a displacement field cannot be inverted analytically. If you select an **Inverse Transform** output in this case, the registration still completes and the forward transform and the resampled volume are correct, but the inverse output node is left empty and a message explains why. Use a linear initial transform if you need the inverse.
 
 ---
 
@@ -1217,7 +1292,7 @@ If group A shows significant expansion (positive log-Jacobian, low q-value) in t
 
 **Solution:**
 1. Check the "View input image paths" and "View landmark file paths" lists
-2. Ensure you have the same number of files in each list (e.g., 29 and 29)
+2. Ensure you have the same number of files in each list (e.g., 30 and 30)
 3. Verify the order matches - first image corresponds to first landmark file
 4. Check basenames match (e.g., `C57BL6_J_.nii.gz` ↔ `C57BL6_J_.mrk.json`)
 
@@ -1266,25 +1341,24 @@ If group A shows significant expansion (positive log-Jacobian, low q-value) in t
 - Wrong filename pattern
 
 **Solutions:**
-1. Verify all `*1Warp.nii.gz` files exist in the directory
-2. Check the filename pattern matches your files exactly (`1Warp.nii.gz`)
+1. Verify all `*-0forwardWarp.nii.gz` files exist in the directory
+2. Check the filename pattern matches your files (`forwardWarp.nii.gz`)
 3. Ensure you used "Separate files" output (not "Composite") during registration
 4. Ensure covariates CSV has correct specimen names (match basenames)
 5. Load cache file if previously completed successfully
 
-### Issue: Q-value image is all white/blank
+### Issue: Effect image is empty (all 0)
 
 **Causes:**
-- No significant differences found
-- Threshold too restrictive
+- No voxel is significant: expected when the groups do not differ, as with the random grouping of this tutorial after FDR correction
 - Analysis hasn't run successfully
 
 **Solutions:**
-1. Check if analysis completed (look for cache file)
-2. Adjust Window/Level in Volumes module
-3. Try different statistical threshold (e.g., q < 0.1 instead of 0.05)
-4. Verify group assignments in CSV are correct
-5. Check sample size is adequate (need at least 3-5 per group)
+1. Check the number of significant voxels reported in the status bar after **Generate Output Images**
+2. Check if analysis completed (look for cache file)
+3. Verify group assignments in CSV are correct
+4. Check sample size is adequate (need at least 3-5 per group)
+5. Uncheck **Apply FDR correction** to see the uncorrected result, but do not interpret it: see [Why the FDR Correction Matters](#why-the-fdr-correction-matters)
 
 ### Issue: "Registration failed with error code 1" when using an existing initial transform
 
@@ -1302,7 +1376,7 @@ If group A shows significant expansion (positive log-Jacobian, low q-value) in t
 **Solution:**
 1. Open the **Data** module and find the transform chain
 2. Select the last node of the chain, which carries the complete alignment - for FastModelAlign output that is `<name>_deformable`
-3. See [Advanced Topics H](#h-using-an-existing-transform-as-the-initial-transform)
+3. See [Advanced Topics H](#using-an-existing-transform-as-the-initial-transform)
 
 ### Issue: "Transform could not be loaded" error
 
@@ -1310,7 +1384,7 @@ If group A shows significant expansion (positive log-Jacobian, low q-value) in t
 
 **Solution:**
 1. Check that registration completed successfully
-2. Verify warp files (`*1Warp.nii.gz`) are not corrupted (check file sizes > 0)
+2. Verify warp files (`*-0forwardWarp.nii.gz`) are not corrupted (check file sizes > 0)
 3. Ensure you selected "Separate files" not "Composite" during group registration
 4. Re-run group registration if needed
 5. Ensure you're using the correct ANTsPy version
@@ -1329,14 +1403,14 @@ You can create additional masks for region-specific analysis:
 2. Go to **Segment Editor** module
 3. Load your existing skull mask
 4. Use **Scissors** effect to remove facial region
-5. Export as `Template_Mask_Neurocranium.nrrd`
+5. Export as `Template_Mask_Neurocranium-label.nrrd`
 6. Use this mask in Jacobian analysis to focus on braincase only
 
 **Example: Left vs Right side analysis**
 
 1. Create two masks by splitting the existing mask at midline
 2. Use **Scissors** with "Erase outside" to keep only one side
-3. Export as `Template_Mask_Left.nrrd` and `Template_Mask_Right.nrrd`
+3. Export as `Template_Mask_Left-label.nrrd` and `Template_Mask_Right-label.nrrd`
 4. Run separate analyses to compare asymmetry between groups
 
 **Example: Regional masks**
@@ -1456,7 +1530,7 @@ print("Batch processing complete!")
 
 You can export Jacobian maps for analysis in R, Python, or FSL:
 
-1. Save Q-value and Jacobian volumes as NIfTI (.nii.gz)
+1. Save the effect image as NIfTI (.nii.gz)
 2. Extract voxel values using **Quantification** modules
 3. Export to CSV for statistical software
 4. Use template mask to extract ROI values
@@ -1466,7 +1540,7 @@ You can export Jacobian maps for analysis in R, Python, or FSL:
 Create publication-quality 3D visualizations:
 
 1. **Volume Rendering** module
-2. Select Q-value volume
+2. Select the effect image
 3. Adjust preset: "CT-AAA" or create custom
 4. Modify color/opacity transfer functions
 5. Use **ROI** to crop display
@@ -1504,37 +1578,13 @@ print(f"Max error: {np.max(errors):.2f} mm")
 - Use **Fiducial Registration Wizard** module for TPS or affine
 - Faster but less detailed than image-based
 
-### H. Using an Existing Transform as the Initial Transform
-
-The **Pair-wise** tab can start a registration from a transform that is already in the scene, instead of computing one from landmarks. This is useful when the two specimens are far apart to begin with, and when another tool has already produced an alignment: a previous registration, ALPACA, or FastModelAlign.
-
-1. Make sure the transform is loaded in the scene (**Data** module)
-2. Open the **Pair-wise** tab and set **Fixed Image** and **Moving Image**
-3. Check ☑ **Initial Transform**
-4. Select ◉ **Use existing transform:** and pick the transform node
-5. Set **Transform Type** as usual and click **Run Registration**
-
-**Pick the last node of a chain.** Tools that align in several steps leave a chain of transforms in the scene - FastModelAlign, for example, leaves `<name>_scaling` → `<name>_rigid` → `<name>_deformable` - and only the last node carries the complete alignment. The module follows the whole parent chain of the node you select, so selecting the leaf is correct; selecting a node in the middle initializes the registration with only part of the alignment. Check the **Data** module if you are not sure which node is the leaf.
-
-**Linear and non-linear transforms are handled differently.** A linear transform (rigid, similarity, affine) is passed to ANTs as-is. A non-linear one - a thin plate spline, a grid transform, or any chain that contains one - is first flattened into a displacement field sampled on the **fixed image** grid, because ANTs cannot read the transform types Slicer writes for those.
-
-**Displacement field downsampling** controls the resolution of that field. The field holds one vector per voxel of the fixed image, so at micro-CT resolution it becomes large: a 0.1 mm scan of a mouse skull produces a field of several hundred MB, which is slow to write and to read back.
-
-- **1.0** (default) - the field matches the fixed image resolution. Most accurate, largest field.
-- **2.0 to 4.0** - recommended when the initial transform is a smooth, landmark-driven warp. A factor of 2 makes the field 8 times smaller, a factor of 4 makes it 64 times smaller. In testing, a landmark warp resampled at a factor of 4 reproduced the original transform to about 0.002 mm, far below one voxel.
-- Leave it at 1.0 when the initial transform carries fine local detail, such as the output of a previous deformable registration.
-
-The control is only active for **Use existing transform**, since a landmark-based initial transform does not need it. The **Label Image Reg** tab has the same control, where the field is sampled on the fixed label image instead.
-
-**The inverse transform is not available with a non-linear initial transform.** ANTs can only produce an inverse when every part of the registration can be inverted, and a displacement field cannot be inverted analytically. If you select an **Inverse Transform** output in this case, the registration still completes and the forward transform and the resampled volume are correct, but the inverse output node is left empty and a message explains why. Use a linear initial transform if you need the inverse.
-
 ---
 
 ## Summary
 
 You've completed a full morphometric analysis pipeline:
 
-1. ✅ **Obtained data** from GitHub repository (29 mouse specimens)
+1. ✅ **Obtained data** from GitHub repository (30 mouse specimens)
 2. ✅ **Prepared reference specimen** by reorienting to anatomical axes
 3. ✅ **Created rigid average** from all specimens to minimize bias
 4. ✅ **Built a population template** using landmark-initialized, iterative registration
@@ -1549,12 +1599,12 @@ You've completed a full morphometric analysis pipeline:
 - `RigidAverage_Template.nii.gz` - Average of rigidly aligned specimens
 - `RigidAverage_Landmarks.mrk.json` - Average landmark positions
 - `MouseCranium_Template.nii.gz` - Final population-averaged template
-- `Template_Mask.nrrd` - Skull and mandible mask for statistical analysis
-- `GroupRegistration/*0GenericAffine.mat` - Affine transform components
-- `GroupRegistration/*1Warp.nii.gz` - Deformable warp fields (used for Jacobian analysis)
+- `Template_Mask-label.nrrd` - Skull and mandible mask for statistical analysis
+- `GroupRegistration/*-1forwardAffine.mat` - Affine transform components
+- `GroupRegistration/*-0forwardWarp.nii.gz` - Deformable warp fields (used for Jacobian analysis)
 - `GroupRegistration/*-transformed.nii.gz` - Registered volumes
 - `JacobianCache.pkl` - Cached statistical analysis
-- `QValuesImage.nii.gz` - Statistical significance map
+- `EffectImage.nii.gz` - Group differences at the significant voxels
 
 ### Next Steps
 
