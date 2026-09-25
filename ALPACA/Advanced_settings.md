@@ -37,7 +37,7 @@ For the mouse skulls (diagonal about 27 mm) it is about 0.5 mm at the default de
 | **FPFH Search radius** | 5 × voxel | Size of the neighborhood used to describe the local shape around each point (its FPFH feature). The global search matches points of the two clouds by these descriptions. Larger radii describe coarser, more distinctive shape. |
 | **FPFH Neighbor Count** | 100 | Maximum number of neighbors used for each description. |
 | **Maximum corresponding point distance** | 3 × voxel | How close an aligned source point must be to a target point to count as a match, both during the search and in the **Fitness** score below. |
-| **Maximum RANSAC iterations** | 1,000,000 | How many random alignments the global search tries. More tries make it more likely to find the right one when the starting orientations differ a lot, but this search is the slowest part of ALPACA. |
+| **Maximum RANSAC iterations** | 1,000,000 | Upper limit on how many random alignments the global search tries. The search runs in rounds of 10,000 and stops as soon as two rounds in a row do not improve the alignment, so this limit is reached only when the search keeps improving, typically when the starting orientations differ a lot. |
 | **Maximum ICP distance** | 1.5 × voxel | During the final refinement (ICP), only point pairs closer than this are used. |
 | **Normal Search Radius** | 2 × voxel | Neighborhood used to estimate the surface normals for the final refinement. |
 
@@ -83,22 +83,17 @@ Non-Scaling Attempt =  0  Fitness =  1.0  RMSE is  0.19
 - a larger **FPFH Search radius** (more distinctive shape descriptions, useful for smooth or symmetric structures);
 - more **Maximum RANSAC iterations**.
 
-On the mouse skulls, the rigid alignment never failed: fitness was 1.0 for every target, even after we rotated the NZO skull by 120°, 45° and 70° about the three axes and moved it about 55 mm. We then tried fewer RANSAC iterations:
+On the mouse skulls, the rigid alignment never failed: fitness was 1.0 for every target, even after we rotated the NZO skull by 120°, 45° and 70° about the three axes and moved it about 55 mm, or turned it upside down. The log also shows how long the search ran:
 
-| Target | RANSAC iterations | Rigid step | RMSE (mm) |
-|---|---|---|---|
-| NZO | 1,000,000 (default) | 81 s | 0.344 |
-| NZO | 10,000 | 4 s | 0.344 |
-| NZO | 1,000 | 3 s | 0.344 |
-| NZO, rotated and shifted | 1,000,000 | 18 s | 0.280 |
-| NZO, rotated and shifted | 10,000 | 3 s | 0.280 |
-| NZO, rotated and shifted | 1,000 | 3 s | 0.280 |
+```
+RANSAC stopped after 40000 of 1000000 iterations (4 rounds): fitness 1.0000, RMSE 0.1791
+```
 
-The final landmarks were identical with 100 to 1,000 times fewer iterations, because the ICP refinement corrects the small differences in the global search. The global search is the slowest part of ALPACA (about 85 of the 135 seconds per pair here), so **lowering Maximum RANSAC iterations can speed up a large batch considerably.**
+Because the search stops once it no longer improves, it took 40,000–50,000 iterations and 4–15 seconds per pair here. If you see it run to the full **Maximum RANSAC iterations**, the search was still improving: check the fitness and the alignment, and consider a higher limit if your specimens start in very different orientations.
 
-How low you can go depends on how differently your specimens are oriented. The many RANSAC iterations are there for specimens whose starting orientations differ a lot, e.g. scans made in arbitrary positions, or data from different sources. Mouse_Models was scanned in a consistent orientation, so even one rotated copy was easy. For a sample like this, 10,000 iterations is a safe choice, still ten times more than the 1,000 that sufficed here. If your specimens come in varied orientations, keep the default, or lower it only after checking the fitness and the RMSE on test specimens that span those orientations.
+> In SlicerMorph versions before late September 2026, the search always ran all 1,000,000 iterations, about 85 seconds per pair for these skulls. With those versions, lowering **Maximum RANSAC iterations** (e.g. to 10,000–100,000 for consistently oriented specimens) gives the same speed-up.
 
-The table shows one more thing. Rotating the NZO skull changed nothing about its shape, but the RMSE changed from 0.344 to 0.280 mm, because the points were sampled from a differently placed grid. **Differences of a few hundredths of a millimeter between two settings can be sampling noise**, not a real improvement.
+The rotated skulls show one more thing. Rotating NZO changed nothing about its shape, but the RMSE changed (0.34 mm as scanned, 0.30 mm rotated, 0.31 mm upside down), because the points were sampled from a differently placed grid. **Differences of a few hundredths of a millimeter between two settings can be sampling noise**, not a real improvement.
 
 ### Step 2: tune the deformable registration
 
@@ -126,7 +121,6 @@ Tuning the deformable step improved the mean RMSE from 0.33 to 0.31 mm in this e
 1. Check the rigid alignment. If it fails, fix it: nothing else matters until it works.
 2. Choose templates well, and consider MALPACA.
 3. Then tune alpha and beta, if at all. Keep the defaults unless a change helps consistently across your test set by more than the noise.
-4. Lower **Maximum RANSAC iterations** if you need speed, after checking on test specimens that span the orientations in your sample.
 
 Whatever you use, keep the `advancedParameters.txt` file that the batch run writes, and report the settings.
 
@@ -142,7 +136,7 @@ Whatever you use, keep the `advancedParameters.txt` file that the batch run writ
 
 **BCPD** (Bayesian Coherent Point Drift; Hirose, 2021) is a reformulation of CPD, the method ALPACA uses for the deformable step. It is a separate program, written in C by Osamu Hirose, that ALPACA can call instead of its built-in CPD. Its main advantage is speed: it approximates the expensive parts of the computation (with random subsampling, the Nyström method, and a nearest-neighbor search), and runs them in parallel on all processor cores.
 
-On the A/J → NZO pair, the deformable step took **49 s with CPD and 2 s with BCPD**, with the same accuracy (RMSE 0.345 vs 0.344 mm). BCPD speeds up only the deformable step, though. The rigid search took 85 s either way, so the whole pair went from about 135 s to about 88 s. The saving grows with the number of points (higher **Point Density Adjustment**) and with low **Rigidity (alpha)** values, which make CPD slow. It matters most when you try many deformable settings on the same pairs (Part 2) or run MALPACA with many templates.
+On the A/J → NZO pair, the deformable step took **49 s with CPD and 2 s with BCPD**, with the same accuracy (RMSE 0.345 vs 0.344 mm). Since the rigid search takes only a few seconds, that makes a whole pair several times faster. The saving grows with the number of points (higher **Point Density Adjustment**) and with low **Rigidity (alpha)** values, which make CPD slow. It matters most when you try many deformable settings on the same pairs (Part 2) or run MALPACA with many templates.
 
 Two differences from CPD:
 
@@ -195,7 +189,7 @@ On the **Advanced Settings** tab, in **Deformable registration**:
 
 <img src="images/16_acceleration_bcpd.png" width="550">
 
-BCPD is also the quickest way to explore settings (Part 2): with **Maximum RANSAC iterations** at 10,000 and BCPD, the rigid and deformable steps together took about 6 seconds per pair here, instead of more than two minutes. The two methods do not give identical results, though. At the default settings, CAST_EIJ had an RMSE of 0.34 mm with CPD and 0.41 mm with BCPD. So confirm the settings you choose with the method you will use for the study.
+BCPD is also the quickest way to explore settings (Part 2): with BCPD, the rigid and deformable steps together took about 6–15 seconds per pair here. The two methods do not give identical results, though. At the default settings, CAST_EIJ had an RMSE of 0.34 mm with CPD and 0.41 mm with BCPD. So confirm the settings you choose with the method you will use for the study.
 
 Both settings are remembered for later sessions. They apply to the Single Alignment and Batch processing tabs, and to MALPACA. The `advancedParameters.txt` file of a batch run records `"Acceleration": true` and the BCPD folder, so you can tell afterwards which method was used.
 

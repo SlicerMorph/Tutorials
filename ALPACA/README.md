@@ -94,7 +94,7 @@ For our pair it reports 4,813 source points and 5,098 target points, and shows t
 
 ### Step 4. Run ALPACA
 
-Click **Run ALPACA**. On our laptop it took about 3.5 minutes. The deformable registration is the slow part.
+Click **Run ALPACA**. On our laptop it took about 3.5 minutes; SlicerMorph versions from late September 2026 on stop the global search early and take about 2 minutes ([ALPACA V](Advanced_settings.md)). The timings in this tutorial were measured with the earlier version.
 
 When it finishes, the 3D view shows the target model and the final landmark estimates:
 
@@ -176,7 +176,7 @@ Then, on the **Batch processing** tab:
 
 Leave **Enable Mesh Quality Control** checked. Before the run, it checks every model for problems that would stop the batch partway (empty meshes, meshes with invalid coordinates, files that fail to load) and lists them, so you can fix or remove them first.
 
-Click **Run auto-landmarking**. Slicer is busy until the batch finishes. Our four targets took 11 minutes, under 3 minutes each, so a folder of 60 skulls would take about three hours. Start with a few specimens to check the output, then run the rest.
+Click **Run auto-landmarking**. Slicer is busy until the batch finishes. Our four targets took 11 minutes, under 3 minutes each (about 1.5 minutes each with the faster search in later versions), so a large folder can take hours. Start with a few specimens to check the output, then run the rest.
 
 The output folder has one landmark file per target, named after it (`B6C3F1.mrk.json`, ...), plus `advancedParameters.txt` with every setting used. Keep that file with your data, so that you can report and repeat the run.
 
