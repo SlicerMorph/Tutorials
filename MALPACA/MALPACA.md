@@ -56,7 +56,7 @@ The output folder contains:
 - `individualEstimates/`: one file per target and template, named `<target>_<template>.mrk.json`, e.g. `NZO_SPRET.mrk.json`, the NZO landmarks estimated from the SPRET template. Twenty files here.
 - `medianEstimates/`: the final estimates, two per target:
   - `<target>_median.mrk.json`: the median of the template estimates, coordinate by coordinate. **This is the MALPACA result.**
-  - `<target>_geomedian.mrk.json`: the geometric median, the point with the smallest total distance to the template estimates, per landmark. It is even less affected by a single far-off estimate. (In current versions of SlicerMorph the geometric median is not computed correctly, and this file is a copy of the median. Computed correctly, it agreed with the median within 0.005 mm in this example.)
+  - `<target>_geomedian.mrk.json`: the geometric median, the point with the smallest total distance to the template estimates, per landmark. It is even less affected by a single far-off estimate. In this example it agreed with the median within 0.005 mm RMSE. (SlicerMorph versions before late September 2026 wrote a copy of the median to this file.)
 - `advancedParameters.txt`: the templates, targets and every setting used.
 
 The landmark files are ordinary `.mrk.json` files: drag them into Slicer to view them, or analyze them in the [GPA module](../GPA_1/README.md).

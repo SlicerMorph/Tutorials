@@ -24,7 +24,7 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 ### Visualization
 1. #### [**Volume Rendering**](https://github.com/SlicerMorph/Tutorials/blob/main/Slicer_Modules/Volume_Rendering/README.MD)
 5. #### [**Lights**](https://github.com/SlicerMorph/Tutorials/blob/main/Slicer_Modules/Lighting/Lights.md)
-7. #### [**Animator:** How to create keyframe-based animations of microCT scans](https://github.com/SlicerMorph/Tutorials/tree/main/Animator)
+7. #### [**Animator:** Keyframe animations of 3D scenes (camera, volume rendering, cropping, exploded views) exported as video](https://github.com/SlicerMorph/Tutorials/tree/main/Animator#readme)
 8. #### [**HiResScreenCapture:** How to generate highDPI images](https://github.com/SlicerMorph/Tutorials/tree/main/HiResScreenCapture#readme)
 9. #### [**Colorize Volume:** Create Colored Volume Rendering from segmentations](https://github.com/SlicerMorph/Tutorials/blob/main/ColorizeVolume/README.md)
 10. #### [**QuickAlign:** Allows to approximately align two objects and sync their 3D renderings](https://github.com/SlicerMorph/Tutorials/blob/main/QuickAlign/README.md)
