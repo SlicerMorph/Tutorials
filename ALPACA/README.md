@@ -1,288 +1,211 @@
 <p align="center">
-<img src="images/option5.png" alt="ALPACA logo" width='500' height='200' >
+<img src="images/option5.png" alt="ALPACA logo" width="500">
 </p>
 
-# Automated landmarking through pointcloud alignment and correspondence analysis (ALPACA)
+# ALPACA I: Automated landmarking with a single template
 
-`ALPACA` provides fast landmark transfer from a 3D model and its associated landmark set to target 3D model(s) through pointcloud alignment and deformable mesh registration (please see the original publication https://doi.org/10.1111/2041-210X.13689 for a throrough review). Compared to patch landmarking methods in SlicerMorph, it does not require presence of fixed landmarks. Optimal set of parameters that gives the best correspondence between a source model (one with the landmarks) and a target model (to which the landmarks will be transferred) can be investigated (and outcome can be visualized) in single alignment mode, and then applied to a number of 3D models in batch mode. Invoked first time, `ALPACA` will need to download necessary ITK libraries. Depending on the internet speed, download may take a few moments but it is a one-time event.
+## Introduction
 
-## Module Overview
-Open the ALPACA module. 
+**ALPACA** (Automated Landmarking through Point cloud Alignment and Correspondence Analysis) transfers landmarks from one 3D model that has them (the **source**, or template) to other models that do not (the **targets**). It works on point clouds sampled from the two surfaces:
 
-:pencil2:  If this is the first time you are opening `ALPACA`, it inform you that it will be downloading necessary python libraries. This may take a few minutes. 
+1. Both models are reduced to point clouds of a few thousand points.
+2. The source cloud is rigidly aligned to the target (a coarse global alignment, then a refinement), optionally with scaling.
+3. The aligned source cloud is deformed onto the target cloud (a *deformable* registration), and the source landmarks are carried along.
+4. The carried landmarks are projected onto the target surface.
 
-<p align="center">
-<img src="images/ALPACA000.PNG" width = 500>
-</p>
- 
-Otherwise, you should observe the following screen:
+Unlike patch-based landmarking, ALPACA does not need any fixed landmarks on the target. For the method and its validation, see Porto et al. (2021).
 
-<p align="center">
-<img src="images/ALPACA001.PNG">
-</p>
+This is the first of five ALPACA tutorials:
 
+1. **ALPACA I (this tutorial):** landmarking with a single template, first on one pair of skulls to understand the settings, then on a folder of skulls.
+2. **[ALPACA II](../MALPACA/Consensus_atlas.md):** building a consensus atlas, an unbiased starting point for template selection.
+3. **[ALPACA III](../MALPACA/K-means_templates_selection.md):** choosing a set of templates with K-means.
+4. **[ALPACA IV](../MALPACA/MALPACA.md):** landmarking with several templates at once (MALPACA).
+5. **[ALPACA V](Advanced_settings.md):** the advanced settings, how to tune them for your data, and BCPD acceleration.
 
-There are four main tabs in `ALPACA` : a `Single aligment`, a `Batch processing`, an "Advanced Settings", and a "Templates Selection" one.
+## Get the sample data
 
-* __Single Alignment tab__: this is the default tab when you open ALPACA. It is for performing ALPACA to landmark one target model based on a source model and accompanied source landmark set. The main purpose of the `Single aligmment` tab is to find the best combination of hyperparameters for the task, so that they can be applied to a large array of specimens. Users can conveniently explore different settings and evaluate ALPACA performance in this tab. 
+All five tutorials use the **Mouse_Models** dataset: skull models of 62 inbred mouse strains, one specimen per strain, each with a set of 51 manually placed landmarks (Maga et al., 2017).
 
-* __Batch processing__: this tab allows for performing ALPACA using a single template and the multi-template version (MALPACA) for an array of specimens (>2 specimens). For this tutorial, we will only explore ALPACA. For MALPACA, please see: [MALPACA toturial](/MALPACA/MALPACA.md)
+1. Go to [github.com/SlicerMorph/Mouse_Models](https://github.com/SlicerMorph/Mouse_Models).
+2. Click the green **Code** button, then **Download ZIP**. The download is about 110 MB.
+3. Extract the ZIP file. You get a folder called `Mouse_Models-main` with:
+   - `Models/`: the 62 skull models, as `.ply` files (e.g. `A_J.ply`).
+   - `LMs/`: the 51 landmarks of each skull, as `.mrk.json` files with the same names (e.g. `A_J.mrk.json`).
 
-<p align="center">
-<img src="images/ALPACA002.PNG", width = 500>
-</p>
+We extracted it to `/Users/Shared/ALPACA_Tutorial/`. Use any folder you like, but avoid paths that are synced to the cloud (OneDrive, iCloud Drive, Dropbox), since ALPACA writes many files.
 
+## The ALPACA module
 
-* __Advanced Settings__: this tab allows users to change settings for ALPACA and MALPACA. This is generally not recommended for novice users. Therefore, we can keep the default settings for this tutorials. However, hyperparameter tuning can sometimes significantly improve the end result. The `Step 6` in the `Single Alignment `section of this tutorial will include an overview of these parameters. For more details, please refer to the ALPACA publication: https://doi.org/10.1111/2041-210X.13689.
+Open the **ALPACA** module (Modules → SlicerMorph → Geometric Morphometrics → ALPACA, or type `ALPACA` in the module finder).
 
-<p align="center">
-<img src="images/ALPACA003.PNG", width = 500>
-</p>
+ALPACA needs several Python packages (`itk`, `scikit-learn`, `itk-fpfh`, `itk-ransac`, `cpdalp`, `pandas`). The first time you run it, Slicer asks to install them. Accept, and wait until the installation finishes. It can take a few minutes, but happens only once.
 
+<img src="images/01_module_overview.png" width="900">
 
-* __Templates Selection__: this tab allows users to choose specimens for the multi-template version of ALPACA (MALPACA) as templates when no prior information is availabe. Tutorials can be found at [K-means templates selection tutorial](/MALPACA/K-means_templates_selection.md)
+The module has four tabs:
 
-<p align="center">
-<img src="images/ALPACA004.PNG", width = 500>
-</p>
+- **Single Alignment:** landmarks one target from one source, and shows every intermediate step. Use it to check that the method works on your data and to tune the settings.
+- **Batch processing:** applies the same settings to a whole folder of targets, with one template (ALPACA) or several (MALPACA, [ALPACA IV](../MALPACA/MALPACA.md)).
+- **Advanced Settings:** the parameters of each step. The defaults work well for many datasets. Both of the other tabs use the values set here.
+- **Templates Selection:** builds a consensus atlas and picks templates for MALPACA ([ALPACA II](../MALPACA/Consensus_atlas.md) and [III](../MALPACA/K-means_templates_selection.md)).
 
+## Part 1: Single alignment
 
-## Single Alignment
+### Step 1. Load the source and target
 
-Now that we are acquainted with the overall layout of the module, let's start by doing an alignment between two example meshes. 
+We transfer the landmarks of the A/J skull to the B6C3F1 skull. Drag these three files from the extracted folder into Slicer (or use **Add Data**):
 
-### Step 1. Download sample data
-Download the ALPACA sample data set from the [ALPACA tutorial sample data](https://github.com/SlicerMorph/Mouse_Models) and switch to the ALPACA module. You can just click `Code` at the upper right corner then `Download Zip.` Extract all the files to a local directory. 
+- `Models/A_J.ply`: the source model
+- `LMs/A_J.mrk.json`: the source landmarks
+- `Models/B6C3F1.ply`: the target model
 
-### Step 2. Specifying the source models (ply format), source landmark set (fcsv format) and target model (ply format). 
-From the directory where you save the extracted sample data, go to the `/Mouse_Models-main/Models`folder, drag `A_J_skull_.py` and `B6C3F1_j_.ply` into Slicer. From `/Mouse_Models-main/LM` folder, drag `A_J_skull_.fcsv` into Slicer.
+<img src="images/02_data_loaded.png" width="900">
 
-You can also use the Slicer's data loading capabilities by clicking the `Data load` button, then navigate to the tutorial data folder, and load the source model, source landmark file, and target model.
+The two skulls overlap in the 3D view because they were scanned in the same orientation. ALPACA does not rely on this: it finds the alignment itself, so the models can start in any position and orientation.
 
-<p align="left">
-<img src="images/ALPACA006.PNG", width = 500>
-<img src="images/ALPACA006_2.PNG", width = 500>
-</p>
+The landmark node is called `A_J_1`, because Slicer adds `_1` to a name that is already used (here by the model `A_J`).
 
+### Step 2. Select the inputs
 
- * If everything worked properly, you should observe something that looks like this:
+On the **Single Alignment** tab, under **Set up source and target meshes and landmark sets**, choose:
 
-<p align="center">
-<img src="images/ALPACA007.PNG">
-</p>
+- **Source Model:** `A_J`
+- **Source Landmark Set:** `A_J_1`
+- **Target Model:** `B6C3F1`
+- **Target Landmark Set (Optional):** leave at `None` for now. We use it in step 6.
 
+<img src="images/03_single_inputs.png" width="600">
 
-* As can be seen above, the two meshes lie in arbitrary positions in 3D space. Contrary to other approaches present in the literature, `ALPACA` can deal with arbitrary starting points. 
+Leave both options checked:
 
-* Return to the `ALPACA` module and select the source model and landmark set as well as the target model loaded in Slicer from correspondant dropdown buttons under the `Single alignment` tab: 
+- **Scaling** lets the rigid alignment also scale the source to the size of the target. Keep it on unless all your specimens are the same size and you need to preserve absolute size in the alignment.
+- **Projection** moves the final landmark estimates onto the target surface.
 
-  * __Source Model__: Under the `Source mesh`, the user is expected to select the path to the `*.ply` mesh file to be used as a template. Select `A_J_.ply `as the source model.
-  
-  * __Source Landmark Set__: Under the `Source Landmark Set`, the user is expected to select the path to the `*.fcsv` file containing the landmarks to be transferred to the target mesh. Select `A_J_.fcsv` as the source landmak set.
+### Step 3. Check the point clouds
 
-  * __Target Model__: Under the `Target mesh`, the user is expected to select the path to the `*.ply` mesh file to be used as a target (i.e., the specimen we are interested in predicting landmark positions for). Select `B6C3F1_j_.ply` as the target model. 
+ALPACA works on point clouds, not the full meshes. The **Point Density Adjustment** slider under **Test subsampling pointclouds** sets how densely points are sampled. At the default of 1.00, ALPACA aims for roughly 4,000–6,000 points per model, which works well in most cases. More points make every step slower without necessarily improving the result.
 
-  * __Reference Target Landmark Set (optional)__: Leave this button blank for now. We will go over it in Step 6. 
+Click **Run subsampling**:
 
-  * __Scaling__: Argument that determines whether the source mesh should be scaled to match the size of the target mesh (default). If you want to skip scaling, please uncheck this option.
+<img src="images/04_subsampling.png" width="900">
 
-  * __Projection__: Argument that determines whether the final landmark predictions should be projected to the surface of target mesh (default). If you do not want the projection step, unchecked this option.
+For our pair it reports 4,813 source points and 5,098 target points, and shows the target cloud in the 3D view. If your counts fall far outside the 4,000–6,000 range, move the slider and run the subsampling again. The same slider appears on the **Advanced Settings** tab; the two are kept in sync.
 
-<p align="center">
-<img src="images/ALPACA008.PNG", width = 600>
-</p>
+### Step 4. Run ALPACA
 
+Click **Run ALPACA**. On our laptop it took about 3.5 minutes; SlicerMorph versions from late September 2026 on stop the global search early and take about 2 minutes ([ALPACA V](Advanced_settings.md)). The timings in this tutorial were measured with the earlier version.
 
-### Step 3. Generating downsampled pointclouds.
-The `Test subsampling pointclouds` section contains a slider bar for adjusting point cloud density and an optional step to check generated point clouds. 
-* __Point Density Adjusting slider__: the `point density value` to specify point sampling density. ALPACA is based on registering point clouds extracted from the source and target models. Under the `Point Density Adjustment`, the user can adjust the value that determine the density for sampling points from each model. The default value of point density is `1.00`, which is empirically determined to sample approximately `5000-6000` points for a given model. This `4000-6000` point cloud density can yield optimal registration for most cases. Increasing the point density value will increase the number of points sampled from a model, hence the execution time, but may not improve the registration performance. In contrast, decreasing the point density value will decrease the number of points sampled, hence the execution time.
-  * The `Point Density Adjusting` slider is synchronoized with the same slider in the `Advanced Settings` tab. Ajusting one of them would automatically update the other one. 
+When it finishes, the 3D view shows the target model and the final landmark estimates:
 
-<p align="center">
-<img src="images/ALPACA009.PNG", width = 600>
-</p>
+<img src="images/05_after_run.png" width="900">
 
-* We can press `Run subsampling` button under the `Point Density Adjustment` slider to experimenting the effect of different point density value. The number of points for the source and target point clouds will be printed in the display box blow. It is essential to aim for `5000-6000` points per mesh, so the user has the option of pressing the `Run subsampling` as much as needed. A good follow-up exercise to this tutorial is to vary the number of sampled points per mesh and evaluating the impact it has on the performance of the method. 
-
-  * For the sample data, the default 'point cloud density' 1.00 should yield 4034 points for the source point cloud and 4945 points for the target point clouds. This is suffice for this tutorial and for achieving a good point cloud registration. The `Run subsampling` button will also load a visual representation of the `Target` pointcloud into the 3D scene (in blue).
-
-<p align="center">
-<img src="images/ALPACA010.PNG">
-</p>
-
-
-### Step 4. Run ALPACA.
-Once we are satisfied with the number of sampled points, we can proceed to press the `Run ALPACA` button. This step will execute the whole process of ALPACA (about 2-3 minutes in a modern laptop) including:
-* Downsampling source and target point clouds based on the Point `Density Ajustment` value. 
-* Global (RANSAC) and rigid (ICP) registration that register the source point cloud to the target
-* CPD (coherent point drift) registration that deform the source point cloud to the target point cloud and propogate the source landmarks to new positions in the meantime.
-* Projecting the new landmarks generated from the last step to the surface of the target model for achieving the final ALPACA estimated landmarks. 
-
-<p align="center">
-<img src="images/ALPACA010_2.PNG", width = 600>
-</p>
-
-
-### Step 5. Displaying ALPACA steps.
-Each ALPACA steps can be displayed by turning on and off the switch buttons in the `Display ALPACA steps` section. All results are saved in the `ALPACA_output_1` folder that can be viewed in the `data module`. 
-
-<p align="center">
-<img src="images/ALPACA012.PNG", width = 500>
-<p align="center">
-<img src="images/ALPACA013.PNG", width = 500>
-</p>
-
-* For visualizing the most recent ALPACA steps, it is recommended to only toggle the switch button in the `Display ALPACA steps` section to avoid confusion.
-
-* By default, after Run AlPACA, only the target model and the final ALPACA estimated landmarks are displayed.
-
-<p align="center">
-<img src="images/ALPACA011.PNG">
-</p>
- 
-* To display the rigidly registered source and target pointclouds, click the switch buttons for switching the `Display target pointcloud` and `Disply source pointcloud` to the `ON`. This step will produce an output corresponding to the visual representation of the alignment between the `Source`(red) and `Target` (blue) pointclouds in the 3D scene. Please feel free to rotate those pointclouds in 3D space to make sure the alignment occured correctly.
-  * The source and target point cloud nodes are `Source Pointcloud (rigidly registered)_1_` and `Target Pointcloud_1` in the `ALPACA_output_1` folder in the `data` module. 
-
-<p align="center">
-<img src="images/ALPACA014.PNG">
-</p>
-
- 
-* Depending on the complexity of the structure of interest, it may be hard to tell if the pointclouds are properly aligned. For that reason, `ALPACA` offers the users the option of displaying the rigid aligned models. By default, the `Display target model` option is switched on. The user can click the `Display source model (rigidly registered)` switch button to turn it to `ON`. You should observe something as seen below. The source model (A_J) is in red and the target model (B6C3F1) is in yellow. Again, feel free to rotate the 3D surfaces to make sure they are properly aligned. 
-  * The source model node is the `Source Model (rigidly registered)_1_` in the `ALPACA_output_1` folder in the `data` module. The target model is untransformed, therefore remain the same as the original imported one (`B6C3F1_j_.ply` model in our case) in the `data` module.
-
-<p align="center">
-<img src="images/ALPACA015.PNG">
-</p>
- 
-  * In our example case (mice), you will notice that even though we get a proper alignment between the two strains, the `A_J` mice have a downward curved face when compared to the `B6C3F1` mice. Note how the nasal bones are distant from each other. For that reason, simply transferring the landmarks after the rigid registration step is unlikely to produce good results.
-
-* To further improve the quality of the alignment, ALPACA applies a CPD (coherent point drift) registration to deform the `Source` point cloud to match the `Target` point cloud. Note that this step takes the longest time of the pipeline. In modern laptops, this should take around 2 or 3 minutes. 
-  * During the CPD deformation, the `source landmarks` are also projected to new positions to match the `Target` point cloud, though they may not strictly lie on the surface of the `Target` point cloud and model. Therefore, the positions of these transformed landmarks are still not optimal to serve as the estimated target landmarks. 
-  * In this pipeline, the transformed source landmarks after CPD registration can be displayed by click the switch button of `Display initial ALPACA landmark estimate (no projection)`. 
-
-<p align="center">
-<img src="images/ALPACA016.PNG">
-</p>
-  
-  * Switch on `Display target model`, you can see some of these estimated landmarks (e.g., the one pointed by the blue arrow) are slightly below the surface of the the target model.
+### Step 5. Look at each step
 
-<p align="center">
-<img src="images/ALPACA017.PNG">
-</p>
- 
- 
-  * The `initial ALPACA landmark estimate (no projection)` node is the `Initial ALPACA landmark estimate(unprojected)_1` fiducial point node in the `ALPACA_output_1` folder in the `data` module.
+The **Display ALPACA steps** section has a checkbox for each intermediate result. Turn them on and off to follow the pipeline:
 
-* A thin-plate spline (TPS) warping between the original `source landmarks` and `initial landmark estimate (unprojected)` is then performed in order to deform the source model into a `TPS warped source model`. 
-  * Turn the switch on to display the `TPS warped source model` (green). In the data module, it is called `TPS wapred source model_1 `in the `ALPACA_output_1` folder.
-  * This `TPS warped source model` can also serve as a proxy of the CPD deformable registration of the `source pointcloud`. Switch on the `Target Model` (yellow). Note how the alignment of the nasal bone is much better than prior to the deformed step. The same is true for other parts of the skull.
+<img src="images/06_display_steps_panel.png" width="500">
 
-<p align="center">
-<img src="images/ALPACA018.PNG">
-</p>
- 
- * Noting that the `initial landmark estimate (unprojected)` are now located at the surface of the the `TPS warped source model` (e.g., the landmark pointed by the blue arrow). 
+**Rigid alignment of the point clouds** (*Display source pointcloud* and *Display target pointcloud*): the source cloud (red) after the global and rigid alignment, on top of the target cloud (blue). They should overlap everywhere. Rotate the view to check.
 
-<p align="center">
-<img src="images/ALPACA019.PNG">
-</p>
- 
- 
-* The final step of ALPACA is to project the unprojected initial landmark estimates acheived by CPD registration, which are now loacted at the surface of the `TPS warped source model`, to the exterior surface of the target model (see https://doi.org/10.1111/2041-210X.13689 for more detail). 
-  * The display of final estimated landmarks can be switched on or off by clicking the button `Display final ALPACA landmark estimate (projected to surface)`
-  * In the data module, the node is 'Final ALPACA landmark estimate_1' in the `ALPACA_output_1`.
+<img src="images/07_pointclouds_rigid.png" width="700">
 
-<p align="center">
-<img src="images/ALPACA020.PNG">
-</p>
- 
- 
-* The output of each ALPACA step is not saved into a file. In part, this is because the role of the `Single alignment's` tab main role is to find the best combination of parameters necessary to transfer landmarks between specimens. These parameters can then be transferred to the `Batch processing` tab to process an entire specimen folder. The next step presents an overview of the parameter settings of ALPACA.
+**Rigid alignment of the models** (*Display source model (rigidly registered)* and *Display target model*): the same alignment on the full models, which is easier to judge. The A/J skull (red) and the B6C3F1 skull (yellow) are well aligned overall, but their shapes differ, for example in the zygomatic arch and the snout. Copying landmarks at this stage would leave them in the wrong places, so a deformable step is needed.
 
+<img src="images/08_models_rigid.png" width="700">
 
-### Step 6. Alter the ALPACA settings and run another ALPACA. 
-After running one ALPACA, the `Run ALPACA` button will be disabled. There are three ways to enable `Run ALPACA`: 1) Choose a source or target model or both; 2) Press `Run subsampling` with or without changing the `Point Density Adjustment` value; 3) clicking the `Change ALPACA settings` button, which is enabled after finishing `Run ALPACA`, then return to the `Single Alignment` Tab.
-* Clicking the `Change ALPACA settings` button will redirect to the `Advanced Settings` tab.
+**Deformable registration** (*Display initial ALPACA landmark estimate (no projection)*): the source cloud is deformed onto the target cloud with Coherent Point Drift (CPD), and the landmarks move with it. These estimates are close to, but not exactly on, the target surface.
 
-<p align="center">
-<img src="images/ALPACA021.PNG", width = 500>
-<p align="center">
- <img src="images/ALPACA022.PNG", width = 500>
-</p>
- 
+<img src="images/09_unprojected_lms.png" width="700">
 
-* In general, we do not recommend novice users to change these settings. The default settings have also achieved good performances for multiple datasets from different species. However, if any step of ALAPACA does not yield optimal results, users can experimenting tuning parameters to improve results. For details, please see: https://doi.org/10.1111/2041-210X.13689.
-  * Because most steps of ALPACA is based on point cloud registration, users can adjust the `Point Density Adjustment` slider to alter the density of each point cloud. This has been overviewed in Step 3. This slider is synchronized with the `Point Density Adjustment` slider in the `Single Alignment` tab.
-  * If global and rigid registration does not yield good alignment, several parameters can be adjusted: 
-    * Increasing point density, which can lead to smaller voxel size, and possible improvement of the registration.
-    * Increasing `maximum RANSAC iterations` and `RANSAC confidence` in the `Rigid registration` section. 
-    * Other parameters in the `Rigid registration` section can also be fine tuned. 
-  
-  * If global and rigid registration is well, the `Deformable registration` parameters are the most likely ones to improve the quality of the registration. 
-    * Parameter `Alpha` is a regularization parameter that tends to affect the length of the deformation vectors. Lower values of `Alpha` lead to larger overall deformations, and vice versa. 
-    * Parameter `Beta`, on the other hand, is a regularization parameter that tends to affect the degree of motion coherence of neighboring points. Large values of `Beta` will lead to greater motion coherence among neighboring points, and vice versa.
+*Display TPS warped source model*: the source model warped with a thin-plate spline from the original to the deformed landmarks (green). Compare it with the rigid alignment above: the warped skull now matches the target (yellow) much more closely.
 
-After the `Run ALPACA` button is re-enabled, clicking it will generate a new set of ALPACA results in the `ALPACA_output_2` folder in the data module. The postcript of each node also increases by 1. This is for facilitating comparing results of different ALPACA sets. 
- * Now the `Display ALPACA steps` in the `Single Alignment` tab of the `ALPACA` module only displays the most recent ALPACA results. To compare two ALPACA results, go to the `data` module to manually display specific nodes. 
+<img src="images/10_tps_model.png" width="700">
 
-<p align="center">
- <img src="images/ALPACA023.PNG", width = 600>
-</p>
+**Projection** (*Display final ALPACA landmark estimate (projected to surface)*): each estimate is projected onto the target surface. These are the final landmarks.
 
+<img src="images/11_final_lms.png" width="700">
 
-### Step 7 (Optional). Load a manual target landmark set as a reference for evaluating ALPACA performance.
-An important way to evaluate the performace of ALPACA under a specific settings is to compare the landmark estimates with manual landmarks. The `Single Alignment` tab offers an option to load an fcsv file of the target manual landmark set. In the downloaded sample data, drag the `B6C3F1_j_.fcsv`, which is the manual landmark set for the target `B6C3F1_j_.ply` model, into Slicer, then select this file in the `Target Landmark Set (Optional)` drop-down menu. 
+All these results are nodes in the scene, in a subject hierarchy folder called `ALPACA_output_1` (see the **Data** module). The Single Alignment tab does not save them to disk. Its purpose is to find settings that work, which you then use in batch mode. To keep a result, save it like any other node (**Save** button).
 
-<p align="center">
- <img src="images/ALPACA024.PNG", width = 600>
-</p>
+### Step 6. Measure the error against manual landmarks
 
+If the target has manual landmarks, ALPACA can report how far its estimates are from them. Drag `LMs/B6C3F1.mrk.json` into Slicer and select it (`B6C3F1_1`) as **Target Landmark Set (Optional)**, then click **Run ALPACA** again.
 
-You can keep the default settings and click `Run ALPACA` button.
+After the run, a table appears next to the 3D view with the **root mean square error (RMSE)** between the ALPACA estimates and the manual landmarks, in the units of the model (here millimeters). Every run in the same scene adds a row (`ALPACA_2`, `ALPACA_3`, ...), so you can compare settings.
 
-All other output remain the same with previous steps. You can toggle the switch buttons to display results of each step. The only addition is a table that shows the root mean square error (RMSE) between the ALPACA estimated landmark set and the imported manual landmark set of the target model. RMSE summarizes the positional differences between two landmark set. The smaller the RMSE, the closer two sets of landmarks are. 
-* `ALPACA_3` at the first row of the table means that it is the 3rd ALPACA Single Alignment executed in the same Slicer scene. If you click `CTRL + W` and re-run the Single Alignment ALPACA for the same data, you will see `ALPACA_1` print out at the first row.
-* You can also turn the switch button of `Display optional target landmark reference` to `On` to display the loaded target reference landmark set to compare with the ALPACA estimated landmark set as the picture below shows. 
+<img src="images/13_rmse_table.png" width="900">
 
-<p align="center">
- <img src="images/ALPACA025.PNG">
-</p>
+Here the RMSE is 0.26 mm. The typical landmark is 0.14 mm from its manual position (the median). The worst is landmark 10, at 0.69 mm. Check **Display optional target landmark reference** to show the manual landmarks (green) together with the estimates (purple). We made both glyphs smaller for this picture (Markups module → Display → Glyph Size).
 
- 
-Now click the `Change ALPACA settings`, then return to the the `Single Alignment` tab. Click the `Run ALPACA` button again. You can see another RMSE has been calculated at the second row of the table for the current ALPACA. This allows you to compare how close the results from two rounds of ALPACA are to the target manual landmark set. 
+<img src="images/14_final_vs_manual.png" width="700">
 
-<p align="center">
- <img src="images/ALPACA026.PNG">
-</p>
+We ran it a second time with the same settings, and got the same RMSE. The global alignment uses a random search (RANSAC), but with the same inputs and settings the result was identical in our runs.
 
- 
-* You can see that even with the same settings, two ALPACAs yield slightly different RMSEs. This is because the global registration step is based on the RANSAC algorithm, a random sampling procedure. Thus, the result of global and rigid registration, which is the foundation of ALPACA, will yield slightly different alignment. Consequently, each run of ALPACA can yield slightly different landmark estimates. As long as the difference is minimal, as the example below shows, the results can be viewed as consistent. 
+### Step 7. Changing the settings
 
+After a run, **Run ALPACA** is disabled until something changes. Click **Change ALPACA settings** to jump to the **Advanced Settings** tab, or change an input or run the subsampling again.
 
-## Batch processing 
+<img src="images/12_advanced_settings.png" width="500">
 
-* As mentioned in the prior section, the main purpose of the `Single aligmment` tab is to find the best combination of hyperparameters for the task, so that they can be applied to a large array of specimens. In `ALPACA`, the parameters used in `Single alignment` tab get transferred to the `Batch processing` tab once that tab gets selected. 
+We do not recommend changing these without a reason. The defaults have worked well for skulls of many species. If a step goes wrong, these are the settings to look at:
 
-* We can keep using the same sample data for the batch mode.
+- **Rigid alignment wrong** (the clouds in step 5 do not overlap): increase **Point Density Adjustment** or **Maximum RANSAC iterations**, or adjust the other **Rigid registration** parameters.
+- **Rigid alignment right but landmarks off**: the **Deformable registration** parameters matter most.
+  - **Rigidity (alpha):** lower values allow larger deformations.
+  - **Motion coherence (beta):** higher values make neighboring points move more alike.
+- **Acceleration:** runs the deformable step with the BCPD program, which is much faster. You need to build BCPD yourself and set its folder in **BCPD directory** ([ALPACA V](Advanced_settings.md#part-3-faster-deformable-registration-with-bcpd)). We left it off in these tutorials.
 
-* In the `Batch processing` tab, click the drop-down menu of Method. You can see two options: the default option is `Single Template (ALPACA)`; another option is `Muli-template (MALPACA)`. We will work with the default option `Single Template (ALPACA)`. The multi-template option will be reviewed elsewhere. 
- 
-* Note that the `Batch processing` tab has much of the same elements as the `Single alignment` one. The main difference is the addition of a ` Target output landmark directory` box. 
+[ALPACA V](Advanced_settings.md) explains every setting, shows how to test settings on your own data, and how to install BCPD for acceleration.
 
-* Select any model in the `Models` foler of the downloaded sample data dirctory as the `Source model` , and corresponding landmark file in the `LMs` folder as the `Source landmarks` fcsv file. Select the `Models folder` as the `Target model directory` that contains all target models to be landmarked, 
+## Part 2: Batch processing with one template
 
-* Choose a local ` Target output landmark directory`. After this step, the `Run-autolandmarking` button can be pressed.
+Once the settings work, apply them to many specimens on the **Batch processing** tab.
 
-* We advise enabling the QC (quality control) option. When enabled, a basic quality control applied to the models to discover potential issues that may cause problem during the batch process. Models identified to be problematic is listed in the text box, after which the user is expected to take action (correct the issues, remove the models from the target directory, or ignore by disabling QC button). Note that problematic models will may crash ALPACA, meaning that all the jobs after that model will not run. As such we advise running the QC for long batch jobs to avoid stoppage. 
+For this tutorial, make a folder called `targets` and copy four skulls into it from `Models`: `B6C3F1.ply`, `BALB_CJ.ply`, `CAST_EIJ.ply` and `NZO.ply`. They include a classical inbred strain (BALB/c), a large, obese one (NZO), a wild-derived strain (CAST/EiJ) and the F1 hybrid from Part 1. We use the same four targets again in [ALPACA IV](../MALPACA/MALPACA.md) to compare with multiple templates.
 
-<p align="center">
- <img src="images/ALPACA027.PNG", width = 600>
-</p>
- 
+Then, on the **Batch processing** tab:
 
-* The `ALPACA` module can be used synergistically with other `SlicerMorph` modules. Users can use not only manually annotated landmarks in the `ALPACA` pipeline, but also include semi-landmarks that were sampled on the 3D surface using the `Spherical Sampling` lab. The performance of the method can be explored using the GPA module to analyze the transferred landmarks.
+1. **Method:** `Single-Template(ALPACA)`.
+2. **Source model(s):** the source model file, `Models/A_J.ply`.
+3. **Source landmarks:** its landmarks, `LMs/A_J.mrk.json`.
+4. **Target model directory:** the `targets` folder.
+5. **Target output landmark directory:** an empty folder for the results (we used `ALPACA_batch_output`).
 
+<img src="images/15b_batch_single_panel.png" width="600">
 
+Leave **Enable Mesh Quality Control** checked. Before the run, it checks every model for problems that would stop the batch partway (empty meshes, meshes with invalid coordinates, files that fail to load) and lists them, so you can fix or remove them first.
 
+Click **Run auto-landmarking**. Slicer is busy until the batch finishes. Our four targets took 11 minutes, under 3 minutes each (about 1.5 minutes each with the faster search in later versions), so a large folder can take hours. Start with a few specimens to check the output, then run the rest.
 
+The output folder has one landmark file per target, named after it (`B6C3F1.mrk.json`, ...), plus `advancedParameters.txt` with every setting used. Keep that file with your data, so that you can report and repeat the run.
+
+All four targets have manual landmarks in `LMs`, so we can check the results the same way as in step 6. The table shows the RMSE between the estimated and manual landmarks, in mm:
+
+| Target | RMSE (mm) | Largest error (mm) |
+|---|---|---|
+| B6C3F1 | 0.26 | 0.69 (LM 10) |
+| BALB_CJ | 0.36 | 1.25 (LM 47) |
+| CAST_EIJ | 0.35 | 1.10 (LM 21) |
+| NZO | 0.35 | 0.81 (LM 47) |
+
+The B6C3F1 result is the same as the single alignment in Part 1. The other three are less accurate: they differ more from the A/J template. [ALPACA IV](../MALPACA/MALPACA.md) shows how multiple templates deal with that.
+
+**Replicate Analysis** runs the whole batch several times into separate time-stamped folders, to check how stable the estimates are.
+
+## Next steps
+
+Landmarking with a single template works well when the targets are similar to the template. When a sample varies more, using several templates and taking the median of their estimates (MALPACA) is more accurate (Zhang et al., 2022). The next three tutorials show how to choose those templates without bias and run MALPACA:
+
+- [ALPACA II: Building a consensus atlas](../MALPACA/Consensus_atlas.md)
+- [ALPACA III: Selecting templates with K-means](../MALPACA/K-means_templates_selection.md)
+- [ALPACA IV: Multi-template landmarking (MALPACA)](../MALPACA/MALPACA.md)
+- [ALPACA V: Advanced settings, tuning, and BCPD acceleration](Advanced_settings.md)
+
+The landmarks ALPACA produces are ordinary `.mrk.json` files, so you can analyze them in the [GPA module](../GPA_1/README.md).
+
+## References
+
+- Porto, A., Rolfe, S., and Maga, A. M. (2021). ALPACA: A fast and accurate computer vision approach for automated landmarking of three-dimensional biological structures. *Methods in Ecology and Evolution*, 12(11), 2129–2144. https://doi.org/10.1111/2041-210X.13689
+- Zhang, C., Porto, A., Rolfe, S., Kocatulum, A., and Maga, A. M. (2022). Automated landmarking via multiple templates. *PLOS ONE*, 17(12), e0278035. https://doi.org/10.1371/journal.pone.0278035
+- Maga, A. M., Tustison, N. J., and Avants, B. B. (2017). A population level atlas of *Mus musculus* craniofacial skeleton and automated image-based shape analysis. *Journal of Anatomy*, 231(3), 433–443. https://doi.org/10.1111/joa.12645
