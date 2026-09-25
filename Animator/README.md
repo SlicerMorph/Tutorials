@@ -11,7 +11,7 @@ A snapshot records:
 
 Between two keyframes, Animator smoothly changes everything from one snapshot to the next. It can also hold a state, or explode a set of models outward and back.
 
-In this tutorial we make a 10-second animation of a mouse skull: it rotates from a side view to a view from above, is cut open along the midline, and finally fades out.
+In Part 1 we make a 10-second animation of a mouse skull: it rotates from a side view to a view from above, is cut open along the midline, and finally fades out. In Part 2, a mouse embryo fades away to reveal its organs, which then explode outward while the camera circles.
 
 <img src="images/06_animation.gif" width="480">
 
@@ -25,13 +25,15 @@ Animator writes videos with **ffmpeg**, a free video encoder that is not part of
 
 On macOS and Linux, tell Slicer where ffmpeg is. Open the **Screen Capture** module, expand **Advanced**, and set **ffmpeg executable** (e.g. `/opt/homebrew/bin/ffmpeg` on a Mac with Homebrew, `/usr/bin/ffmpeg` on Linux). If ffmpeg is missing when you export, Animator tells you and opens Screen Capture for you.
 
-## 1. Load and render the sample data
+## Part 1: A skull, rotated, cut and faded
+
+### 1. Load and render the sample data
 
 1. In the **Sample Data** module, under **SlicerMorph**, click **Bruker/Skyscan mCT Recon sample**. Choose a folder for it. It downloads a ZIP file and extracts a folder `png_recon` with 490 image slices of a mouse skull and the scanner's log file.
 2. Open the **SkyscanReconImport** module, set **Choose log file from image series** to `png_recon/left_side_damaged__rec.log`, and click **Apply**. The skull is loaded as the volume `left_side_damaged__rec` (444 × 444 × 488 voxels of 0.035 mm). See the [SkyscanReconImport tutorial](../SkyscanReconImport) for details.
 3. Open the **Volume Rendering** module, select the volume, and click the eye icon to show it. Choose the **uCT-Skull** preset.
 
-## 2. Set up the output view
+### 2. Set up the output view
 
 What you see in the 3D view is exactly what goes into the video, so first give the view the size of the video. Open the **Animator** module (Modules → SlicerMorph → Utilities → Animator). In **Output Viewer Setup**:
 
@@ -46,7 +48,7 @@ What you see in the 3D view is exactly what goes into the video, so first give t
 
 The undocked, locked 3D view. Keep it where you can see it; you will set up each keyframe in it.
 
-## 3. Create the snapshot timeline
+### 3. Create the snapshot timeline
 
 In **Animation Parameters**, set **Animation Node** to **Create new Animation**, then click **Create Snapshot Timeline**. **Scene Snapshot** appears under **Actions**, and the snapshot editor opens. It is a separate window, so you can keep working in the 3D view and in other modules while it is open. To reopen it later, click **Edit** next to **Scene Snapshot**.
 
@@ -54,7 +56,7 @@ In **Animation Parameters**, set **Animation Node** to **Create new Animation**,
 
 In the editor, set **Timeline span** (the length of the animation) to **10 s**.
 
-## 4. Add keyframes
+### 4. Add keyframes
 
 Each keyframe is made the same way: set up the scene, then click **Capture current state → new keyframe**. Animator saves the snapshot, with a thumbnail, on the timeline. The first keyframe goes at 0 s, the second at the end of the timeline, and later ones halfway between the last keyframe and the end. You can change the time of any keyframe afterwards.
 
@@ -79,17 +81,17 @@ Here are the four keyframes as they appear in the finished video:
 
 <img src="images/04_keyframes.png" width="700">
 
-### What happens between keyframes
+#### What happens between keyframes
 
 For each keyframe, **After this** sets what happens between it and the next one:
 
 - **Interpolate to next** (default): the camera, volume rendering, crop and opacities change smoothly into the next keyframe.
 - **Hold until next**: the scene stays as it is until the next keyframe, then switches. Use it to pause on a view.
-- **Explode models to next** / **Implode models to next**: models in a folder move outward from their common center (or back in). See [Exploded views](#exploded-views) below.
+- **Explode models to next** / **Implode models to next**: models in a folder move outward from their common center (or back in). See [Part 2](#part-2-an-exploded-view).
 
 **Camera path** sets how the camera travels. **Orbit** (the default) circles around the point it looks at, keeping its distance, which is right for turning a specimen. **Linear** moves the camera in a straight line, which suits zooming in or flying past.
 
-### Which camera and volume property are animated
+#### Which camera and volume property are animated
 
 **Advanced (camera / volume property)** at the top of the editor shows which camera (the 3D view's) and which volume property (the one used by the volume rendering, here `uCT-Skull`) Animator changes. Animator selects them for you; change them only if you render with more than one view or volume.
 
@@ -97,7 +99,7 @@ For each keyframe, **After this** sets what happens between it and the next one:
 
 Because the volume property is saved in each keyframe, you can change any part of the rendering between keyframes: opacity, colors, or the window of intensities that is shown.
 
-## 5. Export the video
+### 5. Export the video
 
 In **Export**:
 
@@ -111,19 +113,53 @@ Animator plays through the animation, captures every frame of the 3D view, and p
 
 When you are done, click **Redock 3D Viewer** in **Output Viewer Setup** to put the 3D view back into the main window. Save the scene (**File → Save Data**) to keep the animation: the snapshots are saved with it, so you can change the animation and export it again later.
 
-## Exploded views
+## Part 2: An exploded view
 
-Animator can move a set of models apart and back together, for example the bones of a skull or segmented organs:
+Animator can move a set of models apart and back together. In this example, a contrast-enhanced microCT scan of a mouse embryo is shown as a volume rendering, which fades away to reveal its segmented organs; the organs then fly apart while the camera keeps circling.
 
-1. Put the models in one folder in the **Data** module. For segmentations, right-click the segmentation in the **Data** module and choose **Export visible segments to models**; the models are created in a new folder.
-2. Select the keyframe where the explosion starts, and set **After this** to **Explode models to next**.
-3. Choose the folder as **Models folder**, and set **Explode magnitude** (how far the models move apart, as a multiple of their distance from the center; default 2x).
-4. To bring the models back, set **After this** of a later keyframe to **Implode models to next**.
+<img src="images/08_explode_animation.gif" width="480">
 
-The models move smoothly, accelerating and slowing down at each end, and the camera and rendering settings still change between the same keyframes.
+### Get the data
+
+The scan and its segmentation of 50 organs and tissues are published in the MorphoDepot repository [MorphoDepot/mus-musculus-E15](https://github.com/MorphoDepot/mus-musculus-E15) (Maga and Roston, 2026). Download two files:
+
+- The segmentation, `baseline.seg.nrrd` (1.2 MB): open it on the repository page and click **Download raw file**.
+- The scan, `E15-Atlas.nrrd` (50 MB): its address is in the repository's `source_volume` file, [E15-Atlas.nrrd](https://js2.jetstream-cloud.org:8001/swift/v1/MorphoDepot-volumes/muratmaga/mus-musculus-E15/E15-Atlas.nrrd).
+
+Drag both into Slicer. The scan is 594 × 1046 × 738 voxels of 0.018 mm.
+
+### Prepare the scene
+
+1. **Models.** Animator explodes models, not segments. In the **Data** module, right-click the segmentation `baseline` and choose **Export visible segments to models**. The 50 models are created in a new folder, `baseline-models`; we renamed it `E15 organs`. Hide the segmentation itself (eye icon), so that only the models show.
+2. **Volume rendering.** Show the scan in the **Volume Rendering** module. This is an 8-bit scan, so none of the CT presets fit well. We set the **Scalar Opacity Mapping** (under **Advanced… → Volume properties**) to 0 up to an intensity of 45, then 0.15 at 110, 0.6 at 180 and 0.9 at 255, with a light tan **Scalar Color Mapping**.
+3. **Output view.** As in Part 1, create a new Animation node, undock the 3D view and set its size (960 × 540), and click **Create Snapshot Timeline**. Set **Timeline span** to 10 s.
+
+### Keyframes
+
+The organs start fully transparent inside the solid volume rendering, and the two cross-fade. The camera turns about 90–120° between keyframes, so that it circles the embryo without stopping. Keep turning in the same direction: between two keyframes, the orbit takes the shorter way around.
+
+1. **Embryo (0 s).** Set the opacity of all organ models to 0: in the **Models** module, select all 50 models in the list and set **Opacity** to 0. Show a side view. Capture.
+2. **Organs (3 s).** Lower the volume rendering's opacity points to 0 and set the models' opacity back to 1. Turn the view by 90°. Capture and set its time to 3 s. Now set **After this** to **Explode models to next**, choose **E15 organs** as **Models folder**, and keep **Explode magnitude** at 2.0x.
+
+   <img src="images/07_explode_editor.png" width="600">
+
+3. **Exploded (7 s).** Turn the view further and zoom out a little, so that the separated organs fit. Capture.
+4. **Exploded, turning (10 s).** Turn the view once more and capture, so that the camera keeps circling until the end.
+
+The volume rendering fades and the organs fade in between 0 and 3 s (**Interpolate to next**), then the organs separate between 3 and 7 s, and stay separated to the end. To bring them back together, set **After this** of a later keyframe to **Implode models to next**, with the same folder.
+
+<img src="images/09_explode_keyframes.png" width="700">
+
+**Explode magnitude** sets how far each model moves away from the common center of all the models in the folder, as a multiple of its distance from that center: at 1.0 each model moves out by its own distance (so its distance doubles), at 2.0 by twice its distance. The models accelerate and slow down smoothly at each end of the segment. The camera, volume rendering and opacities are still interpolated between the same keyframes, but opacities are held during an explode or implode segment.
+
+The exported video is 10 s (600 frames, 1.9 MB at 960 × 540).
 
 ## Example animations
 
 1. [diceCT scan of an E15 mouse fetus, showing its organs as segmented structures (made with the MEMOS extension)](https://app.box.com/s/c7thqagk4zrd3uy4qu2pvm718tvvxvh1)
 2. [Adult mouse heart perfused with vascular dye](https://app.box.com/s/1ethu7omtm76jyyndohun7c8upvzb5ho)
 3. [Exploding mouse head](https://x.com/SlicerMorph/status/1395569101678940161/video/1)
+
+## References
+
+- Maga, A. M., and Roston, R. (2026). MorphoDepot/mus-musculus-E15: MorphoDepot segmentation dataset (v2) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.21816003
