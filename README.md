@@ -85,9 +85,18 @@ These tutorials show how to use SlicerMorph (and other relevant Slicer) modules 
 7. #### [**Search:** How to find MorphoDepot repositories](https://github.com/SlicerMorph/Tutorials/blob/main/MorphoDepot/README.md#8-search--discovery)
 
 ### Image and Surface Model Registration
-1. #### [**ANTsPy Volumetric Registration Tutorial**](https://github.com/SlicerMorph/Tutorials/blob/main/ANTsPy/README.md)
-2. #### [**FastModelAlign:** Fast Model registration via point-clouds (for stable version)](https://github.com/SlicerMorph/Tutorials/blob/main/FastModelAlign/README.md)
+1. #### [**FastModelAlign:** Fast Model registration via point-clouds (for stable version)](https://github.com/SlicerMorph/Tutorials/blob/main/FastModelAlign/README.md)
 2. #### [**FastModelAlign:** Fast Model registration with deformation (for preview version)](https://github.com/SlicerMorph/Tutorials/blob/main/FastModelAlign/README_preview.md)
+
+### ANTsPy: Volumetric Registration, Templates and Jacobian Analysis
+1. #### [**ANTsPy-I:** Data and reference specimen](https://github.com/SlicerMorph/Tutorials/blob/main/ANTsPy/README.md)
+2. #### [**ANTsPy-II:** Group-wise tab, rigid alignment to the reference](https://github.com/SlicerMorph/Tutorials/blob/main/ANTsPy/Groupwise_rigid.md)
+3. #### [**ANTsPy-III:** Average tab, an average reference volume](https://github.com/SlicerMorph/Tutorials/blob/main/ANTsPy/Average.md)
+4. #### [**ANTsPy-IV:** Template tab, building a population template](https://github.com/SlicerMorph/Tutorials/blob/main/ANTsPy/Template.md)
+5. #### [**ANTsPy-V:** Group-wise tab, registering all specimens to the template](https://github.com/SlicerMorph/Tutorials/blob/main/ANTsPy/Groupwise_template.md)
+6. #### [**ANTsPy-VI:** Analysis tab, template mask and Jacobian analysis](https://github.com/SlicerMorph/Tutorials/blob/main/ANTsPy/Analysis.md)
+7. #### [**ANTsPy-VII:** Pair-wise tab, registering one image to another](https://github.com/SlicerMorph/Tutorials/blob/main/ANTsPy/Pairwise.md)
+8. #### [**ANTsPy-VIII:** Troubleshooting and advanced topics](https://github.com/SlicerMorph/Tutorials/blob/main/ANTsPy/Troubleshooting.md)
 
 ### Deep-Learning based segmentation models
 1. #### [**MEMOS:** A pre-trained segmentation model for E15 fetal mouse scans](https://github.com/SlicerMorph/SlicerMEMOS)
