@@ -1,6 +1,6 @@
 # ANTsPy-II: Group-wise tab, rigid alignment to the reference
 
-Previous: [ANTsPy-I: Data and reference specimen](README.md) | Next: [ANTsPy-III: Average tab, an average reference volume](Average.md)
+Previous: [ANTsPy-I: Data and reference specimen](Data_and_reference.md) | Next: [ANTsPy-III: Average tab, an average reference volume](Average.md)
 
 ---
 
@@ -112,4 +112,4 @@ Navigate to `ANTsamples/RigidAligned/` and you should see:
 
 ---
 
-Previous: [ANTsPy-I: Data and reference specimen](README.md) | Next: [ANTsPy-III: Average tab, an average reference volume](Average.md)
+Previous: [ANTsPy-I: Data and reference specimen](Data_and_reference.md) | Next: [ANTsPy-III: Average tab, an average reference volume](Average.md)
