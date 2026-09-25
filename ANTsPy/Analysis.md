@@ -462,4 +462,40 @@ If the effect image shows positive values (significant after FDR correction) in 
 
 ---
 
+## Summary
+
+You've completed a full morphometric analysis pipeline:
+
+1. ✅ **Obtained data** from GitHub repository (30 mouse specimens)
+2. ✅ **Prepared reference specimen** by reorienting to anatomical axes
+3. ✅ **Created rigid average** from all specimens to minimize bias
+4. ✅ **Built a population template** using landmark-initialized, iterative registration
+5. ✅ **Registered all specimens** to the template with deformable transforms
+6. ✅ **Created anatomical mask** to focus analysis on skull and mandible
+7. ✅ **Performed Jacobian analysis** to identify regions of significant group differences
+8. ✅ **Visualized results** as statistical maps and 3D renderings
+
+### Key Files Created
+
+- `NZBWF1_J_reoriented.nii.gz` - Reference specimen aligned to anatomical axes
+- `RigidAverage_Template.nii.gz` - Average of rigidly aligned specimens
+- `RigidAverage_Landmarks.mrk.json` - Average landmark positions
+- `MouseCranium_Template.nii.gz` - Final population-averaged template
+- `Template_Mask-label.nrrd` - Skull and mandible mask for statistical analysis
+- `GroupRegistration/*-1forwardAffine.mat` - Affine transform components
+- `GroupRegistration/*-0forwardWarp.nii.gz` - Deformable warp fields (used for Jacobian analysis)
+- `GroupRegistration/*-transformed.nii.gz` - Registered volumes
+- `JacobianCache.pkl` - Cached statistical analysis
+- `EffectImage.nii.gz` - Group differences at the significant voxels
+
+### Next Steps
+
+- Replace random groupings with your real experimental design CSV
+- Create anatomical masks for region-specific analysis
+- Test different covariates and interactions
+- Export data for external statistical analysis
+- Generate publication-quality figures
+
+---
+
 Previous: [ANTsPy-V: Group-wise tab, registering all specimens to the template](Groupwise_template.md) | Next: [ANTsPy-VII: Pair-wise tab, registering one image to another](Pairwise.md)

@@ -1,20 +1,5 @@
 # ANTsPy-I: Data and reference specimen
 
-A guide to template building, registration and Jacobian analysis using the **ANTsPy Registration** module of the SlicerANTsPy extension. The tutorial is in eight parts, one for each tab of the module, in the order they are used:
-
-1. [ANTsPy-I: Data and reference specimen](README.md)
-2. [ANTsPy-II: Group-wise tab, rigid alignment to the reference](Groupwise_rigid.md)
-3. [ANTsPy-III: Average tab, an average reference volume](Average.md)
-4. [ANTsPy-IV: Template tab, building a population template](Template.md)
-5. [ANTsPy-V: Group-wise tab, registering all specimens to the template](Groupwise_template.md)
-6. [ANTsPy-VI: Analysis tab, template mask and Jacobian analysis](Analysis.md)
-7. [ANTsPy-VII: Pair-wise tab, registering one image to another](Pairwise.md)
-8. [ANTsPy-VIII: Troubleshooting and advanced topics](Troubleshooting.md)
-
-This part introduces the data and prepares the reference specimen used in the following parts.
-
----
-
 ## Introduction
 
 This tutorial demonstrates a complete morphometric analysis workflow using the **ANTsPyRegistration** module in 3D Slicer. You will:
@@ -210,48 +195,14 @@ For detailed instructions, see the [CropVolume tutorial](https://github.com/Slic
 
 ---
 
-## Summary
-
-You've completed a full morphometric analysis pipeline:
-
-1. ✅ **Obtained data** from GitHub repository (30 mouse specimens)
-2. ✅ **Prepared reference specimen** by reorienting to anatomical axes
-3. ✅ **Created rigid average** from all specimens to minimize bias
-4. ✅ **Built a population template** using landmark-initialized, iterative registration
-5. ✅ **Registered all specimens** to the template with deformable transforms
-6. ✅ **Created anatomical mask** to focus analysis on skull and mandible
-7. ✅ **Performed Jacobian analysis** to identify regions of significant group differences
-8. ✅ **Visualized results** as statistical maps and 3D renderings
-
-### Key Files Created
-
-- `NZBWF1_J_reoriented.nii.gz` - Reference specimen aligned to anatomical axes
-- `RigidAverage_Template.nii.gz` - Average of rigidly aligned specimens
-- `RigidAverage_Landmarks.mrk.json` - Average landmark positions
-- `MouseCranium_Template.nii.gz` - Final population-averaged template
-- `Template_Mask-label.nrrd` - Skull and mandible mask for statistical analysis
-- `GroupRegistration/*-1forwardAffine.mat` - Affine transform components
-- `GroupRegistration/*-0forwardWarp.nii.gz` - Deformable warp fields (used for Jacobian analysis)
-- `GroupRegistration/*-transformed.nii.gz` - Registered volumes
-- `JacobianCache.pkl` - Cached statistical analysis
-- `EffectImage.nii.gz` - Group differences at the significant voxels
-
-### Next Steps
-
-- Replace random groupings with your real experimental design CSV
-- Create anatomical masks for region-specific analysis
-- Test different covariates and interactions
-- Export data for external statistical analysis
-- Generate publication-quality figures
-
-### Resources
+## Resources
 
 - **SlicerANTsPy Documentation:** [GitHub](https://github.com/SlicerMorph/SlicerANTsPy)
 - **ANTs Documentation:** [ANTs Wiki](https://github.com/ANTsX/ANTs/wiki)
 - **3D Slicer Training:** [Slicer Documentation](https://slicer.readthedocs.io/)
 - **SlicerMorph:** [slicermorph.github.io](https://slicermorph.github.io/)
 
-### Citation
+## Citation
 
 If you use this workflow in your research, please cite:
 
