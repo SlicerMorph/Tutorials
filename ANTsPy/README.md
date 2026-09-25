@@ -180,7 +180,7 @@ We'll use the **NZBWF1_J_** specimen as our initial reference and reorient it so
 1. In the module search bar, type "Crop"
 2. Select **Crop Volume**
 
-For detailed instructions, see the [CropVolume tutorial](https://github.com/SlicerMorph/Tutorials/tree/main/Slicer_Modules/Crop_Volume#using-cropvolume-to-simulatenously-reorient-and-resample-your-data).
+For detailed instructions, see the [CropVolume tutorial](https://github.com/SlicerMorph/Tutorials/blob/main/Slicer_Modules/Crop_Volume/Readme.MD#using-cropvolume-to-simulatenously-reorient-and-resample-your-data).
 
 
 #### Apply Reorientation

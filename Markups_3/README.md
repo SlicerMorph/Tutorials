@@ -32,5 +32,5 @@ The **Export to file** dialog box brings up options to choose the file name, loc
 
 ## Links to Learn More: 
 * [Markups documentation from 3D Slicer](https://slicer.readthedocs.io/en/latest/user_guide/modules/markups.html)
-* [Introduction to landmarks tutorial](https://github.com/SlicerMorph/Tutorials/tree/main/Markups_1)
-* [Resampling curves for semiLMs tutorial](https://github.com/SlicerMorph/Tutorials/tree/main/Markups_2)
+* [Introduction to landmarks tutorial](https://github.com/SlicerMorph/Tutorials/blob/main/Markups_1/README.md)
+* [Resampling curves for semiLMs tutorial](https://github.com/SlicerMorph/Tutorials/blob/main/Markups_2/README.md)

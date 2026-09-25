@@ -87,7 +87,7 @@ Here we unselected landmarks 10, 13 and 32 on NZBWF1/J:
 
 <img src="images/06_joint_selection.png" width="900">
 
-Use this to check that a landmark was placed at the same anatomical location on both specimens. To select or unselect many landmarks at once, use the [MarkupEditor](../MarkupsEditor) module.
+Use this to check that a landmark was placed at the same anatomical location on both specimens. To select or unselect many landmarks at once, use the [MarkupEditor](../MarkupsEditor/README.md) module.
 
 Only the selection is linked, not the positions. While joint editing is on, points cannot be added to or deleted from either set; uncheck the box to add or delete points again.
 

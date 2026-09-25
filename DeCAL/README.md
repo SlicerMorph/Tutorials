@@ -64,7 +64,7 @@ As a convenience, we also provide an interface to select a subset of the atlas l
 
 13. The `DeCAL landmark directory` should be set to the location where the DeCAL landmarks were saved. This will also be prepopulated at the time DeCAL is run, but can be set manually if needed.
 
-14. In the scene, create a subset of selected points from the atlas point list. Only points in the selected state will be included in the subset point set. The `Markup Editor` or Markups Control Point Table can be used to select and toggle the selection status of each point. For more detail on choosing and toggling the selection status of a subset of points, please see the [MarkupEditor tutorial](https://github.com/SlicerMorph/Tutorials/tree/main/MarkupsEditor)
+14. In the scene, create a subset of selected points from the atlas point list. Only points in the selected state will be included in the subset point set. The `Markup Editor` or Markups Control Point Table can be used to select and toggle the selection status of each point. For more detail on choosing and toggling the selection status of a subset of points, please see the [MarkupEditor tutorial](https://github.com/SlicerMorph/Tutorials/blob/main/MarkupsEditor/README.md)
 
 <img src="./images/DeCAL7.png" width="500">
 
