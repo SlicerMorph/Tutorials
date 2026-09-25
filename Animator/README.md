@@ -158,7 +158,6 @@ The exported video is 10 s (600 frames, 1.9 MB at 960 × 540).
 
 1. [diceCT scan of an E15 mouse fetus, showing its organs as segmented structures (made with the MEMOS extension)](https://app.box.com/s/c7thqagk4zrd3uy4qu2pvm718tvvxvh1)
 2. [Adult mouse heart perfused with vascular dye](https://app.box.com/s/1ethu7omtm76jyyndohun7c8upvzb5ho)
-3. [Exploding mouse head](https://x.com/SlicerMorph/status/1395569101678940161/video/1)
 
 ## References
 
