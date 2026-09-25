@@ -25,7 +25,7 @@ This is the first of five ALPACA tutorials:
 
 ## Get the sample data
 
-All four tutorials use the **Mouse_Models** dataset: skull models of 62 inbred mouse strains, one specimen per strain, each with a set of 51 manually placed landmarks (Maga et al., 2017).
+All five tutorials use the **Mouse_Models** dataset: skull models of 62 inbred mouse strains, one specimen per strain, each with a set of 51 manually placed landmarks (Maga et al., 2017).
 
 1. Go to [github.com/SlicerMorph/Mouse_Models](https://github.com/SlicerMorph/Mouse_Models).
 2. Click the green **Code** button, then **Download ZIP**. The download is about 110 MB.

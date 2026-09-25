@@ -115,7 +115,7 @@ Which one to use depends on your sample. ALPACA scales the template to each targ
 
 ## How many templates?
 
-There is no fixed rule. More templates cover the sample better but cost time: MALPACA runs one full ALPACA per template and per target, so the run time grows in proportion to the number of templates. Start with a handful (we used five), check the accuracy on a few specimens with manual landmarks ([ALPACA IV](MALPACA.md), step 4), and add templates only if it helps. Use groups when you know the sample is structured and want each part represented.
+There is no fixed rule. More templates cover the sample better but cost time: MALPACA runs one full ALPACA per template and per target, so the run time grows in proportion to the number of templates. Start with a handful (we used five), check the accuracy on a few specimens with manual landmarks ([ALPACA IV](MALPACA.md), step 5), and add templates only if it helps. Use groups when you know the sample is structured and want each part represented.
 
 ## Next step
 
