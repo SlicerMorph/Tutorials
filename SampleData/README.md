@@ -19,9 +19,9 @@ If trying to use a data that is :
 
 You can use the **Load Data from URL** feature of the SampleData module. Scroll down in the module panel, find the relevant section, and paste these URLs to download directly into Slicer. 
 
-* https://github.com/SlicerMorph/SampleData/blob/master/IMPC_sample_data.nrrd (A mid-gestation mouse embryo)
-* https://github.com/SlicerMorph/SampleData/blob/master/Gor_template_low_res.ply (3D model of a gorilla skull in PLY format)
-* https://github.com/SlicerMorph/SampleData/blob/master/Gorilla_template_LM1.json (some cranial landmarks associated with the gorilla skull above)
+* https://raw.githubusercontent.com/SlicerMorph/SampleData/master/IMPC_sample_data.nrrd (A mid-gestation mouse embryo)
+* https://raw.githubusercontent.com/SlicerMorph/SampleData/master/Gor_template_low_res.ply (3D model of a gorilla skull in PLY format)
+* https://raw.githubusercontent.com/SlicerMorph/SampleData/master/Gorilla_template_LM1.json (some cranial landmarks associated with the gorilla skull above)
 
 An earlier implementation of this functionality is (still) available as the SlicerMorph's `ImportFromURL` module. However, we suggest using the functionality in SampleData, as it is now a core feature of Slicer and allows downloading more than one dataset at a time.
 
