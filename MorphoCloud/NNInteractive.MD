@@ -17,7 +17,8 @@ https://github.com/coendevente/SlicerNNInteractive. This guide covers the steps 
 2. The first time you open it, a dialog asks what to install. Choose **Full (local + remote)**. This installs the
    nnInteractive package and PyTorch into Slicer's Python. It takes a few minutes. If Slicer asks to restart during
    the installation, restart it; the installation continues by itself.
-3. When the installation finishes, **quit Slicer and start it again** before you segment. Without this restart,
+3. When the installation finishes, **quit Slicer and start it again** before you segment, even if Slicer already
+   restarted once during the installation. Without this restart,
    starting nnInteractive fails with:
    `Could not start nnInteractive (local mode): 'numpy.ufunc' object has no attribute '__module__'`
 4. In the `Configuration` tab, check that a model is selected. The model's weights are downloaded automatically the
