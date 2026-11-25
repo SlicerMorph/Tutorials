@@ -55,7 +55,7 @@ Now go back to the `ImageStacks` module and:
 
 Notice that the slice views show only the volume in the region of interest and are now full resolution. If you have an articulated specimen (e.g., a full body scan of a fish), and you want to segment only the skull (or a specific region), this is a trick you can use to reduce the memory consumption. Segmentation may require 6-10X more memory compared to your volume size (if `ImageStacks` reports estimated memory usage is 2GB, then you may need up to 20GB in memory to segment the data in full resolution). 
 
-If you have DICOM stacks, please note that you should use the [DICOM module](https://github.com/SlicerMorph/Spr_2021/blob/main/Day_1/DICOM/DICOM.md)
+If you have DICOM stacks, please note that you should use the [DICOM module](../Slicer_Modules/DICOM/README.md)
 
 ### Further exploration
 
