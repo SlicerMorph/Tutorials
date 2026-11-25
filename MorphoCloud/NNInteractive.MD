@@ -62,16 +62,4 @@ To create the first segment hit the `Next segment` button, which will create Seg
 
 While this prompt selected all the ventricle and bulk of the heart, it left the atrium out. To add that to the segmentation, place another point prompt on the atrium. Go ahead and review the segmentation in other slices and planes, and if you encounter any region that you want to remove from the existing segmentation, switch to **Negative** prompt and place point prompt to exclude the region. This is the primary mode of operation in NNInteractive, as you guide the model with positive and negative prompt it will learn what you want to segment more accurately. 
 
-When you are satistifed with the heart segmentation, click the `Next Segment` button to create a new segment. This time try segmenting the liver (the brightest structure), and experiment with other prompt types such scribble, or lasso. 
-
-## Data and GPU size considerations
-NNinteractive uses the GPU available in your instance to do the segmentation. That means both the data and the model needs to be able to fit onto the GPU memory. The standard GPU instance (g3.L) on MorphoCloud has a 20GB GPU. When running, GPU memory consumption goes as high as 6GBs (you can use the `nvidia-smi` command in the terminal window to see the GPU memory utilization. Search for the nvidia-smi on internet for usage). Yet, this is a tiny dataset, only 259x258x421 voxels (or 27MB). So as a rule of thumb, you may start to hit GPU memory limitation on the standard GPU instances, if your dataset is bigger than 512x512x512 (128MB). Instead of the default GPU type, you can also request the next larger instance (g3.xl), which provides 40GB of GPU RAM. That's still going to be small for large datasets that are typical of microCT scans.
-
-To deal with large data (many gigabytes), you have two options: 
-
-1. **Downsample your data to match your GPU memory**: While the simplest option, this is not always a feasible  since you might be losing crucial anatomical detal. 
-2. **Use CropVolume to create smaller subvolumes of your data** at the original resolution. When you are segmenting heart, it is not important for the model that the brain or the limbs are part of the volume. It is focusing around the region you provided as the input prompt. So, for large datasets, you can use the CropVolume to isolate parts of the specimen you are going to segment. That way individual subvolumes, while have the same spatial resolution as the original data, will be much smaller and will not cause the GPU to have memory overflow problem. Even if you are segmenting a full specimen (many parts), this approach is very effective. Because all the segmentations in Slicer is in the physical space, these subvolumes and the segmentations you derived from them will preserve their spatial relationships. Then you can simply copy and paste the individual segments into a single segmentation object (see the `Segmentation` module documentation on how to do that). 
-
-
-
- 
+When you are satistifed with the heart segmentation, click the `Next Segment` button to create a new segment. This time try segmenting the liver (the brightest structure), and experiment with other prompt types such scribble, or lasso.
