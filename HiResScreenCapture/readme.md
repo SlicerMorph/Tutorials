@@ -4,7 +4,7 @@ This module is a part of the SlicerMorph extension for 3D Slicer, designed to ca
 
 ## Usage
 
-1. **Open SlicerMorph:** Launch 3D Slicer and open the SlicerMorph module.
+1. **Open Slicer:** Launch 3D Slicer (5.7 or higher) with the SlicerMorph extension installed.
 
 2. **Configure 3D Viewer:** Load the data you would like to render in high-resolution, adjust color, transparency and all other visual properties (i.e., hide the bounding box, or orientation labels, decide to present the scale bar or not) and the orientation you would like to capture. 
    
