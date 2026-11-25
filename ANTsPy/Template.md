@@ -6,7 +6,7 @@ Previous: [ANTsPy-III: Average tab, an average reference volume](Average.md) | N
 
 **Overview:** Template building creates an average shape representing your population using deformable registration. We'll use the original unaligned volumes as the input volumes, and use the landmarks to bring them into alignment with the reference, then run **2 iterations** of template refinement. At the end of the first step module will calculate a new template, and start the second iteration using that template as the reference. 
 
-**TO DO: Explain why we are not using the output of our rigid registration (-transformed volumes) as input to this procedure. Effects of doing image resampling multiple times etc...
+**Why the original volumes, and not the rigidly aligned (`-transformed`) ones from ANTsPy-II:** every resampling interpolates the voxel values and blurs the image a little. The rigidly aligned volumes have already been resampled once, so using them here would resample them a second time. Starting from the original volumes, with the landmarks for the initial alignment, keeps each volume to a single resampling.
 
 ## Open the ANTsPyRegistration Module
 
@@ -109,7 +109,7 @@ This ensures specimens are aligned to the reference before template building beg
 2. **What happens:**
    - Initial alignment: Each specimen is rigidly aligned to the first specimen using landmarks
    - Iteration 1: All specimens are registered to the specified template, and then the template is updated
-   - Iteration 2 (and subsequent iterations): Re-registrat the samples to the updated template
+   - Iteration 2 (and subsequent iterations): Re-register the samples to the updated template
    - Calculate the final template.
    - Output files are saved to the output directory
 

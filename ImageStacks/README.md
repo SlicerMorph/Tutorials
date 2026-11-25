@@ -39,13 +39,13 @@ Once you have reversed your image and you want to visualize the full resolution 
 
 ### Using ROI with Image Stacks
 
-Let's say you have a large file and you only want to visualize a portion of the total scanned volume at full resolution, such as only segmenting the braincase of the mouse. If the file is too large, loading the full resolution volume and then using cropping the volume to the specific region we need will be slow. Instead, we can import a low resolution version of the data (like we already did), and then adjust the ROI on this low-resolution volume and reimport the data with these new constraints. For large (5GB+) datasets this will always be faster than the first option described. To try this:
+Let's say you have a large file and you only want to visualize a portion of the total scanned volume at full resolution, such as only segmenting the braincase of the mouse. If the file is too large, loading the full resolution volume first and then cropping it to the region you need may not fit in memory. Instead, load only that region:will be slow. Instead, we can import a low resolution version of the data (like we already did), and then adjust the ROI on this low-resolution volume and reimport the data with these new constraints. For large (5GB+) datasets this will always be faster than the first option described. To try this:
 
 1. Go to the `volume rendering` module and turn on the `Display ROI` option (alternatively you can use the Markups toolbar to place a new ROI). Then modify the ROI to only contain the region you would like to import (in this case just the snout).  
 
 Now go back to the `ImageStacks` module and:
 
-2. Set a new **Output Volume**. If you don't do that, it will overwrite the one you j
+2. Set a new **Output Volume**. If you don't do that, it will overwrite the one you just loaded.
 3. Click the **Region of Interest** button and choose the ROI you have created (in my case it is called VolumeRendering_ROI) from the drop down menu
 4. Adjust the **Quality** to Full Resolution (if not already set)
  

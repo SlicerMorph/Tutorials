@@ -9,7 +9,7 @@ When converting segmentations into 3D models, sometimes is necessary to fill int
 
 2. Certain geometric analysis requires 3D models to be **manifold**. For practical purposes, manifold in this context means each edge should be connected to exactly 2 polygons. Moreover, the model should not include any holes.
 
-SurfaceWrapSolidy extension, which adds the WrapSurfaceSolidy effect to the `SegmentEditor` that makes this very easy through shrinkwrapping. For simple geometries like individual long bones, pelvis, hemi-mandibles the operation is often a single-click, and we refer the extension documentation: https://github.com/sebastianandress/Slicer-SurfaceWrapSolidify. However, skulls require special attention as it requires to use different options.
+SurfaceWrapSolidify extension, which adds the Wrap Solidify effect to the `SegmentEditor` that makes this very easy through shrinkwrapping. For simple geometries like individual long bones, pelvis, hemi-mandibles the operation is often a single-click, and we refer the extension documentation: https://github.com/sebastianandress/Slicer-SurfaceWrapSolidify. However, skulls require special attention as it requires to use different options.
 
 ## Creating a Solid 3D models of a mammalian skull
 In general, there are more than one hole in a skull. We need to fill not just the endocranial space, but nasal passages, choana and many other small holes. We will use a low-resolution mouse skull CT scan as an example.

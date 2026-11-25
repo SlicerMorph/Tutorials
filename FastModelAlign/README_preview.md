@@ -19,7 +19,8 @@ The module now uses a unified workflow with four registration step options:
 - **Scaling**: Scale the source model to approximate the size of the target model
 - **Rigid**: Apply rigid registration (rotation and translation) using RANSAC and ICP
 - **Affine**: Apply affine transformation using CPD (allows shearing and non-uniform scaling)
-- **Deformaegistration
+- **Deformable**: Apply non-rigid deformable registration using CPD (allows local, non-linear deformations)
+
 After the source and target models are selected and at least one registration step is checked, the `Testing pointcloud subsampling` and `Run Registration` buttons are enabled. 
 
 <p align="center">
@@ -27,6 +28,7 @@ After the source and target models are selected and at least one registration st
 </p>
 
 
+## 3. Run registration
 (Optional) Click `Testing pointcloud subsampling` button to preview the density of the downsampled source and target point clouds. Adjust the `Point density adjustment` slider to control the number of points in each point cloud. Usually, 4,000 to 6,000 points per point cloud would be optimal.
 
 <p align="center">
@@ -35,14 +37,6 @@ After the source and target models are selected and at least one registration st
 
 Click the `Run Registration` button to execute the selected registration steps in sequence. For example, if both `Scaling` and `Rigid` are checked, the process first scales the source model to approximate the size of the target model, then rigidly registers the scaled source to the target. After the process is finished, the user-specified output model `test_registration` (red) is generated and represents the source model transformed according to the selected registration steps.
 
-
-(Optional) Click `Testing pointcloud subsampling` button can show the density of the downsampled source and target point clouds. Adjusting the `Point density adjustment` bar to adjust the number of points in each point cloud. Usually, 4,000 to 6,000 points per point cloud would be optimal.
-
-<p align="center">
-<img src="images/Figure_5.png" width = 500>
-</p>
-
-Click the `Run rigid registration` button to rigidly register the source `partial_photogram_model2` to the target model `partial_photogram_model1`. If `Skip scaling` is unchecked, the process first scale the source model to approximate the size of the target model, then rigidly registered the source to the target.After the process is finished, the user specified output model `test_registration` (red) is generated and represents the source model rigidly registered to the target model (yellow). 
 
 <p align="center">
 <img src="images/Figure_6.png" width = 900>
@@ -73,29 +67,25 @@ To repeat and visualize the transformation process, users can drag the original 
 <img src="images/Figure_9.png" width = 900>
 </p>
 
-Switch to the Transform hierarchy tab to visualize the hierarchical transformation of the source model node through the selected registration steps.egistration node.
+Switch to the Transform hierarchy tab to visualize the hierarchical transformation of the source model node through the selected registration steps.
 
-<p align="center">
-<img src="images/Figure_9.png" width = 900>
-</p>
-
-Switch to the Transform hierarchy, users can visualize the hierarchical transformation of the source model node, which is first scaled by the scaling node, then rigidly registered by the rigid transformation node. 
-Affine registration
+## 5. Affine registration
 When the **Affine** checkbox is selected, an affine transformation is applied using Coherent Point Drift (CPD) algorithm. The affine transformation allows for shearing and non-uniform scaling in addition to rotation and translation. This step is useful when the source and target models have different proportions or slight distortions.
 
-The affine transformation is applied to the previously registered model (after any selected scaling and/or rigid steps) and directly modifies the model vertices. An affine transform node is created for reference and to maintain the transform hierarchy
+The affine transformation is applied to the previously registered model (after any selected scaling and/or rigid steps) and directly modifies the model vertices. An affine transform node is created for reference and to maintain the transform hierarchy.
+
+<p align="center">
 <img src="images/Figure_10.png" width = 500>
 </p>
-
-## 5. Run affine registration
-After running a rigid transformation, the `Run affine registration` button will be enabled. Click this button will perform an affine deformable transformation for the scaled (if `Scaling optin` is left unchecked) and rigidly registered source model. Therefore, the user defined output model (`test_registration` (red)) is then undergone an affine transformation to match with the target (yellow).
 
 <p align="center">
 <img src="images/Figure_11.png" width = 400>
 </p>
 <p align="center">
 <img src="images/Figure_12.png" width = 500>
-</p>Deformable registration
+</p>
+
+## 6. Deformable registration
 When the **Deformable** checkbox is selected, non-rigid deformable registration is applied using Coherent Point Drift (CPD) algorithm. This allows for local, non-linear deformations to match the source model to the target model more precisely. The deformable registration offers two modes:
 
 ### Fast Mode (Direct Vertex Deformation)

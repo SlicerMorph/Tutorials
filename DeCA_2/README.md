@@ -32,7 +32,7 @@ The magnitude of difference between corresponding points on each side is calcula
 
 Every landmark in the dataset should be assigned to one of these three fields, and should be assigned uniquely for analysis to proceed. Otherwise errors will be produced (e.g., duplicate landmark index, not all landmarks entered, or mismatch in the number of left and right landmarks)
 
-11. Create a folder where the output files of the DeCAL module will be stored. This will be a top level directory and each run of DeCA will create a new, timestamped folder containing the files and folders that are generated.
+11. Create a folder where the output files of the DeCA module will be stored. This will be a top level directory and each run of DeCA will create a new, timestamped folder containing the files and folders that are generated.
 
 12. The DeCA workflow provides the option to remove scale from the analysis. If this option is selected, all specimens will be scaled to the atlas and the pointwise shape difference will be calculated usign the scaled versions. This option is useful when there are large size differences in the data that are not relevant to the shape change. For this example, remove the scale from the analysis by checking the checkbox "Remove Scale".
 

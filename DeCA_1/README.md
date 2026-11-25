@@ -23,11 +23,11 @@ In the second step of DeCA will rigidly align each subject to the atlas, followe
 
 6. Set the `Landmark directory` to the downloaded folder of mouse model landmarks. It is critical that the filenames for the landmarks are identical to their corresponding models, with the exception of the extension, so they can be matched.
 
-7. Create a folder where the output files of the DeCAL module will be stored. This will be a top level directory and each run of DeCA will create a new, timestamped folder containing the files and folders that are generated.
+7. Create a folder where the output files of the DeCA module will be stored. This will be a top level directory and each run of DeCA will create a new, timestamped folder containing the files and folders that are generated.
 
 8. The DeCA workflow provides the option to remove scale from the analysis. If this option is selected, all specimens will be scaled to the atlas and the pointwise shape difference will be calculated usign the scaled versions. This option is useful when there are large size differences in the data that are not relevant to the shape change. For this example, remove the scale from the analysis by checking the checkbox "Remove Scale".
 
-9. The DeCA workflow also provides an option to 
+9. The DeCA workflow also provides an option to create an additional output directory of the models and atlas in the aligned space where the point correspondences are assigned. In this aligned space, the scale of the models is irrelevant, but the alignment between the models should be very close. Any regions that are not aligned well with the model in this space should be addressed by adding additional manual or pseudo-landmark points. To create this output, check the checkbox "Create output for error checking".
 
 10. Run the DeCA workflow by clicking `Run DeCA`. This step can take a few to several minutes, depending on the size of the dataset and whether the atlas is being calculated or loaded in this step.
 
