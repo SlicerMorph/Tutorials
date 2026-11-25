@@ -14,15 +14,16 @@ https://github.com/coendevente/SlicerNNInteractive. This guide covers the steps 
 ## First use on an instance (once per instance)
 
 1. Open the `nnInteractive` module (CTRL+F, then search for nnInteractive).
-2. The first time you open it, a dialog asks what to install. Choose **Full (local + remote)**. This installs the
-   nnInteractive package and PyTorch into Slicer's Python. It takes a few minutes. If Slicer asks to restart during
-   the installation, restart it; the installation continues by itself.
+2. The first time you open it, a dialog titled **Install nnInteractive** asks what to install. Click
+   **Full (local + remote)**. The highlighted default is **Client only (remote)**, which needs a separate server, so
+   do not just press Enter. Full installs the nnInteractive package and PyTorch into Slicer's Python; it takes about
+   two minutes. If Slicer asks to restart during the installation, restart it; the installation continues by itself.
 3. When the installation finishes, **quit Slicer and start it again** before you segment, even if Slicer already
-   restarted once during the installation. Without this restart,
-   starting nnInteractive fails with:
-   `Could not start nnInteractive (local mode): 'numpy.ufunc' object has no attribute '__module__'`
-4. In the `Configuration` tab, check that a model is selected. The model's weights are downloaded automatically the
-   first time you segment.
+   restarted once during the installation. The installation replaces Python packages that the running Slicer has
+   already loaded, so without this restart nnInteractive does not start: it can stop responding, or fail with
+   `Could not start nnInteractive (local mode): 'numpy.ufunc' object has no attribute '__module__'`.
+4. No model needs to be chosen: the default model is used, and its weights are downloaded the first time you click
+   **Initialize** (below).
 
 You only need to do this once per instance: Shelve and Unshelve keep it. A new instance (for example after Delete,
 or after changing the instance type) needs it again, because the installation lives in Slicer on the instance, not
