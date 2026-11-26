@@ -1,3 +1,6 @@
+Note that ExportAs is now promoted into the Slicer Data module and is called **Export To File**. Its functionality is maintained by the Slicer development team, and now it offers now more features than this historical documentation. See [main Slicer documentation for it](https://slicer.readthedocs.io/en/latest/user_guide/data_loading_and_saving.html#export-data). 
+
+
 ## Export As
 `ExportAs` is a SlicerMorph specific plugin for the `Data` module that enables the user to directly save the selected node in one of the support formats with a right-mouse click. 
 
