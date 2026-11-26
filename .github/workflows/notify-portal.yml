@@ -1,0 +1,31 @@
+name: Notify the portal
+
+# The MorphoCloud portal's assistant answers from a copy of this repository's
+# pages. A push to main that changes one of them starts the rebuild of that
+# copy in MorphoCloud/MorphoCloudPortal (its CHATBOT_PLAN.md, decision 24).
+#
+# Runs only on pushes to main, never on pull requests, so a fork cannot reach
+# the secret. PORTAL_REBUILD_TOKEN can do one thing: start workflows in
+# MorphoCloud/MorphoCloudPortal. If this run fails, nothing is lost: the
+# portal's daily rebuild picks the change up and the admins are told a trigger
+# was missed.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**.md"
+      - "**.MD"
+      - "**.Md"
+      - "**.mD"
+
+permissions: {}
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Start the knowledge rebuild
+        env:
+          GH_TOKEN: ${{ secrets.PORTAL_REBUILD_TOKEN }}
+        run: gh workflow run rebuild-knowledge.yml --repo MorphoCloud/MorphoCloudPortal --ref main -f source="$GITHUB_REPOSITORY"
